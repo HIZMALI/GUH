@@ -69,7 +69,7 @@ def encode_panel(panel, *, stale=False):
     if active is None:
         active = state != 0 if state != UNKNOWN else None
     communication = panel.get("communication_ok")
-    if stale or communication is False:
+    if stale or communication is False or panel.get('pending_current_run') is True:
         communication, sensor_health = False, 0
     arc = panel.get("arc") or {}
     return [_score(panel.get("health_score")), _score(panel.get("risk_score")), state,

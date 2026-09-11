@@ -1,0 +1,200 @@
+ref,pin,pin_name,net,domain,role,source,status
+J1,1,+24V_AUX,VIN24,LOGIC,power_input,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+J1,2,0V_AUX,GND_LOGIC,LOGIC,power_return,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+J1,3,CHASSIS,CHASSIS,CHASSIS,shield,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+J2,1,D1 / B(+) device convention,MPR_D1,MPR,data_bidirectional,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+J2,2,D0 / A(-) device convention,MPR_D0,MPR,data_bidirectional,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+J2,3,COM,GND_MPR,MPR,signal_common,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+J2,4,SHIELD,CHASSIS,CHASSIS,shield,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+J3,1,D1 / B(+) device convention,TVOC_D1,TVOC,data_bidirectional,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+J3,2,D0 / A(-) device convention,TVOC_D0,TVOC,data_bidirectional,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+J3,3,COM,GND_TVOC,TVOC,signal_common,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+J3,4,SHIELD,CHASSIS,CHASSIS,shield,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+J4,1,PAIR1+,ETH_CABLE_P1P,ETH_CABLE,data_bidirectional,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+J4,2,PAIR1-,ETH_CABLE_P1N,ETH_CABLE,data_bidirectional,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+J4,3,PAIR2+,ETH_CABLE_P2P,ETH_CABLE,data_bidirectional,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+J4,6,PAIR2-,ETH_CABLE_P2N,ETH_CABLE,data_bidirectional,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+J4,4,UNUSED / no PoE,NC_J4_4,ETH_CABLE,unconnected,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+J4,5,UNUSED / no PoE,NC_J4_5,ETH_CABLE,unconnected,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+J4,7,UNUSED / no PoE,NC_J4_7,ETH_CABLE,unconnected,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+J4,8,UNUSED / no PoE,NC_J4_8,ETH_CABLE,unconnected,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+J4,S,SHELL,CHASSIS,CHASSIS,shield,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+J5,RF,ANTENNA,RF_ANT,RF,rf_bidirectional,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+J5,S,RF_RETURN,GND_LOGIC,LOGIC,signal_common,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+J6,1,USB_D+,USB_DP,LOGIC,data_bidirectional,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+J6,2,USB_D-,USB_DM,LOGIC,data_bidirectional,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+J6,3,GND,GND_LOGIC,LOGIC,signal_common,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+J6,4,3V3_SENSE,V3V3,LOGIC,sense_only,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+J6,5,MCU_EN_ONLY,MCU_EN,LOGIC,local_service,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+J6,6,MCU_BOOT_ONLY,MCU_BOOT,LOGIC,local_service,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+J7,1,PD_FEATURE_RX,PD_FEATURE_RX,LOGIC,input_only,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+J7,2,LOGIC_GND,GND_LOGIC,LOGIC,signal_common,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+J7,3,3V3_REFERENCE,V3V3,LOGIC,sense_only,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+U1,1,GND,GND_LOGIC,LOGIC,module_pin,ESP32-S3-WROOM-1/1U datasheet v1.8 pp11-12,reference_candidate_pin_checked
+U1,2,3V3,V3V3,LOGIC,module_pin,ESP32-S3-WROOM-1/1U datasheet v1.8 pp11-12,reference_candidate_pin_checked
+U1,3,EN,MCU_EN,LOGIC,module_pin,ESP32-S3-WROOM-1/1U datasheet v1.8 pp11-12,reference_candidate_pin_checked
+U1,4,GPIO4,TVOC_TX,LOGIC,module_pin,ESP32-S3-WROOM-1/1U datasheet v1.8 pp11-12,reference_candidate_pin_checked
+U1,5,GPIO5,TVOC_RX,LOGIC,module_pin,ESP32-S3-WROOM-1/1U datasheet v1.8 pp11-12,reference_candidate_pin_checked
+U1,6,GPIO6,TVOC_DE_RE,LOGIC,module_pin,ESP32-S3-WROOM-1/1U datasheet v1.8 pp11-12,reference_candidate_pin_checked
+U1,7,GPIO7,WDI,LOGIC,module_pin,ESP32-S3-WROOM-1/1U datasheet v1.8 pp11-12,reference_candidate_pin_checked
+U1,8,GPIO15,MPR_DE_RE,LOGIC,module_pin,ESP32-S3-WROOM-1/1U datasheet v1.8 pp11-12,reference_candidate_pin_checked
+U1,9,UNROUTED,NC_U1_9,LOGIC,module_pin,ESP32-S3-WROOM-1/1U datasheet v1.8 pp11-12,reference_candidate_pin_checked
+U1,10,GPIO17,MPR_TX,LOGIC,module_pin,ESP32-S3-WROOM-1/1U datasheet v1.8 pp11-12,reference_candidate_pin_checked
+U1,11,GPIO18,MPR_RX,LOGIC,module_pin,ESP32-S3-WROOM-1/1U datasheet v1.8 pp11-12,reference_candidate_pin_checked
+U1,12,UNROUTED,NC_U1_12,LOGIC,module_pin,ESP32-S3-WROOM-1/1U datasheet v1.8 pp11-12,reference_candidate_pin_checked
+U1,13,GPIO19_USB_D-,USB_DM,LOGIC,module_pin,ESP32-S3-WROOM-1/1U datasheet v1.8 pp11-12,reference_candidate_pin_checked
+U1,14,GPIO20_USB_D+,USB_DP,LOGIC,module_pin,ESP32-S3-WROOM-1/1U datasheet v1.8 pp11-12,reference_candidate_pin_checked
+U1,15,UNROUTED,NC_U1_15,LOGIC,module_pin,ESP32-S3-WROOM-1/1U datasheet v1.8 pp11-12,reference_candidate_pin_checked
+U1,16,UNROUTED,NC_U1_16,LOGIC,module_pin,ESP32-S3-WROOM-1/1U datasheet v1.8 pp11-12,reference_candidate_pin_checked
+U1,17,GPIO9,ETH_INT_N,LOGIC,module_pin,ESP32-S3-WROOM-1/1U datasheet v1.8 pp11-12,reference_candidate_pin_checked
+U1,18,GPIO10,ETH_CS_N,LOGIC,module_pin,ESP32-S3-WROOM-1/1U datasheet v1.8 pp11-12,reference_candidate_pin_checked
+U1,19,GPIO11,SPI_MOSI,LOGIC,module_pin,ESP32-S3-WROOM-1/1U datasheet v1.8 pp11-12,reference_candidate_pin_checked
+U1,20,GPIO12,SPI_SCK,LOGIC,module_pin,ESP32-S3-WROOM-1/1U datasheet v1.8 pp11-12,reference_candidate_pin_checked
+U1,21,GPIO13,SPI_MISO,LOGIC,module_pin,ESP32-S3-WROOM-1/1U datasheet v1.8 pp11-12,reference_candidate_pin_checked
+U1,22,GPIO14,ETH_RST_N,LOGIC,module_pin,ESP32-S3-WROOM-1/1U datasheet v1.8 pp11-12,reference_candidate_pin_checked
+U1,23,GPIO21,NVM_CS_N,LOGIC,module_pin,ESP32-S3-WROOM-1/1U datasheet v1.8 pp11-12,reference_candidate_pin_checked
+U1,24,UNROUTED,NC_U1_24,LOGIC,module_pin,ESP32-S3-WROOM-1/1U datasheet v1.8 pp11-12,reference_candidate_pin_checked
+U1,25,UNROUTED,NC_U1_25,LOGIC,module_pin,ESP32-S3-WROOM-1/1U datasheet v1.8 pp11-12,reference_candidate_pin_checked
+U1,26,UNROUTED,NC_U1_26,LOGIC,module_pin,ESP32-S3-WROOM-1/1U datasheet v1.8 pp11-12,reference_candidate_pin_checked
+U1,27,GPIO0_BOOT,MCU_BOOT,LOGIC,module_pin,ESP32-S3-WROOM-1/1U datasheet v1.8 pp11-12,reference_candidate_pin_checked
+U1,28,UNROUTED,NC_U1_28,LOGIC,module_pin,ESP32-S3-WROOM-1/1U datasheet v1.8 pp11-12,reference_candidate_pin_checked
+U1,29,UNROUTED,NC_U1_29,LOGIC,module_pin,ESP32-S3-WROOM-1/1U datasheet v1.8 pp11-12,reference_candidate_pin_checked
+U1,30,UNROUTED,NC_U1_30,LOGIC,module_pin,ESP32-S3-WROOM-1/1U datasheet v1.8 pp11-12,reference_candidate_pin_checked
+U1,31,UNROUTED,NC_U1_31,LOGIC,module_pin,ESP32-S3-WROOM-1/1U datasheet v1.8 pp11-12,reference_candidate_pin_checked
+U1,32,UNROUTED,NC_U1_32,LOGIC,module_pin,ESP32-S3-WROOM-1/1U datasheet v1.8 pp11-12,reference_candidate_pin_checked
+U1,33,UNROUTED,NC_U1_33,LOGIC,module_pin,ESP32-S3-WROOM-1/1U datasheet v1.8 pp11-12,reference_candidate_pin_checked
+U1,34,UNROUTED,NC_U1_34,LOGIC,module_pin,ESP32-S3-WROOM-1/1U datasheet v1.8 pp11-12,reference_candidate_pin_checked
+U1,35,UNROUTED,NC_U1_35,LOGIC,module_pin,ESP32-S3-WROOM-1/1U datasheet v1.8 pp11-12,reference_candidate_pin_checked
+U1,36,UNROUTED,NC_U1_36,LOGIC,module_pin,ESP32-S3-WROOM-1/1U datasheet v1.8 pp11-12,reference_candidate_pin_checked
+U1,37,UNROUTED,NC_U1_37,LOGIC,module_pin,ESP32-S3-WROOM-1/1U datasheet v1.8 pp11-12,reference_candidate_pin_checked
+U1,38,GPIO2,PD_FEATURE_RX,LOGIC,module_pin,ESP32-S3-WROOM-1/1U datasheet v1.8 pp11-12,reference_candidate_pin_checked
+U1,39,UNROUTED,NC_U1_39,LOGIC,module_pin,ESP32-S3-WROOM-1/1U datasheet v1.8 pp11-12,reference_candidate_pin_checked
+U1,40,GND,GND_LOGIC,LOGIC,module_pin,ESP32-S3-WROOM-1/1U datasheet v1.8 pp11-12,reference_candidate_pin_checked
+U1,41,EPAD,GND_LOGIC,LOGIC,module_pin,ESP32-S3-WROOM-1/1U datasheet v1.8 pp11-12,reference_candidate_pin_checked
+U1,RF,integral_RF_port,RF_ANT,RF,rf_bidirectional,ESP32-S3-WROOM-1/1U datasheet v1.8 pp11-12,reference_candidate_pin_checked
+H_ETH1,1,GND,GND_LOGIC,LOGIC,module_header,WIZnet WIZ850io official pin assignment,reference_candidate_pin_checked
+H_ETH1,2,GND,GND_LOGIC,LOGIC,module_header,WIZnet WIZ850io official pin assignment,reference_candidate_pin_checked
+H_ETH1,3,MOSI,SPI_MOSI,LOGIC,module_header,WIZnet WIZ850io official pin assignment,reference_candidate_pin_checked
+H_ETH1,4,SCLK,SPI_SCK,LOGIC,module_header,WIZnet WIZ850io official pin assignment,reference_candidate_pin_checked
+H_ETH1,5,SCNn,ETH_CS_N,LOGIC,module_header,WIZnet WIZ850io official pin assignment,reference_candidate_pin_checked
+H_ETH1,6,INTn,ETH_INT_N,LOGIC,module_header,WIZnet WIZ850io official pin assignment,reference_candidate_pin_checked
+H_ETH2,1,GND,GND_LOGIC,LOGIC,module_header,WIZnet WIZ850io official pin assignment,reference_candidate_pin_checked
+H_ETH2,2,3V3D,V3V3,LOGIC,module_header,WIZnet WIZ850io official pin assignment,reference_candidate_pin_checked
+H_ETH2,3,3V3D,V3V3,LOGIC,module_header,WIZnet WIZ850io official pin assignment,reference_candidate_pin_checked
+H_ETH2,4,NC,NC_H_ETH2_4,LOGIC,module_header,WIZnet WIZ850io official pin assignment,reference_candidate_pin_checked
+H_ETH2,5,RSTn,ETH_RST_N,LOGIC,module_header,WIZnet WIZ850io official pin assignment,reference_candidate_pin_checked
+H_ETH2,6,MISO,SPI_MISO,LOGIC,module_header,WIZnet WIZ850io official pin assignment,reference_candidate_pin_checked
+U3,1,VCC1,V3V3,LOGIC,isolator_logic,TI ISO1410 Rev I p4,reference_candidate_pin_checked
+U3,2,GND1,GND_LOGIC,LOGIC,isolator_logic,TI ISO1410 Rev I p4,reference_candidate_pin_checked
+U3,3,R,MPR_RX,LOGIC,isolator_logic,TI ISO1410 Rev I p4,reference_candidate_pin_checked
+U3,4,RE_N,MPR_DE_RE,LOGIC,isolator_logic,TI ISO1410 Rev I p4,reference_candidate_pin_checked
+U3,5,DE,MPR_DE_RE,LOGIC,isolator_logic,TI ISO1410 Rev I p4,reference_candidate_pin_checked
+U3,6,D,MPR_TX,LOGIC,isolator_logic,TI ISO1410 Rev I p4,reference_candidate_pin_checked
+U3,7,NC,NC_U3_7,LOGIC,isolator_logic,TI ISO1410 Rev I p4,reference_candidate_pin_checked
+U3,8,GND1,GND_LOGIC,LOGIC,isolator_logic,TI ISO1410 Rev I p4,reference_candidate_pin_checked
+U3,9,GND2,GND_MPR,MPR,isolator_bus,TI ISO1410 Rev I p4,reference_candidate_pin_checked
+U3,10,NC,NC_U3_10,MPR,isolator_bus,TI ISO1410 Rev I p4,reference_candidate_pin_checked
+U3,11,NC,NC_U3_11,MPR,isolator_bus,TI ISO1410 Rev I p4,reference_candidate_pin_checked
+U3,12,A_NONINVERTING,MPR_D1,MPR,isolator_bus,TI ISO1410 Rev I p4,reference_candidate_pin_checked
+U3,13,B_INVERTING,MPR_D0,MPR,isolator_bus,TI ISO1410 Rev I p4,reference_candidate_pin_checked
+U3,14,NC,NC_U3_14,MPR,isolator_bus,TI ISO1410 Rev I p4,reference_candidate_pin_checked
+U3,15,GND2,GND_MPR,MPR,isolator_bus,TI ISO1410 Rev I p4,reference_candidate_pin_checked
+U3,16,VCC2,V5_MPR,MPR,isolator_bus,TI ISO1410 Rev I p4,reference_candidate_pin_checked
+R_MPR_DE,1,1,MPR_DE_RE,LOGIC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+R_MPR_DE,2,2,GND_LOGIC,LOGIC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+JP_MPR_TERM,1,1,MPR_D1,MPR,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+JP_MPR_TERM,2,2,MPR_TERM,MPR,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+R_MPR_120,1,1,MPR_TERM,MPR,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+R_MPR_120,2,2,MPR_D0,MPR,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+R_MPR_BIAS_P_DNP,1,1,V5_MPR,MPR,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+R_MPR_BIAS_P_DNP,2,2,MPR_D1,MPR,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+R_MPR_BIAS_N_DNP,1,1,MPR_D0,MPR,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+R_MPR_BIAS_N_DNP,2,2,GND_MPR,MPR,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+C_MPR_VCC1,1,1,V3V3,LOGIC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+C_MPR_VCC1,2,2,GND_LOGIC,LOGIC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+C_MPR_VCC2,1,1,V5_MPR,MPR,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+C_MPR_VCC2,2,2,GND_MPR,MPR,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+ESD_MPR_TBD,LINE1,LINE1,MPR_D1,MPR,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+ESD_MPR_TBD,LINE0,LINE0,MPR_D0,MPR,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+ESD_MPR_TBD,RETURN,RETURN,GND_MPR,MPR,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+DC_MPR,IN+,IN+,V5_MAIN,LOGIC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+DC_MPR,IN-,IN-,GND_LOGIC,LOGIC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+DC_MPR,OUT+,OUT+,V5_MPR,MPR,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+DC_MPR,OUT-,OUT-,GND_MPR,MPR,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+U4,1,VCC1,V3V3,LOGIC,isolator_logic,TI ISO1410 Rev I p4,reference_candidate_pin_checked
+U4,2,GND1,GND_LOGIC,LOGIC,isolator_logic,TI ISO1410 Rev I p4,reference_candidate_pin_checked
+U4,3,R,TVOC_RX,LOGIC,isolator_logic,TI ISO1410 Rev I p4,reference_candidate_pin_checked
+U4,4,RE_N,TVOC_DE_RE,LOGIC,isolator_logic,TI ISO1410 Rev I p4,reference_candidate_pin_checked
+U4,5,DE,TVOC_DE_RE,LOGIC,isolator_logic,TI ISO1410 Rev I p4,reference_candidate_pin_checked
+U4,6,D,TVOC_TX,LOGIC,isolator_logic,TI ISO1410 Rev I p4,reference_candidate_pin_checked
+U4,7,NC,NC_U4_7,LOGIC,isolator_logic,TI ISO1410 Rev I p4,reference_candidate_pin_checked
+U4,8,GND1,GND_LOGIC,LOGIC,isolator_logic,TI ISO1410 Rev I p4,reference_candidate_pin_checked
+U4,9,GND2,GND_TVOC,TVOC,isolator_bus,TI ISO1410 Rev I p4,reference_candidate_pin_checked
+U4,10,NC,NC_U4_10,TVOC,isolator_bus,TI ISO1410 Rev I p4,reference_candidate_pin_checked
+U4,11,NC,NC_U4_11,TVOC,isolator_bus,TI ISO1410 Rev I p4,reference_candidate_pin_checked
+U4,12,A_NONINVERTING,TVOC_D1,TVOC,isolator_bus,TI ISO1410 Rev I p4,reference_candidate_pin_checked
+U4,13,B_INVERTING,TVOC_D0,TVOC,isolator_bus,TI ISO1410 Rev I p4,reference_candidate_pin_checked
+U4,14,NC,NC_U4_14,TVOC,isolator_bus,TI ISO1410 Rev I p4,reference_candidate_pin_checked
+U4,15,GND2,GND_TVOC,TVOC,isolator_bus,TI ISO1410 Rev I p4,reference_candidate_pin_checked
+U4,16,VCC2,V5_TVOC,TVOC,isolator_bus,TI ISO1410 Rev I p4,reference_candidate_pin_checked
+R_TVOC_DE,1,1,TVOC_DE_RE,LOGIC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+R_TVOC_DE,2,2,GND_LOGIC,LOGIC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+JP_TVOC_TERM,1,1,TVOC_D1,TVOC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+JP_TVOC_TERM,2,2,TVOC_TERM,TVOC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+R_TVOC_120,1,1,TVOC_TERM,TVOC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+R_TVOC_120,2,2,TVOC_D0,TVOC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+R_TVOC_BIAS_P_DNP,1,1,V5_TVOC,TVOC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+R_TVOC_BIAS_P_DNP,2,2,TVOC_D1,TVOC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+R_TVOC_BIAS_N_DNP,1,1,TVOC_D0,TVOC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+R_TVOC_BIAS_N_DNP,2,2,GND_TVOC,TVOC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+C_TVOC_VCC1,1,1,V3V3,LOGIC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+C_TVOC_VCC1,2,2,GND_LOGIC,LOGIC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+C_TVOC_VCC2,1,1,V5_TVOC,TVOC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+C_TVOC_VCC2,2,2,GND_TVOC,TVOC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+ESD_TVOC_TBD,LINE1,LINE1,TVOC_D1,TVOC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+ESD_TVOC_TBD,LINE0,LINE0,TVOC_D0,TVOC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+ESD_TVOC_TBD,RETURN,RETURN,GND_TVOC,TVOC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+DC_TVOC,IN+,IN+,V5_MAIN,LOGIC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+DC_TVOC,IN-,IN-,GND_LOGIC,LOGIC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+DC_TVOC,OUT+,OUT+,V5_TVOC,TVOC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+DC_TVOC,OUT-,OUT-,GND_TVOC,TVOC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+F1,1,1,VIN24,LOGIC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+F1,2,2,VIN_FUSED,LOGIC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+D1_REVERSE,A,A,VIN_FUSED,LOGIC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+D1_REVERSE,K,K,VIN_PROT,LOGIC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+TVS1_TBD,K,K,VIN_PROT,LOGIC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+TVS1_TBD,A,A,GND_LOGIC,LOGIC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+L1_FILTER,1,1,VIN_PROT,LOGIC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+L1_FILTER,2,2,VIN_FILTERED,LOGIC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+C1_INPUT,1,1,VIN_FILTERED,LOGIC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+C1_INPUT,2,2,GND_LOGIC,LOGIC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+DC1_BUCK_TBD,VIN,VIN,VIN_FILTERED,LOGIC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+DC1_BUCK_TBD,VOUT,VOUT,V5_MAIN,LOGIC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+DC1_BUCK_TBD,GND,GND,GND_LOGIC,LOGIC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+DC2_3V3_TBD,VIN,VIN,V5_MAIN,LOGIC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+DC2_3V3_TBD,VOUT,VOUT,V3V3,LOGIC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+DC2_3V3_TBD,GND,GND,GND_LOGIC,LOGIC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+C2_5V,1,1,V5_MAIN,LOGIC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+C2_5V,2,2,GND_LOGIC,LOGIC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+C3_3V3,1,1,V3V3,LOGIC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+C3_3V3,2,2,GND_LOGIC,LOGIC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+R_EN_10K,1,1,V3V3,LOGIC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+R_EN_10K,2,2,MCU_EN,LOGIC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+R_BOOT_10K,1,1,V3V3,LOGIC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+R_BOOT_10K,2,2,MCU_BOOT,LOGIC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+R_ETH_CS_10K,1,1,V3V3,LOGIC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+R_ETH_CS_10K,2,2,ETH_CS_N,LOGIC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+R_NVM_CS_10K,1,1,V3V3,LOGIC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+R_NVM_CS_10K,2,2,NVM_CS_N,LOGIC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+R_ETH_RST_10K,1,1,V3V3,LOGIC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+R_ETH_RST_10K,2,2,ETH_RST_N,LOGIC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+SUPERVISOR_TBD,VDD,VDD,V3V3,LOGIC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+SUPERVISOR_TBD,GND,GND,GND_LOGIC,LOGIC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+SUPERVISOR_TBD,WDI,WDI,WDI,LOGIC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+SUPERVISOR_TBD,RESET_N,RESET_N,MCU_EN,LOGIC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+NVM_TBD,VDD,VDD,V3V3,LOGIC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+NVM_TBD,GND,GND,GND_LOGIC,LOGIC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+NVM_TBD,CS_N,CS_N,NVM_CS_N,LOGIC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+NVM_TBD,SCK,SCK,SPI_SCK,LOGIC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+NVM_TBD,MOSI,MOSI,SPI_MOSI,LOGIC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept
+NVM_TBD,MISO,MISO,SPI_MISO,LOGIC,passive,GridSentinel engineering reference assumption; component footprint TBD,reference_concept

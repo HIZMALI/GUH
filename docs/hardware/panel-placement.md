@@ -8,7 +8,7 @@ Kaynak `AG Pano Teknik Çizim-1600kVA.pdf`, tek sayfa/basılı s.51, EK-II/14: d
 |---|---|---|---|
 | T1–T3 | Üst giriş/CT bölgesindeki uygun bağlantıların sıcaklık gözlemi | Yeni retrofit önerisi | Gerilim sınıfı/izolasyonu uygun yüzey sensörü veya uygun temassız alternatif; canlı iletkene rastgele yapıştırma yok; sınıfC |
 | T4–T6 | Riskli seçilmiş DSYA çıkış terminal noktaları | Yeni öneri | Kaynaktaki185mm terminal geometrisi ve servis mesafeleri korunur; tüm12 çıkış ilk BOM'da sensörlü değildir |
-| TH-A | Sağ yardımcı bölmedeki temsil edici hava noktası | Yeni sıcaklık/nem düğümü | Bara sıcaklığını ölçmez; duvar/PSU sıcaklığından etkilenmeyecek yer; hava dolaşımı incelemesi gerekir |
+| TH-A / H1 | Sağ yardımcı bölmedeki temsil edici hava noktası | Yeni sıcaklık/nem düğümü; UI ve hardware çiziminde aynı nokta | Bara sıcaklığını ölçmez; alt kablo bölgesinde değildir; duvar/PSU sıcaklığından etkilenmeyecek yer; hava dolaşımı incelemesi gerekir |
 | MPR | Sağ ölçü bölgesi | Mevcut ekipmandan veri alınması önerisi | Çizimde her model etiketi yok; MPR-53CS'nin burada fiziksel kurulu olduğu iddiası yok |
 | EG | Sağ yardımcı alan / dış izleme kutusu | Yeni gateway ve izole besleme | Mevcut ekipman, kapak hareketi, DIN boşluğu ve termal kapasite yerinde doğrulanır |
 | PD-A | Alt kablo bölgesindeki uygun sistem toprak bağlantısı | Kaynağa dayalı HFCT uygulama yeri; yeni acquisition önerisi | Toprak sürekliliğini bozacak işlem yalnız planlı kesinti/prosedür;30/50mm iç çap kontrolü; alt en az400mm net alan korunur |

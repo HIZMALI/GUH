@@ -23,6 +23,11 @@ def bootstrap() -> Path:
         'MQTT_HOST':'mqtt', 'MQTT_PORT':'1883', 'PANEL_COUNT':'100',
         'SIMULATOR_INTERVAL':'3', 'SIMULATOR_MAX_FPS':'50', 'SCADA_HOST':'scada', 'SCADA_PORT':'1502',
         'API_URL':'http://api:8000',
+        'SCADA_PORT_BASE':'1502', 'SCADA_PORT_END':'1504', 'SCADA_BANK_SIZE':'247', 'SCADA_BANK_COUNT':'3',
+        'SIMULATOR_FOCUS_INTERVAL':'1.5',
+        'DB_CONNECT_TIMEOUT_SECONDS':'3', 'DB_POOL_TIMEOUT_SECONDS':'3',
+        'DB_STATEMENT_TIMEOUT_MS':'5000', 'DB_LOCK_TIMEOUT_MS':'2000',
+        'DB_SOCKET_TIMEOUT_MS':'5000', 'WRITE_LOCK_TIMEOUT_SECONDS':'3',
     }
     with target.open('x',encoding='utf-8',newline='\n') as f:
         f.write('# Generated locally. Private, ignored by Git.\n')

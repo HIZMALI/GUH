@@ -1,0 +1,9 @@
+FROM python:3.12-slim
+RUN apt-get update && apt-get install -y --no-install-recommends g++ && rm -rf /var/lib/apt/lists/*
+WORKDIR /firmware
+COPY edge/firmware/include ./include
+COPY edge/firmware/src ./src
+COPY edge/firmware/test/host_tests.cpp ./test/host_tests.cpp
+COPY edge/firmware/test/file_journal.hpp ./test/file_journal.hpp
+RUN g++ -std=c++17 -Wall -Wextra -Werror -pedantic -Iinclude -Itest src/core.cpp test/host_tests.cpp -o /firmware/host-tests
+CMD ["/firmware/host-tests"]

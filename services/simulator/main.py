@@ -9,25 +9,23 @@ import httpx
 import paho.mqtt.client as mqtt
 from apps.api.security import derive_device_key
 from services.simulator.scenarios import generate_frame, load_replay
+from services.simulator.scheduler import PanelScheduler, publication_interval, telemetry_message_id
 
 log = logging.getLogger('gridsentinel.simulator')
-
-def publication_interval(panel_count, requested_interval, max_fps):
-    """Bound the scheduled average publication rate without speeding up smaller fleets."""
-    if requested_interval <= 0 or max_fps <= 0 or panel_count < 0:
-        raise ValueError('Interval and max_fps must be positive; panel_count cannot be negative')
-    return max(requested_interval, panel_count / max_fps)
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--transport', choices=['mqtt', 'http'], default=os.getenv('SIMULATOR_TRANSPORT', 'mqtt'))
     parser.add_argument('--interval', type=float, default=float(os.getenv('SIMULATOR_INTERVAL', '3')))
     parser.add_argument('--max-fps', type=float, default=float(os.getenv('SIMULATOR_MAX_FPS', '50')),
-                        help='Maximum scheduled fleet-average publication rate; effective interval grows with fleet size')
+                        help='Shared maximum publication rate, including the focused panel')
+    parser.add_argument('--focus-interval', type=float, default=float(os.getenv('SIMULATOR_FOCUS_INTERVAL', '1.5')))
     parser.add_argument('--cycles', type=int, default=0, help='0 runs until stopped')
     args = parser.parse_args()
-    if args.interval <= 0 or args.max_fps <= 0:
-        parser.error('--interval and --max-fps must both be positive')
+    try:
+        scheduler = PanelScheduler(args.interval, args.max_fps, args.focus_interval)
+    except ValueError as exc:
+        parser.error(str(exc))
     logging.basicConfig(level=logging.INFO, format='%(asctime)s %(name)s %(levelname)s %(message)s')
     token, device_token = os.environ['SERVICE_TOKEN'], os.environ['DEVICE_TOKEN']
     samples = load_replay()
@@ -58,57 +56,63 @@ def main():
         running = False
     signal.signal(signal.SIGINT, stop)
     signal.signal(signal.SIGTERM, stop)
-    run_id, state, cycle = uuid.uuid4().hex[:12], {}, 0
-    arc_event_times, last_effective_interval = {}, None
+    next_poll, next_log, published, focused_published = 0., 0., 0, 0
+    last_stats = None
     with httpx.Client(base_url=api_url, headers={'Authorization': 'Bearer ' + token}, timeout=20) as api:
-        while running and (not args.cycles or cycle < args.cycles):
-            began = time.monotonic()
-            effective_interval = args.interval
-            published, skipped = 0, 0
-            try:
-                response = api.get('/api/demo/state')
-                response.raise_for_status()
-                panels = response.json()['panels']
-                effective_interval = publication_interval(len(panels), args.interval, args.max_fps)
-                if effective_interval != last_effective_interval:
-                    log.info('Synthetic pacing panels=%s requested_interval_s=%.3f effective_interval_s=%.3f max_fps=%.1f scheduled_fps=%.2f',
-                             len(panels), args.interval, effective_interval, args.max_fps, len(panels) / effective_interval)
-                    last_effective_interval = effective_interval
-                for panel in panels:
-                    identity = (panel['id'], panel['revision'])
-                    step = state.get(identity, 0)
-                    # Communication loss ultimately produces real silence; staleness maintenance observes it.
-                    if panel['scenario'] == 'communication_loss' and step >= 18:
-                        skipped += 1
-                        continue
-                    if args.transport == 'mqtt' and not connected:
-                        skipped += 1
-                        continue
+        while running:
+            now = time.monotonic()
+            if now >= next_poll:
+                try:
+                    response = api.get('/api/demo/state')
+                    response.raise_for_status()
+                    scheduler.sync(response.json()['panels'], time.monotonic())
+                    stats = scheduler.stats()
+                    if stats != last_stats:
+                        log.info('Synthetic scheduler configuration=%s', stats)
+                        last_stats = stats
+                except httpx.HTTPError as exc:
+                    log.warning('Demo state unavailable (%s); retaining last known schedule', type(exc).__name__)
+                next_poll = time.monotonic() + 1
+            now = time.monotonic()
+            entry = scheduler.due(now) if (not broker or connected) else None
+            if entry:
+                panel, step = entry.panel, entry.step
+                if (panel['scenario'] == 'communication_loss' and step >= 18) or (args.cycles and entry.emitted >= args.cycles):
+                    entry.disabled = True
+                else:
                     frame = generate_frame(panel['id'], panel['scenario'], step, samples,
-                                           message_id=f'{run_id}-{panel["id"]}-{panel["revision"]}-{step}',
-                                           scenario_started_at=panel['started_at'], interval_seconds=effective_interval)
+                                           message_id=telemetry_message_id(panel['demo_run_id'], step),
+                                           scenario_started_at=panel['started_at'], interval_seconds=entry.interval)
                     if frame['arc']['event']:
-                        # Use the first actual synthetic event publication time and retain it
-                        # for this scenario revision, even when fleet pacing changes.
-                        frame['arc']['timestamp'] = arc_event_times.setdefault(identity, frame['timestamp'])
+                        entry.arc_event_timestamp = entry.arc_event_timestamp or frame['timestamp']
+                        frame['arc']['timestamp'] = entry.arc_event_timestamp
+                    frame.update(scenario_revision=panel['revision'], demo_run_id=panel['demo_run_id'],
+                                 focused_demo=entry.focused, demo_interval_seconds=entry.interval)
                     frame['device_key'] = derive_device_key(device_token, frame['device_id'])
-                    if broker:
-                        import json
-                        info = broker.publish(f'gridsentinel/telemetry/{frame["device_id"]}', json.dumps(frame), qos=1)
-                        if info.rc != mqtt.MQTT_ERR_SUCCESS:
-                            raise RuntimeError('MQTT publish was not accepted by client')
-                    else:
-                        response = api.post('/api/telemetry', json=frame)
-                        response.raise_for_status()
-                    state[identity] = step + 1
-                    published += 1
-                cycle += 1
-                if cycle == 1 or cycle % 10 == 0:
-                    log.info('Synthetic cycle=%s transport=%s panels=%s published=%s skipped=%s effective_interval_s=%.3f elapsed_ms=%.1f',
-                             cycle, args.transport, len(panels), published, skipped, effective_interval, (time.monotonic() - began) * 1000)
-            except (httpx.HTTPError, RuntimeError) as exc:
-                log.warning('Synthetic cycle failed (%s); retrying', type(exc).__name__)
-            time.sleep(max(.1, effective_interval - (time.monotonic() - began)))
+                    try:
+                        if broker:
+                            import json
+                            info = broker.publish(f'gridsentinel/telemetry/{frame["device_id"]}', json.dumps(frame), qos=1)
+                            if info.rc != mqtt.MQTT_ERR_SUCCESS:
+                                raise RuntimeError('MQTT publish was not accepted by client')
+                        else:
+                            response = api.post('/api/telemetry', json=frame)
+                            response.raise_for_status()
+                        scheduler.sent(entry, time.monotonic())
+                        published += 1
+                        focused_published += int(entry.focused)
+                    except (httpx.HTTPError, RuntimeError) as exc:
+                        scheduler.retry(entry, time.monotonic())
+                        log.warning('Synthetic publication failed panel=%s (%s); retrying', panel['id'], type(exc).__name__)
+            if now >= next_log:
+                log.info('Synthetic progress transport=%s published=%s focused_published=%s scheduler=%s',
+                         args.transport, published, focused_published, scheduler.stats())
+                next_log = now + 10
+            if args.cycles and scheduler.entries and all(entry.disabled for entry in scheduler.entries.values()):
+                break
+            now = time.monotonic()
+            deadline = min(next_poll, scheduler.deadline(now)) if (not broker or connected) else min(next_poll, now + .5)
+            time.sleep(max(.001, min(1, deadline - now)))
     if broker:
         broker.disconnect()
         broker.loop_stop()

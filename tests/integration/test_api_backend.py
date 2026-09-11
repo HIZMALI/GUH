@@ -188,3 +188,39 @@ def test_notification_only_on_new_or_higher_severity(client, settings):
     frame['message_id'] += '-repeat'
     assert send(client, settings, frame).status_code == 200
     assert len(client.get('/api/notifications', headers=admin).json()['items']) == count + 2
+
+def test_busy_writer_is_retryable_503_without_blocking_reads(client, settings):
+    import threading
+    import time
+    rt = client.app.state.runtime
+    rt.stop.set()
+    rt.settings.write_lock_timeout_seconds = .05
+    acquired, release = threading.Event(), threading.Event()
+
+    def blocked_writer():
+        with rt.lock:
+            acquired.set()
+            release.wait(5)
+
+    holder = threading.Thread(target=blocked_writer)
+    holder.start()
+    assert acquired.wait(1)
+    frame = payload(settings, message_id='retry-after-writer-timeout')
+    service = {'Authorization': 'Bearer ' + settings.service_token}
+    try:
+        began = time.monotonic()
+        response = send(client, settings, frame)
+        assert response.status_code == 503 and response.headers['Retry-After'] == '5'
+        assert time.monotonic() - began < 1
+        assert response.json()['status'] == 'degraded'
+        began = time.monotonic()
+        assert client.get('/api/panels/PNL-001', headers=service).status_code == 200
+        assert client.get('/api/fleet', headers=service).status_code == 200
+        assert time.monotonic() - began < 1
+        assert rt.metrics['write_lock_timeouts'] == 1
+    finally:
+        release.set()
+        holder.join(1)
+    assert send(client, settings, frame).json()['status'] == 'accepted'
+    assert send(client, settings, frame).json()['status'] == 'duplicate'
+    assert client.get('/api/metrics', headers=service).json()['telemetry_rows'] == 1

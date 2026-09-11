@@ -14,3 +14,5 @@ Read MASTER_SPEC.md, docs/source-analysis.md and docs/api-contract.md before mod
 - Keep work at repository root (no redundant nested repository). Scripts must work from documented Windows/Linux commands.
 
 Ownership: backend agent apps/api, services/anomaly_engine, services/simulator, services/telemetry, services/notification, tests/unit and tests/integration for backend. Integration agent services/modbus, services/scada_bridge, edge, hardware, related docs/tests. Frontend agent apps/web and frontend E2E. Root owns deployment, scripts, shared docs, data preparation, integration verification and final fixes.
+
+V2 ownership override: root owns SCADA bank mapping/server/tests and only the SCADA endpoint/settings blocks inside apps/api. Integration agent owns PCB/card, reference firmware and environmental/EMC deliverables. Coordinate narrow shared-file patches. Baseline commit is 4a0f4c1cae879604a384e91862749fef754abecc; preserve all v1 verification evidence and original sources. V2 is additive hardening, not a rewrite. Never purge history to make the demo clean: use explicit run identities and views.

@@ -1,0 +1,28 @@
+{
+  "date_utc": "2026-09-11",
+  "artifact_type": "EDA-neutral reference carrier v0.1",
+  "artifact_checks": {
+    "command": "python -m pytest tests/hardware -q",
+    "status": "PASS",
+    "tests": 9,
+    "elapsed_seconds": 0.33,
+    "connector_pins": 31,
+    "net_nodes": 199,
+    "checks": ["required artifacts", "CSV schema and pin identity", "separate isolated domains", "candidate GPIO/terminal polarity", "power arithmetic and assumption labels", "Python/C++ source map equality", "read-only ranges", "H1 location", "environment plan coverage"]
+  },
+  "visual_review": {
+    "status": "PASS_ARTIFACT_READABILITY_ONLY",
+    "method": "SVG rendered with local Sharp; all three PNGs visually inspected",
+    "files": ["hardware/pcb/schematic.png", "hardware/pcb/pcb-placement.png", "hardware/concept/panel-placement.png"]
+  },
+  "tool_inventory": {
+    "kicad": "NOT_FOUND",
+    "embedded_toolchain": "NOT_FOUND",
+    "host_cpp": "Dedicated Docker compiler image; see edge/firmware/test/verification.json"
+  },
+  "erc_drc": "NOT_RUN_KICAD_NOT_INSTALLED",
+  "physical_hardware": "NOT_BUILT",
+  "field_installation": "NOT_DONE",
+  "emc_environmental_insulation_thermal": "NOT_VALIDATED",
+  "production_release": false
+}

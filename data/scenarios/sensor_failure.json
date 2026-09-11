@@ -8,6 +8,7 @@
   "baseline": {
     "step": 0,
     "elapsed_seconds_at_default_3s_interval": 0,
+    "nominal_focused_elapsed_seconds": 0.0,
     "source_replay_offset_seconds": 0,
     "risk_score": 8,
     "health_score": 96,
@@ -29,12 +30,24 @@
     ],
     "arc_event": false,
     "gateway_communication_ok": true,
-    "arc_guard_communication_ok": true
+    "arc_guard_communication_ok": true,
+    "expected_actions": [
+      {
+        "type": "monitoring",
+        "trigger": "NORMAL",
+        "automatic": true,
+        "status": "active",
+        "channel": null,
+        "description": "Ölçümler, veri kalitesi ve açıklanabilir risk izlenir.",
+        "safety_boundary": "Yalnız izleme ve karar desteği; kesici açtırma, Modbus yazma veya TVOC sıfırlama komutu yoktur."
+      }
+    ]
   },
   "timeline": [
     {
       "step": 0,
       "elapsed_seconds_at_default_3s_interval": 0,
+      "nominal_focused_elapsed_seconds": 0.0,
       "source_replay_offset_seconds": 0,
       "risk_score": 8,
       "health_score": 96,
@@ -56,11 +69,23 @@
       ],
       "arc_event": false,
       "gateway_communication_ok": true,
-      "arc_guard_communication_ok": true
+      "arc_guard_communication_ok": true,
+      "expected_actions": [
+        {
+          "type": "monitoring",
+          "trigger": "NORMAL",
+          "automatic": true,
+          "status": "active",
+          "channel": null,
+          "description": "Ölçümler, veri kalitesi ve açıklanabilir risk izlenir.",
+          "safety_boundary": "Yalnız izleme ve karar desteği; kesici açtırma, Modbus yazma veya TVOC sıfırlama komutu yoktur."
+        }
+      ]
     },
     {
       "step": 4,
       "elapsed_seconds_at_default_3s_interval": 12,
+      "nominal_focused_elapsed_seconds": 6.0,
       "source_replay_offset_seconds": 3600,
       "risk_score": 8,
       "health_score": 96,
@@ -82,11 +107,23 @@
       ],
       "arc_event": false,
       "gateway_communication_ok": true,
-      "arc_guard_communication_ok": true
+      "arc_guard_communication_ok": true,
+      "expected_actions": [
+        {
+          "type": "monitoring",
+          "trigger": "NORMAL",
+          "automatic": true,
+          "status": "active",
+          "channel": null,
+          "description": "Ölçümler, veri kalitesi ve açıklanabilir risk izlenir.",
+          "safety_boundary": "Yalnız izleme ve karar desteği; kesici açtırma, Modbus yazma veya TVOC sıfırlama komutu yoktur."
+        }
+      ]
     },
     {
       "step": 8,
       "elapsed_seconds_at_default_3s_interval": 24,
+      "nominal_focused_elapsed_seconds": 12.0,
       "source_replay_offset_seconds": 7200,
       "risk_score": 20,
       "health_score": 70,
@@ -117,11 +154,104 @@
       ],
       "arc_event": false,
       "gateway_communication_ok": true,
-      "arc_guard_communication_ok": true
+      "arc_guard_communication_ok": true,
+      "expected_actions": [
+        {
+          "type": "monitoring",
+          "trigger": "ATTENTION",
+          "automatic": true,
+          "status": "active",
+          "channel": null,
+          "description": "Ölçümler, veri kalitesi ve açıklanabilir risk izlenir.",
+          "safety_boundary": "Yalnız izleme ve karar desteği; kesici açtırma, Modbus yazma veya TVOC sıfırlama komutu yoktur."
+        },
+        {
+          "type": "dashboard_state",
+          "trigger": "ATTENTION",
+          "automatic": true,
+          "status": "available",
+          "channel": null,
+          "description": "Operasyon ekranındaki risk ve durum göstergeleri güncellenir.",
+          "safety_boundary": "Yalnız izleme ve karar desteği; kesici açtırma, Modbus yazma veya TVOC sıfırlama komutu yoktur."
+        },
+        {
+          "type": "event_log",
+          "trigger": "ATTENTION",
+          "automatic": true,
+          "status": "available",
+          "channel": null,
+          "description": "Durum değişikliği olay geçmişinde kalıcı olarak tutulur.",
+          "safety_boundary": "Yalnız izleme ve karar desteği; kesici açtırma, Modbus yazma veya TVOC sıfırlama komutu yoktur."
+        },
+        {
+          "type": "persistent_alarm",
+          "trigger": "ATTENTION",
+          "automatic": true,
+          "status": "available",
+          "channel": null,
+          "description": "Alarm açılır; onay ve çözülme geçmişi korunur.",
+          "safety_boundary": "Yalnız izleme ve karar desteği; kesici açtırma, Modbus yazma veya TVOC sıfırlama komutu yoktur."
+        },
+        {
+          "type": "scada_alarm_flag",
+          "trigger": "ATTENTION",
+          "automatic": true,
+          "status": "available",
+          "channel": "modbus_tcp",
+          "description": "Alarm durumu salt okunur SCADA çıkış haritasında erişilebilir.",
+          "safety_boundary": "Yalnız izleme ve karar desteği; kesici açtırma, Modbus yazma veya TVOC sıfırlama komutu yoktur."
+        },
+        {
+          "type": "notification",
+          "trigger": "ATTENTION",
+          "automatic": true,
+          "status": "eligible",
+          "channel": "sms_mock",
+          "description": "Yerel bildirim kaydı simüle edilir; gerçek sağlayıcıya gönderim yapılmaz.",
+          "safety_boundary": "Yalnız izleme ve karar desteği; kesici açtırma, Modbus yazma veya TVOC sıfırlama komutu yoktur."
+        },
+        {
+          "type": "notification",
+          "trigger": "ATTENTION",
+          "automatic": true,
+          "status": "eligible",
+          "channel": "whatsapp_mock",
+          "description": "Yerel bildirim kaydı simüle edilir; gerçek sağlayıcıya gönderim yapılmaz.",
+          "safety_boundary": "Yalnız izleme ve karar desteği; kesici açtırma, Modbus yazma veya TVOC sıfırlama komutu yoktur."
+        },
+        {
+          "type": "operator_recommendation",
+          "trigger": "ATTENTION",
+          "automatic": false,
+          "status": "recommended",
+          "channel": null,
+          "description": "Ağ geçidini, sensör beslemesini, zaman damgalarını ve iletişimi kontrol ederek güvenilir veri akışını yeniden sağlayın.",
+          "safety_boundary": "Yalnız izleme ve karar desteği; kesici açtırma, Modbus yazma veya TVOC sıfırlama komutu yoktur."
+        },
+        {
+          "type": "availability_alarm",
+          "trigger": "ATTENTION",
+          "automatic": true,
+          "status": "available",
+          "channel": null,
+          "description": "İletişim veya sensör verisi sorunu ayrı kullanılabilirlik alarmına dönüşür.",
+          "safety_boundary": "Yalnız izleme ve karar desteği; kesici açtırma, Modbus yazma veya TVOC sıfırlama komutu yoktur."
+        },
+        {
+          "type": "connectivity_recommendation",
+          "trigger": "ATTENTION",
+          "automatic": false,
+          "status": "recommended",
+          "channel": null,
+          "description": "Sensör beslemesi, ağ geçidi, zaman damgaları ve iletişim incelenmelidir.",
+          "safety_boundary": "Yalnız izleme ve karar desteği; kesici açtırma, Modbus yazma veya TVOC sıfırlama komutu yoktur."
+        }
+      ]
     },
     {
       "step": 10,
       "elapsed_seconds_at_default_3s_interval": 30,
+      "nominal_focused_elapsed_seconds": 15.0,
       "source_replay_offset_seconds": 9000,
       "risk_score": 20,
       "health_score": 70,
@@ -152,11 +282,104 @@
       ],
       "arc_event": false,
       "gateway_communication_ok": true,
-      "arc_guard_communication_ok": true
+      "arc_guard_communication_ok": true,
+      "expected_actions": [
+        {
+          "type": "monitoring",
+          "trigger": "ATTENTION",
+          "automatic": true,
+          "status": "active",
+          "channel": null,
+          "description": "Ölçümler, veri kalitesi ve açıklanabilir risk izlenir.",
+          "safety_boundary": "Yalnız izleme ve karar desteği; kesici açtırma, Modbus yazma veya TVOC sıfırlama komutu yoktur."
+        },
+        {
+          "type": "dashboard_state",
+          "trigger": "ATTENTION",
+          "automatic": true,
+          "status": "available",
+          "channel": null,
+          "description": "Operasyon ekranındaki risk ve durum göstergeleri güncellenir.",
+          "safety_boundary": "Yalnız izleme ve karar desteği; kesici açtırma, Modbus yazma veya TVOC sıfırlama komutu yoktur."
+        },
+        {
+          "type": "event_log",
+          "trigger": "ATTENTION",
+          "automatic": true,
+          "status": "available",
+          "channel": null,
+          "description": "Durum değişikliği olay geçmişinde kalıcı olarak tutulur.",
+          "safety_boundary": "Yalnız izleme ve karar desteği; kesici açtırma, Modbus yazma veya TVOC sıfırlama komutu yoktur."
+        },
+        {
+          "type": "persistent_alarm",
+          "trigger": "ATTENTION",
+          "automatic": true,
+          "status": "available",
+          "channel": null,
+          "description": "Alarm açılır; onay ve çözülme geçmişi korunur.",
+          "safety_boundary": "Yalnız izleme ve karar desteği; kesici açtırma, Modbus yazma veya TVOC sıfırlama komutu yoktur."
+        },
+        {
+          "type": "scada_alarm_flag",
+          "trigger": "ATTENTION",
+          "automatic": true,
+          "status": "available",
+          "channel": "modbus_tcp",
+          "description": "Alarm durumu salt okunur SCADA çıkış haritasında erişilebilir.",
+          "safety_boundary": "Yalnız izleme ve karar desteği; kesici açtırma, Modbus yazma veya TVOC sıfırlama komutu yoktur."
+        },
+        {
+          "type": "notification",
+          "trigger": "ATTENTION",
+          "automatic": true,
+          "status": "eligible",
+          "channel": "sms_mock",
+          "description": "Yerel bildirim kaydı simüle edilir; gerçek sağlayıcıya gönderim yapılmaz.",
+          "safety_boundary": "Yalnız izleme ve karar desteği; kesici açtırma, Modbus yazma veya TVOC sıfırlama komutu yoktur."
+        },
+        {
+          "type": "notification",
+          "trigger": "ATTENTION",
+          "automatic": true,
+          "status": "eligible",
+          "channel": "whatsapp_mock",
+          "description": "Yerel bildirim kaydı simüle edilir; gerçek sağlayıcıya gönderim yapılmaz.",
+          "safety_boundary": "Yalnız izleme ve karar desteği; kesici açtırma, Modbus yazma veya TVOC sıfırlama komutu yoktur."
+        },
+        {
+          "type": "operator_recommendation",
+          "trigger": "ATTENTION",
+          "automatic": false,
+          "status": "recommended",
+          "channel": null,
+          "description": "Ağ geçidini, sensör beslemesini, zaman damgalarını ve iletişimi kontrol ederek güvenilir veri akışını yeniden sağlayın.",
+          "safety_boundary": "Yalnız izleme ve karar desteği; kesici açtırma, Modbus yazma veya TVOC sıfırlama komutu yoktur."
+        },
+        {
+          "type": "availability_alarm",
+          "trigger": "ATTENTION",
+          "automatic": true,
+          "status": "available",
+          "channel": null,
+          "description": "İletişim veya sensör verisi sorunu ayrı kullanılabilirlik alarmına dönüşür.",
+          "safety_boundary": "Yalnız izleme ve karar desteği; kesici açtırma, Modbus yazma veya TVOC sıfırlama komutu yoktur."
+        },
+        {
+          "type": "connectivity_recommendation",
+          "trigger": "ATTENTION",
+          "automatic": false,
+          "status": "recommended",
+          "channel": null,
+          "description": "Sensör beslemesi, ağ geçidi, zaman damgaları ve iletişim incelenmelidir.",
+          "safety_boundary": "Yalnız izleme ve karar desteği; kesici açtırma, Modbus yazma veya TVOC sıfırlama komutu yoktur."
+        }
+      ]
     },
     {
       "step": 20,
       "elapsed_seconds_at_default_3s_interval": 60,
+      "nominal_focused_elapsed_seconds": 30.0,
       "source_replay_offset_seconds": 18000,
       "risk_score": 20,
       "health_score": 70,
@@ -187,11 +410,104 @@
       ],
       "arc_event": false,
       "gateway_communication_ok": true,
-      "arc_guard_communication_ok": true
+      "arc_guard_communication_ok": true,
+      "expected_actions": [
+        {
+          "type": "monitoring",
+          "trigger": "ATTENTION",
+          "automatic": true,
+          "status": "active",
+          "channel": null,
+          "description": "Ölçümler, veri kalitesi ve açıklanabilir risk izlenir.",
+          "safety_boundary": "Yalnız izleme ve karar desteği; kesici açtırma, Modbus yazma veya TVOC sıfırlama komutu yoktur."
+        },
+        {
+          "type": "dashboard_state",
+          "trigger": "ATTENTION",
+          "automatic": true,
+          "status": "available",
+          "channel": null,
+          "description": "Operasyon ekranındaki risk ve durum göstergeleri güncellenir.",
+          "safety_boundary": "Yalnız izleme ve karar desteği; kesici açtırma, Modbus yazma veya TVOC sıfırlama komutu yoktur."
+        },
+        {
+          "type": "event_log",
+          "trigger": "ATTENTION",
+          "automatic": true,
+          "status": "available",
+          "channel": null,
+          "description": "Durum değişikliği olay geçmişinde kalıcı olarak tutulur.",
+          "safety_boundary": "Yalnız izleme ve karar desteği; kesici açtırma, Modbus yazma veya TVOC sıfırlama komutu yoktur."
+        },
+        {
+          "type": "persistent_alarm",
+          "trigger": "ATTENTION",
+          "automatic": true,
+          "status": "available",
+          "channel": null,
+          "description": "Alarm açılır; onay ve çözülme geçmişi korunur.",
+          "safety_boundary": "Yalnız izleme ve karar desteği; kesici açtırma, Modbus yazma veya TVOC sıfırlama komutu yoktur."
+        },
+        {
+          "type": "scada_alarm_flag",
+          "trigger": "ATTENTION",
+          "automatic": true,
+          "status": "available",
+          "channel": "modbus_tcp",
+          "description": "Alarm durumu salt okunur SCADA çıkış haritasında erişilebilir.",
+          "safety_boundary": "Yalnız izleme ve karar desteği; kesici açtırma, Modbus yazma veya TVOC sıfırlama komutu yoktur."
+        },
+        {
+          "type": "notification",
+          "trigger": "ATTENTION",
+          "automatic": true,
+          "status": "eligible",
+          "channel": "sms_mock",
+          "description": "Yerel bildirim kaydı simüle edilir; gerçek sağlayıcıya gönderim yapılmaz.",
+          "safety_boundary": "Yalnız izleme ve karar desteği; kesici açtırma, Modbus yazma veya TVOC sıfırlama komutu yoktur."
+        },
+        {
+          "type": "notification",
+          "trigger": "ATTENTION",
+          "automatic": true,
+          "status": "eligible",
+          "channel": "whatsapp_mock",
+          "description": "Yerel bildirim kaydı simüle edilir; gerçek sağlayıcıya gönderim yapılmaz.",
+          "safety_boundary": "Yalnız izleme ve karar desteği; kesici açtırma, Modbus yazma veya TVOC sıfırlama komutu yoktur."
+        },
+        {
+          "type": "operator_recommendation",
+          "trigger": "ATTENTION",
+          "automatic": false,
+          "status": "recommended",
+          "channel": null,
+          "description": "Ağ geçidini, sensör beslemesini, zaman damgalarını ve iletişimi kontrol ederek güvenilir veri akışını yeniden sağlayın.",
+          "safety_boundary": "Yalnız izleme ve karar desteği; kesici açtırma, Modbus yazma veya TVOC sıfırlama komutu yoktur."
+        },
+        {
+          "type": "availability_alarm",
+          "trigger": "ATTENTION",
+          "automatic": true,
+          "status": "available",
+          "channel": null,
+          "description": "İletişim veya sensör verisi sorunu ayrı kullanılabilirlik alarmına dönüşür.",
+          "safety_boundary": "Yalnız izleme ve karar desteği; kesici açtırma, Modbus yazma veya TVOC sıfırlama komutu yoktur."
+        },
+        {
+          "type": "connectivity_recommendation",
+          "trigger": "ATTENTION",
+          "automatic": false,
+          "status": "recommended",
+          "channel": null,
+          "description": "Sensör beslemesi, ağ geçidi, zaman damgaları ve iletişim incelenmelidir.",
+          "safety_boundary": "Yalnız izleme ve karar desteği; kesici açtırma, Modbus yazma veya TVOC sıfırlama komutu yoktur."
+        }
+      ]
     },
     {
       "step": 29,
       "elapsed_seconds_at_default_3s_interval": 87,
+      "nominal_focused_elapsed_seconds": 43.5,
       "source_replay_offset_seconds": 26100,
       "risk_score": 20,
       "health_score": 70,
@@ -222,11 +538,126 @@
       ],
       "arc_event": false,
       "gateway_communication_ok": true,
-      "arc_guard_communication_ok": true
+      "arc_guard_communication_ok": true,
+      "expected_actions": [
+        {
+          "type": "monitoring",
+          "trigger": "ATTENTION",
+          "automatic": true,
+          "status": "active",
+          "channel": null,
+          "description": "Ölçümler, veri kalitesi ve açıklanabilir risk izlenir.",
+          "safety_boundary": "Yalnız izleme ve karar desteği; kesici açtırma, Modbus yazma veya TVOC sıfırlama komutu yoktur."
+        },
+        {
+          "type": "dashboard_state",
+          "trigger": "ATTENTION",
+          "automatic": true,
+          "status": "available",
+          "channel": null,
+          "description": "Operasyon ekranındaki risk ve durum göstergeleri güncellenir.",
+          "safety_boundary": "Yalnız izleme ve karar desteği; kesici açtırma, Modbus yazma veya TVOC sıfırlama komutu yoktur."
+        },
+        {
+          "type": "event_log",
+          "trigger": "ATTENTION",
+          "automatic": true,
+          "status": "available",
+          "channel": null,
+          "description": "Durum değişikliği olay geçmişinde kalıcı olarak tutulur.",
+          "safety_boundary": "Yalnız izleme ve karar desteği; kesici açtırma, Modbus yazma veya TVOC sıfırlama komutu yoktur."
+        },
+        {
+          "type": "persistent_alarm",
+          "trigger": "ATTENTION",
+          "automatic": true,
+          "status": "available",
+          "channel": null,
+          "description": "Alarm açılır; onay ve çözülme geçmişi korunur.",
+          "safety_boundary": "Yalnız izleme ve karar desteği; kesici açtırma, Modbus yazma veya TVOC sıfırlama komutu yoktur."
+        },
+        {
+          "type": "scada_alarm_flag",
+          "trigger": "ATTENTION",
+          "automatic": true,
+          "status": "available",
+          "channel": "modbus_tcp",
+          "description": "Alarm durumu salt okunur SCADA çıkış haritasında erişilebilir.",
+          "safety_boundary": "Yalnız izleme ve karar desteği; kesici açtırma, Modbus yazma veya TVOC sıfırlama komutu yoktur."
+        },
+        {
+          "type": "notification",
+          "trigger": "ATTENTION",
+          "automatic": true,
+          "status": "eligible",
+          "channel": "sms_mock",
+          "description": "Yerel bildirim kaydı simüle edilir; gerçek sağlayıcıya gönderim yapılmaz.",
+          "safety_boundary": "Yalnız izleme ve karar desteği; kesici açtırma, Modbus yazma veya TVOC sıfırlama komutu yoktur."
+        },
+        {
+          "type": "notification",
+          "trigger": "ATTENTION",
+          "automatic": true,
+          "status": "eligible",
+          "channel": "whatsapp_mock",
+          "description": "Yerel bildirim kaydı simüle edilir; gerçek sağlayıcıya gönderim yapılmaz.",
+          "safety_boundary": "Yalnız izleme ve karar desteği; kesici açtırma, Modbus yazma veya TVOC sıfırlama komutu yoktur."
+        },
+        {
+          "type": "operator_recommendation",
+          "trigger": "ATTENTION",
+          "automatic": false,
+          "status": "recommended",
+          "channel": null,
+          "description": "Ağ geçidini, sensör beslemesini, zaman damgalarını ve iletişimi kontrol ederek güvenilir veri akışını yeniden sağlayın.",
+          "safety_boundary": "Yalnız izleme ve karar desteği; kesici açtırma, Modbus yazma veya TVOC sıfırlama komutu yoktur."
+        },
+        {
+          "type": "availability_alarm",
+          "trigger": "ATTENTION",
+          "automatic": true,
+          "status": "available",
+          "channel": null,
+          "description": "İletişim veya sensör verisi sorunu ayrı kullanılabilirlik alarmına dönüşür.",
+          "safety_boundary": "Yalnız izleme ve karar desteği; kesici açtırma, Modbus yazma veya TVOC sıfırlama komutu yoktur."
+        },
+        {
+          "type": "connectivity_recommendation",
+          "trigger": "ATTENTION",
+          "automatic": false,
+          "status": "recommended",
+          "channel": null,
+          "description": "Sensör beslemesi, ağ geçidi, zaman damgaları ve iletişim incelenmelidir.",
+          "safety_boundary": "Yalnız izleme ve karar desteği; kesici açtırma, Modbus yazma veya TVOC sıfırlama komutu yoktur."
+        }
+      ]
     }
   ],
+  "early_warning": {
+    "transitions": [
+      {
+        "state": "NORMAL",
+        "step": 0,
+        "timestamp": "2026-09-11T00:00:00+00:00",
+        "risk_score": 8
+      },
+      {
+        "state": "ATTENTION",
+        "step": 8,
+        "timestamp": "2026-09-11T00:00:12+00:00",
+        "risk_score": 20
+      }
+    ],
+    "warning_step": null,
+    "critical_step": null,
+    "lead_steps": null,
+    "status": "no_critical",
+    "unit": "synthetic_demo_steps",
+    "message": "Bu sentetik senaryo kritik seviyeye ulaşmadı; kritik öncesi süre hesaplanmaz."
+  },
+  "focus_interval_seconds": 1.5,
   "source": "Workbook organizer-synthetic L1 replay; all other channels generated synthetic. Modified L1 scenarios explicitly generated.",
-  "timing": "At the default 100-panel fleet, one 900-second workbook offset is replayed per 3-second publication interval (300×). Fleet-average pacing uses max(requested interval, panel count / SIMULATOR_MAX_FPS), default 50 fps: 250 panels use 5 seconds, 500 use 10 seconds. Actual UTC timestamps track publication. Scenario rules use accepted-frame rolling windows.",
+  "timing": "V2 focused synthetic panel uses 1.5-second deadlines. One focus slot reserves 1/1.5 fps from the total 50 fps limit; the other 499 panels use a 49.3333 fps background budget and about 10.1149-second per-panel intervals. Without focus, original max(interval,panel_count/max_fps) pacing remains. Timeline timestamps are deterministic example anchors, not actual field observations. Actual runtime UTC tracks publication; early warning is measured only in synthetic steps.",
   "expected_outcome": "Condition-monitoring alerts and locally simulated notification records. No device writes or protection actions.",
   "communication_loss_note": null,
   "thresholds": "Engineering demonstration assumptions only; never protection setpoints. PD is uncalibrated arbitrary units."

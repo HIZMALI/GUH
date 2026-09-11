@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1100" viewBox="0 0 1600 1100"><title>Carrier v0.1 | PCB placement study</title><defs><marker id="a" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8" fill="#28c2b7"/></marker></defs><style>text{font-family:Arial,sans-serif;fill:#eaf1f7} .t{font-size:30px;font-weight:bold} .h{font-size:21px;font-weight:bold} .p{font-size:17px} .s{font-size:14px;fill:#b7c9d7} .wire{fill:none;stroke:#28c2b7;stroke-width:3;marker-end:url(#a)} .box{fill:#132a3b;stroke:#48697f;stroke-width:2} .domain{fill:#153a3d;stroke:#28c2b7;stroke-width:2}</style><rect width="1600" height="1100" fill="#091823"/><text x="48" y="52" class="t">Carrier v0.1 | PCB placement study</text><text x="48" y="85" class="p">Planning envelope 160 × 100 mm assumed | placement only, unrouted | no manufacturing files</text>
+<rect x="110" y="135" width="1380" height="775" rx="22" fill="#0c302e" stroke="#63b9a9" stroke-width="3"/>
+<rect x="145" y="175" width="330" height="170" rx="10" class="box"/><text x="165" y="207" class="h">J1 / input protection</text>
+<text x="165" y="237" class="p">F1 • D1 • TVS1 • filter</text>
+<text x="165" y="262" class="p">DC1 24→5V | DC2 5→3V3</text>
+<text x="165" y="287" class="p">Thermal / surge validation pending</text>
+<rect x="550" y="175" width="400" height="170" rx="10" class="box"/><text x="570" y="207" class="h">U1 + local service</text>
+<text x="570" y="237" class="p">ESP32-S3-WROOM-1U</text>
+<text x="570" y="262" class="p">J5 external antenna cable exit ↑</text>
+<text x="570" y="287" class="p">J6 local debug | strap pins reserved</text>
+<rect x="1050" y="175" width="400" height="170" rx="10" class="box"/><text x="1070" y="207" class="h">J4 / WIZ850io</text>
+<text x="1070" y="237" class="p">RJ45 at enclosure edge</text>
+<text x="1070" y="262" class="p">Magnetics integral to module</text>
+<text x="1070" y="287" class="p">Module footprint / keepout unverified</text>
+<rect x="550" y="410" width="400" height="150" rx="10" class="box"/><text x="570" y="442" class="h">LOGIC island</text>
+<text x="570" y="472" class="p">NVM | watchdog | shared SPI</text>
+<text x="570" y="497" class="p">J7 PD feature input, RX only</text>
+<text x="570" y="522" class="p">No ground copper across barriers</text>
+<rect x="145" y="630" width="395" height="220" rx="10" class="domain"/><text x="165" y="662" class="h">MPR field island</text>
+<text x="165" y="692" class="p">J2 at edge; protected twisted pair</text>
+<text x="165" y="717" class="p">DC_MPR isolated power → U3</text>
+<text x="165" y="742" class="p">GND_MPR only on field side</text>
+<text x="165" y="767" class="p">Termination / bias coordination</text>
+<rect x="1050" y="630" width="400" height="220" rx="10" class="domain"/><text x="1070" y="662" class="h">TVOC field island</text>
+<text x="1070" y="692" class="p">J3 at edge; protected twisted pair</text>
+<text x="1070" y="717" class="p">DC_TVOC isolated power → U4</text>
+<text x="1070" y="742" class="p">GND_TVOC only on field side</text>
+<text x="1070" y="767" class="p">COM never shared with MPR</text>
+<path d="M110 590 H590 V910 M1000 910 V590 H1490" stroke="#f1bd64" stroke-width="5" stroke-dasharray="12 9" fill="none"/>
+<text x="610" y="665" class="h">Isolation barriers</text><text x="610" y="700" class="p">Symbolic width only.</text><text x="610" y="730" class="p">Creepage / clearance</text><text x="610" y="760" class="p">must be calculated.</text>
+<text x="48" y="965" class="h">Location in panel: safe right auxiliary volume, separated from busbars and lower cable / HFCT work area.</text>
+<text x="48" y="1000" class="p">TH-A / H1 samples representative air away from carrier heat. Antenna placement requires closed-door RF trials.</text>
+<text x="48" y="1035" class="p">KiCad unavailable: no fabricated .kicad_sch / .kicad_pcb, no ERC/DRC or production-readiness claim.</text></svg>

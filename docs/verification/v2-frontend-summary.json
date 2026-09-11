@@ -1,0 +1,345 @@
+{
+  "recorded_at": "2026-09-11T01:19:40.869Z",
+  "command": "npm run test:e2e:v2",
+  "rerun_command": "npm run test:e2e:v2 -- --grep='V2 focused|V2 deployment|V2 global'",
+  "final_regression_command": "E2E_REPORT_FILE=test-results-v2/final-regression.json npm run test:e2e:v2 (set environment variable using the local shell)",
+  "target": "http://127.0.0.1:3000",
+  "unique_tests": 13,
+  "unique_passed": 13,
+  "first_run": {
+    "startTime": "2026-09-11T00:54:48.611Z",
+    "duration": 143278.512,
+    "expected": 12,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  },
+  "rerun": {
+    "startTime": "2026-09-11T00:58:20.414Z",
+    "duration": 55040.960999999996,
+    "expected": 3,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "final_regression": {
+    "startTime": "2026-09-11T01:18:03.810Z",
+    "duration": 82873.967,
+    "expected": 13,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "final_regression_unique_tests": 13,
+  "final_regression_complete": true,
+  "source_reports": [
+    {
+      "file": "v2-frontend-first-run.json",
+      "sha256": "08bce4a0384275212602f332ad2f9f110476aef3974f064e905fa77160d0eaa3"
+    },
+    {
+      "file": "v2-frontend-rerun.json",
+      "sha256": "288c0972f3aca1de7ceedeb7ef62af386cf596f8f75d555e58b6c4424d83cb76"
+    },
+    {
+      "file": "v2-frontend-final-regression.json",
+      "sha256": "2c2f4f3825307dbc4b7ce2c1bb03378e5c578b8c4fa8e2c301edbc16171dc760"
+    }
+  ],
+  "correction": "Only test selector corrected from Alarmlar to the existing Alarm merkezi label. Two additional tests repeated to recapture screenshots at scrollTop 0 after API connection. Product code unchanged between these two runs.",
+  "browser_error_observation": {
+    "scope": "Latest per-test V2 browser captures in v2-frontend-observations.json retain their observed_at timestamps. The first V1 test separately asserts pageerror absence.",
+    "checked_tests": 6,
+    "errors": []
+  },
+  "provenance": "All 13 tests authenticate against the local API. Three cases additionally use explicit transport/response fixtures for offline, invalid-sensor and pending-run presentation boundaries. SCADA tests read real local Modbus TCP. All telemetry is synthetic; no external delivery or physical device writes.",
+  "screenshots": [
+    {
+      "file": "v2-fleet.png",
+      "bytes": 191981,
+      "width": 1440,
+      "height": 1100,
+      "sha256": "51d2024f62a5486cf643d7db1685d5803d31cb8aba57aa9a28f634405ed3d971"
+    },
+    {
+      "file": "v2-panel-clean.png",
+      "bytes": 195060,
+      "width": 1440,
+      "height": 1861,
+      "sha256": "3e4fcce7ff9e747e4579e52e70a35dbe26f018493d02404469f7209cd31a1633"
+    },
+    {
+      "file": "v2-early-warning.png",
+      "bytes": 305481,
+      "width": 1440,
+      "height": 3004,
+      "sha256": "a7fc2b9fa12a7c190acd1d968ef5fc800670d245957d725fcf1e56fa55f7a164"
+    },
+    {
+      "file": "v2-scada-bank500.png",
+      "bytes": 154030,
+      "width": 1440,
+      "height": 1286,
+      "sha256": "64b073eaeeb5db003eae859ee92db383cb94e334db10e70caebcf7ad2a62f687"
+    },
+    {
+      "file": "v2-scale-value.png",
+      "bytes": 211380,
+      "width": 1440,
+      "height": 1924,
+      "sha256": "3146658e05b1a22296b9925c7de591c01ac7b933158ac3f76744eaf879f91cb2"
+    },
+    {
+      "file": "v2-notifications.png",
+      "bytes": 178316,
+      "width": 1440,
+      "height": 1100,
+      "sha256": "d5a80b0fcb6e789c3517f0f42762dc8d90292a5bccc2b241749884cfb7f1e5d7"
+    },
+    {
+      "file": "v2-installation.png",
+      "bytes": 111848,
+      "width": 1440,
+      "height": 1165,
+      "sha256": "483854f044a9589de9416f23025e49f39fccbb1e55b6d2db0ec251b79079cbf5"
+    }
+  ],
+  "cases": [
+    {
+      "title": "real API authentication, fleet ranking, hierarchy, drawing and telemetry trends",
+      "file": "operations.spec.ts",
+      "attempts": [
+        {
+          "report": "v2-frontend-first-run.json",
+          "status": "passed",
+          "duration_ms": 1618
+        },
+        {
+          "report": "v2-frontend-final-regression.json",
+          "status": "passed",
+          "duration_ms": 1381
+        }
+      ],
+      "latest_status": "passed"
+    },
+    {
+      "title": "real Modbus TCP master returns readable GridSentinel registers",
+      "file": "operations.spec.ts",
+      "attempts": [
+        {
+          "report": "v2-frontend-first-run.json",
+          "status": "passed",
+          "duration_ms": 1030
+        },
+        {
+          "report": "v2-frontend-final-regression.json",
+          "status": "passed",
+          "duration_ms": 1161
+        }
+      ],
+      "latest_status": "passed"
+    },
+    {
+      "title": "viewer cannot mutate simulator state and logout clears bearer session",
+      "file": "operations.spec.ts",
+      "attempts": [
+        {
+          "report": "v2-frontend-first-run.json",
+          "status": "passed",
+          "duration_ms": 1023
+        },
+        {
+          "report": "v2-frontend-final-regression.json",
+          "status": "passed",
+          "duration_ms": 1372
+        }
+      ],
+      "latest_status": "passed"
+    },
+    {
+      "title": "all ten scenario choices, selection persists in real API",
+      "file": "operations.spec.ts",
+      "attempts": [
+        {
+          "report": "v2-frontend-first-run.json",
+          "status": "passed",
+          "duration_ms": 18039
+        },
+        {
+          "report": "v2-frontend-final-regression.json",
+          "status": "passed",
+          "duration_ms": 13896
+        }
+      ],
+      "latest_status": "passed"
+    },
+    {
+      "title": "failed transport explicitly marks cached telemetry as unavailable",
+      "file": "operations.spec.ts",
+      "attempts": [
+        {
+          "report": "v2-frontend-first-run.json",
+          "status": "passed",
+          "duration_ms": 1025
+        },
+        {
+          "report": "v2-frontend-final-regression.json",
+          "status": "passed",
+          "duration_ms": 857
+        }
+      ],
+      "latest_status": "passed"
+    },
+    {
+      "title": "mobile navigation and source disclosure remain usable without page overflow",
+      "file": "operations.spec.ts",
+      "attempts": [
+        {
+          "report": "v2-frontend-first-run.json",
+          "status": "passed",
+          "duration_ms": 854
+        },
+        {
+          "report": "v2-frontend-final-regression.json",
+          "status": "passed",
+          "duration_ms": 921
+        }
+      ],
+      "latest_status": "passed"
+    },
+    {
+      "title": "quality contract: invalid humidity and lost Arc communication are unavailable, gateway is not sensor battery",
+      "file": "operations.spec.ts",
+      "attempts": [
+        {
+          "report": "v2-frontend-first-run.json",
+          "status": "passed",
+          "duration_ms": 1214
+        },
+        {
+          "report": "v2-frontend-final-regression.json",
+          "status": "passed",
+          "duration_ms": 1162
+        }
+      ],
+      "latest_status": "passed"
+    },
+    {
+      "title": "V2 focused thermal-PD run proves ordered warning and new-run isolation without deleting history",
+      "file": "v2.spec.ts",
+      "attempts": [
+        {
+          "report": "v2-frontend-first-run.json",
+          "status": "passed",
+          "duration_ms": 52281
+        },
+        {
+          "report": "v2-frontend-rerun.json",
+          "status": "passed",
+          "duration_ms": 51902
+        },
+        {
+          "report": "v2-frontend-final-regression.json",
+          "status": "passed",
+          "duration_ms": 54869
+        }
+      ],
+      "latest_status": "passed"
+    },
+    {
+      "title": "V2 pending response boundary never presents previous-run measurements as new live data",
+      "file": "v2.spec.ts",
+      "attempts": [
+        {
+          "report": "v2-frontend-first-run.json",
+          "status": "passed",
+          "duration_ms": 1449
+        },
+        {
+          "report": "v2-frontend-final-regression.json",
+          "status": "passed",
+          "duration_ms": 1482
+        }
+      ],
+      "latest_status": "passed"
+    },
+    {
+      "title": "V2 real SCADA master resolves all six bank boundaries through PNL-500",
+      "file": "v2.spec.ts",
+      "attempts": [
+        {
+          "report": "v2-frontend-first-run.json",
+          "status": "passed",
+          "duration_ms": 1263
+        },
+        {
+          "report": "v2-frontend-final-regression.json",
+          "status": "passed",
+          "duration_ms": 1413
+        }
+      ],
+      "latest_status": "passed"
+    },
+    {
+      "title": "V2 deployment presents sourced scale evidence, installation classes and blank parametric TCO",
+      "file": "v2.spec.ts",
+      "attempts": [
+        {
+          "report": "v2-frontend-first-run.json",
+          "status": "passed",
+          "duration_ms": 874
+        },
+        {
+          "report": "v2-frontend-rerun.json",
+          "status": "passed",
+          "duration_ms": 1397
+        },
+        {
+          "report": "v2-frontend-final-regression.json",
+          "status": "passed",
+          "duration_ms": 1386
+        }
+      ],
+      "latest_status": "passed"
+    },
+    {
+      "title": "V2 global alarm filters and notifications retain unmistakable simulated delivery labels",
+      "file": "v2.spec.ts",
+      "attempts": [
+        {
+          "report": "v2-frontend-first-run.json",
+          "status": "timedOut",
+          "duration_ms": 60115
+        },
+        {
+          "report": "v2-frontend-rerun.json",
+          "status": "passed",
+          "duration_ms": 1037
+        },
+        {
+          "report": "v2-frontend-final-regression.json",
+          "status": "passed",
+          "duration_ms": 1067
+        }
+      ],
+      "latest_status": "passed"
+    },
+    {
+      "title": "V2 viewer quick demos are disabled and deployment remains usable on mobile",
+      "file": "v2.spec.ts",
+      "attempts": [
+        {
+          "report": "v2-frontend-first-run.json",
+          "status": "passed",
+          "duration_ms": 1152
+        },
+        {
+          "report": "v2-frontend-final-regression.json",
+          "status": "passed",
+          "duration_ms": 1073
+        }
+      ],
+      "latest_status": "passed"
+    }
+  ]
+}

@@ -1,0 +1,675 @@
+{
+  "timestamp": "2026-09-11T01:16:40.726925+00:00",
+  "environment": "actual local Docker/PostgreSQL/MQTT/three Modbus TCP banks",
+  "data": "synthetic; elapsed demo time is not field prediction lead time",
+  "measurements": {
+    "combined_run_id": "PNL-001-r20",
+    "combined_critical_seconds": 47.407,
+    "arc_run_id": "PNL-001-r22",
+    "arc_seconds": 13.539
+  },
+  "checks": [
+    {
+      "name": "V1 PostgreSQL rows preserved through additive migration",
+      "passed": true,
+      "seconds": 14.129,
+      "detail": {
+        "before": {
+          "count": 237402,
+          "first_id": 1,
+          "last_id": 237403,
+          "digest": "4ec8e58dfa61fc93b73e8188c242c290"
+        },
+        "after": {
+          "count": 237402,
+          "first_id": 1,
+          "last_id": 237403,
+          "digest": "4ec8e58dfa61fc93b73e8188c242c290"
+        },
+        "passed": true
+      }
+    },
+    {
+      "name": "500 live panels: focused combined normal to critical within 75 seconds",
+      "passed": true,
+      "seconds": 48.145,
+      "detail": {
+        "run": {
+          "ok": true,
+          "panel_id": "PNL-001",
+          "scenario": "combined_thermal_pd",
+          "revision": 20,
+          "scenario_revision": 20,
+          "demo_run_id": "PNL-001-r20",
+          "focused_demo": true,
+          "pending_current_run": true,
+          "scenario_started_at": "2026-09-11T01:15:28.780316+00:00"
+        },
+        "critical_seconds": 47.407,
+        "first_frame": {
+          "risk_score": 8,
+          "health_score": 96,
+          "state": "NORMAL",
+          "simulation_step": 0
+        },
+        "early_warning": {
+          "transitions": [
+            {
+              "state": "NORMAL",
+              "step": 0,
+              "risk_score": 8,
+              "timestamp": "2026-09-11T01:15:28.892784+00:00"
+            },
+            {
+              "state": "ATTENTION",
+              "step": 19,
+              "risk_score": 31,
+              "timestamp": "2026-09-11T01:15:57.575623+00:00"
+            },
+            {
+              "state": "WARNING",
+              "step": 21,
+              "risk_score": 58,
+              "timestamp": "2026-09-11T01:16:00.597652+00:00"
+            },
+            {
+              "state": "CRITICAL",
+              "step": 31,
+              "risk_score": 80,
+              "timestamp": "2026-09-11T01:16:15.676882+00:00"
+            }
+          ],
+          "warning_step": 21,
+          "critical_step": 31,
+          "lead_steps": 10,
+          "status": "demonstrated",
+          "unit": "synthetic_demo_steps",
+          "message": "Erken uyarı, kritik seviyeden 10 sentetik demo adımı önce oluştu."
+        },
+        "background_panels_advanced": 499,
+        "fleet": {
+          "total": 500,
+          "fleet_health": 95.9,
+          "open_alarms": 1,
+          "offline": 0,
+          "normal": 499,
+          "attention": 0,
+          "warning": 0,
+          "critical": 1
+        },
+        "observed_ingestion_fps": 47.685,
+        "ingestion_window_seconds": 47.73,
+        "rate_note": "API counter window; ingestion can drain a prior queue. Scheduler publication ceiling is independently tested with a virtual clock.",
+        "scheduler": {
+          "focus_panel_id": "PNL-001",
+          "focus_interval_seconds": 1.5,
+          "background_interval_seconds": 10.114864864864865,
+          "max_fps": 50.0,
+          "background_fps_budget": 49.333333333333336,
+          "timing_mode": "accelerated_synthetic",
+          "mode": "synthetic_demo",
+          "timestamp": "2026-09-11T01:16:16.627267+00:00"
+        }
+      }
+    },
+    {
+      "name": "New normal run isolates charts and alarms while retaining historical critical",
+      "passed": true,
+      "seconds": 3.541,
+      "detail": {
+        "run_id": "PNL-001-r21",
+        "current_rows": 3,
+        "history_before": 1429,
+        "history_after": 1431,
+        "historical_alarms": 36,
+        "risk": 8,
+        "health": 96
+      }
+    },
+    {
+      "name": "Focused arc within 20 seconds and durable restart identity",
+      "passed": true,
+      "seconds": 19.42,
+      "detail": {
+        "run_id": "PNL-001-r22",
+        "arc_seconds": 13.539,
+        "arc_timestamp": "2026-09-11T01:16:33.230054Z",
+        "timestamp_preserved_after_simulator_restart": true,
+        "unique_current_steps": 13,
+        "detectors": [
+          "X1:3",
+          "X2:6"
+        ],
+        "trip_relays": [
+          "K4"
+        ]
+      }
+    },
+    {
+      "name": "Actual TCP across all six SCADA bank boundaries including PNL-500",
+      "passed": true,
+      "seconds": 0.326,
+      "detail": {
+        "boundaries": [
+          {
+            "panel_id": "PNL-001",
+            "bank": 1,
+            "port": 1502,
+            "unit_id": 1,
+            "connected": true,
+            "transport": "actual_modbus_tcp",
+            "registers": [
+              {
+                "address": 0,
+                "name": "health_score",
+                "value": 36,
+                "unit": "score"
+              },
+              {
+                "address": 1,
+                "name": "risk_score",
+                "value": 100,
+                "unit": "score"
+              },
+              {
+                "address": 2,
+                "name": "state",
+                "value": 3,
+                "unit": "enum"
+              },
+              {
+                "address": 3,
+                "name": "alarm_active",
+                "value": 1,
+                "unit": "bool"
+              },
+              {
+                "address": 4,
+                "name": "thermal_alarm",
+                "value": 0,
+                "unit": "bool"
+              },
+              {
+                "address": 5,
+                "name": "pd_alarm",
+                "value": 0,
+                "unit": "bool"
+              },
+              {
+                "address": 6,
+                "name": "arc_event",
+                "value": 1,
+                "unit": "bool"
+              },
+              {
+                "address": 7,
+                "name": "communication_ok",
+                "value": 1,
+                "unit": "bool"
+              },
+              {
+                "address": 8,
+                "name": "sensor_health",
+                "value": 100,
+                "unit": "score"
+              },
+              {
+                "address": 9,
+                "name": "schema_version",
+                "value": 1,
+                "unit": "version"
+              },
+              {
+                "address": 10,
+                "name": "timestamp_high",
+                "value": 27299,
+                "unit": "unix_s_high"
+              },
+              {
+                "address": 11,
+                "name": "timestamp_low",
+                "value": 22133,
+                "unit": "unix_s_low"
+              }
+            ]
+          },
+          {
+            "panel_id": "PNL-247",
+            "bank": 1,
+            "port": 1502,
+            "unit_id": 247,
+            "connected": true,
+            "transport": "actual_modbus_tcp",
+            "registers": [
+              {
+                "address": 0,
+                "name": "health_score",
+                "value": 96,
+                "unit": "score"
+              },
+              {
+                "address": 1,
+                "name": "risk_score",
+                "value": 8,
+                "unit": "score"
+              },
+              {
+                "address": 2,
+                "name": "state",
+                "value": 0,
+                "unit": "enum"
+              },
+              {
+                "address": 3,
+                "name": "alarm_active",
+                "value": 0,
+                "unit": "bool"
+              },
+              {
+                "address": 4,
+                "name": "thermal_alarm",
+                "value": 0,
+                "unit": "bool"
+              },
+              {
+                "address": 5,
+                "name": "pd_alarm",
+                "value": 0,
+                "unit": "bool"
+              },
+              {
+                "address": 6,
+                "name": "arc_event",
+                "value": 0,
+                "unit": "bool"
+              },
+              {
+                "address": 7,
+                "name": "communication_ok",
+                "value": 1,
+                "unit": "bool"
+              },
+              {
+                "address": 8,
+                "name": "sensor_health",
+                "value": 100,
+                "unit": "score"
+              },
+              {
+                "address": 9,
+                "name": "schema_version",
+                "value": 1,
+                "unit": "version"
+              },
+              {
+                "address": 10,
+                "name": "timestamp_high",
+                "value": 27299,
+                "unit": "unix_s_high"
+              },
+              {
+                "address": 11,
+                "name": "timestamp_low",
+                "value": 22128,
+                "unit": "unix_s_low"
+              }
+            ]
+          },
+          {
+            "panel_id": "PNL-248",
+            "bank": 2,
+            "port": 1503,
+            "unit_id": 1,
+            "connected": true,
+            "transport": "actual_modbus_tcp",
+            "registers": [
+              {
+                "address": 0,
+                "name": "health_score",
+                "value": 96,
+                "unit": "score"
+              },
+              {
+                "address": 1,
+                "name": "risk_score",
+                "value": 8,
+                "unit": "score"
+              },
+              {
+                "address": 2,
+                "name": "state",
+                "value": 0,
+                "unit": "enum"
+              },
+              {
+                "address": 3,
+                "name": "alarm_active",
+                "value": 0,
+                "unit": "bool"
+              },
+              {
+                "address": 4,
+                "name": "thermal_alarm",
+                "value": 0,
+                "unit": "bool"
+              },
+              {
+                "address": 5,
+                "name": "pd_alarm",
+                "value": 0,
+                "unit": "bool"
+              },
+              {
+                "address": 6,
+                "name": "arc_event",
+                "value": 0,
+                "unit": "bool"
+              },
+              {
+                "address": 7,
+                "name": "communication_ok",
+                "value": 1,
+                "unit": "bool"
+              },
+              {
+                "address": 8,
+                "name": "sensor_health",
+                "value": 100,
+                "unit": "score"
+              },
+              {
+                "address": 9,
+                "name": "schema_version",
+                "value": 1,
+                "unit": "version"
+              },
+              {
+                "address": 10,
+                "name": "timestamp_high",
+                "value": 27299,
+                "unit": "unix_s_high"
+              },
+              {
+                "address": 11,
+                "name": "timestamp_low",
+                "value": 22128,
+                "unit": "unix_s_low"
+              }
+            ]
+          },
+          {
+            "panel_id": "PNL-494",
+            "bank": 2,
+            "port": 1503,
+            "unit_id": 247,
+            "connected": true,
+            "transport": "actual_modbus_tcp",
+            "registers": [
+              {
+                "address": 0,
+                "name": "health_score",
+                "value": 96,
+                "unit": "score"
+              },
+              {
+                "address": 1,
+                "name": "risk_score",
+                "value": 8,
+                "unit": "score"
+              },
+              {
+                "address": 2,
+                "name": "state",
+                "value": 0,
+                "unit": "enum"
+              },
+              {
+                "address": 3,
+                "name": "alarm_active",
+                "value": 0,
+                "unit": "bool"
+              },
+              {
+                "address": 4,
+                "name": "thermal_alarm",
+                "value": 0,
+                "unit": "bool"
+              },
+              {
+                "address": 5,
+                "name": "pd_alarm",
+                "value": 0,
+                "unit": "bool"
+              },
+              {
+                "address": 6,
+                "name": "arc_event",
+                "value": 0,
+                "unit": "bool"
+              },
+              {
+                "address": 7,
+                "name": "communication_ok",
+                "value": 1,
+                "unit": "bool"
+              },
+              {
+                "address": 8,
+                "name": "sensor_health",
+                "value": 100,
+                "unit": "score"
+              },
+              {
+                "address": 9,
+                "name": "schema_version",
+                "value": 1,
+                "unit": "version"
+              },
+              {
+                "address": 10,
+                "name": "timestamp_high",
+                "value": 27299,
+                "unit": "unix_s_high"
+              },
+              {
+                "address": 11,
+                "name": "timestamp_low",
+                "value": 22123,
+                "unit": "unix_s_low"
+              }
+            ]
+          },
+          {
+            "panel_id": "PNL-495",
+            "bank": 3,
+            "port": 1504,
+            "unit_id": 1,
+            "connected": true,
+            "transport": "actual_modbus_tcp",
+            "registers": [
+              {
+                "address": 0,
+                "name": "health_score",
+                "value": 96,
+                "unit": "score"
+              },
+              {
+                "address": 1,
+                "name": "risk_score",
+                "value": 8,
+                "unit": "score"
+              },
+              {
+                "address": 2,
+                "name": "state",
+                "value": 0,
+                "unit": "enum"
+              },
+              {
+                "address": 3,
+                "name": "alarm_active",
+                "value": 0,
+                "unit": "bool"
+              },
+              {
+                "address": 4,
+                "name": "thermal_alarm",
+                "value": 0,
+                "unit": "bool"
+              },
+              {
+                "address": 5,
+                "name": "pd_alarm",
+                "value": 0,
+                "unit": "bool"
+              },
+              {
+                "address": 6,
+                "name": "arc_event",
+                "value": 0,
+                "unit": "bool"
+              },
+              {
+                "address": 7,
+                "name": "communication_ok",
+                "value": 1,
+                "unit": "bool"
+              },
+              {
+                "address": 8,
+                "name": "sensor_health",
+                "value": 100,
+                "unit": "score"
+              },
+              {
+                "address": 9,
+                "name": "schema_version",
+                "value": 1,
+                "unit": "version"
+              },
+              {
+                "address": 10,
+                "name": "timestamp_high",
+                "value": 27299,
+                "unit": "unix_s_high"
+              },
+              {
+                "address": 11,
+                "name": "timestamp_low",
+                "value": 22123,
+                "unit": "unix_s_low"
+              }
+            ]
+          },
+          {
+            "panel_id": "PNL-500",
+            "bank": 3,
+            "port": 1504,
+            "unit_id": 6,
+            "connected": true,
+            "transport": "actual_modbus_tcp",
+            "registers": [
+              {
+                "address": 0,
+                "name": "health_score",
+                "value": 96,
+                "unit": "score"
+              },
+              {
+                "address": 1,
+                "name": "risk_score",
+                "value": 8,
+                "unit": "score"
+              },
+              {
+                "address": 2,
+                "name": "state",
+                "value": 0,
+                "unit": "enum"
+              },
+              {
+                "address": 3,
+                "name": "alarm_active",
+                "value": 0,
+                "unit": "bool"
+              },
+              {
+                "address": 4,
+                "name": "thermal_alarm",
+                "value": 0,
+                "unit": "bool"
+              },
+              {
+                "address": 5,
+                "name": "pd_alarm",
+                "value": 0,
+                "unit": "bool"
+              },
+              {
+                "address": 6,
+                "name": "arc_event",
+                "value": 0,
+                "unit": "bool"
+              },
+              {
+                "address": 7,
+                "name": "communication_ok",
+                "value": 1,
+                "unit": "bool"
+              },
+              {
+                "address": 8,
+                "name": "sensor_health",
+                "value": 100,
+                "unit": "score"
+              },
+              {
+                "address": 9,
+                "name": "schema_version",
+                "value": 1,
+                "unit": "version"
+              },
+              {
+                "address": 10,
+                "name": "timestamp_high",
+                "value": 27299,
+                "unit": "unix_s_high"
+              },
+              {
+                "address": 11,
+                "name": "timestamp_low",
+                "value": 22123,
+                "unit": "unix_s_low"
+              }
+            ]
+          }
+        ],
+        "all_three_banks_reject_invalid_registers_and_writes": true
+      }
+    },
+    {
+      "name": "Measured arc creates both local simulated notification channels",
+      "passed": true,
+      "seconds": 0.057,
+      "detail": {
+        "arc_run_id": "PNL-001-r22",
+        "count": 4,
+        "channels": [
+          "sms_mock",
+          "whatsapp_mock"
+        ],
+        "all_simulated": true
+      }
+    },
+    {
+      "name": "Restore clean normal presentation run",
+      "passed": true,
+      "seconds": 0.739,
+      "detail": {
+        "run_id": "PNL-001-r23",
+        "risk": 8,
+        "state": "NORMAL"
+      }
+    }
+  ]
+}

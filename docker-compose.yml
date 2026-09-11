@@ -44,10 +44,14 @@ services:
       retries: 10
   api:
     <<: *python
+    dns_opt: ["timeout:1", "attempts:1"]
     environment:
       MQTT_ENABLED: 'true'
       SCADA_HOST: scada
       SCADA_PORT: '1502'
+      SCADA_PORT_BASE: ${SCADA_PORT_BASE:-1502}
+      SCADA_BANK_SIZE: ${SCADA_BANK_SIZE:-247}
+      SCADA_BANK_COUNT: ${SCADA_BANK_COUNT:-3}
     ports: [127.0.0.1:8000:8000]
     depends_on:
       db: {condition: service_healthy}
@@ -74,11 +78,14 @@ services:
       API_URL: http://api:8000
       SCADA_HOST: 0.0.0.0
       SCADA_PORT: '1502'
-    ports: [127.0.0.1:1502:1502]
+      SCADA_PORT_BASE: ${SCADA_PORT_BASE:-1502}
+      SCADA_BANK_SIZE: ${SCADA_BANK_SIZE:-247}
+      SCADA_BANK_COUNT: ${SCADA_BANK_COUNT:-3}
+    ports: ['127.0.0.1:${SCADA_PORT_BASE:-1502}-${SCADA_PORT_END:-1504}:${SCADA_PORT_BASE:-1502}-${SCADA_PORT_END:-1504}']
     depends_on:
       api: {condition: service_healthy}
     healthcheck:
-      test: [CMD, python, -c, "import socket; socket.create_connection(('localhost',1502),3).close()"]
+      test: [CMD, python, -c, "import socket,os; base=int(os.getenv('SCADA_PORT_BASE','1502')); [socket.create_connection(('localhost',base+i),3).close() for i in range(int(os.getenv('SCADA_BANK_COUNT','3')))]"]
       interval: 10s
       timeout: 5s
       retries: 10

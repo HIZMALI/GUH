@@ -1,0 +1,13 @@
+# Tasarım kuralları ve bekleyen elektriksel doğrulama
+
+- GND_MPR, GND_TVOC, GND_LOGIC ve CHASSIS ayrı kalır. U3/U4 ve ayrı izole DC/DC'ler dışında domain geçişi olmaz. İzolasyon çizgisi altından copper pour, debug ground, test pad veya ekranla kontrolsüz köprü geçirilmez. CSV testi net isimlerinin ayrılığını kontrol eder; fiziksel izolasyon ölçmez.
+- 160×100mm outline bir yerleşim varsayımıdır. İzolasyon bariyeri resimde semboliktir. Gerekli creepage/clearance; gerçek çalışma/impulse gerilimi, pollution degree, malzeme CTI, altitude ve standardın uygulanabilirliğinden hesaplanmalıdır. Sayısal güvenli mesafe/sertifika üretilmedi.
+- J1 yalnız tesisçe onaylı yardımcı düşük gerilim kaynağına bağlanır. Giriş24Vnominal dış tolerans/transient sınırı henüz belirlenmedi. F1, reverse element, TVS clamp ve converter absolute max bir arada boyutlandırılır. Enerjili bağlantı/deneme yapılmış sayılmaz.
+- ISO1410 VCC1/VCC2 yakınında ayrı decoupling; field VCC2 dönüş akımı yalnız ilgili field common'a. DE ve RE_N birlikte sürülür;10kΩ default pull-down ile receive. Firmware salt okunur olsa da request göndermek için driver kısa süre etkinleşir; bu koruma komutu değildir. Reset/boot sırasında DE davranışı logic analyzer ile incelenir.
+- RS485 twisted pair, hat sonlarında120Ω ve tek koordine bias. İki carrier portu ayrı bus olabilir; mevcut master bulunan bus'a ikinci master körlemesine eklenmez. Gateway reuse veya kontrollü tek-master planı gerekir. TVOC COM'un ABB+/− işaretleri TI A/B ile ters harf kullanır; D1/D0 elektriksel polaritesini doğrula.
+- Ethernet magnetics modül içinde. Carrier SPI kısa/uygun return yoluyla taşınır; hız ilk commissioning'de düşük başlatılır ve sinyal bütünlüğü ölçülür. Ekran/şasi bağlantısı ve RJ45 ESD yolu enclosure planıyla tasarlanır. PoE tasarımı yoktur.
+- ESP32 boot straps, UART0 servis ve GPIO35–37 memory kullanımını koru. MCU_EN yüzemez. SPI NVM/Ethernet CS ayrı pull-up; bus erişimi seri. Brownout ve reset sırasında field transceiver receive kalmalı.
+- NVM dual-bank/CRC ve atomic commit, yanlış identity ile snapshot yüklememe, sequence geriye gitmeme kuralı donanımda güç kesme testinden geçmeli.64KiB kapasite endurance garantisi değildir. Full queue en yeni frame'i reddeder ve drop sayacını kalıcı artırır; sınırsız RAM/flash büyümesi yok.
+- Kart/PSU ısısı TH-A/H1 hava sensörünü saptırmamalı. Anten metal/PSU/bara gölgesinden sakınılarak yetkili geçişle yerleştirilir; IP sınıfı ve servis alanı korunur. PCB planı enclosure yangın, IP veya EMC testinin yerine geçmez.
+
+EDA araçları yok: ERC/DRC **NOT_RUN**. [Environmental/EMC planı](../../docs/hardware/environmental-emc-plan.md) saha doğrulama sırasını tanımlar. Bu kart tasarımı condition monitoring / early warning / decision support içindir.

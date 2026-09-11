@@ -39,12 +39,12 @@ const points = [
   },
   {
     id: "humidity",
-    label: "H1 · Sıcaklık ve nem",
-    x: 92,
-    y: 335,
+    label: "TH-A / H1 · Sıcaklık ve nem",
+    x: 439,
+    y: 292,
     short: "H1",
     kind: "Önerilen kablosuz sensör",
-    text: "Alt kablo bölgesinde ortam izleme önerisi. Metal pano içi RF kapsama ve sensör konumu sahada doğrulanmalıdır.",
+    text: "Sağ yardımcı hacimde, temsil edici hava noktasında sıcaklık ve nem izleme önerisi. TH-A / H1 bara sıcaklığını ölçmez; PSU/duvar ısısı, hava dolaşımı ve metal pano içi RF kapsama sahada doğrulanmalıdır.",
     key: "humidity_pct",
     unit: "% RH",
   },
@@ -346,17 +346,19 @@ export function Schematic({ panel }: { panel: Panel }) {
           <div className="sensor-title">
             <strong>{selected.label}</strong>
             <span>
-              {selected.id === "edge"
-                ? panel.communication_ok
-                  ? "Gateway bağlı"
-                  : "Gateway iletişimi yok"
-                : selected.key
-                  ? `${number(measuredValue(panel, selected.key), 1)} ${selected.unit} · ${qualityLabel(panel, selected.key)}`
-                  : !panel.arc?.communication_ok
-                    ? "Bilinmiyor · iletişim yok"
-                    : panel.arc?.event
-                      ? "Sentetik olay var"
-                      : "Olay yok"}
+              {panel.pending_current_run
+                ? "Bu çalışma için ölçüm bekleniyor"
+                : selected.id === "edge"
+                  ? panel.communication_ok
+                    ? "Gateway bağlı"
+                    : "Gateway iletişimi yok"
+                  : selected.key
+                    ? `${number(measuredValue(panel, selected.key), 1)} ${selected.unit} · ${qualityLabel(panel, selected.key)}`
+                    : !panel.arc?.communication_ok
+                      ? "Bilinmiyor · iletişim yok"
+                      : panel.arc?.event
+                        ? "Sentetik olay var"
+                        : "Olay yok"}
             </span>
           </div>
           <small>{selected.kind}</small>

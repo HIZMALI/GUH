@@ -1,5 +1,7 @@
 # Performans ve ölçek doğrulaması
 
+Aşağıdaki ölçüm ve eski tek-bank/pacing açıklamaları korunmuş **V1 kaydıdır**. V2 yeniden ölçümü ve tek focus/üç bank davranışı belgenin sonundadır; V1 JSON dosyasının üzerine yazılmaz.
+
 Ölçüm zamanı (UTC): 2026-09-10T23:39:29.782595+00:00. Docker Linux/WSL2; Python 3.12.14. PostgreSQL kullanıldı, SQLite değil. Ham kayıt: `verification/load-results.json`.
 
 ## Ölçüm yöntemi

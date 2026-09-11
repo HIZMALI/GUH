@@ -1,0 +1,29 @@
+{
+  "timestamp": "2026-09-11T00:26:30.782615+00:00",
+  "baseline_commit": "4a0f4c1cae879604a384e91862749fef754abecc",
+  "initial_branch": "main",
+  "working_branch": "codex/gridsentinel-v2",
+  "initial_status": "clean",
+  "python": {
+    "passed": 62,
+    "seconds": 13.14
+  },
+  "container": {
+    "passed": 61,
+    "skipped": 1,
+    "seconds": 5.94,
+    "skip": "source originals absent from runtime image; host check passes"
+  },
+  "frontend": {
+    "startTime": "2026-09-11T00:21:22.335Z",
+    "duration": 88344.991,
+    "expected": 7,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "stack_passed": 11,
+  "load_cases_passed": 6,
+  "load_commits": 6800,
+  "source_provenance": "All synthetic. Original files unchanged. V1 verification files preserved."
+}

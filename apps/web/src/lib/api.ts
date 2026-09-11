@@ -4,19 +4,29 @@ export function measuredValue(
     measurements: Measurements;
     quality?: Record<string, string>;
     communication_ok?: boolean;
+    pending_current_run?: boolean;
   },
   key: string,
 ): number | null {
   const quality = record.quality?.[key];
-  if (record.communication_ok === false || (quality && quality !== "good"))
+  if (
+    record.pending_current_run ||
+    record.communication_ok === false ||
+    (quality && quality !== "good")
+  )
     return null;
   const value = record.measurements[key];
   return typeof value === "number" && Number.isFinite(value) ? value : null;
 }
 export function qualityLabel(
-  record: { quality?: Record<string, string>; communication_ok?: boolean },
+  record: {
+    quality?: Record<string, string>;
+    communication_ok?: boolean;
+    pending_current_run?: boolean;
+  },
   key: string,
 ) {
+  if (record.pending_current_run) return "Bu çalışma için ölçüm bekleniyor";
   if (record.communication_ok === false) return "İletişim yok / güncel değil";
   const labels: Record<string, string> = {
     missing: "Eksik veri",

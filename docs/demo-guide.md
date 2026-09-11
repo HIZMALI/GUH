@@ -1,9 +1,13 @@
-# Demo rehberi
+# Demo rehberi — V2
 
 ## Başlangıç
-`python scripts/run_demo.py --scenario combined_thermal_pd` ile yerel sistemi çalıştırın. [Operasyon ekranına](http://localhost:3000) `.env` içindeki kullanıcı bilgileriyle giriş yapın. Varsayılan100 sanal pano bulunur; site, trafo ve sensör adları demodur. Filo tablosundan PNL-001 seçin.
+`python scripts/run_demo.py --presentation --panels 500 --scenario normal_operation` ile500 panolu yerel sunumu başlatın. [Operasyon ekranına](http://localhost:3000) `.env` kullanıcı bilgileriyle giriş yapıp PNL-001'i seçin. Tek tık “Termal+PD demosu” veya “Ark demosu” yeni kalıcı koşu başlatır. Eski `python scripts/run_demo.py --scenario combined_thermal_pd` komutu korunur; standart yeni kurulum100 panodur. Filo genişletilir, mevcut kayıtlar küçültülmez/silinmez.
 
-Ekrandaki sentetik veri işareti ve "koruma sistemi değildir" sınırı sunumun parçasıdır. Sağlanan Excel yalnız L1 akım örneklerini içerir; termal, nem, diğer elektriksel ve PD/ARC kanalları üretilmiştir. Kaynak satırı ve per-channel provenance API'de korunur. Replay15 dakikalık kaynak aralığını hızlandırır. Varsayılan100 panoda3 saniyelik adım; trafik sınırı50frame/s ile250 panoda5s,500 panoda10s. Grafik zamanı demo gözlem zamanıdır, gerçek saha tarihi değildir. Senaryo JSON'undaki saniyeler100 pano/3s örneğidir; büyük filoda aynı adımlar daha uzun sürer. Arc olayı8.adımda,500 panoda yaklaşık80s sonra oluşur.
+Ekrandaki sentetik veri işareti ve “koruma sistemi değildir” sınırı sunumun parçasıdır. Excel yalnız152 sentetik L1 örneği içerir; diğer kanallar üretilmiştir. Kaynak satırı ve kanal kökeni API'de korunur. Replay15 dakikalık kaynak aralığını hızlandırır; grafik zamanı saha tarihi değildir. V2'de tek focus1,5s, kalan499 pano yaklaşık10,115s aralıkla raporlar; toplam yayın tavanı50frame/s korunur. Focus olmadan eski100/3s,250/5s,500/10s tempo aynıdır. Nominal combined kritik31.adım/46,5s; arc8.adım/12s. Gerçek uçtan uca süre [runtime raporunda](verification/v2-runtime.json) ölçülür; hedef≤75s/≤20s. Lead yalnız sentetik adım farkıdır, saha öngörü süresi değildir.
+
+Varsayılan grafik “Mevcut demo çalışması”dır. Yeni seçim ilk örneğe kadar bekleme gösterir; önceki kritik değer/aksiyonlar yeni koşuya taşınmaz. “Tüm geçmiş”, V1'in run kimliği olmayan kayıtları dahil, sayfalı geçmişi açar. Alarmlar güncel/tüm, durum ve önem derecesine göre filtrelenir. Yeni revision eski açık alarmı `demo_run_superseded` gerekçesiyle kapatır; telemetri, olay, bildirim ve audit korunur.
+
+[Beş dakikalık final metni](final-demo-script.md), [jüri listesi](jury-checklist.md), [tek aksiyon politikası](operations/action-matrix.md). Yaygınlaştırma ekranında ölçülmüş ölçek tablosu, paketler, A/B/C, yenilik ve boş girdide fiyat üretmeyen TCO vardır. H1 sağ yardımcı TH-A hava alanındadır. SCADA500 panoyu1502/1503/1504 banklarında sunar; PNL500 bank3/unit6. Kaynak MPR/TVOC haritalarıyla prototipe ait output map ayrı gösterilir.
 
 ## Beş dakikalık sunum akışı
 1. **Filo**: toplam pano, severity dağılımı, haberleşme ve sıralı risk. Bölge/trafo filtresinden tek panoya inin.
@@ -25,6 +29,6 @@ python scripts/run_demo.py --connect-only --scenario communication_loss
 ```
 
 ## Doğrulama
-`python scripts/verify_stack.py` gerçek Docker servis health, authentication/RBAC, filo, TCP read/invalid/write rejection ve bildirim kökenini denetler. `python scripts/verify_stack.py --restarts` ek olarak API, PostgreSQL ve MQTT kesintisini oluşturup geri getirir; test kendi oluşturduğu kesintilerin sonunda servisleri yeniden başlatır. Çalışan bir sunum sırasında kullanmayın. JSON sonuçları `docs/verification/` altında tutulur.
+`python -m scripts.verify_v2_runtime` gerçek500 panolu focused süre/clean history/üç bank kanıtını yazar. `python scripts/verify_stack.py --restarts --output docs/verification/v2-stack.json` API/PostgreSQL/MQTT kesintisini oluşturup geri getirir. V1 kanıtını korumak için yeni çıktı adı kullanın. Bunları ve E2E'yi aynı anda veya sunum sırasında çalıştırmayın; PNL001 senaryoları değişir.
 
 Python testleri: `docker compose exec api python -m pytest tests/unit tests/integration tests/modbus tests/source -q`. E2E: `apps/web` içinde `npm run test:e2e`. Tam ölçüm komutları ve sınırları `performance.md` içinde.

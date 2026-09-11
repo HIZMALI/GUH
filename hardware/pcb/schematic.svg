@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1040" viewBox="0 0 1600 1040"><title>GridSentinel Edge Interface Carrier v0.1</title><defs><marker id="a" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8" fill="#28c2b7"/></marker></defs><style>text{font-family:Arial,sans-serif;fill:#eaf1f7} .t{font-size:30px;font-weight:bold} .h{font-size:21px;font-weight:bold} .p{font-size:17px} .s{font-size:14px;fill:#b7c9d7} .wire{fill:none;stroke:#28c2b7;stroke-width:3;marker-end:url(#a)} .box{fill:#132a3b;stroke:#48697f;stroke-width:2} .domain{fill:#153a3d;stroke:#28c2b7;stroke-width:2}</style><rect width="1600" height="1040" fill="#091823"/><text x="48" y="52" class="t">GridSentinel Edge Interface Carrier v0.1</text><text x="48" y="85" class="p">EDA-neutral reference schematic | pin/net names match CSV | no field control outputs</text>
+<rect x="45" y="120" width="440" height="190" rx="10" class="box"/><text x="65" y="152" class="h">J1 → protected auxiliary power</text>
+<text x="65" y="182" class="p">1: +24V_AUX   2: 0V   3: chassis</text>
+<text x="65" y="207" class="p">F1 → D1 reverse → TVS1 / L1 / C1</text>
+<text x="65" y="232" class="p">DC1 buck 24V → V5_MAIN</text>
+<text x="65" y="257" class="p">DC2 switching 5V → V3V3</text>
+<rect x="535" y="120" width="470" height="190" rx="10" class="box"/><text x="555" y="152" class="h">U1 ESP32-S3-WROOM-1U candidate</text>
+<text x="555" y="182" class="p">p2: 3V3 | p1 / p40 / p41: GND_LOGIC</text>
+<text x="555" y="207" class="p">p3 EN ← local supervisor + pull-up</text>
+<text x="555" y="232" class="p">p7 GPIO7 → watchdog WDI</text>
+<text x="555" y="257" class="p">Uncommissioned reference MCU source</text>
+<rect x="1055" y="120" width="500" height="190" rx="10" class="box"/><text x="1075" y="152" class="h">U2 WIZ850io module / J4 Ethernet</text>
+<text x="1075" y="182" class="p">H_ETH1: 1,2 GND | 3 MOSI | 4 SCLK</text>
+<text x="1075" y="207" class="p">H_ETH1: 5 CSn | 6 INTn</text>
+<text x="1075" y="232" class="p">H_ETH2: 1 GND | 2,3 3V3 | 4 NC</text>
+<text x="1075" y="257" class="p">H_ETH2: 5 RSTn | 6 MISO</text>
+<path d="M485 190 H535" class="wire"/><text x="486" y="177" class="s">V3V3</text>
+<path d="M1005 220 H1055" class="wire"/><text x="1007" y="207" class="s">SPI</text>
+<rect x="45" y="365" width="440" height="250" rx="10" class="domain"/><text x="65" y="397" class="h">MPR isolated domain / J2</text>
+<text x="65" y="427" class="p">DC_MPR: V5_MAIN → isolated V5_MPR</text>
+<text x="65" y="452" class="p">U3 ISO1410 p16 VCC2; p9,15 GND2</text>
+<text x="65" y="477" class="p">J2.1 D1(+) ← U3.12 A (TI naming)</text>
+<text x="65" y="502" class="p">J2.2 D0(-) ← U3.13 B (TI naming)</text>
+<text x="65" y="527" class="p">J2.3 COM = GND_MPR; .4 chassis</text>
+<text x="65" y="552" class="p">120Ω end-only jumper; bias DNP</text>
+<rect x="535" y="365" width="470" height="250" rx="10" class="box"/><text x="555" y="397" class="h">MCU UART routing / LOGIC domain</text>
+<text x="555" y="427" class="p">MPR TX p10/G17 → U3.6 D</text>
+<text x="555" y="452" class="p">MPR RX p11/G18 ← U3.3 R</text>
+<text x="555" y="477" class="p">MPR DE/RE p8/G15 → U3.4 + .5</text>
+<text x="555" y="502" class="p">TVOC TX p4/G4 → U4.6 D</text>
+<text x="555" y="527" class="p">TVOC RX p5/G5 ← U4.3 R</text>
+<text x="555" y="552" class="p">TVOC DE/RE p6/G6 → U4.4 + .5</text>
+<rect x="1055" y="365" width="500" height="250" rx="10" class="domain"/><text x="1075" y="397" class="h">TVOC isolated domain / J3</text>
+<text x="1075" y="427" class="p">DC_TVOC: V5_MAIN → isolated V5_TVOC</text>
+<text x="1075" y="452" class="p">U4 ISO1410 p16 VCC2; p9,15 GND2</text>
+<text x="1075" y="477" class="p">J3.1 ABB +(B) ← U4.12 A (TI)</text>
+<text x="1075" y="502" class="p">J3.2 ABB -(A) ← U4.13 B (TI)</text>
+<text x="1075" y="527" class="p">J3.3 COM = GND_TVOC; .4 chassis</text>
+<text x="1075" y="552" class="p">120Ω end-only jumper; bias DNP</text>
+<path d="M535 470 H485" class="wire"/><text x="484" y="457" class="s">isolation</text>
+<path d="M1005 470 H1055" class="wire"/><text x="1007" y="457" class="s">isolation</text>
+<rect x="45" y="670" width="440" height="215" rx="10" class="box"/><text x="65" y="702" class="h">Local storage + watchdog</text>
+<text x="65" y="732" class="p">SPI NVM ≥64KiB allocation; part TBD</text>
+<text x="65" y="757" class="p">NVM CS p23/G21; shared SPI bus</text>
+<text x="65" y="782" class="p">Atomic dual-bank journal port required</text>
+<text x="65" y="807" class="p">Supervisor RESETn → MCU_EN only</text>
+<text x="65" y="832" class="p">No external reset connection</text>
+<rect x="535" y="670" width="470" height="215" rx="10" class="box"/><text x="555" y="702" class="h">J5 antenna + J6 local service</text>
+<text x="555" y="732" class="p">J5 is U1 integral external RF port</text>
+<text x="555" y="757" class="p">TH-A / H1: right auxiliary air space</text>
+<text x="555" y="782" class="p">J6.1 USB D+ p14; .2 D- p13</text>
+<text x="555" y="807" class="p">J6.3 GND; .4 3V3 sense (no feed)</text>
+<text x="555" y="832" class="p">J6.5 MCU EN; .6 MCU BOOT p27</text>
+<rect x="1055" y="670" width="500" height="215" rx="10" class="box"/><text x="1075" y="702" class="h">J7 optional PD feature input</text>
+<text x="1075" y="732" class="p">.1 UART RX-only → U1 p38 / GPIO2</text>
+<text x="1075" y="757" class="p">.2 GND_LOGIC; .3 3V3 sense</text>
+<text x="1075" y="782" class="p">Separate qualified acquisition required</text>
+<text x="1075" y="807" class="p">No raw HFCT / MHz / pC measurement</text>
+<text x="1075" y="832" class="p">PD via existing LAN also possible</text>
+<text x="48" y="934" class="h">Two field commons remain separate. Ethernet magnetics are inside WIZ850io. No mains, relay, trip or protection-reset circuit.</text>
+<text x="48" y="970" class="p">Symbolic power / storage components need selection and detailed design. No ERC/DRC, insulation, EMC or thermal certification.</text></svg>

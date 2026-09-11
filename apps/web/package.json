@@ -7,7 +7,9 @@
     "build": "node scripts/next-local.mjs build",
     "start": "node scripts/next-local.mjs start",
     "typecheck": "tsc --noEmit",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test --config=playwright.config.ts --grep-invert=V2",
+    "test:e2e:v2": "playwright test --config=playwright.v2.config.ts",
+    "test:unit": "node --experimental-strip-types --test tests/unit/*.test.mjs"
   },
   "dependencies": {
     "lucide-react": "1.44.0",

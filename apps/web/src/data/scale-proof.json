@@ -1,0 +1,65 @@
+{
+  "version": "v1",
+  "source_label": "V1 yerel Docker yük doğrulaması",
+  "measured_at": "2026-09-10T23:39:29.782595+00:00",
+  "source_path": "docs/verification/load-results.json",
+  "source_sha256": "01ad23a389fc0a413de3a064df15eefa87237307f3dbe93debe29344664b30d5",
+  "environment": "Yerel Docker / PostgreSQL / WSL2",
+  "limitation": "Dört turluk kısa burst; üretim SLO veya uzun süreli soak testi değildir. Sahada kapasite, gecikme veya sıfır kayıp garantisi vermez.",
+  "cases": [
+    {
+      "panels": 100,
+      "transport": "HTTP",
+      "expected": 400,
+      "committed": 400,
+      "frames_per_second": 81.96,
+      "api_p95_ms": 375.338,
+      "passed": true
+    },
+    {
+      "panels": 100,
+      "transport": "MQTT",
+      "expected": 400,
+      "committed": 400,
+      "frames_per_second": 95.41,
+      "api_p95_ms": 343.229,
+      "passed": true
+    },
+    {
+      "panels": 250,
+      "transport": "HTTP",
+      "expected": 1000,
+      "committed": 1000,
+      "frames_per_second": 79.95,
+      "api_p95_ms": 328.143,
+      "passed": true
+    },
+    {
+      "panels": 250,
+      "transport": "MQTT",
+      "expected": 1000,
+      "committed": 1000,
+      "frames_per_second": 101.74,
+      "api_p95_ms": 343.929,
+      "passed": true
+    },
+    {
+      "panels": 500,
+      "transport": "HTTP",
+      "expected": 2000,
+      "committed": 2000,
+      "frames_per_second": 97.68,
+      "api_p95_ms": 318.529,
+      "passed": true
+    },
+    {
+      "panels": 500,
+      "transport": "MQTT",
+      "expected": 2000,
+      "committed": 2000,
+      "frames_per_second": 115.4,
+      "api_p95_ms": 317.501,
+      "passed": true
+    }
+  ]
+}

@@ -47,6 +47,7 @@ def compose(*args):
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--restarts',action='store_true',help='Includes API/DB/MQTT restart faults; services restored afterward.')
+    parser.add_argument('--output',default='docs/verification/stack-results.json',help='Report path; use a new filename to preserve earlier evidence.')
     args=parser.parse_args()
     env=read_env()
     results=[]
@@ -69,8 +70,15 @@ def main():
     check('anonymous fleet rejected',lambda:require(request('/api/fleet')[0]==401,'Unauthenticated read allowed'))
     check('viewer scenario mutation rejected',lambda:require(request('/api/demo/scenario',{'scenario':'arc_event','panel_id':'PNL-001'},viewer['access_token'])[0]==403,'Viewer mutation allowed'))
     def stack_health():
-        output=compose('ps','--format','json')
-        states=json.loads(output) if output.lstrip().startswith('[') else [json.loads(l) for l in output.splitlines() if l.strip()]
+        # API readiness can precede the first scheduled SCADA/web health probe.
+        deadline=time.monotonic()+45
+        while True:
+            output=compose('ps','--format','json')
+            states=json.loads(output) if output.lstrip().startswith('[') else [json.loads(l) for l in output.splitlines() if l.strip()]
+            ready=len(states)>=6 and all(s['State']=='running' and
+                    (s['Service'] not in {'db','mqtt','api','web','scada'} or s.get('Health')=='healthy') for s in states)
+            if ready or time.monotonic()>=deadline: break
+            time.sleep(1)
         require(len(states)>=6,'Missing services')
         for state in states:
             require(state['State']=='running',state['Service']+' not running')
@@ -120,8 +128,11 @@ def main():
                 probe='db-recovery-'+uuid.uuid4().hex
                 compose('exec','-T','api','python','scripts/publish_probe.py','--message-id',probe)
                 compose('start','db'); wait_health()
+                recovery_read_started=time.perf_counter()
                 data=request('/api/panels/PNL-001',token=token)[1]
+                recovery_read_seconds=time.perf_counter()-recovery_read_started
                 require(data.get('last_seen')==before,'Database persistence lost')
+                require(recovery_read_seconds<8,'Recovered panel read exceeded eight-second bounded check')
                 deadline=time.monotonic()+45
                 persisted=0
                 while time.monotonic()<deadline:
@@ -129,7 +140,8 @@ def main():
                     if persisted==1: break
                     time.sleep(1)
                 require(persisted==1,'QoS1 message published during DB outage was not committed exactly once after recovery')
-                return {'outage_health':code,'last_seen_preserved':True,'outage_message_committed_exactly_once':True}
+                return {'outage_health':code,'last_seen_preserved':True,'outage_message_committed_exactly_once':True,
+                        'recovery_panel_read_seconds':round(recovery_read_seconds,3)}
             check('database outage and reconnect',restart_database)
             def restart_mqtt():
                 compose('stop','mqtt'); time.sleep(3)
@@ -148,7 +160,8 @@ def main():
         finally:
             compose('start','db','mqtt','api','scada','simulator','web')
             wait_health()
-    output=ROOT/'docs/verification/stack-results.json'
+    output=Path(args.output)
+    if not output.is_absolute(): output=ROOT/output
     output.parent.mkdir(parents=True,exist_ok=True)
     output.write_text(json.dumps({'timestamp':datetime.now(timezone.utc).isoformat(),'checks':results},ensure_ascii=False,indent=2),encoding='utf-8')
     print('Report:',output.relative_to(ROOT))

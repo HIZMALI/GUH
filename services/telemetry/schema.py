@@ -51,6 +51,10 @@ class TelemetryFrame(BaseModel):
     source_row: int | None = Field(default=None, ge=7, le=158)
     replay_offset_seconds: int | None = Field(default=None, ge=0)
     simulation_step: int = Field(default=0, ge=0, le=1000000000)
+    scenario_revision: int | None = Field(default=None, ge=1)
+    demo_run_id: str | None = Field(default=None, max_length=80, pattern=r'^PNL-[0-9]{3,6}-r[0-9]+$')
+    demo_interval_seconds: float | None = Field(default=None, gt=0, le=86400)
+    focused_demo: bool = False
     accelerated: bool = True
 
     @field_validator('timestamp')

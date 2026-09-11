@@ -1,0 +1,32 @@
+connector,pin,pin_name,net,domain,direction,notes,status
+J1,1,+24V_AUX,VIN24,LOGIC,power_input,Existing approved low-voltage auxiliary supply only; no mains/bar bus connection,reference_concept
+J1,2,0V_AUX,GND_LOGIC,LOGIC,power_return,Not MPR/TVOC isolated commons,reference_concept
+J1,3,CHASSIS,CHASSIS,CHASSIS,shield,Chassis bonding design/PE procedure requires installation review,reference_concept
+J2,1,D1 / B(+) device convention,MPR_D1,MPR,data_bidirectional,"Read requests/responses only; TI ISO1410 A(+), pin12",reference_concept
+J2,2,D0 / A(-) device convention,MPR_D0,MPR,data_bidirectional,"TI ISO1410 B(-), pin13; verify terminal marking at commissioning",reference_concept
+J2,3,COM,GND_MPR,MPR,signal_common,Independent isolated common; never join the other port/logic ground,reference_concept
+J2,4,SHIELD,CHASSIS,CHASSIS,shield,Screen termination coordinated at enclosure; not signal common,reference_concept
+J3,1,D1 / B(+) device convention,TVOC_D1,TVOC,data_bidirectional,"Read requests/responses only; TI ISO1410 A(+), pin12",reference_concept
+J3,2,D0 / A(-) device convention,TVOC_D0,TVOC,data_bidirectional,"TI ISO1410 B(-), pin13; verify terminal marking at commissioning",reference_concept
+J3,3,COM,GND_TVOC,TVOC,signal_common,Independent isolated common; never join the other port/logic ground,reference_concept
+J3,4,SHIELD,CHASSIS,CHASSIS,shield,Screen termination coordinated at enclosure; not signal common,reference_concept
+J4,1,PAIR1+,ETH_CABLE_P1P,ETH_CABLE,data_bidirectional,RJ45 integral to WIZ850io; isolation transformer internal to module; no direct MCU net,reference_concept
+J4,2,PAIR1-,ETH_CABLE_P1N,ETH_CABLE,data_bidirectional,RJ45 integral to WIZ850io; isolation transformer internal to module; no direct MCU net,reference_concept
+J4,3,PAIR2+,ETH_CABLE_P2P,ETH_CABLE,data_bidirectional,RJ45 integral to WIZ850io; isolation transformer internal to module; no direct MCU net,reference_concept
+J4,6,PAIR2-,ETH_CABLE_P2N,ETH_CABLE,data_bidirectional,RJ45 integral to WIZ850io; isolation transformer internal to module; no direct MCU net,reference_concept
+J4,4,UNUSED / no PoE,NC_J4_4,ETH_CABLE,unconnected,10/100 module; spare-pair treatment is module internal; carrier adds no PoE,reference_concept
+J4,5,UNUSED / no PoE,NC_J4_5,ETH_CABLE,unconnected,10/100 module; spare-pair treatment is module internal; carrier adds no PoE,reference_concept
+J4,7,UNUSED / no PoE,NC_J4_7,ETH_CABLE,unconnected,10/100 module; spare-pair treatment is module internal; carrier adds no PoE,reference_concept
+J4,8,UNUSED / no PoE,NC_J4_8,ETH_CABLE,unconnected,10/100 module; spare-pair treatment is module internal; carrier adds no PoE,reference_concept
+J4,S,SHELL,CHASSIS,CHASSIS,shield,Module shield to chassis treatment requires EMC review; no unreviewed logic-ground bridge,reference_concept
+J5,RF,ANTENNA,RF_ANT,RF,rf_bidirectional,Existing RF connector on ESP32-S3-WROOM-1U; not a fabricated carrier RF footprint,reference_concept
+J5,S,RF_RETURN,GND_LOGIC,LOGIC,signal_common,Module antenna connector shield; chosen antenna/cable approval and routing TBD,reference_concept
+J6,1,USB_D+,USB_DP,LOGIC,data_bidirectional,Local MCU service only; no field reset line; J6.4 must not back-power carrier,reference_concept
+J6,2,USB_D-,USB_DM,LOGIC,data_bidirectional,Local MCU service only; no field reset line; J6.4 must not back-power carrier,reference_concept
+J6,3,GND,GND_LOGIC,LOGIC,signal_common,Local MCU service only; no field reset line; J6.4 must not back-power carrier,reference_concept
+J6,4,3V3_SENSE,V3V3,LOGIC,sense_only,Local MCU service only; no field reset line; J6.4 must not back-power carrier,reference_concept
+J6,5,MCU_EN_ONLY,MCU_EN,LOGIC,local_service,Local MCU service only; no field reset line; J6.4 must not back-power carrier,reference_concept
+J6,6,MCU_BOOT_ONLY,MCU_BOOT,LOGIC,local_service,Local MCU service only; no field reset line; J6.4 must not back-power carrier,reference_concept
+J7,1,PD_FEATURE_RX,PD_FEATURE_RX,LOGIC,input_only,Optional 3.3V UART receive-only derived features; external qualified acquisition; no HFCT raw input; same safe low-voltage domain only,reference_concept
+J7,2,LOGIC_GND,GND_LOGIC,LOGIC,signal_common,Optional 3.3V UART receive-only derived features; external qualified acquisition; no HFCT raw input; same safe low-voltage domain only,reference_concept
+J7,3,3V3_REFERENCE,V3V3,LOGIC,sense_only,Optional 3.3V UART receive-only derived features; external qualified acquisition; no HFCT raw input; same safe low-voltage domain only,reference_concept

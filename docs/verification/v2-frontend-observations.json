@@ -1,0 +1,140 @@
+{
+  "recorded_at": "2026-09-11T01:18:25.244Z",
+  "target": "http://127.0.0.1:3000",
+  "scope": "Local Docker V2 UI; synthetic telemetry; no external delivery or device writes",
+  "roles_mobile": {
+    "viewer_quick_actions_disabled": true,
+    "viewport": "390x844",
+    "page_overflow": false
+  },
+  "focused_thermal_pd": {
+    "run_id": "PNL-001-r26",
+    "wall_seconds_observed": 48.912,
+    "lead_steps": 10,
+    "transitions": [
+      {
+        "state": "NORMAL",
+        "step": 0,
+        "risk_score": 8,
+        "timestamp": "2026-09-11T01:18:27.004551+00:00"
+      },
+      {
+        "state": "ATTENTION",
+        "step": 19,
+        "risk_score": 31,
+        "timestamp": "2026-09-11T01:18:55.746601+00:00"
+      },
+      {
+        "state": "WARNING",
+        "step": 21,
+        "risk_score": 58,
+        "timestamp": "2026-09-11T01:18:58.773936+00:00"
+      },
+      {
+        "state": "CRITICAL",
+        "step": 31,
+        "risk_score": 80,
+        "timestamp": "2026-09-11T01:19:13.864216+00:00"
+      }
+    ],
+    "unit": "synthetic_demo_steps"
+  },
+  "run_isolation": {
+    "new_run_id": "PNL-001-r27",
+    "current_run_alarm_count": 0,
+    "historical_alarm_count": 41,
+    "historical_critical_preserved": true,
+    "h1": "right auxiliary compartment, cx439/cy292"
+  },
+  "browser_errors: V2 focused thermal-PD run proves ordered warning and new-run isolation without deleting history": {
+    "observed_at": "2026-09-11T01:19:20.079Z",
+    "errors": []
+  },
+  "deployment": {
+    "scale_source": "docs/verification/load-results.json",
+    "scale_sha256": "01ad23a389fc0a413de3a064df15eefa87237307f3dbe93debe29344664b30d5",
+    "cost_values": "Test inputs only, not quotes",
+    "expected_panel_tco": 155,
+    "expected_fleet_tco": 15500,
+    "blank_defaults": true,
+    "zero_denominator_blocked": true
+  },
+  "browser_errors: V2 deployment presents sourced scale evidence, installation classes and blank parametric TCO": {
+    "observed_at": "2026-09-11T01:19:24.392Z",
+    "errors": []
+  },
+  "notifications": {
+    "delivery": "SIMULATED local mock records",
+    "filters": [
+      "current run",
+      "CRITICAL",
+      "active"
+    ]
+  },
+  "browser_errors: V2 global alarm filters and notifications retain unmistakable simulated delivery labels": {
+    "observed_at": "2026-09-11T01:19:25.446Z",
+    "errors": []
+  },
+  "browser_errors: V2 pending response boundary never presents previous-run measurements as new live data": {
+    "observed_at": "2026-09-11T01:19:21.568Z",
+    "errors": []
+  },
+  "scada_bank_boundaries": [
+    {
+      "panel": "PNL-001",
+      "bank": 1,
+      "port": 1502,
+      "unit": 1,
+      "registers": 12,
+      "transport": "real Modbus TCP master"
+    },
+    {
+      "panel": "PNL-247",
+      "bank": 1,
+      "port": 1502,
+      "unit": 247,
+      "registers": 12,
+      "transport": "real Modbus TCP master"
+    },
+    {
+      "panel": "PNL-248",
+      "bank": 2,
+      "port": 1503,
+      "unit": 1,
+      "registers": 12,
+      "transport": "real Modbus TCP master"
+    },
+    {
+      "panel": "PNL-494",
+      "bank": 2,
+      "port": 1503,
+      "unit": 247,
+      "registers": 12,
+      "transport": "real Modbus TCP master"
+    },
+    {
+      "panel": "PNL-495",
+      "bank": 3,
+      "port": 1504,
+      "unit": 1,
+      "registers": 12,
+      "transport": "real Modbus TCP master"
+    },
+    {
+      "panel": "PNL-500",
+      "bank": 3,
+      "port": 1504,
+      "unit": 6,
+      "registers": 12,
+      "transport": "real Modbus TCP master"
+    }
+  ],
+  "browser_errors: V2 real SCADA master resolves all six bank boundaries through PNL-500": {
+    "observed_at": "2026-09-11T01:19:22.981Z",
+    "errors": []
+  },
+  "browser_errors: V2 viewer quick demos are disabled and deployment remains usable on mobile": {
+    "observed_at": "2026-09-11T01:19:26.565Z",
+    "errors": []
+  }
+}

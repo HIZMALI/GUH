@@ -20,6 +20,7 @@ import {
   FolderTree,
   Gauge,
   GitBranch,
+  Layers3,
   LayoutDashboard,
   LockKeyhole,
   LogOut,
@@ -59,9 +60,18 @@ import type {
   Scenario,
   Session,
   Severity,
+  History,
+  HistoryPage,
 } from "@/lib/types";
 import { TrendChart } from "./charts";
 import { Schematic } from "./schematic";
+import {
+  ActionCard,
+  EarlyWarningTimeline,
+  RunSelector,
+  ruleLabels,
+} from "./run-insights";
+import { DeploymentView } from "./deployment";
 
 type View =
   | "overview"
@@ -70,7 +80,9 @@ type View =
   | "events"
   | "scada"
   | "notifications"
-  | "sources";
+  | "sources"
+  | "deployment";
+// V2 adds a deployment/value surface without replacing the operations workspace.
 const statusNames: Record<Severity, string> = {
   NORMAL: "Normal",
   ATTENTION: "Dikkat",
@@ -90,6 +102,7 @@ const navigation: { id: View; label: string; icon: LucideIcon }[] = [
   { id: "events", label: "Olay geçmişi", icon: Activity },
   { id: "scada", label: "SCADA / Modbus", icon: Network },
   { id: "notifications", label: "Bildirimler", icon: Radio },
+  { id: "deployment", label: "Yaygınlaştırma", icon: Layers3 },
   { id: "sources", label: "Sistem ve kaynaklar", icon: GitBranch },
 ];
 const scenarioNames: Record<string, string> = {
@@ -621,9 +634,28 @@ export function Dashboard() {
               {panel ? (
                 <PanelDetail
                   panel={panel}
+                  token={session.access_token}
                   canOperate={canOperate}
                   acknowledge={acknowledge}
                   onDemo={() => setDemoOpen(true)}
+                  onRunStarted={(run, message) => {
+                    setPanel((current) =>
+                      current
+                        ? {
+                            ...current,
+                            ...run,
+                            demo_step: null,
+                            current_run_history: [],
+                            current_run_alarms: [],
+                            current_run_events: [],
+                            early_warning: undefined,
+                            actions: [],
+                          }
+                        : current,
+                    );
+                    setToast(message);
+                    setRefresh((r) => r + 1);
+                  }}
                 />
               ) : (
                 <Empty
@@ -709,6 +741,7 @@ export function Dashboard() {
                   <ResourceError error={resourceErrors.alarms} />
                   <AlarmList
                     alarms={alarms}
+                    global
                     canOperate={canOperate}
                     acknowledge={acknowledge}
                     onPanel={setSelectedId}
@@ -733,13 +766,34 @@ export function Dashboard() {
                     title="Bildirim günlüğü"
                     description="Mock adaptör tarafından oluşturulan bildirim kayıtları."
                   />
-                  <div className="context-strip">
+                  <div className="notification-demo-banner">
                     <span>
-                      <FlaskConical size={14} /> SİMÜLE EDİLDİ
+                      <FlaskConical size={23} /> SIMULATED · SİMÜLE EDİLDİ
                     </span>
                     <p>
                       SMS ve WhatsApp gönderilmez. Alıcılar demo hedefleridir.
                     </p>
+                  </div>
+                  <div className="notification-channels">
+                    {["sms", "whatsapp"].map((channel) => {
+                      const items = notifications.filter((item) =>
+                        item.channel.toLowerCase().includes(channel),
+                      );
+                      return (
+                        <section className="card" key={channel}>
+                          <Radio size={19} />
+                          <div>
+                            <strong>
+                              {channel === "sms" ? "SMS" : "WhatsApp"}
+                            </strong>
+                            <span>{items.length} gösterilen simüle kayıt</span>
+                          </div>
+                          <span className="simulation-badge">
+                            SAĞLAYICIYA GÖNDERİLMEDİ
+                          </span>
+                        </section>
+                      );
+                    })}
                   </div>
                   <ResourceError error={resourceErrors.notifications} />
                   <div className="card table-card">
@@ -755,6 +809,7 @@ export function Dashboard() {
                               <th>KANAL / ALICI</th>
                               <th>BİLDİRİM</th>
                               <th>PANO</th>
+                              <th>ALARM</th>
                               <th>ZAMAN</th>
                               <th>DURUM</th>
                             </tr>
@@ -777,11 +832,14 @@ export function Dashboard() {
                                     {n.panel_id}
                                   </button>
                                 </td>
+                                <td className="code-cell notification-alarm-id">
+                                  {n.alarm_id}
+                                </td>
                                 <td className="nowrap muted">
                                   {dateTime(n.timestamp)}
                                 </td>
                                 <td>
-                                  <span className="small-tag cyan">
+                                  <span className="simulation-badge">
                                     Simüle edildi
                                   </span>
                                 </td>
@@ -807,6 +865,7 @@ export function Dashboard() {
                 />
               )}
               {view === "sources" && <SourcesView />}
+              {view === "deployment" && <DeploymentView />}
             </>
           )}
           <footer className="main-footer">
@@ -815,7 +874,7 @@ export function Dashboard() {
               Koruma rölesi değildir
             </span>
             <span>
-              GridSentinel v1.0 <i /> On-premise
+              GridSentinel v2.0 <i /> On-premise
             </span>
           </footer>
         </main>
@@ -881,7 +940,29 @@ function FleetView({
     [transformer, setTransformer] = useState("all"),
     [sort, setSort] = useState("risk"),
     [limit, setLimit] = useState(12);
-  const s = fleet.summary;
+  const currentPanels = fleet.panels.filter(
+    (panel) => !panel.pending_current_run,
+  );
+  const pendingCount = fleet.panels.length - currentPanels.length;
+  const s = pendingCount
+    ? {
+        ...fleet.summary,
+        normal: currentPanels.filter((panel) => panel.state === "NORMAL")
+          .length,
+        attention: currentPanels.filter((panel) => panel.state === "ATTENTION")
+          .length,
+        warning: currentPanels.filter((panel) => panel.state === "WARNING")
+          .length,
+        critical: currentPanels.filter((panel) => panel.state === "CRITICAL")
+          .length,
+        offline: currentPanels.filter((panel) => !panel.communication_ok)
+          .length,
+        fleet_health: currentPanels.length
+          ? currentPanels.reduce((sum, panel) => sum + panel.health_score, 0) /
+            currentPanels.length
+          : null,
+      }
+    : fleet.summary;
   const regions = [...new Set(fleet.panels.map((p) => p.region))];
   const substations = [
     ...new Set(
@@ -907,9 +988,12 @@ function FleetView({
         .filter(
           (p) =>
             (status === "all" ||
-              (status === "offline"
-                ? !p.communication_ok
-                : p.state === status)) &&
+              (status === "pending"
+                ? p.pending_current_run
+                : !p.pending_current_run &&
+                  (status === "offline"
+                    ? !p.communication_ok
+                    : p.state === status))) &&
             (region === "all" || p.region === region) &&
             (substation === "all" || p.substation === substation) &&
             (transformer === "all" || p.transformer === transformer) &&
@@ -918,15 +1002,20 @@ function FleetView({
               .includes(query.toLocaleLowerCase("tr-TR")),
         )
         .sort((a, b) =>
-          sort === "risk"
-            ? b.risk_score - a.risk_score
-            : sort === "health"
-              ? a.health_score - b.health_score
-              : a.name.localeCompare(b.name),
+          sort !== "name" &&
+          Boolean(a.pending_current_run) !== Boolean(b.pending_current_run)
+            ? a.pending_current_run
+              ? 1
+              : -1
+            : sort === "risk"
+              ? b.risk_score - a.risk_score
+              : sort === "health"
+                ? a.health_score - b.health_score
+                : a.name.localeCompare(b.name),
         ),
     [fleet.panels, status, region, substation, transformer, query, sort],
   );
-  const risky = [...fleet.panels].sort(
+  const risky = [...currentPanels].sort(
     (a, b) => b.risk_score - a.risk_score,
   )[0];
   return (
@@ -968,6 +1057,18 @@ function FleetView({
           color="violet"
         />
       </div>
+      {pendingCount > 0 && (
+        <div className="context-strip">
+          <span>
+            <Clock size={14} /> ÖLÇÜM BEKLENİYOR
+          </span>
+          <p>
+            {pendingCount} panonun yeni demo çalışması için ölçüm bekleniyor.
+            Durum dağılımı, sağlık ortalaması ve risk önceliği yalnız güncel
+            çalışma verisi bulunan panoları kapsar.
+          </p>
+        </div>
+      )}
       {!inventory && (
         <div className="insights-row">
           <section className="card fleet-health">
@@ -1148,6 +1249,15 @@ function FleetView({
               { id: "WARNING", name: "Uyarı", count: s.warning },
               { id: "CRITICAL", name: "Kritik", count: s.critical },
               { id: "offline", name: "Çevrimdışı", count: s.offline },
+              ...(pendingCount
+                ? [
+                    {
+                      id: "pending",
+                      name: "Ölçüm bekleniyor",
+                      count: pendingCount,
+                    },
+                  ]
+                : []),
             ].map((t) => (
               <button
                 key={t.id}
@@ -1187,7 +1297,7 @@ function FleetView({
                           onClick={() => onPanel(p.id)}
                         >
                           <span
-                            className={`panel-symbol ${p.state.toLowerCase()}`}
+                            className={`panel-symbol ${p.pending_current_run ? "pending" : p.state.toLowerCase()}`}
                           >
                             <PanelTop size={18} />
                           </span>
@@ -1200,17 +1310,23 @@ function FleetView({
                         </button>
                       </td>
                       <td>
-                        <Badge state={p.state} />
+                        {p.pending_current_run ? (
+                          <span className="small-tag">Ölçüm bekleniyor</span>
+                        ) : (
+                          <Badge state={p.state} />
+                        )}
                       </td>
                       <td>
                         <div className="risk-cell">
                           <strong style={{ color: statusColors[p.state] }}>
-                            {number(p.risk_score)}
+                            {number(
+                              p.pending_current_run ? null : p.risk_score,
+                            )}
                           </strong>
                           <span>
                             <i
                               style={{
-                                width: `${Math.min(100, Math.max(0, p.risk_score))}%`,
+                                width: `${p.pending_current_run ? 0 : Math.min(100, Math.max(0, p.risk_score))}%`,
                                 background: statusColors[p.state],
                               }}
                             />
@@ -1219,7 +1335,9 @@ function FleetView({
                       </td>
                       <td>
                         <span className="numeric">
-                          {number(p.health_score)}
+                          {number(
+                            p.pending_current_run ? null : p.health_score,
+                          )}
                           <small> /100</small>
                         </span>
                       </td>
@@ -1231,12 +1349,18 @@ function FleetView({
                         <span
                           className={`communication ${p.communication_ok ? "" : "offline"}`}
                         >
-                          {p.communication_ok ? (
+                          {p.pending_current_run ? (
+                            <Clock size={13} />
+                          ) : p.communication_ok ? (
                             <Wifi size={13} />
                           ) : (
                             <WifiOff size={13} />
                           )}{" "}
-                          {p.communication_ok ? "Bağlı" : "Kesinti"}
+                          {p.pending_current_run
+                            ? "Ölçüm bekleniyor"
+                            : p.communication_ok
+                              ? "Bağlı"
+                              : "Kesinti"}
                         </span>
                         <small>{time(p.last_seen)}</small>
                       </td>
@@ -1361,16 +1485,111 @@ function Metric({
 
 function PanelDetail({
   panel: p,
+  token,
   canOperate,
   acknowledge,
   onDemo,
+  onRunStarted,
 }: {
   panel: Panel;
+  token: string;
   canOperate: boolean;
   acknowledge: (id: string) => Promise<void>;
   onDemo: () => void;
+  onRunStarted: (run: Partial<Panel>, message: string) => void;
 }) {
   const [tab, setTab] = useState("monitoring");
+  const [scope, setScope] = useState<"current" | "all">("current");
+  const [olderHistory, setOlderHistory] = useState<History[]>([]);
+  const [olderCursor, setOlderCursor] = useState<number | null | undefined>(
+    undefined,
+  );
+  const [historyError, setHistoryError] = useState("");
+  const [loadingOlder, setLoadingOlder] = useState(false);
+  const [quickBusy, setQuickBusy] = useState(false);
+  const [quickError, setQuickError] = useState("");
+  async function quickRun(scenario: "combined_thermal_pd" | "arc_event") {
+    setQuickBusy(true);
+    setQuickError("");
+    try {
+      const run = await api<Partial<Panel>>("/demo/scenario", token, {
+        method: "POST",
+        body: JSON.stringify({ scenario, panel_id: p.id, focus: true }),
+      });
+      onRunStarted(
+        run,
+        `${scenarioNames[scenario]} ${p.id} için başlatıldı. Yeni çalışmanın ölçümleri bekleniyor.`,
+      );
+    } catch (error) {
+      setQuickError(
+        error instanceof Error ? error.message : "Demo başlatılamadı.",
+      );
+    } finally {
+      setQuickBusy(false);
+    }
+  }
+  useEffect(() => {
+    setScope("current");
+    setOlderHistory([]);
+    setOlderCursor(undefined);
+    setHistoryError("");
+  }, [p.id, p.demo_run_id]);
+  const pending = Boolean(p.pending_current_run);
+  const currentHistory =
+    p.current_run_history || (p.demo_run_id ? [] : p.history || []);
+  const fullHistory = p.full_history || p.history || [];
+  const history =
+    scope === "current"
+      ? currentHistory
+      : [
+          ...new Map(
+            [...olderHistory, ...fullHistory].map((row) => [
+              row.id ?? `${row.timestamp}-${row.demo_run_id}`,
+              row,
+            ]),
+          ).values(),
+        ].sort((a, b) => Date.parse(a.timestamp) - Date.parse(b.timestamp));
+  const runAlarms =
+    p.current_run_alarms || (p.demo_run_id ? [] : p.alarms || []);
+  const scopedAlarms =
+    scope === "current"
+      ? runAlarms
+      : [
+          ...new Map(
+            [...runAlarms, ...(p.historical_alarms || p.alarms || [])].map(
+              (alarm) => [alarm.id, alarm],
+            ),
+          ).values(),
+        ];
+  const scopedEvents =
+    scope === "current"
+      ? p.current_run_events || (p.demo_run_id ? [] : p.events || [])
+      : p.full_events || p.events || [];
+  const cursor =
+    olderCursor === undefined
+      ? p.full_history_has_more
+        ? (fullHistory[0]?.id ?? null)
+        : null
+      : olderCursor;
+  async function loadOlder() {
+    if (cursor === null || loadingOlder) return;
+    setLoadingOlder(true);
+    setHistoryError("");
+    try {
+      const result = await api<HistoryPage>(
+        `/panels/${encodeURIComponent(p.id)}/history?scope=all&before_id=${cursor}&limit=120`,
+        token,
+      );
+      setOlderHistory((rows) => [...result.items, ...rows]);
+      setOlderCursor(result.next_before_id);
+    } catch (error) {
+      setHistoryError(
+        error instanceof Error ? error.message : "Geçmiş yüklenemedi",
+      );
+    } finally {
+      setLoadingOlder(false);
+    }
+  }
   const m = p.measurements;
   return (
     <>
@@ -1380,7 +1599,11 @@ function PanelDetail({
         description={`${p.id} · ${p.device_id} · Son örnek ${time(p.last_seen)}`}
       >
         <div className="heading-actions">
-          <Badge state={p.state} />
+          {pending ? (
+            <span className="small-tag">ÖLÇÜM BEKLENİYOR</span>
+          ) : (
+            <Badge state={p.state} />
+          )}
           <button className="primary" onClick={onDemo} disabled={!canOperate}>
             <Play size={14} /> Senaryo başlat
           </button>
@@ -1407,27 +1630,36 @@ function PanelDetail({
         <div className="card score-card">
           <span>RİSK SKORU</span>
           <strong style={{ color: statusColors[p.state] }}>
-            {number(p.risk_score)}
+            {number(pending ? null : p.risk_score)}
             <small>/100</small>
           </strong>
           <div className="score-track">
             <i
               style={{
-                width: `${p.risk_score}%`,
+                width: `${pending ? 0 : p.risk_score}%`,
                 background: statusColors[p.state],
               }}
             />
           </div>
-          <p>{statusNames[p.state]} · Açıklanabilir kural katkıları</p>
+          <p>
+            {pending
+              ? "Bu çalışma için ölçüm bekleniyor"
+              : `${statusNames[p.state]} · Açıklanabilir kural katkıları`}
+          </p>
         </div>
         <div className="card score-card">
           <span>EKİPMAN SAĞLIĞI</span>
           <strong className="cyan-text">
-            {number(p.health_score)}
+            {number(pending ? null : p.health_score)}
             <small>/100</small>
           </strong>
           <div className="score-track">
-            <i style={{ width: `${p.health_score}%`, background: "#43d5b4" }} />
+            <i
+              style={{
+                width: `${pending ? 0 : p.health_score}%`,
+                background: "#43d5b4",
+              }}
+            />
           </div>
           <p>Risk ve veri kalitesiyle hesaplanan sağlık göstergesi</p>
         </div>
@@ -1439,7 +1671,11 @@ function PanelDetail({
               Edge Gateway
             </span>
             <b className={p.communication_ok ? "good-text" : "bad-text"}>
-              {p.communication_ok ? "Bağlı" : "Kesinti"}
+              {pending
+                ? "Ölçüm bekleniyor"
+                : p.communication_ok
+                  ? "Bağlı"
+                  : "Kesinti"}
             </b>
           </div>
           <div>
@@ -1447,23 +1683,46 @@ function PanelDetail({
               <Shield size={16} /> TVOC-2 + COM
             </span>
             <b className={p.arc?.communication_ok ? "good-text" : "bad-text"}>
-              {p.arc?.communication_ok ? "İletişim var" : "İletişim yok"}
+              {pending
+                ? "Ölçüm bekleniyor"
+                : p.arc?.communication_ok
+                  ? "İletişim var"
+                  : "İletişim yok"}
             </b>
           </div>
           <p>
-            {!p.arc?.communication_ok
-              ? "Ark durumu bilinmiyor · iletişim yok"
-              : p.arc?.event
-                ? "Sentetik ark olayı kayıtlı"
-                : "Aktif ark olayı bildirilmedi"}
+            {pending
+              ? "Bu çalışma için ark durumu bekleniyor"
+              : !p.arc?.communication_ok
+                ? "Ark durumu bilinmiyor · iletişim yok"
+                : p.arc?.event
+                  ? "Sentetik ark olayı kayıtlı"
+                  : "Aktif ark olayı bildirilmedi"}
           </p>
         </div>
       </div>
+      <RunSelector
+        panel={p}
+        scope={scope}
+        onScope={setScope}
+        canOperate={canOperate}
+        busy={quickBusy}
+        onQuickRun={quickRun}
+      />
+      {quickError && (
+        <div className="inline-error" role="alert">
+          {quickError}
+        </div>
+      )}
+      <EarlyWarningTimeline data={p.early_warning} runId={p.demo_run_id} />
       <div className="detail-tabs">
         {[
           { id: "monitoring", name: "Pano ve izleme" },
           { id: "trends", name: "Ölçümler ve trendler" },
-          { id: "alarms", name: `Alarmlar (${p.alarms?.length || 0})` },
+          {
+            id: "alarms",
+            name: `Alarmlar (${scopedAlarms.length}) · ${scope === "current" ? "Bu çalışma" : "Tüm geçmiş"}`,
+          },
           { id: "events", name: "Olay geçmişi" },
         ].map((t) => (
           <button
@@ -1475,7 +1734,7 @@ function PanelDetail({
           </button>
         ))}
       </div>
-      {p.explanation?.data_quality?.length > 0 && (
+      {!pending && p.explanation?.data_quality?.length > 0 && (
         <div className="quality-alert">
           <TriangleAlert size={18} />
           <div>
@@ -1495,45 +1754,56 @@ function PanelDetail({
                 </h3>
                 <span className="small-tag">AÇIKLANABİLİR</span>
               </div>
-              <div className="explanation-content">
-                <span className="field-label">GÖZLENEN BELİRTİLER</span>
-                {p.explanation.observed.length ? (
-                  <ul>
-                    {p.explanation.observed.map((o, i) => (
-                      <li key={i}>
-                        <span />
-                        {o}
-                      </li>
-                    ))}
-                  </ul>
-                ) : (
-                  <p>Belirgin risk katkısı saptanmadı.</p>
-                )}
-                <div className="contributions">
-                  {p.explanation.contributions.map((c, i) => (
-                    <div key={i}>
-                      <span title={c.detail}>
-                        {c.rule}
-                        <small>{c.detail}</small>
-                      </span>
-                      <strong>+{number(c.points)}</strong>
-                    </div>
-                  ))}
-                </div>
-                <span className="field-label">OLASI NEDEN</span>
-                <p>{p.explanation.possible_cause}</p>
-                <div className="recommendation">
+              {pending ? (
+                <div className="run-empty">
+                  <Clock size={18} />
                   <span>
-                    <ShieldCheck size={16} /> Önerilen operatör aksiyonu
+                    Bu çalışma için ölçüm bekleniyor. Önceki çalışmanın skoru
+                    yeni gözlem olarak kullanılmaz.
                   </span>
-                  <p>{p.explanation.recommended_action}</p>
                 </div>
-                <div className="assumption-note">
-                  Eşikler mühendislik demo varsayımlarıdır; koruma ayarı veya
-                  doğruluk iddiası değildir.
+              ) : (
+                <div className="explanation-content">
+                  <span className="field-label">GÖZLENEN BELİRTİLER</span>
+                  {p.explanation.observed.length ? (
+                    <ul>
+                      {p.explanation.observed.map((o, i) => (
+                        <li key={i}>
+                          <span />
+                          {o}
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p>Belirgin risk katkısı saptanmadı.</p>
+                  )}
+                  <div className="contributions">
+                    {p.explanation.contributions.map((c, i) => (
+                      <div key={i}>
+                        <span title={c.detail}>
+                          {ruleLabels[c.rule] || c.rule}
+                          <small>{c.detail}</small>
+                        </span>
+                        <strong>+{number(c.points)}</strong>
+                      </div>
+                    ))}
+                  </div>
+                  <span className="field-label">OLASI NEDEN</span>
+                  <p>{p.explanation.possible_cause}</p>
+                  <div className="recommendation">
+                    <span>
+                      <ShieldCheck size={16} /> Önerilen operatör aksiyonu
+                    </span>
+                    <p>{p.explanation.recommended_action}</p>
+                  </div>
+                  <div className="assumption-note">
+                    Eşikler mühendislik demo varsayımlarıdır; koruma ayarı veya
+                    doğruluk iddiası değildir.
+                  </div>
                 </div>
-              </div>
+              )}
             </section>
+            <ActionCard actions={p.actions} pending={pending} />
             <section
               className={`card arc-card ${p.arc?.event ? "arc-active" : ""}`}
             >
@@ -1542,34 +1812,40 @@ function PanelDetail({
                   <Shield size={16} /> ABB Arc Guard
                 </h3>
                 <span className={p.arc?.event ? "bad-text" : "muted"}>
-                  {!p.arc?.communication_ok
-                    ? "BİLİNMİYOR · İLETİŞİM YOK"
-                    : p.arc?.event
-                      ? "SENTETİK ARC EVENT"
-                      : "OLAY YOK"}
+                  {pending
+                    ? "ÖLÇÜM BEKLENİYOR"
+                    : !p.arc?.communication_ok
+                      ? "BİLİNMİYOR · İLETİŞİM YOK"
+                      : p.arc?.event
+                        ? "SENTETİK ARC EVENT"
+                        : "OLAY YOK"}
                 </span>
               </div>
               <dl>
                 <div>
                   <dt>Dedektör</dt>
-                  <dd>{p.arc?.detectors?.join(", ") || "—"}</dd>
+                  <dd>{pending ? "—" : p.arc?.detectors?.join(", ") || "—"}</dd>
                 </div>
                 <div>
                   <dt>Trip rölesi kaydı</dt>
-                  <dd>{p.arc?.trip_relays?.join(", ") || "—"}</dd>
+                  <dd>
+                    {pending ? "—" : p.arc?.trip_relays?.join(", ") || "—"}
+                  </dd>
                 </div>
                 <div>
                   <dt>Olay zamanı</dt>
-                  <dd>{dateTime(p.arc?.timestamp)}</dd>
+                  <dd>
+                    {pending ? "Ölçüm bekleniyor" : dateTime(p.arc?.timestamp)}
+                  </dd>
                 </div>
                 <div>
                   <dt>Sistem state / aktif hata</dt>
                   <dd>
-                    {p.arc?.communication_ok
+                    {!pending && p.arc?.communication_ok
                       ? (p.arc.system_state ?? "—")
                       : "Bilinmiyor"}{" "}
                     /{" "}
-                    {p.arc?.communication_ok
+                    {!pending && p.arc?.communication_ok
                       ? p.arc.active_errors?.join(", ") || "Yok"
                       : "Bilinmiyor"}
                   </dd>
@@ -1642,9 +1918,28 @@ function PanelDetail({
               </div>
             ))}
           </div>
+          <div className="history-caption">
+            <span data-testid="history-scope-summary">
+              {scope === "current" ? "Bu demo çalışması" : "Tüm geçmiş"} ·{" "}
+              {history.length} ölçüm
+              {scope === "all" && p.full_history_total !== undefined
+                ? ` / ${p.full_history_total} korunmuş kayıt`
+                : ""}
+            </span>
+            {scope === "all" && cursor !== null && history.length < 2400 && (
+              <button
+                className="secondary"
+                disabled={loadingOlder}
+                onClick={loadOlder}
+              >
+                {loadingOlder ? "Yükleniyor…" : "Daha eski ölçümler"}
+              </button>
+            )}
+          </div>
+          <ResourceError error={historyError} />
           <div className="trends-grid">
             <TrendChart
-              history={p.history || []}
+              history={history}
               title="Faz akımları"
               unit="A"
               channels={[
@@ -1654,7 +1949,7 @@ function PanelDetail({
               ]}
             />
             <TrendChart
-              history={p.history || []}
+              history={history}
               title="Termal davranış"
               unit="°C"
               channels={[
@@ -1667,7 +1962,7 @@ function PanelDetail({
               ]}
             />
             <TrendChart
-              history={p.history || []}
+              history={history}
               title="PD baz çizgisi oranı"
               unit="×"
               channels={[
@@ -1679,7 +1974,7 @@ function PanelDetail({
               ]}
             />
             <TrendChart
-              history={p.history || []}
+              history={history}
               title="Risk skoru"
               unit="/100"
               channels={[
@@ -1691,12 +1986,12 @@ function PanelDetail({
       )}
       {tab === "alarms" && (
         <AlarmList
-          alarms={p.alarms || []}
+          alarms={scopedAlarms}
           canOperate={canOperate}
           acknowledge={acknowledge}
         />
       )}
-      {tab === "events" && <EventList events={p.events || []} />}
+      {tab === "events" && <EventList events={scopedEvents} />}
     </>
   );
 }
@@ -1706,36 +2001,69 @@ function AlarmList({
   canOperate,
   acknowledge,
   onPanel,
+  global = false,
 }: {
   alarms: Alarm[];
   canOperate: boolean;
   acknowledge: (id: string) => Promise<void>;
   onPanel?: (id: string) => void;
+  global?: boolean;
 }) {
   const [filter, setFilter] = useState("open"),
     [pending, setPending] = useState<string | null>(null);
-  const filtered = alarms.filter((a) =>
-    filter === "all" || filter === "open"
-      ? filter === "all" || a.status !== "resolved"
-      : a.status === filter,
+  const [severity, setSeverity] = useState("all");
+  const [runScope, setRunScope] = useState("all");
+  const filtered = alarms.filter(
+    (a) =>
+      (severity === "all" || a.severity === severity) &&
+      (runScope !== "current" || a.is_current_run === true) &&
+      (filter === "all" || filter === "open"
+        ? filter === "all" || a.status !== "resolved"
+        : a.status === filter),
   );
   return (
     <div className="card table-card">
       <div className="card-heading">
         <h3>
-          Alarm kayıtları <span className="muted">· {alarms.length}</span>
+          Alarm kayıtları <span className="muted">· {filtered.length}</span>
         </h3>
-        <select
-          aria-label="Alarm durum filtresi"
-          value={filter}
-          onChange={(e) => setFilter(e.target.value)}
-        >
-          <option value="open">Açık alarmlar</option>
-          <option value="active">Aktif</option>
-          <option value="acknowledged">Onaylanan</option>
-          <option value="resolved">Çözülen</option>
-          <option value="all">Tüm kayıtlar</option>
-        </select>
+        <div className="alarm-filters">
+          {global && (
+            <select
+              aria-label="Alarm çalışma filtresi"
+              value={runScope}
+              onChange={(event) => setRunScope(event.target.value)}
+            >
+              <option value="all">Tüm çalışmalar</option>
+              <option value="current">Güncel demo çalışmaları</option>
+            </select>
+          )}
+          <select
+            aria-label="Alarm önem filtresi"
+            value={severity}
+            onChange={(event) => setSeverity(event.target.value)}
+          >
+            <option value="all">Tüm önem seviyeleri</option>
+            {(["ATTENTION", "WARNING", "CRITICAL"] as Severity[]).map(
+              (state) => (
+                <option key={state} value={state}>
+                  {statusNames[state]}
+                </option>
+              ),
+            )}
+          </select>
+          <select
+            aria-label="Alarm durum filtresi"
+            value={filter}
+            onChange={(e) => setFilter(e.target.value)}
+          >
+            <option value="open">Açık alarmlar</option>
+            <option value="active">Aktif</option>
+            <option value="acknowledged">Onaylanan</option>
+            <option value="resolved">Çözülen</option>
+            <option value="all">Tüm kayıtlar</option>
+          </select>
+        </div>
       </div>
       {filtered.length ? (
         <div className="alarm-items">
@@ -1890,7 +2218,7 @@ function DemoDialog({
     try {
       await api("/demo/scenario", token, {
         method: "POST",
-        body: JSON.stringify({ scenario, panel_id: panelId }),
+        body: JSON.stringify({ scenario, panel_id: panelId, focus: true }),
       });
       onSuccess(
         `${scenarioNames[scenario] || scenario} senaryosu ${panelId} için seçildi. Simülatörün sonraki örneği bekleniyor.`,
@@ -2075,15 +2403,15 @@ function ScadaView({ token, panels }: { token: string; panels: Panel[] }) {
       </div>
       <div className="scada-flow card">
         <div>
-          <Activity size={23} />
-          <strong>Risk motoru</strong>
-          <small>Sentetik pano sonuçları</small>
+          <CircuitBoard size={23} />
+          <strong>Kaynak cihaz katmanı</strong>
+          <small>MPR-53CS / TVOC-2 + COM</small>
         </div>
         <ArrowRight size={20} />
         <div>
           <Server size={23} />
-          <strong>Modbus TCP bridge</strong>
-          <small>Salt okunur FC03 / FC04</small>
+          <strong>GridSentinel çıktı katmanı</strong>
+          <small>Risk / sağlık / alarm → Modbus TCP bankları</small>
         </div>
         <ArrowRight size={20} />
         <div>
@@ -2091,6 +2419,17 @@ function ScadaView({ token, panels }: { token: string; panels: Panel[] }) {
           <strong>Master okuması</strong>
           <small>API üzerinden gerçek TCP</small>
         </div>
+      </div>
+      <div className="scada-source-boundary">
+        <p>
+          MPR/TVOC kaynak register haritaları verilen gerçek belgelerden
+          uygulanmıştır. GridSentinel output haritası prototip tarafından
+          tanımlanmıştır; ADM/GDZ resmi register haritası değildir.
+        </p>
+        <span>
+          Health · Risk · State · Alarm · Thermal · PD · Arc · Communication ·
+          Sensor Health
+        </span>
       </div>
       <div className="card register-card">
         <div className="card-heading">
@@ -2123,13 +2462,16 @@ function ScadaView({ token, panels }: { token: string; panels: Panel[] }) {
                 ? "TCP okuması başarılı"
                 : "Bağlantı doğrulanmadı"}
           </span>
+          <span data-testid="scada-bank">
+            Bridge bank <b>{data?.bank ?? "—"}</b>
+          </span>
           <span>
             Host <b>{data?.host || "—"}</b>
           </span>
-          <span>
+          <span data-testid="scada-port">
             Port <b>{data?.port ?? "—"}</b>
           </span>
-          <span>
+          <span data-testid="scada-unit">
             Unit ID <b>{data?.unit_id ?? "—"}</b>
           </span>
           <span>{data ? time(data.timestamp) : "—"}</span>
@@ -2185,7 +2527,11 @@ function ScadaView({ token, panels }: { token: string; panels: Panel[] }) {
           <span>
             Harita v1 · Adres 10–11: UNIX zaman damgası uint32 high/low
           </span>
-          <span>Tek bridge en çok 247 unit ID</span>
+          <span>
+            {data?.bank_size
+              ? `Bank başına ${data.bank_size} unit · Panoya göre bank seçimi`
+              : "Bank kapasitesi API yanıtı bekleniyor"}
+          </span>
         </div>
       </div>
     </>

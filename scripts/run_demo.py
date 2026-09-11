@@ -28,7 +28,13 @@ def main():
     parser.add_argument('--panel',default='PNL-001')
     parser.add_argument('--no-build',action='store_true')
     parser.add_argument('--connect-only',action='store_true')
+    parser.add_argument('--presentation',action='store_true',help='Prepare a 500-panel focused synthetic jury demo')
+    parser.add_argument('--panels',type=int,help='Expand the virtual fleet; existing history is preserved')
     args=parser.parse_args()
+    if args.panels is not None and not 1 <= args.panels <= 10000:
+        parser.error('--panels must be an integer in 1..10000')
+    if args.presentation and args.panels is None:
+        args.panels=500
     bootstrap()
     if not args.connect_only:
         command=['docker','compose','up','-d']
@@ -44,10 +50,14 @@ def main():
             time.sleep(2)
     config=read_env()
     token=request('/api/auth/login',{'username':config['ADMIN_USERNAME'],'password':config['ADMIN_PASSWORD']})['access_token']
-    result=request('/api/demo/scenario',{'scenario':args.scenario,'panel_id':args.panel},token)
+    if args.panels is not None:
+        fleet=request('/api/demo/fleet',{'count':args.panels},token)
+        print(f'Virtual fleet: {fleet["count"]} panels (expansion only, history preserved).')
+    result=request('/api/demo/scenario',{'scenario':args.scenario,'panel_id':args.panel,'focus':True},token)
     print(json.dumps(result,ensure_ascii=False))
     print('Demo: http://localhost:3000 | login: ADMIN_USERNAME / ADMIN_PASSWORD in .env')
     print('All observations are synthetic; no real SCADA/field connection or external notification.')
+    print('Focused panel advances on accelerated synthetic time; background publication remains bounded.')
 
 
 if __name__=='__main__':

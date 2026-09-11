@@ -2,7 +2,9 @@
 
 11 Eylül 2026, Europe/Istanbul. Çalışan ortam yerel Docker Desktop Linux/WSL2; gözlemlerin tamamı sentetik. Sağlanan dokuz PDF ve Excel korunmuştur. Bu kayıt yazılım prototipini ve mühendislik konseptini kapsar; saha devreye alma veya koruma sertifikasyonu değildir.
 
-## Gerçek doğrulama sonuçları
+Bu belgenin aşağıdaki ilk bölümleri korunmuş **V1 tarihli kabul kaydıdır**. Güncel davranış, çoklu SCADA bankı ve firmware durumu için sondaki [V2 Hackathon Readiness](#v2-hackathon-readiness) bölümü esas alınır.
+
+## V1 gerçek doğrulama sonuçları
 
 | Kontrol | Sonuç | Kanıt |
 |---|---|---|

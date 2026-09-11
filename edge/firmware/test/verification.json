@@ -1,0 +1,46 @@
+{
+  "checked_at": "2026-09-11T01:00:04.471981+00:00",
+  "host_core": {
+    "status": "PASS",
+    "groups": 7,
+    "assertions": 308,
+    "target": "Linux host C++17",
+    "embedded_build": "NOT_RUN"
+  },
+  "elapsed_seconds": 3.491,
+  "compiler": "g++ (Debian 14.2.0-19) 14.2.0",
+  "build_command": [
+    "docker",
+    "build",
+    "-f",
+    "edge/firmware/test/Dockerfile.host",
+    "-t",
+    "gridsentinel-firmware-host-test:local",
+    "."
+  ],
+  "run_command": [
+    "docker",
+    "run",
+    "--rm",
+    "--network",
+    "none",
+    "gridsentinel-firmware-host-test:local"
+  ],
+  "image_id": "sha256:6929c98772ffb53ccf5914e393b9062ee293abc3bcbe7f5e2414a166df5396f2",
+  "embedded_build": {
+    "status": "NOT_RUN",
+    "reason": "ESP-IDF/PlatformIO/Arduino toolchains not installed; no physical board attached"
+  },
+  "physical_drivers": "NOT_VALIDATED",
+  "kicad_erc_drc": "NOT_RUN_KICAD_NOT_INSTALLED",
+  "source_sha256": {
+    "edge/firmware/include/gridsentinel/adapters.hpp": "d99cc229c4d566fef87ec62f0d2f856fffdda08d74caa13ae79015886923c6ed",
+    "edge/firmware/include/gridsentinel/board.hpp": "aa880395b676545e7296326d1301aa111fa1232b3e87feade35fe00501dcdb72",
+    "edge/firmware/include/gridsentinel/core.hpp": "79a4d5213c11fb2253727778f939e1dfb0904c39143ca51d570137f674759244",
+    "edge/firmware/include/gridsentinel/register_maps.hpp": "f3c0a4eac73d5dbfc8f35acd4592a7cac64d96a211d5058cc4aa669c2833e2c1",
+    "edge/firmware/src/core.cpp": "0d333398aedb59eed692eb3fc05d6271f7ea23d9bc946b3e5860dd135230eb28",
+    "edge/firmware/test/Dockerfile.host": "c4ff0bd54d88e16dc266af9e5a3a30a60758967437d6b4e708b8b5700a0ea22f",
+    "edge/firmware/test/file_journal.hpp": "b7e9e9e9fdec59ae463d4a082b0fb3a0f936563f2094a1d7a01131d7a96d2129",
+    "edge/firmware/test/host_tests.cpp": "0be2330caafcc1ca2621fb21f023eae2c81a32c7aef1b9d876fe3ed401a7a274"
+  }
+}

@@ -8,9 +8,11 @@ import struct
 import threading
 import time
 import urllib.request
+from contextlib import ExitStack
 
 from .master import receive_exact
 from .registers import RegisterCache
+from .banks import BankFleetCache
 
 LOG = logging.getLogger("gridsentinel.scada")
 
@@ -105,22 +107,39 @@ def main():
     token = os.environ.get("SERVICE_TOKEN")
     if not token:
         raise SystemExit("SERVICE_TOKEN is required; no default credential")
-    cache = RegisterCache(float(os.environ.get("SCADA_STALE_SECONDS", "15")))
+    port = int(os.environ.get("SCADA_PORT_BASE", os.environ.get("SCADA_PORT", "1502")))
+    cache = BankFleetCache(bank_size=int(os.environ.get("SCADA_BANK_SIZE", "247")),
+                          port_base=port, bank_count=int(os.environ.get("SCADA_BANK_COUNT", "3")),
+                          stale_seconds=float(os.environ.get("SCADA_STALE_SECONDS", "15")))
     stop = threading.Event()
     interval = float(os.environ.get("SCADA_POLL_INTERVAL", "1"))
     if interval <= 0:
         raise SystemExit("SCADA_POLL_INTERVAL must be positive")
     poller = threading.Thread(target=poll_fleet, args=(cache, os.environ.get("API_URL", "http://api:8000"), token, interval, stop), daemon=True)
-    poller.start()
-    host, port = os.environ.get("SCADA_HOST", "127.0.0.1"), int(os.environ.get("SCADA_PORT", "1502"))
-    with ReadOnlyModbusServer((host, port), cache) as server:
-        LOG.info("Synthetic demo read-only bridge listening on %s:%s", host, port)
+    host = os.environ.get("SCADA_HOST", "127.0.0.1")
+    with ExitStack() as resources:
+        # Bind every bank before advertising readiness. A conflict fails the service
+        # instead of silently running an incomplete 500-panel addressing surface.
+        servers = [resources.enter_context(ReadOnlyModbusServer((host, port + index), bank_cache))
+                   for index, bank_cache in enumerate(cache.caches)]
+        poller.start()
+        workers = [threading.Thread(target=server.serve_forever, kwargs={'poll_interval': .2}, daemon=True)
+                   for server in servers]
+        for index, worker in enumerate(workers):
+            worker.start()
+            LOG.info("Synthetic read-only bank %s listening on %s:%s", index + 1, host, port + index)
         try:
-            server.serve_forever(poll_interval=.2)
+            while not stop.wait(1):
+                pass
         except KeyboardInterrupt:
             pass
         finally:
             stop.set()
+            for server in servers:
+                server.shutdown()
+            for worker in workers:
+                worker.join(2)
+            poller.join(6)
 
 
 if __name__ == "__main__":

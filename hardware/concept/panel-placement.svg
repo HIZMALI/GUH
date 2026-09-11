@@ -70,7 +70,7 @@
 <circle cx="263" cy="482" r="19" class="node"/><text x="253" y="487" class="node-text">T4</text>
 <circle cx="447" cy="482" r="19" class="node"/><text x="437" y="487" class="node-text">T5</text>
 <circle cx="585" cy="482" r="19" class="node"/><text x="575" y="487" class="node-text">T6</text>
-<circle cx="805" cy="589" r="19" class="node"/><text x="792" y="594" class="node-text">TH</text>
+<g id="th-a-h1" data-zone="right-auxiliary" aria-label="TH-A / H1: sağ yardımcı hacimde temsil edici hava noktası"><circle cx="805" cy="589" r="19" class="node"/><text x="795" y="594" class="node-text">H1</text></g>
 <circle cx="631" cy="862" r="22" fill="#f1bd60" stroke="white" stroke-width="3"/><text x="618" y="868" class="label">PD</text>
 <!-- Dimensions. -->
 <path d="M107 190V910" class="dim" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
@@ -89,7 +89,7 @@
 <text x="956" y="401" class="label">T1–T6: sıcaklık</text>
 <text x="956" y="429" class="small">Kablosuz retrofit önerisi.</text>
 <text x="956" y="454" class="small">Canlı bağlantı yakını: sınıfC.</text>
-<text x="956" y="491" class="label">TH: hava sıcaklığı / nem</text>
+<text x="956" y="491" class="label">TH-A / H1: sıcaklık / nem</text>
 <text x="956" y="519" class="small">Güvenli, temsil edici hava yeri.</text>
 <text x="956" y="556" class="label">PD: HFCT + acquisition</text>
 <text x="956" y="584" class="small">Uygun toprak bağlantısı.</text>
