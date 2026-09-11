@@ -1,0 +1,115 @@
+{
+  "timestamp": "2026-09-10T23:38:36.765033+00:00",
+  "checks": [
+    {
+      "name": "anonymous fleet rejected",
+      "passed": true,
+      "seconds": 0.005,
+      "detail": null
+    },
+    {
+      "name": "viewer scenario mutation rejected",
+      "passed": true,
+      "seconds": 0.008,
+      "detail": null
+    },
+    {
+      "name": "Docker services healthy",
+      "passed": true,
+      "seconds": 0.475,
+      "detail": [
+        {
+          "service": "api",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "service": "db",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "service": "mqtt",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "service": "scada",
+          "health": "healthy",
+          "state": "running"
+        },
+        {
+          "service": "simulator",
+          "health": "",
+          "state": "running"
+        },
+        {
+          "service": "web",
+          "health": "healthy",
+          "state": "running"
+        }
+      ]
+    },
+    {
+      "name": "fleet populated with at least100 panels",
+      "passed": true,
+      "seconds": 0.199,
+      "detail": null
+    },
+    {
+      "name": "actual Modbus TCP master roundtrip",
+      "passed": true,
+      "seconds": 0.036,
+      "detail": {
+        "connected": true,
+        "registers": 12,
+        "transport": "modbus_tcp"
+      }
+    },
+    {
+      "name": "Modbus invalid register rejected",
+      "passed": true,
+      "seconds": 0.001,
+      "detail": null
+    },
+    {
+      "name": "Modbus writes rejected",
+      "passed": true,
+      "seconds": 0.001,
+      "detail": null
+    },
+    {
+      "name": "notification records explicitly simulated",
+      "passed": true,
+      "seconds": 0.164,
+      "detail": null
+    },
+    {
+      "name": "backend restart preserves durable panel data",
+      "passed": true,
+      "seconds": 2.331,
+      "detail": {
+        "last_seen_preserved": true
+      }
+    },
+    {
+      "name": "database outage and reconnect",
+      "passed": true,
+      "seconds": 12.393,
+      "detail": {
+        "outage_health": 503,
+        "last_seen_preserved": true,
+        "outage_message_committed_exactly_once": true
+      }
+    },
+    {
+      "name": "MQTT disconnect and reconnect",
+      "passed": true,
+      "seconds": 7.462,
+      "detail": {
+        "disconnected_visible": true,
+        "reconnected": true
+      }
+    }
+  ]
+}

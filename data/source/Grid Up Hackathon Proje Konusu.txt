@@ -1,0 +1,289 @@
+--- PAGE 1 ---
+Adm        ve     Gdz       Elektrik           Hackathon                  Proje        Konusu
+
+Pano/Hücre İçi Anomali Erken Uyarı Sistemi
+
+Problem
+
+OG hücreleri ve AG panolarda meydana gelen arızaların önemli bir bölümü; sıcaklık artışı, nem,
+aşırı akım,   izolasyon   zayıflığı ve   kısmi deşarj     gibi belirtilerle kritik arıza gerçekleşmeden önce
+sinyal verebilmektedir.
+
+Ancak   mevcut     yapılarda   bu belirtilerin birlikte    ve sürekli olarak     takip  edilmesi sınırlıdır. Birçok
+durumda problem, ekipman arızası, enerji kesintisi veya yangın riski ortaya çıktıktan sonra fark
+edilmektedir.
+
+Amaç:    pano    veya   hücre    içerisinde   oluşabilecek     olağandışı     durumların    erken    aşamada     fark
+edilmesini ve    ilgili ekiplerin  kritik bir arıza gerçekleşmeden önce bilgilendirilmesini sağlayacak
+bir sistem yaklaşımı geliştirmektir.
+
+Sahadan Gelen İhtiyaç
+
+Saha ekiplerinden gelen geri bildirimlerde özellikle şu ihtiyaçlar öne çıkmaktadır:
+
+    ●    Pano ve hücre içerisindeki anormal sıcaklık, akım değişimlerinin erken tespiti
+    ●    Nem ve çevresel koşulların takip edilmesi
+    ●    Kablolardan       geçen     akım     ile   ortam     ve    yüzey     sıcaklık    değişimlerinin      birlikte
+         değerlendirilmesi
+    ●    Kısmi deşarj veya benzeri erken arıza belirtilerinin izlenmesi
+    ●    Ark flaşlarının izlenmesi ile pano ve trafo yangınlarına yol açabilecek risklerin önceden
+         fark edilmesi
+    ●    Sahadan gelen verilerin merkezi operasyon sistemlerine aktarılması
+    ●    Kritik durumlarda ilgili saha ve operasyon ekiplerinin otomatik olarak bilgilendirilmesi
+
+Challenge
+
+Pano veya hücre içerisinde kullanılabilecek bir izleme yaklaşımı tasarlayın. Panolarda aşırı kablo
+yığını ve   kalabalığı mevcut olup yeni eklenecek            kontrol   ünitesi  ve sensörleri de      bu   kalabalığı
+kaotik  hale   getirebilir. Ayrıca    şebeke    kablolama     arasındaki    çalışma    kontrol   ünitesine,   sensör
+kablolarına zarar     verebilir  ya da   kontrol ünitesindeki çalışma da bu bağlantılara zarar verebilir.
+Kontrol   ünitesindeki     ufak   bir  çalışma    hem    hayati   risk   taşımakta    hem    de   şebekeye      etkisi
+sebebiyle planlı    kesinti yapılmalıdır. Mission Kritik bir sistem olduğundan kurulum sırasında ve
+sonrasındaki      tüm    hatalar,   sorunlar,    etkileri   iyi  düşünülmeli.      (  Örnek     kablosuz      sensör
+seçeneğinden, tak çalıştır bakım gerektirmeyen bir sistem tasarlanmalı.)
+
+Geliştireceğiniz    çözümün,      farklı  kaynaklardan      gelen   verileri  değerlendirerek      normal    çalışma
+koşullarından     sapmaları      belirleyebilmesi     ve    olası   arıza   riskleri   konusunda       erken    uyarı
+üretebilmesi beklenmektedir.
+                                                                                                                     1
+
+
+                                              Hizmete Özel | Restricted
+
+--- PAGE 2 ---
+Çözümün      yalnızca anomalinin tespitiyle sınırlı kalmaması; sahada oluşan bir durumun merkezi
+operasyon ekipleri tarafından nasıl takip edileceğini de ele alması beklenmektedir.
+
+Dikkate Alınabilecek Veriler
+
+Çözüm kapsamında aşağıdaki veri türlerinden uygun gördüklerinizi kullanabilirsiniz:
+
+    ●    Sıcaklık
+    ●    Yüzey veya kablo sıcaklığı
+    ●    Nem
+    ●    Akım
+    ●    Akustik veriler
+    ●    Kısmi deşarj PD göstergeleri
+    ●    Ark flaş sensör verileri
+    ●    Kabin içi/dışı fotoğrafları, kablolama şema ve bağlantı çizimleri
+    ●    Termal görüntü veya benzeri sensör çıktıları
+
+Tüm veri kaynaklarını       kullanılması    zorunlu değildir. Hangi verilerin problemi çözmek açısından
+anlamlı olduğuna ve bunların nasıl birlikte değerlendirileceğine takımınız karar vermelidir.
+
+Beklenen Çıktılar
+
+Hackathon      sonunda     takımlardan,     yalnızca    fikir veya   konsept    seviyesinde      değil;  donanım      ve
+yazılım bileşenlerini      birlikte  içeren, uçtan uca çalışan veya gösterilebilir bir prototip çözüm
+geliştirmeleri beklenmektedir.
+
+Sensörlerin     maliyet    veya   tedarik    açısından     erişilebilir  olmadığı    durumlarda      gerçek     sensör
+kullanımı zorunlu değildir. Akım, voltaj, anahtarlama ve benzeri saha verileri uygun yöntemlerle
+simüle edilerek sistemin çalışma prensibi ve veri akışı gösterilebilir.
+
+Geliştirilen çözümün aşağıdaki sorulara yanıt vermesi beklenmektedir:
+
+    ●    Sistemde hangi operasyonel ve çevresel verilerin takip edilmesi gerektiği belirlenmelidir.
+    ●    Normal ve anormal çalışma koşullarının nasıl ayrıştırılacağı ortaya konulmalıdır.
+    ●    Kritik   bir  durum      gerçekleşmeden         önce    risklerin   veya    anormalliklerin      nasıl   tespit
+         edileceği gösterilmelidir.
+    ●    Sahadaki      modüllerden        elde    edilen    verilerin    merkezi     sisteme      nasıl   aktarılacağı
+         tasarlanmalıdır.
+    ●    Operasyon ekiplerinin anlık durumu, anomalileri ve alarmları takip edebileceği bir izleme
+         altyapısı oluşturulmalıdır.
+    ●    Kritik    durumlarda        hangi     otomatik       aksiyonların      ve    bildirimlerin     tetikleneceği
+         tanımlanmalıdır.
+    ●    Çözümün        gerçek      saha    koşullarında      nasıl    uygulanabileceği        ve    yönetilebileceği
+         açıklanmalıdır.
+    ●    Çözümün        farklı    sahalarda      uygulanabilir,      ölçeklenebilir      ve     maliyet     açısından
+         sürdürülebilir bir yapıda olması beklenmektedir.
+    ●    Tasarımda      kabin   içerisindeki    yüksek     ve   düşük    sıcaklık,    yoğun    manyetik      alan   gibi
+         olumsuz saha koşulları göz önünde bulundurulmalıdır.
+
+
+                                                                                                                       2
+
+
+                                               Hizmete Özel | Restricted
+
+--- PAGE 3 ---
+    Takımlardan Beklenen Teknik Çıktılar
+
+    1.   Kabin İçi Fiziksel Modül / Prototip Tasarımı
+         Saha kullanımına      uygun boyutlarda       bir kabin içi    modül tasarlanmalıdır. Fiziksel sensör
+         veya    endüstriyel    ekipman      kullanımı   zorunlu    olmamakla      birlikte;  modülün      konsepti,
+         bileşen   seçimi,   şeması    veya   prototip   tasarımı   sunulmalıdır. Yapılacak olan çalışmada
+         paylaşılan 1600 kVA AG Pano teknik çizimleri kullanılacaktır.)
+    2.   Elektronik Tasarım Dokümantasyonu
+         Geliştirilen   modüle     ait PCB/kart     yapısı,   giriş-çıkış   bağlantıları,   bağlantı   şemaları    ve
+         kullanılan temel bileşenler dokümante edilmelidir.
+    3.   Yazılım Mimarisi
+         Çözümde mikrodenetleyici kullanılması durumunda;
+              ○   mikrodenetleyici üzerinde çalışan kaynak kodlar,
+              ○   programın temel çalışma mantığı,
+              ○   mümkünse akış diyagramı,
+              ○   Frontend tasarımları ve kaynak kodları
+
+         proje çıktıları arasında sunulmalıdır.
+    4.   Monitoring
+         Modüllerden      gelen   verilerin   merkezi    olarak   toplandığı    ve  izlenebildiği   bir  monitoring
+         uygulaması      geliştirilmelidir.  Yazılım   ve  veri  tarafındaki    çözümün     gerçek,    örnek    veya
+         sentetik veriler üzerinden gösterilebilir olması beklenmektedir.
+         Çözüm     kapsamında       mümkün      olduğunca      uçtan   uca    aşağıdaki    yapıların   gösterilmesi
+         beklenmektedir:
+              ○   SCADA entegrasyonu- Modbus Haritalama
+              ○   On-Premise altyapı Public Cloud yok)
+              ○   SMS/WhatsApp alarm mekanizması
+
+    5.   Ölçeklenebilirlik ve Kaynak Kullanımı
+         İlk  aşamada       sistemin    en   az   100    modülden       gelen    veriyi   işleyebilecek      şekilde
+         tasarlanması ve gerekli kaynak kullanımının değerlendirilmesi beklenmektedir. Donanım
+         mimarisinin     her  saha    için yüksek     maliyetli  işlemci   veya    geliştirme   kartlarına   bağımlı
+         olmaması, yaygınlaştırılabilir bir yapıda tasarlanması beklenmektedir.
+    6.   On-Premise / Özel Altyapı Yaklaşımı
+         Çözüm     kapsamında Public Cloud           kullanılmamalıdır. Verilerin       mevcut    durumda Public
+         Cloud    ortamlarında     tutulmasının    uygunluğu     netleşmediği      için sistemin    şirket  içi veya
+         uygun özel altyapıda çalışabilecek şekilde tasarlanması beklenmektedir.
+    7.   Alarm ve Acil Bildirim Mekanizması
+         Kritik  durumların     yalnızca    monitoring     ekranında     gösterilmesi     yeterli  değildir.   Alarm
+         oluşması    durumunda       ilgili operasyon     ekiplerine   SMS,    WhatsApp       veya   benzeri    anlık
+         bildirim   kanalları    üzerinden     uyarı  gönderebilecek       bir  mekanizma       tasarlanmalı    veya
+         prototip üzerinde gösterilmelidir.
+
+    Sunum ve Demo
+
+Final sunumunda takımın;
+
+    ●    fiziksel modülünü veya çalışan prototipini,
+    ●    uçtan uca veri akışını,
+                                                                                                                    3
+
+
+                                              Hizmete Özel | Restricted
+
+--- PAGE 4 ---
+    ●    monitoring/SCADA ekranlarını,
+    ●    örnek normal ve anormal çalışma senaryolarını,
+    ●    alarm oluşması ve bildirim mekanizmasını,
+    ●    sistem mimarisini,
+    ●    gerçek saha uygulaması ve ölçeklendirme yaklaşımını
+
+göstermesi beklenmektedir.
+
+Entegrasyon Beklentisi
+
+Önerilen    çözümün      ADM/GDZ'nin        mevcut     saha   ve   merkezi     operasyon     yapılarıyla    birlikte
+çalışabilecek şekilde düşünülmesi beklenmektedir.
+
+Takımların    mevcut     RTU/SCADA        yapılarıyla   entegrasyon       yaklaşımını    Modbus      Haritalama)
+göstermesi yeterlidir. Gerçek saha sistemlerine bağlantı kurulması beklenmemektedir.
+
+Sağlanacak Girdiler
+
+Katılımcılara çalışma kapsamında:
+
+    ●    Örnek/sentetik sensör verileri
+
+    ●    Sensörlere ilişkin örnek teknik bilgiler
+
+    ●    Kabin    içi/dışı  fotoğrafları,   kablolama     şema     ve   bağlantı    çizimleri   –  TEDAŞ      MYD
+         Şartnamesi
+
+sağlanacaktır.
+
+Kısıtlar
+
+Hackathon kapsamında fiziksel sensör veya endüstriyel ekipman satın alınması ve gerçek bir
+pano üzerinde saha kurulumu yapılması beklenmemektedir.
+
+Gerçek   saha verisine     veya fiziksel   sensörlere    erişimin mümkün olmadığı durumlarda sistemin
+çalışması örnek veya sentetik veriler üzerinden gösterilebilir.
+
+Çözümün     sahada uygulanmasını gerektirecek fiziksel kurulumların hackathon süresi içerisinde
+gerçekleştirilmesi beklenmemektedir.
+
+Değerlendirme Kriterleri
+
+Projeler değerlendirilirken özellikle:
+
+    ●    Problemin doğru anlaşılması
+    ●    Anomali ve risk tespit yaklaşımının başarısı
+    ●    Çözümün saha koşullarında uygulanabilirliği
+    ●    Uçtan uca sistem yaklaşımı
+    ●    Mevcut operasyon sistemleriyle entegrasyon kabiliyeti
+
+                                                                                                                  4
+
+
+                                             Hizmete Özel | Restricted
+
+--- PAGE 5 ---
+     ●    Ölçeklenebilirlik
+     ●    Kullanıcı/operasyon deneyimi
+     ●    Maliyet ve sağlanan fayda
+     ●    Yenilikçilik
+
+dikkate alınacaktır.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                                                                5
+
+
+                                                   Hizmete Özel | Restricted

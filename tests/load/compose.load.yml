@@ -1,0 +1,5 @@
+# Explicit benchmark settings; normal demo remains 1200 requests/minute.
+services:
+  api:
+    environment:
+      API_RATE_LIMIT: '20000'

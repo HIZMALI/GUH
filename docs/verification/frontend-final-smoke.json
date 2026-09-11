@@ -1,0 +1,26 @@
+{
+  "started_at": "2026-09-10T23:44:11.612Z",
+  "completed_at": "2026-09-10T23:44:13.523Z",
+  "base_url": "http://127.0.0.1:3000",
+  "environment": "Final Docker production web image",
+  "panel_id": "PNL-001",
+  "passed": true,
+  "checks": {
+    "login": true,
+    "local_api_connected": true,
+    "health_description": "Risk ve veri kalitesiyle hesaplanan sağlık göstergesi",
+    "risk_y_axis_labels": [
+      "100",
+      "50",
+      "0"
+    ],
+    "browser_page_errors": []
+  },
+  "scope": "Narrow post-build smoke. No simulator mutation, no application code changes, no full E2E rerun.",
+  "screenshots": [
+    "frontend-final-fleet.png",
+    "frontend-final-panel.png",
+    "frontend-final-trends.png"
+  ],
+  "preserved_report": "frontend-e2e.json"
+}

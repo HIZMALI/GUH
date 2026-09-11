@@ -1,0 +1,233 @@
+{
+  "id": "sensor_failure",
+  "name": "Sensör arızası",
+  "description": "Missing thermal, impossible humidity and explicitly stuck phase channel.",
+  "duration_steps": 30,
+  "expected_state": "ATTENTION",
+  "mode": "synthetic_demo",
+  "baseline": {
+    "step": 0,
+    "elapsed_seconds_at_default_3s_interval": 0,
+    "source_replay_offset_seconds": 0,
+    "risk_score": 8,
+    "health_score": 96,
+    "state": "NORMAL",
+    "key_measurements": {
+      "current_l1": 318.0,
+      "temperature_c": 37.39,
+      "humidity_pct": 49.64,
+      "pd_baseline_ratio": 1.026
+    },
+    "quality_failures": [],
+    "expected_alarm": null,
+    "rule_contributions": [
+      {
+        "rule": "baseline",
+        "points": 8,
+        "detail": "Sentetik demonun başlangıç değerleri: risk 8 / sağlık 96."
+      }
+    ],
+    "arc_event": false,
+    "gateway_communication_ok": true,
+    "arc_guard_communication_ok": true
+  },
+  "timeline": [
+    {
+      "step": 0,
+      "elapsed_seconds_at_default_3s_interval": 0,
+      "source_replay_offset_seconds": 0,
+      "risk_score": 8,
+      "health_score": 96,
+      "state": "NORMAL",
+      "key_measurements": {
+        "current_l1": 318.0,
+        "temperature_c": 37.39,
+        "humidity_pct": 49.64,
+        "pd_baseline_ratio": 1.026
+      },
+      "quality_failures": [],
+      "expected_alarm": null,
+      "rule_contributions": [
+        {
+          "rule": "baseline",
+          "points": 8,
+          "detail": "Sentetik demonun başlangıç değerleri: risk 8 / sağlık 96."
+        }
+      ],
+      "arc_event": false,
+      "gateway_communication_ok": true,
+      "arc_guard_communication_ok": true
+    },
+    {
+      "step": 4,
+      "elapsed_seconds_at_default_3s_interval": 12,
+      "source_replay_offset_seconds": 3600,
+      "risk_score": 8,
+      "health_score": 96,
+      "state": "NORMAL",
+      "key_measurements": {
+        "current_l1": 156.0,
+        "temperature_c": 37.56,
+        "humidity_pct": 49.93,
+        "pd_baseline_ratio": 1.037
+      },
+      "quality_failures": [],
+      "expected_alarm": null,
+      "rule_contributions": [
+        {
+          "rule": "baseline",
+          "points": 8,
+          "detail": "Sentetik demonun başlangıç değerleri: risk 8 / sağlık 96."
+        }
+      ],
+      "arc_event": false,
+      "gateway_communication_ok": true,
+      "arc_guard_communication_ok": true
+    },
+    {
+      "step": 8,
+      "elapsed_seconds_at_default_3s_interval": 24,
+      "source_replay_offset_seconds": 7200,
+      "risk_score": 20,
+      "health_score": 70,
+      "state": "ATTENTION",
+      "key_measurements": {
+        "current_l1": 516.0,
+        "temperature_c": null,
+        "humidity_pct": 137.0,
+        "pd_baseline_ratio": 0.998
+      },
+      "quality_failures": [
+        "L3 akımı: değer takılı kalmış",
+        "Bağlantı sıcaklığı: veri eksik",
+        "Bağıl nem: geçersiz ölçüm"
+      ],
+      "expected_alarm": "ATTENTION",
+      "rule_contributions": [
+        {
+          "rule": "baseline",
+          "points": 8,
+          "detail": "Sentetik demonun başlangıç değerleri: risk 8 / sağlık 96."
+        },
+        {
+          "rule": "availability",
+          "points": 12,
+          "detail": "Veri kalitesi veya erişilebilirlik sorunu nedeniyle risk en az 20 olarak gösterilir; değerlendirmeye duyulan güven azalır."
+        }
+      ],
+      "arc_event": false,
+      "gateway_communication_ok": true,
+      "arc_guard_communication_ok": true
+    },
+    {
+      "step": 10,
+      "elapsed_seconds_at_default_3s_interval": 30,
+      "source_replay_offset_seconds": 9000,
+      "risk_score": 20,
+      "health_score": 70,
+      "state": "ATTENTION",
+      "key_measurements": {
+        "current_l1": 402.0,
+        "temperature_c": null,
+        "humidity_pct": 137.0,
+        "pd_baseline_ratio": 0.976
+      },
+      "quality_failures": [
+        "L3 akımı: değer takılı kalmış",
+        "Bağlantı sıcaklığı: veri eksik",
+        "Bağıl nem: geçersiz ölçüm"
+      ],
+      "expected_alarm": "ATTENTION",
+      "rule_contributions": [
+        {
+          "rule": "baseline",
+          "points": 8,
+          "detail": "Sentetik demonun başlangıç değerleri: risk 8 / sağlık 96."
+        },
+        {
+          "rule": "availability",
+          "points": 12,
+          "detail": "Veri kalitesi veya erişilebilirlik sorunu nedeniyle risk en az 20 olarak gösterilir; değerlendirmeye duyulan güven azalır."
+        }
+      ],
+      "arc_event": false,
+      "gateway_communication_ok": true,
+      "arc_guard_communication_ok": true
+    },
+    {
+      "step": 20,
+      "elapsed_seconds_at_default_3s_interval": 60,
+      "source_replay_offset_seconds": 18000,
+      "risk_score": 20,
+      "health_score": 70,
+      "state": "ATTENTION",
+      "key_measurements": {
+        "current_l1": 144.0,
+        "temperature_c": null,
+        "humidity_pct": 137.0,
+        "pd_baseline_ratio": 1.023
+      },
+      "quality_failures": [
+        "L3 akımı: değer takılı kalmış",
+        "Bağlantı sıcaklığı: veri eksik",
+        "Bağıl nem: geçersiz ölçüm"
+      ],
+      "expected_alarm": "ATTENTION",
+      "rule_contributions": [
+        {
+          "rule": "baseline",
+          "points": 8,
+          "detail": "Sentetik demonun başlangıç değerleri: risk 8 / sağlık 96."
+        },
+        {
+          "rule": "availability",
+          "points": 12,
+          "detail": "Veri kalitesi veya erişilebilirlik sorunu nedeniyle risk en az 20 olarak gösterilir; değerlendirmeye duyulan güven azalır."
+        }
+      ],
+      "arc_event": false,
+      "gateway_communication_ok": true,
+      "arc_guard_communication_ok": true
+    },
+    {
+      "step": 29,
+      "elapsed_seconds_at_default_3s_interval": 87,
+      "source_replay_offset_seconds": 26100,
+      "risk_score": 20,
+      "health_score": 70,
+      "state": "ATTENTION",
+      "key_measurements": {
+        "current_l1": 534.0,
+        "temperature_c": null,
+        "humidity_pct": 137.0,
+        "pd_baseline_ratio": 0.99
+      },
+      "quality_failures": [
+        "L3 akımı: değer takılı kalmış",
+        "Bağlantı sıcaklığı: veri eksik",
+        "Bağıl nem: geçersiz ölçüm"
+      ],
+      "expected_alarm": "ATTENTION",
+      "rule_contributions": [
+        {
+          "rule": "baseline",
+          "points": 8,
+          "detail": "Sentetik demonun başlangıç değerleri: risk 8 / sağlık 96."
+        },
+        {
+          "rule": "availability",
+          "points": 12,
+          "detail": "Veri kalitesi veya erişilebilirlik sorunu nedeniyle risk en az 20 olarak gösterilir; değerlendirmeye duyulan güven azalır."
+        }
+      ],
+      "arc_event": false,
+      "gateway_communication_ok": true,
+      "arc_guard_communication_ok": true
+    }
+  ],
+  "source": "Workbook organizer-synthetic L1 replay; all other channels generated synthetic. Modified L1 scenarios explicitly generated.",
+  "timing": "At the default 100-panel fleet, one 900-second workbook offset is replayed per 3-second publication interval (300×). Fleet-average pacing uses max(requested interval, panel count / SIMULATOR_MAX_FPS), default 50 fps: 250 panels use 5 seconds, 500 use 10 seconds. Actual UTC timestamps track publication. Scenario rules use accepted-frame rolling windows.",
+  "expected_outcome": "Condition-monitoring alerts and locally simulated notification records. No device writes or protection actions.",
+  "communication_loss_note": null,
+  "thresholds": "Engineering demonstration assumptions only; never protection setpoints. PD is uncalibrated arbitrary units."
+}

@@ -1,0 +1,138 @@
+--- PAGE 1 ---
+                                             TECHIMP HQ SPA - Via Toscana 11/c            - 40069 Zola Predosa (BO) Italy
+                                             tel. +39.051.19986050     - fax +39.051.19986099       - e-mail info@techimp.com - web www.techimp.com
+
+
+
+HFCT PD sensor (50mm, diameter)
+
+
+TECHIMP High Frequency Current Transformer (HFCT) is an inductive partial discharge sensor showed in the Fig.
+2 and 3.
+
+
+
+
+
+
+
+
+
+
+
+
+                                     Fig. 2: TECHIMP High Frequency Current Transformer (internal diameter Φ50 mm)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                            Fig. 3: TECHIMP HFCT (50mm) layout reporting overall dimension
+
+
+
+
+
+
+
+
+
+
+
+  TECHIMP HQ SPA - via Toscana n°11/c - 40069 Zola Predosa (BO); C.F., P.I. e n°R.I. di Bologna 02610911204, Iscrizione REA di Bologna n°453254
+Capitale Sociale Euro 600.000,00 i.v. - Società con socio unico - Società soggetta all'attività di direzione e coordinamento di TI SHAREHOLDERS S.R.L.
+
+--- PAGE 2 ---
+                                           TECHIMP HQ SPA - Via Toscana 11/c           - 40069 Zola Predosa (BO) Italy
+                                           tel. +39.051.19986050     - fax +39.051.19986099     - e-mail info@techimp.com - web www.techimp.com
+
+
+HFCT technical data are listed in Tab. 2.
+
+                                                      Tab. 2: Technical characteristics of the HFCT sensor
+
+                                   Bandwidth (-6dB)                                          1 MHz ÷ 80 MHz
+
+                                   Max Sensitivity
+                                   (Vout / Iin  at 42 MHz, 50 Ω l     oad)                      17 mV/mA
+
+
+                                   Load Impedance                                                   50 Ω
+
+                                   Hole dimension                                                Φ 50 mm
+
+                                   Overall dimension                                  111 mm x 123 mm x 38 mm
+
+                                   Operating temperature                                      -20°C ÷ +70°C
+
+
+
+       To be noted that the internal diameter of the HFCT is                           50 mm         (see Fig.     3). Larger diameter requires a
+       customized HFCT which is not included and quoted in the present proposal.
+
+       The above customization feasibility is to be verified by TECHIMP once the bonding cable diameter is provided
+       by the Customer.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  TECHIMP HQ SPA - via Toscana n°11/c - 40069 Zola Predosa (BO); C.F., P.I. e n°R.I. di Bologna 02610911204, Iscrizione REA di Bologna n°453254
+Capitale Sociale Euro 600.000,00 i.v. - Società con socio unico - Società soggetta all'attività di direzione e coordinamento di TI SHAREHOLDERS S.R.L.

@@ -1,0 +1,33 @@
+{
+  "timestamp": "2026-09-10T23:44:54.312717+00:00",
+  "health": {
+    "status": "ok",
+    "database": "postgresql",
+    "mqtt_connected": true,
+    "mode": "synthetic_demo",
+    "timestamp": "2026-09-10T23:44:54.039432+00:00"
+  },
+  "fleet_summary": {
+    "total": 500,
+    "fleet_health": 96.0,
+    "open_alarms": 0,
+    "offline": 0,
+    "normal": 500,
+    "attention": 0,
+    "warning": 0,
+    "critical": 0
+  },
+  "demo_panel": {
+    "id": "PNL-001",
+    "scenario": "combined_thermal_pd",
+    "risk_score": 8,
+    "health_score": 96,
+    "state": "NORMAL",
+    "communication_ok": true,
+    "last_seen": "2026-09-10T23:44:46.838322+00:00"
+  },
+  "scada_connected": true,
+  "scada_register_count": 12,
+  "normal_api_rate_limit": 1200,
+  "one_command_demo_exit_code": 0
+}

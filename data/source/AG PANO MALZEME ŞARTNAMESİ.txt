@@ -1,0 +1,4225 @@
+--- PAGE 1 ---
+            TEDAŞ-MLZ/2003-  06.B
+
+
+
+
+
+
+
+   TÜRKİYE ELEKTRİK DAĞITIM A.Ş.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ALÇAK GERİLİM DAĞITIM PANOLARI
+         TEKNİK ŞARTNAMESİ
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+               ŞUBAT - 2003
+          OCAK - 2006 (REVİZE)
+        HAZİRAN – 2015 (REVİZE)
+
+--- PAGE 2 ---
+                                                        TEDAŞ-MLZ/2003-06.B
+
+
+                                        ALÇAK GERİLİM DAĞITIM PANOLARI
+                                                    TEKNİK ŞARTNAMESİ
+
+    İÇİNDEKİLER
+
+    BÖLÜM - I
+     1. GENEL
+        1.1. Konu ve Kapsam
+        1.2. Standartlar
+        1.3. Yönetmelikler
+        1.4. Çalışma Koşulları
+
+     2. ÖZELLİKLER
+        2.1. Elektriksel Özellikler
+              2.1.1.Anma Değerleri
+              2.1.2.Elektriksel Düzenleme ve Donanım
+              2.1.3.Tipler
+        2.2. Tasarım ve Yapısal Özellikler
+              2.2.1.   Genel
+              2.2.2.   Koruma Derecesi
+              2.2.3.   Sıcaklık Artışı
+              2.2.4.   Kısa Devre Dayanımı
+              2.2.5.   İç Ark Dayanımı
+              2.2.6.   Elektrik Çarpmasına Karşı Koruma
+                       2.2.6.1. Normal İşletmede Elektrik Çarpmasına Karşı Koruma
+                       2.2.6.2. Arıza Durumunda Elektrik Çarpmasına Karşı Koruma
+              2.2.7.   Açıklıklar, Atlama Aralığı ve Tırmanma Mesafeleri
+              2.2.8.   Mahfaza ve Bölümleri
+                       2.2.8.1. Çatı
+                       2.2.8.2. Kapılar
+                       2.2.8.3. Contalar
+                       2.2.8.4. Örtü Plakaları
+                       2.2.8.5. Havalandırma
+                       2.2.8.6. Kablo Giriş ve Çıkışları
+                     2.2.8.7. Panoların Zemine Bağlanması
+                                2.2.8.7.1. Harici Tip Panolar
+                                2.2.8.7.2. Dahili Tip Panolar
+              2.2.9.    Panonun Düzenlenmesi
+              2.2.10.  Pano İçi Bağlantılar
+                        2.2.10.1. Genel
+                        2.2.10.2. Ana Baralar ve Ara Bağlantı Baraları
+                        2.2.10.3. Teçhizat Bağlantıları
+                        2.2.10.4. AG Pano Besleme Çıkışları
+                        2.2.10.5 Devrelerin Tanıtılması
+              2.2.11.  Ölçü Aletleri
+              2.2.12.  İç İhtiyaç Devreleri
+              2.2.13.  İsim Plakası, Ölüm Tehlikesi İhbarları ve Amblem
+              2.2.14.  Korozyona Karşı Önlemler
+                        2.2.14.1. Genel
+                        2.2.14.2. Boyama
+                                2.2.14.2.1. Sac Mahfazalı Panolar
+                                2.2.14.2.2. Cam Elyaf Takviyeli Polyester Mahfazalı Panolar
+                                                                    1
+
+
+
+--- PAGE 3 ---
+                                                 TEDAŞ-MLZ/2003-06.B
+
+                      2.2.14.3. Galvanizleme
+            2.2.15.  Cihazların Ortak Özellikleri
+
+     3.DENEYLER
+       3.1.   Tasarım Doğrulaması (Tip Deneyleri)
+              3.1.1. Yapılış
+              3.1.2. Performans
+       3.2.   Rutin Doğrulama (Rutin Deneyler)
+                3.2.1. Yapılış
+              3.2.2. Performans
+
+     4.KABUL DENEYLERİ VE KURALLARI
+       4.1.   Numune Alma
+       4.2.   Kabul Deneyleri
+
+     5. MALZEME LİSTESİ
+     6. GARANTİLİ ÖZELLİKLER LİSTESİ
+     7. RESİMLER
+
+     BÖLÜM - II
+     1.  KABUL KRİTERLERİ
+     2.  KABUL DENEYLERİNE İLİŞKİN GENEL KURALLAR
+     3.  KABUL DENEYLERİ DIŞINDAKİ İNCELEME VE DENEYLER
+     4. TEKLİFLE BİRLİKTE VERİLECEK BELGE VE RESİMLER
+     5. ÇEŞİTLİ HÜKÜMLER
+       5.1.Teklif Fiyatları
+       5.2.   Ambalaj ve Taşıma
+       5.3.   AG Panolarla Birlikte Verilecek Belgeler
+       5.4.   Prototip İmalat ve Onayı
+       5.5.   Garanti
+
+    EKLER
+
+    EK-I      AG Panolar için;
+              Tek Hat Şeması
+              Malzeme Donanım Tablosu
+    EK- II    Pano Boyutları ve Cihazların Yerleşim Resimleri
+    EK- III   AG Pano Tip Kodlaması
+    EK- IV   Kayar Bara Prensip Resmi
+    EK- V    MAHFAZA İLE İLGİLİ DİĞER YAPISAL ÖZELLİKLER
+    EK- VI   KAİDE İLE İLGİLİ DİĞER YAPISAL ÖZELLİKLER
+    EK- VII Uyarı İşareti ve Yazısı Resmi
+    EK-VIII Malzeme Listesi
+    EK- IX   Garantili Özellikler Listesi
+
+
+
+
+
+                                                            2
+
+
+
+--- PAGE 4 ---
+                                                      TEDAŞ-MLZ/2003-06.B
+
+                                      ALÇAK GERİLİM DAĞITIM PANOLARI
+                                                  TEKNİK ŞARTNAMESİ
+
+                                                           BÖLÜM - I
+
+
+    1. GENEL
+
+    1.1. Konu ve Kapsam
+
+    Bu  şartname;  OG/AG  Dağıtım  Transformatörlerinden  AG  dağıtım  şebekelerini  beslemek  için
+    kullanılacak AG Dağıtım Panolarının (Metal Mahfazalı AG Dağıtım Panoları ile Metal ve Cam Elyaf
+    Takviyeli Polyester Mahfazalı Aydınlatma Panolarının) tasarımı, imali ve deneylerini kapsar.
+
+    Bu şartname kapsamındaki AG Dağıtım Panoları, kısaca “Pano”lar, şartname ve eklerinde belirtilen
+    elektriksel ve yapısal özelliklere uygun olarak fabrikada imal edilmiş, cihazları takılmış, cihazlar arası
+    bağlantıları ve deneyleri yapılmış, dış bağlantıları yapıldıktan sonra kullanılmaya hazır komple ünite
+    olarak, ambalaj içerisinde teslim edilecektir.
+
+    Panolarda kullanılacak bütün cihazlar, Malzeme Listesinde aksi belirtilmedikçe, şartnamede belirtilen
+    tip,  elektriksel  ve  yapısal  özelliklerde  ve  ilgili  standartlara  uygun  olarak  imalatçı  tarafından
+    sağlanacaktır.
+
+    1.2. Standartlar
+
+    Bu  şartname  kapsamındaki  AG  Dağıtım  Panoları  ve                  yardımcı  donanımların  tasarım,          yapım  ve
+    deneyleri aşağıda verilen Türk Standartlarının yürürlükteki en son baskılarına ve Türk Standartlarının
+    bulunmadığı hallerde sırasıyla EN, HD ve IEC standartlarına uygun olarak yapılacaktır. (Aşağıda
+    tabloda yer almayan, ancak teknik şartnamenin ilerleyen bölümlerinde atıfta bulunulan standartların da
+    yürürlükteki en son baskıları esas alınacaktır.)
+
+           STANDART             STANDART
+                 NO                   NO                                    STANDART ADI
+                 (TS)                (IEC)
+         TS EN 61439-1         IEC 61439-1         Alçak gerilim anahtarlama ve kontrol düzeni donanımları                 -
+                                                   Bölüm 1: Genel kurallar
+         TS EN 61439-5         IEC 61439-5         Alçak gerilim anahtarlama ve kontrol düzeni donanımları                 -
+                                                   bölüm 5: Genel şebekelerdeki güç dağıtımı için donanımlar
+         TS EN 60947-1         IEC 60947-1         Alçak Gerilim Anahtarlama Düzeni               ve Kontrol Düzeni        –
+                                                   Bölüm 1: Genel kurallar
+         TS EN 60947-2         IEC 60947-2         Alçak Gerilim Anahtarlama Düzeni ve Kontrol Düzeni
+                                                   Bölüm 2: Devre Kesiciler
+                                                   Alçak Gerilim Anahtarlama ve Kontrol Düzenleri                – Bölüm
+         TS EN 60947-3         IEC 60947-3         3:  Anahtarlar, ayırıcılar,  ayırıcı  anahtarlar  ve  eriyen  telli
+                                                   sigorta birleşimi birimleri
+         TS EN 60269-1         IEC 60269-1         Alçak Gerilim Sigortaları – Bölüm 1: Genel Özellikler
+                                                   Alçak   gerilim   sigortaları       -  Bölüm   2:   Yetkili   kişiler
+         TS HD 60269-2         IEC 60269-2         tarafından  kullanılan  sigortalar  için  ilâve  özellikler  (esas
+                                                   olarak   endüstriyel  uygulama  için)        -  A  ilâ  J  sigortaların
+                                                   standart hale getirilmiş sistemlerinin örnekleri
+                                                   Alçak  gerilim  sigortaları       - Bölüm  3:  Tecrübesiz  kişiler
+         TS HD 60269-3         IEC 60269-3         tarafından  kullanılan  sigortalar  için  ilâve  özellikler  (esas
+                                                   olarak ev ve benzeri yerlerdeki uygulamalar için)-               A ilâ f
+                                                   sigortaların standart hale getirilmiş sistemlerinin örnekleri
+         TS 5018-1                                 Elektrik  yardımcı  donanımları         - Devre  kesiciler     - Ev  ve
+                                                                  3
+
+
+
+--- PAGE 5 ---
+                                                              TEDAŞ-MLZ/2003-06.B
+
+           EN 60898-1                                     benzeri yerlerde kullanılan aşırı akım koruma düzenleri için
+                                                          - Bölüm 1: Alternatif akım (A.A.) devre kesiciler
+                                                          Elektriksel yardımcı donanımlar                 - Devre kesiciler        -  Ev ve
+           TS EN 60898-2                                  benzeri yerlerde kullanılan aşırı akım koruma için -                       bölüm
+                                                          2: A.A. ve D.A. çalışma için devre kesiciler
+                                                          Elektriksel  Ölçü  Aletleri  ve  Aksesuarları                     –   Doğrudan
+           TS 5590                                        Harekete    Geçen    Analog    Göstergeli                     –     Bölüm    2:
+           EN 60051-2                                     Ampermetreler,   voltmetreler   ve   voltmetreler   için   özel
+                                                          kurallar.
+           TS 3033                  IEC 60529             Mahfazalarla   Sağlanan   Koruma   Dereceleri.   (IP   kodu)
+           EN 60529                                       (Elektrik donanımlarında)
+
+     Eşdeğer      ya  da  daha  üstün        başka  standartlar  kabul  edilebilir.  Bu  durumda,  teklif  sahipleri  anılan
+     standardın İngilizce ya da Türkçe kopyasını teklifleriyle birlikte verecektir.
+
+     1.3.      Yönetmelikler
+
+      Panolarının tasarımı ve imalinde;
+               -    Elektrik Kuvvetli Akım Tesisleri Yönetmeliği,
+               -   Elektrik İç Tesisleri Yönetmeliği,
+               -   Elektrik Tesislerinde Topraklamalar Yönetmeliği’nin
+      yürürlükteki en son baskılarının ilgili hükümlerine uyulacaktır.
+     1.4.      Çalışma Koşulları
+
+     Malzeme   Listesinde   aksi   belirtilmedikçe,                    sipariş   konusu   Panolar   aşağıda   belirtilen   çalışma
+     koşullarında kullanılmaya uygun olacaktır.
+                                                                                                                                                               Tablo: 1
+
+                      KULLANMA YERİ                                             BİNA İÇİ                        BİNA DIŞI
+                                                                                 (Dahili)                          (Harici)
+     Yükselti                                                                    Aksi belirtilmedikçe 2000 metre
+     Ortam sıcaklığı (°C)
+     En çok                                                                        40 °C                             40 °C
+     24 saat içinde ortalama                                                       35 °C                             35 °C
+     En az1                                                                        -5 °C                            -25 °C
+     Kirlilik Derecesi                                                           Düzey II                         Düzey III
+     Bağıl nem                                                              + 40°C'de  %50                   + 25°C'de  %100
+                                                                            + 20°C'de  %90
+     Buzlanma                                                                         -                  Sınıf 10, 10mm
+     Yer sarsıntısı                                                                   -
+              Yatay ivme                                                                                0,5g
+              Düşey ivme                                                                                0,4g
+     Sistem Topraklaması                                                                   Doğrudan topraklı
+
+
+
+
+
+
+
+
+     1 Alıcı tarafından Malzeme Listesinde belirtilecektir.
+                                                                            4
+
+
+
+--- PAGE 6 ---
+                                                             TEDAŞ-MLZ/2003-06.B
+
+     2.ÖZELLİKLER
+
+     2.1. Elektriksel Özellikler
+
+     Malzeme  Listesinde  aksi  belirtilmedikçe,  Panolar                      aşağıda  belirtilen  elektriksel  özelliklere  uygun
+     olacaktır.
+
+     2.1.1.    Anma Değerleri
+                                                                                                                                                     Tablo:2
+       Anma frekansı                                                                                      50 Hz
+       Ana bara anma akımı                                                 Bağlanacağı OG/AG Dağıtım Trafosunun gücüne
+                                                                           göre Tablo:3a da belirtilmektedir.
+       Anma çalışma gerilimi                                                     231/400 V; 3 (üç) faz 4 (dört) telli sistem
+       Anma Darbe Dayanım Gerilimi, kV (Uimp)                                                               82
+
+               -   Anma akımları;
+                                                                                                                                                       Tablo:3a
+                                                 Metal Mahfazalı AG Dağıtım Panoları
+       Transformatörün gücü                    50        100       160       250        400       630        800      1000      1250       1600
+                   (kVA)
+     Ana bara  anma akımı                      72        145       230        360       580       910       1155      1445       1800      2312
+     (Amper)
+     Giriş Ünitesi anma akımı                  72        145       230        360       580       910       1155      1445       1800      2312
+     (Amper)
+
+               -    Pano girişinde beklenen (prospective) en yüksek kısa devre akımları3 ;
+                                                                                                                               Tablo:3b
+        Transformatörün gücü                     50       100        160       250       400       630       800      1000       1250      1600
+                    (kVA)
+     Etken değer (kA)                             2         4         6         9         15        23        19        24        30         38
+     Tepe değeri  (kA)                            3         6         10        15        30        48        38        50        63         80
+     Cos                                        0.7       0.7       0.5       0.5       0.3       0.25       0.3      0.25      0.25       0,25
+
+
+                                                                                                                                        Tablo:3c
+                                                              Aydınlatma Panosu
+     Ana bara  anma akımı (Amper)                                                                                               80
+     Giriş Ünitesi anma akımı (Amper)                                                                                           80
+     Pano girişinde beklenen en yüksek kısa devre akımları                              Etken değer (kA)                        38
+                                                                                       Tepe değeri  (kA)                        80
+                                                                                                       Cos                    0.25
+
+
+     2 Yükseltinin farklı seçilmesi durumunda TS EN 61439-1 Çizelge 12’ye uygun seçilecektir.
+     3 Kısa devre akımlarının belirlenmesinde;
+               -    50 kVA – 630 kVA arası transformatörler için %Uk=4,
+               -    800 kVA –1600 kVA arası transformatörler için %Uk=6 olarak alınmıştır.
+
+
+                                                                           5
+
+
+
+--- PAGE 7 ---
+                                                        TEDAŞ-MLZ/2003-06.B
+
+    2.1.2. Elektriksel Düzenleme ve Donanımı
+
+    Panolar,    aksi  belirtilmedikçe,       EK  I  ve    II’de  yer  alan  tek  hat  şemalarına  ve  malzeme  donanım
+    tablolarına uygun olarak donatılacak ve aşağıda belirtilen ana ve yardımcı devreler tesis edilecektir.
+    Bunlar;
+              -   Bir adet ana giriş,
+              -   AG Pano Donanım Listesinde belirtilen karakteristikte ve sayıda besleme çıkışları,
+              -   Bir adet üç fazlı sokak aydınlatma çıkışı,
+              -   Bir adet tek fazlı iç ihtiyaç çıkışı,
+              -   Ölçü devreleri.
+
+    2.1.3.   Tipler
+
+    Aksi belirtilmedikçe güçlerine göre pano tipleri aşağıdaki gibi olacaktır.
+
+                                             DAHİLİ TİP                                   HARİCİ TİP
+                                               (Kaide tipi)                   Direk tipi                   Kaide tipi
+                                                   250                            50                            50
+                                                   400                           100                           100
+                                                   630                           160                           160
+            PANO GÜÇLERİ                           800                             -                           250
+                    (kVA)                          1000                            -                           400
+                                                   1250                            -                 Aydınlatma Panosu
+                                                   1600                            -                             -
+
+    DİREK TİPİ: Trafo direğine tesis edilen profilden yapılmış bir mesnede montaj edilen pano.
+
+    KAİDE TİPİ: Harici tiplerde betondan ya da profilden yapılmış bir kaide üzerine, dahili tiplerde ise
+    kablo kanalı üzerine montaj edilen pano.
+
+    2.2.      Tasarım ve Yapısal Özellikler
+
+    2.2.1. Genel
+
+       i.     Tasarım  ve imalat, ilgili  standartlara uygun olarak, en  yeni  teknik uygulamalar ve en iyi
+              işçilikle yapılacak ve güvenlik faktörleri en geniş şekilde dikkate alınacaktır.
+
+       ii.    Panoların yapımında kullanılan bütün malzemeler, kullanım yerine ve amacına uygun, normal
+              çalışmada karşılaşılabilecek her türlü mekanik, termik, elektrik zorlamalara ve nem etkilerine
+              dayanıklı bir yapıda olacak ve hiçbir arıza ve kusuru bulunmayacaktır.
+
+      iii.    Panolarda kullanılan teçhizatlar, şartnamede belirtilen özelliklerde ve ilgili standartlara ve/veya
+              teknik şartnamelerine uygun olacaktır.
+
+      iv.     Pano içindeki teçhizatlar; tamir, bakım, ayar ve kullanım kolaylığı göz önüne alınarak montaj
+              plakası veya profiline yerleştirilecektir.
+
+       v.     Dış  bağlantı  terminallerine  kolayca  erişilebilecek,  kablo  bağlantıları  kolay  ve  güvenle
+              yapılabilecektir.
+
+      vi.     Metal mahfazalı       panoların temel yapısı (iskeleti); en az 2 mm kalınlığında hazır galvanizli
+              sacdan imal edilen dikey ve yatay profillerin bağlantı elemanları ile bir araya getirilmesinden
+              oluşacaktır. Pano içindeki montaj plakaları, montaj profilleri, bölme elemanları ve tüm iç
+
+                                                                    6
+
+
+
+--- PAGE 8 ---
+                                                    TEDAŞ-MLZ/2003-  06.B
+          montaj konstrüksiyon elemanları da en az 2 mm kalınlığındaki hazır galvanizli sacdan4 imal
+          edilecek ve boyanmayacaktır. Mahfazanın kenarları keskin olmayacak, çapak bulunmayacaktır.
+
+ vii.      Metal mahfazalı panolarda kapı, ve kapaklar en az 2 mm kalınlığındaki hazır galvanizli sacdan
+          imal edilecek ve pano iskeletine cıvata-somun, perçin gibi bağlantı elemanları kullanılarak
+          montaj edilecektir. Kaynak kullanılarak yapılacak birleştirmeler kabul edilmeyecektir.
+
+          Galvanizli plaka sacdan yapılmış bükümlü profillerden oluşturulacak pano gövdesi de kabul
+          edilecektir.
+
+viii.     Pano dizaynında montaj demontaj edilmesi gereken parçaların montajında kafes somunlu veya
+          perçin somunlu cıvata kullanılacaktır.
+
+  ix.     Panolar  kendinden  bazalı   ya  da  baza  eklentili  olabilecektir.  Malzeme  listesinde  aksi
+          belirtilmemişse kendinden bazalı olacaktır.
+
+          Panolarda taşıyıcı görevini görecek baza en az 50 mm yüksekliğinde olacaktır. Panolar kaideye
+          baza ile irtibatlandırılacaktır.
+
+          Metal mahfazalı panolarda baza en az 2 mm kalınlığındaki hazır galvanizli sacdan imal edilmiş
+          olacaktır. (Baza imalatında en az 3 mm kalınlığında DKP sac kullanılması koşuluyla kaynak ile
+          yapılacak birleştirmeye izin verilecektir. Bu durumda kaynak işlemleri tamamlandıktan sonra
+          baza sıcak daldırma yöntemiyle galvanizlenecektir.)
+
+           EK-IV’ te verilen pano görünüş resimlerindeki boyutlar baza hariç boyutlardır.
+
+  x.       Direk Tipi panolar hariç olmak üzere diğer panoların altı, kablo giriş ve çıkışları için açık
+          olacaktır.
+
+ xi.       Harici  tip  160  kVA,  250  kVA  ve  400  kVA  panoların  dışındaki  panoların  arkası  kapalı
+          olacaktır.  Harici  tip  160  kVA,  250  kVA  ve  400  kVA  panoların  arkasında  dış  bağlantı
+          iletkenlerinin  bağlantısının  kolaylıkla  yapılabilmesine olanak sağlamak  için içeriden  ya  da
+          dışarıdan açılabilir kapı bulunacaktır. Kapıların açılıp kapanması sırasında enerjili bölümlere
+          tesadüfen dokunmaya karşı gerekli önlemler alınmış olacaktır.
+
+xii.       Panolarda kullanılacak tüm cıvatalar en az 8.8 kalitesinde olacaktır.
+
+xiii.       Panolarda  kullanılacak  plastik  tüm  yalıtkan  malzemeler  olağan  dışı  ısıya  ve  aleve  karşı
+          dayanıklı olacaktır ve IEC 60695-11-10 standardına göre (Gerilimli bölümlere temas eden
+          yalıtkan malzeme V-0 sınıfına) uygun olacaktır.
+
+ 2.2.2.     Koruma Derecesi
+
+ Gerilimli bölümlere erişilmesine, katı cisimlerin girmesine ve su sızmasına karşı pano mahfazası TS
+ 3033 EN 60529'a göre en az aşağıdaki koruma derecelerini sağlayacaktır.
+
+     Bina içi (dahili)   : IP 2X
+     Bina dışı (harici) : IP 54 (Kaidesiyle birlikte montajlı iken)
+
+
+
+
+
+ 4 Besleme çıkışlarında Anahtarlı Otomatik Sigorta (AOS) kullanılan 50 kVA ve 100 kVA panoların imalatında
+ en az 3 mm kalınlığında DKP sac kullanılması koşuluyla kaynak ile yapılacak birleştirmeye izin verilecektir. Bu
+ durumda kaynak işlemleri tamamlandıktan sonra mahfaza sıcak daldırma yöntemiyle galvanizlenecektir.
+
+                                                                7
+
+--- PAGE 9 ---
+                                                   TEDAŞ-MLZ/2003-  06.B
+
+(Harici tip panolarda panonun kapısı açık durumda iken, gerilimli bölümlere erişilmeye karşı, en az
+IP2X koruma derecesi sağlanmış olacaktır.)
+
+NOT: Koruma dereceleri, tabanı açık panolarda taban hariç diğer bölümler içindir.
+
+2.2.3.Sıcaklık Artışı (Isınma)
+
+Panoların tasarımı, iletken kesitleri ile cihaz karakteristiklerinin seçiminde; çevre sıcaklıkları ve güneş
+ışınımı gibi dış etkenlerle, pano içindeki cihazlar, baralar, kablolar ve akım taşıyan diğer parçalarda,
+güç kayıpları nedeniyle oluşacak sıcaklık artışları dikkate alınacaktır.
+
+Sıcaklık artış sınırlarının denetlenmesi deneyinde pano içerisinde ölçülen sıcaklık artışı değerleri, TS
+EN 61439-1, Çizelge 8'de verilen değerleri aşmayacaktır.
+
+
+2.2.4.Kısa Devre Dayanımı
+
+Panoların tasarımı ve cihazların seçiminde Tablo:3b'de belirtilen kısa devre akımları dikkate alınacak
+ve panolar anma kısa devre akımlarında oluşacak termik ve dinamik zorlamalara dayanacaktır.
+
+2.2.5.İç Ark Dayanımı
+
+Pano içinde ark oluşumunu önleyici ve süresini kısaltıcı önlemler alınacaktır. Küçük bir olasılıkla dahi
+olsa, oluşabilecek bir iç ark durumunda insanların korunması için gerekli önlemler alınmış olacaktır.
+
+2.2.6.  Elektrik Çarpmasına Karşı Koruma
+
+2.2.6.1. Normal İşletmede Elektrik Çarpmasına Karşı Koruma
+
+Panolarda; kumandanın yapılacağı ön yüzde, menteşeli kapaklı bölümlerde normal işletmede gerilimli
+çıplak iletkenlere yanlışlıkla dokunmayı önlemek için bütün güvenlik önlemleri alınacaktır. Bu amaçla
+engel/mania  görevini  görecek  Örtü  Plakaları,  yalıtkan  terminal  koruyucuları,  vb.  kullanılacaktır.
+Panoların koruma derecesi en az form 2B (TS EN 61439-2) olacaktır.
+
+Görevli personel tarafından gerilimli durumda (pano enerji altında) iken ön yüzden;
+
+         -   Anahtarlama cihazlarının açma ve kapama işlemleri,
+         -   Salıcıların ayarı,
+         -   Göstergeli aletlerin okunması,
+
+tehlike riski olmadan yapılabilecektir.
+
+Panolarda doğrudan ve dolaylı temasa karşı gerekli önlemler alınacak ve bu amaçla panonun dikey
+inen çıplak Ana baralarının    önüne kapaklar konacaktır.
+         -   Panonun  üzerindeki  bara  çıkıntılarının  ön  ve  yan  yüzeyini  kapatacak  şekilde  çatıya
+             sabitlenmiş kapak bulunacaktır.
+         -   Akım trafolarının bulunduğu kısım elle açılıp kapatılabilecek vidalı kapakla kapatılacaktır.
+Baraların  önünü  kapatan  kapaklar  alev  almaz  saydam  yalıtkan  malzemeden  yapılmış  gözetleme
+pencereli olacaktır.
+
+Baralar  dışındaki  enerji  taşıyan  iletken  bölümler  (ölçü  aletleri  bağlantı  noktaları  gibi)  tesadüfen
+dokunmaya karşı korumalı alev almaz saydam ve yalıtkan bir malzeme ile kapatılacaktır.
+
+
+
+
+
+                                                               8
+
+--- PAGE 10 ---
+                                                       TEDAŞ-MLZ/2003-06.B
+
+    2.2.6.2. Arıza Durumunda Elektrik Çarpmasına Karşı Koruma
+
+     Bunun için;
+       i.     Panonun metal bölümleri ile panoda kullanılan cihazların gerilim altında kalabilecek bütün
+              çıplak metal bölümleri gerekli yerlerde koruma iletkeni (PE) kullanılarak panonun alt tarafına
+              tesis  edilecek    topraklama  terminaline          elektriksel  sürekliliği  sağlanacaktır.  Bu  amaç  için
+              panonun  metal  bölümlerinde  elektrik  deşarjı  yöntemi  ile  çakılmış  en  az  M6  ölçüsünde
+              paslanmaz cıvatalar kullanılacaktır. Bu irtibat, her iki ucuna pabuç takılmış uygun kesitte sarı-
+              yeşil bükülgen kablolar ile yapılacak ve kablo pabuçları çakma cıvatalara iki somun ve pul
+              arasına yerleştirilecektir.
+             NOT: Çakma cıvata yerine normal cıvata kaynak edilmesi ile paslanmaz dışında başka bir
+             malzemeden yapılmış cıvata ve somunlar (kaplama yapılmış olsa dahi) kabul edilmeyecektir.
+       ii.    Mahfazanın metal bölümlerini mekanik olarak birleştirmede kullanılan yöntemler sürekli ve iyi
+              bir iletkenlik sağlayacak ve akacak toprak arıza akımına dayanacak kapasitede olacaktır. İzli
+              rondela kullanılarak koruma devresinin elektriksel sürekliliği sağlanacaktır.
+      iii.    Metal  mahfazalı       panolarda     Koruma  devresinin  dış  topraklama  sistemine  bağlantısı  için
+              panonun alt bölümünde, pano gövdesine elektrik deşarjı yöntemi ile irtibatlandırılmış en az
+              M12 ölçüsünde paslanmaz cıvatadan bir                topraklama terminali          bulunacaktır. (630 kVA ve
+              üzeri güçlerdeki panolarda, panonun her iki iç              yan yüzünde birer adet topraklama terminali
+              bulunacaktır.) Topraklama terminali üzerinde iki adet paslanmaz malzemeden yapılmış somun
+              ve yaylı rondela takılmış olarak pano ile birlikte verilecektir. Topraklama terminali toprak
+              işaretiyle işaretlenecektir.
+      iv.     Cam Elyaf Takviyeli Polyester Mahfazalı               Aydınlatma Panoları topraklama barası üzerinden
+              topraklanacaktır. Topraklama iletkeninin bağlantısı için gerekli paslanmaz cıvata, somun ve
+              yaylı rondela bara üzerine takılmış olacaktır.
+
+             NOT: Direk tipi panolarda Topraklama Terminali, panonun yan dış yüzünde yer alacaktır.
+     2.2.7.Açıklıklar, Atlama Aralığı ve Tırmanma Mesafeleri
+         i.   Panodaki  cihazlar  arasında,        imalatçılarınca    belirtilen  açıklıklar  bulunacak  ve  bu  açıklıklar
+              normal  çalışma  koşullarında  değişmeyecektir.                Cihazlar,  ilgili  çalışma  koşulları  dikkate
+              alınarak, standartlarda belirtilen atlama aralığı ve tırmanma mesafesi koşullarını sağlayacak
+              şekilde monte edilecektir.
+         ii.  Baralar,  cihazlar  arası  bağlantılar  ve  kablo  pabuçları  gibi  gerilimli  çıplak  iletkenler  ve
+              terminaller için yaklaşım aralıkları ve tırmanma mesafeleri, en azından bunların bağlandıkları
+              cihazlar için belirtilen değerleri sağlayacaktır. Kısa devrelerde baralar ve çıplak bağlantılar
+              arasındaki açıklıklar kalıcı olarak azalmayacaktır.
+    2.2.8.Mahfaza ve Bölümleri
+
+    Mahfaza aşağıdaki özelliklerde olacaktır.
+
+                                   Metal Mahfazalı AG Dağıtım                          Aydınlatma Panosu
+                                                  Panosu
+    Mahfazanın tipi            Sac                                             - Sac
+                                                                               - Cam Elyaf Takviyeli Polyester
+    Dış tasarım                Dolap tipi                                       Dolap tipi
+    Montaj şekli               Kaide tipi,                                      Kaide tipi,
+                               Direk Tipi
+    Koruma derecesi                                     Madde 2.2.2.'de belirtildiği gibi
+
+
+
+                                                                   9
+
+
+
+--- PAGE 11 ---
+                                                         TEDAŞ-MLZ/2003-06.B
+
+     Cam Elyaf Takviyeli Polyester mahfaza ile ilgili diğer yapısal                        özellikler   Ek:9’da     belirtilmektedir.
+     Diğer Yapısal özellikler ile teknik şartnamenin ilgili diğer bölümlerinin çelişmesi halinde diğer yapısal
+     özelliklerde yer alan ifadeler geçerli olacaktır.
+
+     Mahfaza ile ilgili diğer yapısal özellikler aşağıda verilmektedir.
+
+     2.2.8.1. Çatı
+
+         i.   Harici tiplerde çatı, yağmur ve kar sularının birikmesini engelleyecek yapıda olacaktır.
+
+              Harici tip Metal Mahfazalı AG Dağıtım Panolarında                       panoların çatı imalatında en az 3 mm
+              kalınlığında   DKP   sac   kullanılması   koşuluyla   kaynak   ile   yapılacak   birleştirmeye   izin
+              verilecektir.  Bu  durumda  kaynak  işlemleri  tamamlandıktan  sonra   çatı  sıcak  daldırma
+              yöntemiyle galvanizlenecektir.
+
+         ii.  Dahili tiplerde çatı kapak şeklinde düz olacaktır.
+
+         iii. Metal Mahfazalı AG Dağıtım Panoları ve Aydınlatma panolarının kolayca kaldırılabilmesi için
+              uygun sayıda taşıma halkası/köşebendi                 bulunacaktır.     Taşıma halkası/köşebendi           çatı ve ana
+              karkas  ile  bağlantılı  olacak  kazara  üzerine  düşülmesi  gibi  durumlarda  canlılara  zarar
+              vermeyecek yapıda (delici, kesici, vb. özelliği olmayan yapıda) olacaktır.
+
+         iv.  Çatının  iç  tarafta  kalan  kısmında  veya  Panonun  üst  kısımlarında  haberleşme  ünitelerinin
+              yerleştirilmesi için uygun bölmeler yapılacaktır. Alıcı tarafından talep edilmesi halinde bu
+              üniteler için panonun atmosferik olaylardan, su, nem vs. gibi durumlardan etkilenmesine sebep
+              olmayacak şekilde harici anten çıkış yeri yapılacaktır.
+
+     2.2.8.2. Kapılar
+
+         i.   Kapılar;    sadece  “harici”  tip  panolarda  bulunacak              ve  burulma,  eğilme  ve  kasılmaya  karşı
+              dayanıklı  yapıda  olacaktır.  Bunun  için  gerekirse  kapı  içlerine  kuvvetlendirici  profiller
+              sabitlenecektir.
+
+         ii.  Kapılar, menteşeli ve kilitlenebilir tipte olacaktır. Menteşeler dışarıdan ulaşılamayacak şekilde
+              gizli  olacaktır.  Pano  yüksekliği  ne  olursa  olsun  kapı  başına  en  az  3  (üç)  adet  menteşe
+              kullanılacaktır.  Menteşeler,  kapı  açık  veya  kapalı  konumda  iken  aşağıdan  kaldırıldığında
+              serbest kalmayacak şekilde olacaktır.
+
+         iii. Kapılar     çalışmayı  önlemeyecek          şekilde  en  az  120°  açılacak  ve  açık  durumda  kalmasını
+              sağlayan rüzgar basıncına dayanıklı bir durdurma düzeniyle donatılacaktır.
+
+         iv.  Kapıların alt kenarları, panonun baza üzerine oturduğu yüzeyden itibaren en az 5 cm yüksekte
+              olacaktır.
+
+         v.   Kapı kolları ve kilitleme düzeni,  yağmur ve kar sularının kilide ulaşmasını önleyecek biçimde
+              olacaktır.    Kilitlerin  metal  parçaları  paslanmaz  çelikten  imal  edilmiş  olacaktır.                    Panolarda
+              kullanılacak kilit tipi için ALICI’nın onayı alınacaktır. 5 Ayrıca gerektiğinde asma kilit takmaya
+              uygun bir düzenek bulunacak ve bu düzenek yağmur ve kar sularının asma kilide ulaşmaması
+              için mahfaza içine alınacaktır. 6
+
+
+
+     5 ALICI tarafından talep edilmesi halinde kilitlerde ALICI’nın şifresi kullanılacaktır.
+     6 Kullanılacak asma kilitler ALICI tarafından temin edilecektir.
+
+                                                                     10
+
+
+
+--- PAGE 12 ---
+                                                        TEDAŞ-MLZ/2003-06.B
+
+         vi.  Çift kanatlı kapılarda kanatlardan biri diğerinin üzerine binecektir. Altta kalan kanat diğeri
+              kapanmadan önce içten üst ve alttan sürgülenerek sabitlenecektir. Üstteki kanat kapandığında
+              üç noktadan (üst/orta/alt) kilitleme sağlayacaktır.
+
+    2.2.8.3. Contalar
+
+    AG Panoda kullanılacak contalar AG Panonun çalışma koşullarında oluşacak ısı değişimlerine karşı
+    dayanıklı, çevre koşullarından dolayı özellikleri bozulmayan, kalıcı şekil değiştirme ile bulunduğu
+    bölümün      koruma  derecesinin  bozulmasına  neden  olmayan                   ve  ek  noktası  bulunmayan          tek  parça
+    poliüretan dökme         (ek noktası bulunmayan)           veya hava  yastıklı lastik        (Ek noktası menteşe altında
+    bırakılarak sabitlenmiş en fazla 1 ek noktası bulunabilir)  olacaktır.Keçe ve sünger gibi malzemelerden
+    yapılan contalar kabul edilmeyecektir.
+
+    2.2.8.4. Örtü Plakaları
+
+         i.   Örtü   Plakaları,   gerilimli   bölümlere   doğrudan   teması   engelleyeceği   gibi   anahtarlama
+              düzenlerinde oluşan arklara karşı da koruma sağlayacaktır.
+
+         ii.  Örtü plakaları metal olabileceği gibi cam elyaf takviyeli polyester malzemeden de olabilecektir.
+
+         iii. Örtü Plakaları üzerine ana anahtarlama elemanları (AG Kesici, Sigortalı Yük Ayırıcısı ile
+              besleme  çıkışlarında  kullanılacak  Anahtarlı  Otomatik  Sigortalar)  hariç  diğer  anahtarlama
+              elemanları ve ölçü aletleri montaj edilebilecektir. Örtü Plakaları açıldığında pano içinde yer
+              alan cihazların montajı ve demontajı rahatlıkla yapılabilecektir.
+
+         iv.  Örtü    Plakalarının    metal    olması    halinde    bunların    ana    gövdeye    bağlantısı                  metal
+              menteşe/cıvatalarla olacaktır.
+
+    2.2.8.5. Havalandırma
+
+         i.   Sıcaklık artışı ve terlemeyi önlemek için pano içinde yeterli havalandırma sağlanacaktır.  Metal
+              Mahfazalı panoların alt kısımlarında hava girişini, üst kısımlarında ise hava çıkışını sağlayacak
+              şekilde Madde 2.2.2.'de belirtilen koruma derecesini sağlayan havalandırma yarıkları/delikleri
+              bulunacaktır.  Dahili  tip  panoların  üst  kapağında  havalandırma  için  herhangi  bir  açıklık
+              olmayacaktır.
+
+         ii.  Metal   Mahfazalı        Harici   tip   Panolarda;   havalandırma   için   kullanılacak   havalandırma
+              yarıkları/deliklerinden   toz   girişini         önlemek   için   içerden   takılıp   çıkarılabilen   filtreler
+              bulunacaktır.  Bu  filtreler  temizlik  amacıyla  kolayca  takılıp  çıkarılabilmesi  için  kasetler
+              içerisine  yerleştirilecektir.     Filtreler  alev  iletmeyen  malzemeden  olacaktır.              Kasetler  panoya
+              cıvata-somun bağlantısı ile montajlanmalıdır.
+     2.2.8.6. Kablo Giriş ve Çıkışları
+       i.    Aksi  belirtilmedikçe  panolarda  kablo  giriş  ve  çıkışları  aşağıdaki  tabloda  belirtildiği  gibi
+            olacaktır.
+                                                            ANA GİRİŞ                             ÇIKIŞLAR
+
+
+                            Kaide Tipi                        Tabandan                             Tabandan
+    HARİCİ TİP                                                 Üst yan                       Üst yan veya alt yan
+                            Direk Tipi                          (Not:3)                              (Not:3)
+    DAHİLİ TİP              Kaide Tipi               Tavandan (Not:1, Not:4)                       Tabandan
+
+
+                                                                    11
+
+
+
+--- PAGE 13 ---
+                                                   TEDAŞ-MLZ/2003-  06.B
+
+
+NOTLAR
+    1.  Dahili tip panolarda panoya giriş, pano üstünde açılacak pencereden 150 mm yüksekliğe kadar
+         uzanan ana baralara kablo/bara irtibatı ile yapılacaktır. Ana baralar en az 2mm kalınlığındaki
+         hazır galvanizli sacdan imal edilmiş mahfaza ile kapatılacak baraların kolayca okunması için
+         mahfaza  etiketlenecektir. Pano  üstünde  açılacak  pencere  alev  almaz yalıtkan  malzemeden
+         yapılmış kapak ile kapatılacaktır.
+    2.  “Taban”dan kablo giriş ve çıkışı yapılan panoların tabanı açık olacak ve kablo giriş    -çıkışları
+         için rakor tesis edilmeyecektir.
+    3.   Direk tipi panolarda, kablo giriş ve çıkışları için, ön kapı yönünden bakıldığında panonun sol
+         yan yüzüne delikler açılacaktır ve açılan deliklere su geçirmez özellikte harici koşullara uygun
+         rakorlar takılacaktır.
+    4.   Malzeme Listesinde belirtilmesi halinde Ana Giriş, tabandan olabilecektir.
+
+ii.      Dış bağlantılar için kullanılan bara ve kabloların, normal işletme ve kısa devre koşullarında
+       bağlantı terminallerine zarar vermesini önlemek için pano içinde gerekli mesnetleme düzenekleri
+       sağlanacaktır.
+
+2.2.8.7. Panoların Zemine Bağlanması
+
+2.2.8.7.1. Harici Tip Panolar;
+
+         -   Kaide Tipi panolar ALICI tarafından yerinde yapılacak beton ya da profilden bir kaide
+             üzerine yerleştirilecektir. Bu amaçla panolara ait bazalarda, Panoların kaideye irtibatında
+             kullanılmak üzere en az M12 cıvatalar ile yapılacak bağlantıya uygun en az 4 (dört) adet
+             kuvvetlendirilmiş delikler yer alacaktır.
+
+             Kaide ile panonun bazası arasına ısı ve dış etkenlere dayanıklı, hava yastıklı lastik veya
+             daha üstün nitelikte conta konulacaktır.
+
+             Kaide, prefabrik olarak üretilmiş; sac, beton veya cam elyaf takviyeli polyester olacaktır.
+             Kaidenin hangi tip olacağı ALICI tarafından Malzeme Listesinde belirtilecektir. Kaide ile
+             ilgili diğer yapısal özellikler ve delik mesafeleri EK: 6’ da verilmektedir.
+
+         -   Direk Tipi panolar ALICI tarafından Trafo Direğinde profilden yapılacak bir kaide üzerine
+             yerleştirilecektir.   Bu   amaçla   panolara   ait   bazalarda,   Panoların   kaideye   irtibatında
+             kullanılmak üzere en az M12 cıvatalar ile yapılacak bağlantıya uygun en az 4 (dört) adet
+             kuvvetlendirilmiş delikler yer alacaktır.
+
+2.2.8.7.2. Dahili Tip Panolar;
+
+Dahili tip panolar aksi belirtilmedikçe kablo kanalı üzerine yerleştirilecektir. Bu amaçla panolara ait
+bazalarda, panoların kaideye irtibatında kullanılmak üzere en az M12 cıvatalar ile yapılacak bağlantıya
+uygun  kuvvetlendirilmiş  delikler  yer  alacaktır.  Bu  delikler  400  kVA  ya  kadar  (400  kVA  dahil)
+panolarda en az 4 (dört) adet, 630 kVA ve üzeri güçlerdeki panolarda en az 6 (altı) adet olacaktır.
+
+2.2.9.  Panonun Düzenlenmesi
+
+   i.      Panoların boyutları ve cihazların yerleştirilmesi EK II’ de yer alan resimlere uygun olacaktır.
+
+
+
+
+                                                              12
+
+--- PAGE 14 ---
+                                                     TEDAŞ-MLZ/2003-  06.B
+
+    ii.      Panolar önden işletilmeye uygun olarak düzenlenecektir. Bunun için cihazlar ve dış bağlantı
+           terminalleri;  önden  yapılacak  montaj,  kablaj,  bakım  ve  değiştirme  işlemleri  için  kolayca
+           erişilebilecek   şekilde   yerleştirilecek   ve   cihazların   kumandaları,   sigorta   elemanlarının
+           değiştirilmesi işlemleri kolayca ve emniyetli yapılacaktır.
+
+           Dış bağlantı için kullanılan çok damarlı kabloların, damarlarının ayrılması ve damarların uygun
+           şekilde bağlanabilmesi için yeterli alanlar bırakılacaktır.
+
+   iii.     Cihazlar,  normal  çalışmada  oluşan  sıcaklık,  elektrik  atlamaları,  elektromanyetik  alanlar,
+           titreşim gibi karşılıklı etkileşimden zarar görmeyecek biçimde yerleştirilecek ve bağlantıları
+           yapılacaktır.
+
+   iv.      Sigortalı Yük Ayırıcılarında, ayırıcı açık konumda olmadıkça sigortalara erişilemeyecektir.
+
+    v.      Termik Manyetik Kesicinin (TMK) açık/kapalı pozisyonunu gösteren konumları ön örtü/kapak
+           üzerinde işaretlenecektir. Kapalı konum için (I), açık konum için (0) sembolleri kullanılacaktır.
+
+   vi.      Besleme  çıkışlarının  beslediği  yeri  göstermesi  için  örtü  plakaları  üzerinde  etiket  yuvaları
+           bulunacaktır. (Besleme çıkışlarında Dikey Sigortalı Yük Ayırıcılı kullanılması halinde buna
+           gerek yoktur.)
+
+  vii.      Malzeme  Donanım  Tablosunda  Yedek  Besleme  çıkışları  olarak  belirtilen  çıkışlar  alıcı
+           tarafından malzeme listesinde belirtilmemişse boş (Kullanılan en büyük boy DSYA boyutları
+           kadar) bırakılacaktır. Yatay ana   baralar yedek çıkışların kullanımına uygun uzatılmış olacaktır
+           ve tesadüfen dokunmaya karşı kolaylıkla sökülüp takılabilecek uygun malzemeyle kapatılmış
+           (form 2b’ye uygun) olacaktır.
+
+ 2.2.10.    Pano İçi Bağlantılar
+
+ 2.2.10.1. Genel
+
+    i.      Akım   taşıyan   parçaların   bağlantıları,   normal   çalışmada   oluşan   sıcaklık   artışı,   yalıtım
+           malzemesinin eskimesi, elektrodinamik zorlamalar ve titreşimlerden zarar görmeyecek, termik
+           genleşme, farklı metaller kullanılması halinde oluşabilecek elektro galvanik etkiler dikkate
+           alınacaktır.
+
+    ii.    Akım taşıyan parçaların bağlantıları yeterli ve sürekli bir temas basıncı sağlayacak usullerle
+           yapılacaktır.
+
+    iii.    Cihazlar arası bağlantılarda kullanılacak kablolar silikon yalıtımlı olacaktır. Bu bağlantılarda
+           ek ve lehimle birleştirme yapılmayacak, bağlantılar sabit terminaller üzerinden yapılacaktır.
+           Kullanılan kablo tipine uygun olmayan terminaller için manşon ve pabuç gibi bağlantı parçaları
+           kullanılacaktır.
+
+    iv.    Cihazlar arası bağlantılarda kullanılacak kablolar pano içinde yatay ve düşey yönlerde monte
+           edilmiş kablo kanallarına yerleştirilecektir.
+
+2.2.10.2. Ana Baralar ve Ara Bağlantı Baraları
+
+    i.      Ana  baralar  dikdörtgen  kesitli  elektrolitik  bakır  lamalardan  (Öz  iletkenlik  katsayısı  en  az
+           56m/(Ωxmm    ²))    yapılacaktır.  Nötr barası kesiti faz barası kesiti ile aynı olacaktır. En az AG
+           Pano Donanım  Listesinde belirtilen kesitlerde olması  koşulu ile ana bara kesiti; panodaki
+           sıcaklık artışı, kısa devrelerde meydana gelecek termik ve dinamik zorlamalar ve titreşimlere
+           göre imalatçı tarafından farklı kesitlerde de seçilebilecektir.
+                                                                 13
+
+--- PAGE 15 ---
+                                                     TEDAŞ-MLZ/2003-  06.B
+
+
+   ii.      Nötr çıkış barası yatay baraların en altında olacak ve en az panonun çıkış adedi kadar (yedek
+           çıkışlar dahil) terminali bulunmalıdır.
+
+   iii.     Ana baralar ve nötr barası en az 3 mikron kalınlığında kalay ile kaplanacaktır. Ana baralar ile
+           teçhizatlar arasındaki bağlantıda kullanılacak Ara Bağlantı Baralarının kalay ile kaplanması
+           zorunlu değildir. Bu durumda ara bağlantıda kullanılacak baralar faz rengine uygun olarak
+           boyanacaktır.
+
+   iv.      Dikey ve Yatay ana baralar aynı kesitte olacaktır.
+
+    v.      EK IV de yer alan panoların boyutları ve cihazların yerleşim resimleri esas alınarak baralar
+           pano tabanına paralel veya düşey konumda yerleştirilecek ve gerekli sayıda mesnet izolatörleri
+           ile  tespit  edilecektir.  Mesnet  izolatörlerinin  tepe  kuvveti,  kısa  devrede  meydana  gelecek
+           dinamik kuvvetlere dayanacak kapasitede seçilecektir.
+
+   vi.      630 kVA, 800 kVA, 1000 kVA, 1250 kVA ve 1600 kVA panolarda pano girişi direk bara
+           bağlantılı olacaktır. Ancak Malzeme Listesinde belirtilmesi halinde kayar baralı olabilecektir.
+           Kayar baralı bağlantılarda kayar baranın civataları ana baralara sabitlenmiş/çakılı olacaktır.
+
+  vii.      Baralara açılan delikler ve cıvatalı bara bağlantıları DIN 43673 Part 1 ve 2’ye uygun olacaktır.
+
+ viii.     Dikey Sigortalı Yük Ayırıcılarının (DSYA) kullanıldığı panolarda ana bara mesafeleri, TS EN
+           60269-1’e uygun olacaktır.
+
+2.2.10.3. Teçhizat Bağlantıları
+
+   i.       Giriş ünitesindeki cihazlarla ana bara arasındaki bağlantılar, giriş ünitesi anma akımını taşıma
+           kapasitesine sahip olacak ve pano girişinde beklenen en yüksek kısa devre akımının termik ve
+           dinamik etkilerine dayanıklı olacaktır.
+
+   ii.       Ana  bara  ile  çıkış  ünitelerindeki  cihazlar  (  DSYA’lar  hariç  )  arasındaki  bağlantılarda,
+           kullanılacak iletkenlerin kesitleri; sıcaklık artışları, anma akımları, kısa devrelerde meydana
+           gelecek  termik  ve  dinamik  zorlamalar  ve  titreşimler  dikkate  alınarak,  imalatçı  tarafından
+           saptanacaktır.
+
+  iii.       Termik   Manyetik   Kesicinin   (TMK)   kablo   ve   bara   bağlantılarının   kolay   ve   sağlıklı
+           yapılabilmesi  sırasında  “Uzatma  Baraları”na  gerek  duyulması  halinde,  TMK  imalatçısı
+           tarafından bu amaç için üretilmiş  “Baralar” kullanılacaktır.
+
+  iv.       Besleme  çıkışlarında  kullanılacak  Dikey  Sigortalı  Yük  Ayırıcıları  (DSYA)  ,  baraların
+           mesnetlenme noktalarından sabitlenmeyecektir. Bunun için DSYA üzerinde bu amaç için  yer
+           alan sabitleme delikleri kullanılacaktır.
+
+   v.       Dikey Sigortalı Yük Ayırıcılarının ana baralara irtibatı, ana baralara çakılı/sabitlenmiş cıvatalar
+           ile yapılacaktır.
+
+ 2.2.10.4. AG Pano besleme çıkışları
+
+ i.  DSYA çıkışlı AG panoların giriş ünitesi akımı ve izin verilen toplam çıkış akımı dikkate alınması ve
+     Tip deneylerinin tamamlanması şartıyla besleme çıkışları farklı düzende (farklı boylardaki DSYA’
+     ların “00-1-2-3 Boy” kullanımı) ve sayıda istenebilir.
+
+
+
+                                                                 14
+
+--- PAGE 16 ---
+                                                  TEDAŞ-MLZ/2003-  06.B
+
+ii. Zaruriyet arz etmesi halinde bir adet DSYA çıkış akımının yetersiz kaldığı durumlarda giriş ünitesi
+    akımı,  izin  verilen  toplam  çıkış  akımı  hususlarının  dikkate  alınması  ve  Tip  deneylerinin
+    tamamlanması şartıyla (detay, uygulama ve imalattan doğabilecek her türlü sorumluluk) alıcının ve
+    üreticinin sorumluluğunda olmak üzere, “TEDAŞ-MYD/2002-042.A ALÇAK GERİLİM DİKEY
+    TİP  SİGORTALI  YÜK  AYIRICILARI”  teknik  şartnamesinde  yer  alan  DSYA’lar  aynı  anma
+    akımlı DSYA ile birleştirilerek kullanılabilinir. (Tip deneyinde kullanılan birleştirme aksesuarları
+    ile temin edilen birleştirme aksesuarları birebir aynı olmalıdır.)
+
+iii. 1000-1250kVA-1600kVA AG dağıtım panolarında DSYA çıkış akımının yetersiz kaldığı zaruri
+    durumlarda;  giriş  ünitesi  akımına  göre  izin  verilen  toplam  çıkış  akımı  ve  Tip  deneylerinin
+    tamamlanması şartıyla, (detay, uygulama ve imalattan doğabilecek her türlü sorumluluk) alıcının ve
+    üreticinin   sorumluluğunda   olmak   üzere,   TEDAŞ-MYD   Teknik   şartnamesi   bulunan   farklı
+    anahtarlama ve koruma elemanlarıyla çıkış istenebilir.
+
+2.2.10.5. Devrelerin Tanıtılması
+
+  i.       Ana baralarda ve Ara Bağlantı Baralarında faz işaretlemeleri aşağıdaki tabloya uygun olarak
+         yapılacaktır.
+
+        Fazlar                           Birinci Faz         İkinci Faz         Üçüncü Faz             NÖTR
+                                           (R Fazı)            (S Fazı)            (T Fazı)
+        Alfanümerik                            L1                 L2                  L3                   N
+        işaretleme
+        Renk ile işaretleme                   Gri                Siyah           Kahverengi          Açık Mavi
+
+  ii.     Ana ve yardımcı devrelerin montajında kullanılacak kablolar siyah renkte olacaktır. Tanıtım,
+         kablaj şemalarına uygun olarak yalnızca iletken uçlarında numaralandırma ile yapılacaktır.
+
+ iii.     Koruma topraklaması devresinde kullanılacak kablolar (PE) sarı-yeşil çift renkli olacaktır.
+
+ iv.      Ana ve yardımcı devrelerde kullanılacak nötr kabloları, açık mavi renkte olacaktır.
+
+2.2.11. Ölçü Aletleri
+
+  i.      Ana Girişte;
+
+                         1. SEÇENEK                                             2. SEÇENEK
+        Voltmetre7                                            Voltmetre
+        Voltmetre komütatörü (7 konumlu)7                     Voltmetre komütatörü (7 konumlu)
+        Enerji Ölçer (Enerji Analizörü)                       Elektronik Sayaç8
+                                 -                            Ampermetre (3 adet)
+
+ ii.       Sokak Aydınlatma Çıkışı;
+
+         -   Doğruluk sınıfı 0,5 olan elektronik trifaze aktif sayaç.
+            Panolarda   kullanılacak   sayaçlar,   EPDK   tarafından   yayınlanan   dağıtım   şirketlerince
+            kurulacak  OSOS  kapsamına  dahil  edilecek  sayaçların  haberleşme  donanımının  ve ilave
+            teçhizat ve altyapının ortak asgari teknik özelliklerini taşıyacaktır.
+
+
+7 İstenmesi halinde alıcı tarafından malzeme listesinde belirtilecektir.
+8 Kullanılacak elektronik sayacın tipi (aktif veya kombi ) ALICI tarafından Malzeme Listesinde belirtilecektir.
+
+
+
+                                                              15
+
+--- PAGE 17 ---
+                                                        TEDAŞ-MLZ/2003-  06.B
+
+
+iii.     Ana Giriş ve Sokak Aydınlatma Çıkışı devrelerinde tesis edilecek ölçü aletlerinin elektriksel
+         bağlantıları yapılırken;
+
+        -   Akım devrelerinde     : 4 mm²,
+        -   Gerilim devrelerinde  : 2.5 mm²
+        kesitli bakır iletkenli kablolar kullanılacaktır.
+
+iv.      Ölçü  Aletleri  ve  teçhizatına  ilişkin  teknik  karakteristikler  aşağıda  verilmektedir.  Malzeme
+         Listesinde  aksi  belirtilmedikçe  söz  konusu  teçhizatlar  belirtilen  karakteristiklere  uygun
+         olacaktır.
+
+        -   Voltmetre:
+             Ölçme sahası                                            : 250 VAC ve 500 VAC
+             Doğruluk sınıfı                                         : 1,5
+             Çalışma frekansı                                       : 45-65 Hz
+             Sürekli aşırı yüklenme (2 saat)                : 1.2 Un
+             Kısa süreli aşırı yüklenme                        : 2xUn
+             Bağlantı şekli                                           : Gömme tip, arkadan bağlantılı
+             Boyutları                                                  : 96x96 mm./72x72 mm.
+             Standartlar                                                : TS 5590/EN 60051-2
+
+        -   Ampermetre:
+              Doğruluk sınıfı                                        : 1,5
+              Çalışma frekansı                                     : 45-65 Hz
+              Sürekli aşırı yüklenme (2 saat)               : 1.2x In
+              Kısa süreli aşırı yüklenme                      : 10xIn
+              Bağlantı şekli                                          : Gömme tip, arkadan bağlantılı
+              Boyutları                                                 : 96x96 mm./72x72 mm.
+              Standartlar                                               : TS 5590/EN 60051-2
+              Diğer hususlar                                          : Mekanik sıfır ayarlı, trafonun anma akımı kırmızı
+                                                                       çizgi ile işaretli
+
+        -   Akım transformatörleri:
+             Primer akım                                             : Tek hat şemasına göre
+             Sekonder akım                                         : 5 Amper
+             Anma Gücü                                              : 5; 10; 15 VA (Yüke göre AG PANO imalatçısı
+                                                                       tarafından seçilecektir.)
+             Doğruluk sınıfı
+                        Ölçme için                                   : 0,5
+                        Koruma için                                : 1
+              Ölçü emniyet katsayısı                            : 5
+              Sürekli termik akım                                : 1.2xIn
+                Kısa süreli termik akım (Ith)                 : Pano girişinde beklenen en yüksek kısa devre
+                                                                         akımına uygun.
+             Dinamik anma akımı                               : 2.5xIth
+
+   v.   Panolarda Modem kullanılabilecektir. Bu üniteler Madde 1.4.’de verilen çalışma koşullarına
+         uygun  üretilmiş  olacaktır.  Panonun  içerisinde  atmosferik  olaylardan,  su,  nem  vs.  gibi
+         durumlardan   etkilenmesine   sebep   olmayacak   şekilde   uygun   bölmeler   yapılacaktır.   Bu
+         malzemelere ilişkin hangi tip olacağı ALICI tarafından Malzeme Listesinde belirtilecektir.
+
+
+                                                                     16
+
+--- PAGE 18 ---
+                                               TEDAŞ-MLZ/2003-  06.B
+
+    vi. Panolarda  Sabit  kompanzasyon  amaçlı  kondansatör  grubu  kullanılabilecektir.  Bu  üniteler
+        Madde  1.4.’de  verilen  çalışma  koşullarına  uygun  üretilmiş  olacaktır.  Panonun  içerisinde
+        atmosferik olaylardan, su, nem vs. gibi durumlardan etkilenmesine sebep olmayacak şekilde
+        uygun  bölmeler  yapılacaktır.  Bu  malzemelere  ilişkin  hangi  tip  olacağı  dağıtım  tesisinin
+        durumuna göre ALICI tarafından belirlenecek ve Malzeme Listesinde belirtilecektir.
+
+        “Sabit grup, ana otomatik şalterden önce veya sonra bağlanabilir. Sabit grubun ana otomatik
+        şalterden   önce   bağlanması   durumunda   gerekli   emniyet   tedbirleri   (uyarı   levhası   vb.)
+        alınmalıdır.”
+
+        Kondansatör gruplarının girişinde TS EN 60947 -1 ve TS EN 60947-3 standardına uygun yatay
+        tip sigortalı yük ayırıcısı kullanılmalıdır.
+
+    vii.Panolarda  AG  Parafudr  kullanılabilecektir. AG  Parafudrlar Madde  1.4.’de  verilen  çalışma
+        koşullarına ve TS EN 61643-21 “Parafudrlar- Alçak gerilim- Bölüm 21: Haberleşme ve
+        işaretleşme şebekelerine bağlı parafudrlar- Özellikler ve deney metotları” standardına
+        uygun  üretilmiş  olacaktır.  Panolarda  AG  Parafudr  istenmesi  halinde  özellikleri  ALICI
+        tarafından Malzeme Listesinde belirtilecektir.
+
+-     Enerji Ölçer (Enerji Analizörü)
+
+ALICI tarafından ihale dokümanında aksi belirtilmedikçe Panolarda kullanılacak Enerji Ölçer (Enerji
+   Analizörü) en az aşağıda belirtilen özelliklere sahip olacaktır. Bunlar;
+                                              Faz  gerilimleri  (faz-faz  ve  faz-nötr),       Faz  akımları,
+ ÖLÇÜM NOKTALARI (Ekrandan                    Frekans, Aktif güç (W), Reaktif güç (VAr), Sanal güç
+ izlenebilecek şekilde)                       (VA), Güç faktörü, Toplam aktif enerji (kWh), Toplam
+                                              reaktif enerji (kVArh), Akım ve Gerilim Harmonikleri
+ ÖLÇÜM PARAMETRELERİNİN                       Aktif enerji ölçümleri                           ≤ 0,5
+ DOĞRULUK SINIFI                              Frekans                                         ≤  0,5
+                                              Reaktif enerji ölçümleri                        ≤  1,5
+ GERİLİM ÖLÇME ARALIĞI                                                  85 – 520 V
+ AKIM ÖLÇME ARALIĞI                                                     0.2 – 5.5 A
+ FREKANS ÖLÇME ARALIĞI                                                  30 – 100 Hz
+ HARMONİK İZLEME ARALIĞI                                                    1-49
+ GÜÇ HARCAMASI (en çok)                                                     3 VA
+ HABERLEŞME                                   RS485 portu ile MODBUS haberleşme protokolü
+ ÇALIŞMA KOŞULLARI                            Madde 1.4.’e uygun olacaktır.
+ EKRAN                                        Aydınlatmalı LCD ekran
+ BOYUTLAR (en az)                             96mm X 96mm
+
+
+  Faz akımlarının minimum ve maksimum değerleri kaydedilecek ve  istenildiğinde bu değerlere
+   ulaşılabilecektir.
+  Enerji kesilmelerinde, o ana kadar ölçülmüş olan toplam aktif ve reaktif enerji ile faz akımlarının
+   minimum ve maksimum değerleri hafızadan silinmeyecek, enerji beslemesi gerçekleştiğinde bu
+   bilgilere ulaşılabilecektir.
+
+  Panonun anma akımının üzerinde çalışmasını engellemek ve Panodaki enerjinin izlenebilmesi için
+   Enerji analizöründe akım ve gerilim bilgisinin girilerek şifreli programlanabilir dijital 2 adet Röle
+   çıkışı bulunacaktır. (Ana bara anma akımının üzerinde set edilmeyecektir.) Malzeme listesinde
+   belirtilmesi halinde bu özellik istenmeyebilir.
+
+
+
+                                                           17
+
+--- PAGE 19 ---
+                                                  TEDAŞ-MLZ/2003-  06.B
+
+  Enerji  Ölçer  (Enerji  Analizörü)’ne  değişik  oranlarda  akım  trafolarının  bağlantısı  mümkün
+   olabilecektir.
+
+2.2.12.  İç İhtiyaç Devreleri
+  i.      Madde 2.1.2' de belirtilen iç ihtiyaç çıkışına aşağıdaki devreler bağlanacaktır.
+         -   Bir adet 1 fazlı güç prizi , (10 A kapasitede)
+         -   İç aydınlatma devresi.
+
+  ii.      Bağlantılarda;
+         -   Priz devrelerinde en az 2,5 mm²,
+         -   Aydınlatma devrelerinde en az 1,5 mm² kesitli bakır iletkenli kablolar kullanılacaktır.
+
+ iii.     İç ihtiyaç devrelerinde D tipi sigortaların kullanılması halinde bu sigortalara ait kaidelerin
+         gerilim altındaki bölümleri tesadüfen dokunmaya karşı korunmuş olacaktır.
+
+2.2.13.  İsim Plakası, Ölüm Tehlikesi İhbarları ve Amblem
+
+Panolarda aşağıda belirtilen isim plakaları, uyarı levhaları, bağlantı şemaları ve amblem bulunacaktır.
+
+Plakalar  ve  levhalar  paslanmaya  dayanıklı  malzemelerden  yapılacak  ve  paslanmaz  vidalar  veya
+perçinle tutturulacaktır.
+
+Yazılar okunaklı olacak, yazı ve şekiller dış etkilerle silinmeyecek ve solmayacaktır.
+
+    i.   İsim plakası, panonun ön yüzüne, kolayca görülebilecek ve okunabilecek bir yere konacaktır.
+         İsim plakaları; yapımcının adı ve adresi, imal yılı ve ayı, Alıcının adı, varsa sipariş numarası,
+         TEDAŞ Şartname kod numarası, malzeme kod numarası, seri numarası, pano gücü, anma
+         akımı, kısa süreli kısa devre dayanım akımı, koruma derecesi ve standartlarda belirtilen diğer
+         bilgileri içerecektir. Bu bilgiler isim plakasına kazıma yöntemi ile yazılacaktır.
+
+    ii.  Pano içindeki cihazlar üzerinde, ilgili standartlarında belirtilen bilgileri içeren isim plakaları
+         bulunacaktır.
+
+    iii. Dahili tip panoların ön yüzünde, harici tip panoların ise ön ve arka yüzünde Tehlike İhbar
+         İşareti olarak EK VII’ deki uyarı işareti ve yazısı belirtilen ölçülerde yer alacaktır. Uyarı
+         levhaları, Güvenlik ve Sağlık İşaretleri Yönetmeliğine uygun olacaktır.
+
+    iv. Harici tiplerde kapının iç yüzüne, dahili tiplerde dış yan yüzüne yapılacak bir cep içine naylon
+         mahfaza  içerisinde  Madde  5.3.  ‘de  belirtilen  “AG  panolarla  birlikte  verilecek  belgeler”
+         konacaktır.
+
+2.2.14. Korozyona Karşı Önlemler
+
+2.2.14.1.Genel
+
+Panoların imalatında kullanılacak malzemeler galvanik korozyona yol açmayacak şekilde seçilecek ve
+düzenlenecektir.
+
+Panoların yapımında kullanılan tüm malzemeler korozyona ve yaşlanmaya karşı dayanıklı olacaktır.
+
+
+
+
+                                                              18
+
+--- PAGE 20 ---
+                                                       TEDAŞ-MLZ/2003-06.B
+
+    Korozyona karşı en azından aşağıdaki önlemler alınacaktır:
+
+         -    Metal  bölümler  korozyona  dayanıklı  malzemeden  yapılacak,  yüzeyler  korozyonu  en  aza
+              indirecek şekilde işlenecek ve kaplanacaktır.
+
+         -    Bütün yüzeyler su tutmaz şekilde düzenlenecektir.
+
+         -    Akım taşıyan parçalar demir içermeyen metalden yapılacaktır.
+
+         -    İmalatta  kullanılacak  malzeme  galvanik  korozyona  yol  açmayacak  şekilde  seçilecek  ve
+              düzenlenecektir.
+
+         -    Demirli parçalar galvanizli olacaktır.
+
+    2.2.14.2. Boyama
+
+    2.2.14.2.1.Sac Mahfazalı Pano’lar
+    Sac mahfazalı       panoların dış yüzeyleri boyalı olarak temin edilecektir. Boyamada metal parçaların
+    elektriksel  sürekliliği  kesilmeyecektir.  Boya  rengi  ve  boyama  ile  ilgili  bazı  hususlar  aşağıda
+     verilmektedir.
+          i.  Boya rengi, Malzeme Listesinde aksi belirtilmedikçe, RAL                     7035renk kodunda, kalınlığı ise
+              astar ile birlikte en az 65 ± 15 mikron olacaktır.
+          ii. Boya kalınlığı rastgele seçilmiş üç noktada "boya kontrol aygıtı" ile ölçülecektir.  Ortalama
+              kalınlık yukarıda belirtilen değerler arasında olacaktır.
+          iii. Boya tabakasının kaynaşması rastgele seçilen iki noktada TS EN ISO 2409'a uygun olarak bant
+              yapıştırma yöntemiyle kontrol edilecektir. Deney sonucu, bu standartta yer alan sınıf-1'den
+              daha kötü olmamalıdır.
+          iv. Mahfazanın  boyası;  kullanılan  boya  tipi,  boyama  tekniği  gibi  imalatçıdan  kaynaklanacak
+              hatalara karşı en az 3 (yıl) garantili olacaktır.
+
+    2.2.14.2.2 Cam Elyaf Takviyeli Polyester Mahfazalı Pano’lar
+    Malzeme Listesinde aksi belirtilmedikçe,              Cam Elyaf Takviyeli          Polyester Mahfazalı       Pano’lar, RAL
+    7035 renkte temin edilecektir.
+
+    2.2.14.3. Galvanizleme
+    Pano mahfazası yapımında kullanılacak hazır galvanizli çelik saclar TS 822 veya ISO 4998’e uygun
+    olacaktır. Hazır galvanizli çelik sacların çinko kaplama ağırlığı (bir metre kare düz sacın her iki
+     yüzeyine kaplanan toplam çinko miktarı);
+              -   TS 822’ye göre, anma değeri 381g/m2.maks. (üç nokta deneyi ortalaması 275g/m2)   ya da,
+              -   ISO 4998’e göre üç nokta deneyi ortalaması 275 g/m2 (Z 275 sınıfı) olacaktır.
+
+    Pano  imalatında  kullanılan  hazır  galvanizli  çelik  sacların  dışındaki  diğer  galvaniz  işlemleri  ve
+    galvanize edilmiş yüzeyler üzerindeki deneyler, sıcak daldırma galvaniz konusundaki                           TS EN 13438
+    standardına  uygun  olarak  yapılacaktır.  Aksi  belirtilmedikçe  galvaniz  kaplama  kalınlıkları                      TS  EN
+    13438 Çizelge-1'e uygun olacaktır.
+
+    2.2.15. Cihazların Ortak Özellikleri
+
+    AG Panoda kullanılacak cihazlar (Termik manyetik kesiciler, sigortalı yük                       ayırıcıları, akım trafoları,
+    eriyen telli sigortalar, ölçü aletleri, anahtarlı otomatik sigortalar, baralar, v.b.), varsa ALICI’nın ilgili
+    teknik şartnamelerine yoksa ilgili TSE veya uluslararası diğer standartlara uygun olacaktır.
+
+
+
+                                                                   19
+
+
+
+--- PAGE 21 ---
+                                                    TEDAŞ-MLZ/2003-06.B
+
+    3. DENEYLER
+
+    3.1.Tasarım Doğrulaması (Tip Deneyleri)
+
+    Komple  imal  edilmiş  Panolara         ilgili  standartlarına  uygun  olarak  aşağıdaki  doğrulama  deneyleri
+    uygulanacaktır.
+    TS EN 61439-5 standardı ‘10 Tasarımın Doğrulanması’ maddesine uygun olarak yapılan deneylerdir.
+    (Hesaplama ve       tasarım kurallarının değerlendirilmesiyle yapılan alternatif doğrulama metotları bu
+    şartnamedeki panolara uygulanmaz.)
+
+    3.1.1 Yapılış
+
+         -   Malzemelerin ve bölümlerin dayanıklılığı (TS EN 61439–5 Madde 10.2)
+               Korozyona karşı dayanıklılık(TS EN 61439–5 Madde 10.2.2)
+               Yalıtkan malzemelerin özellikleri
+                 o   Mahfazaların ısıl kararlılığının doğrulanması (TS EN 61439–1 Madde 10.2.3.1)
+                 o   Yalıtkan malzemelerin dâhili elektriksel etkilerden kaynaklanan olağan dışı ısıya ve
+                      yangına karşı dayanıklılığının doğrulanması (TS EN 61439–1 Madde 10.2.3.2)
+                 o   Kuru ısı deneyi (TS EN 61439–5 Madde 10.2.3.101)
+                 o   Tutuşabilirlik kategorisinin doğrulanması (TS EN 61439–5 Madde 10.2.3.102)
+               Morötesi (UV) ışınıma dayanıklılık(TS EN 61439–1 Madde 10.2.4)
+               Kaldırma düzeni(TS EN 61439–1 Madde 10.2.5)
+               İşaretleme(TS EN 61439–1 Madde 10.2.7)
+
+         -   Mahfazaların koruma derecesi (TS EN 61439–1 Madde 10.3)
+         -   Yalıtma aralıkları ve  yüzeysel kaçak  yolu mesafeleri doğrulama deneyi (TS EN 61439–1
+             Madde 10.4)
+         -   Elektrik çarpmasına karşı koruma ve koruma devrelerinin bütünlüğü (TS EN 61439–1 Madde
+             10.5)
+         -   Anahtarlama cihazlarının ve bileşenlerin birleşmesi (TS EN 61439–1 Madde 10.6)
+         -   Dâhili elektriksel devreler ve bağlantılar (TS EN 61439–1 Madde 10.7)
+         -   Harici iletkenler için bağlantı uçları (TS EN 61439–1 Madde 10.8)
+
+    3.1.2 Performans
+
+         -   Dielektrik özellikler (TS EN 61439–1 Madde 10.9)
+         -   Sıcaklık artışının doğrulanması (TS EN 61439–1 Madde 10.10)
+         -   Kısa devre dayanım dayanıklılığı doğrulama deneyi (TS EN 61439–1 Madde 10.11)
+         -   Elektromanyetik uyumluluk (TS EN 61439–1 Madde 10.12)
+         -   Mekaniksel çalışma (TS EN 61439–1 Madde 10.13)
+
+         -   Mekanik dayanımın doğrulanması (TS EN 61439–5 Madde 10.2.101)
+                Yapısal Dayanımın Doğrulanması (TS EN 61439–5 Madde 10.2.101.1)
+                Statik yüke dayanıklılığın doğrulanması (TS EN 61439–5 Madde 10.2.101.1.1)
+                Darbe yüküne dayanıklılığın doğrulanması (TS EN 61439–5 Madde 10.2.101.1.2)
+                Burulma kuvvetine dayanıklılığın doğrulanması (TS EN 61439–5 Madde 10.2.101.1.3)
+
+         -    Darbe kuvvetine dayanımın doğrulanması (TS EN 61439–5 Madde 10.2.101.2)
+         -    Kapıların mekanik dayanımının doğrulanması (TS EN 61439–5 Madde 10.2.101.3)
+         -   Sentetik  malzemedeki  metal  parçaların  eksenel  yüke  dayanıklılığın  doğrulanması  (TS  EN
+             61439–5 Madde 10.2.101.4)
+         -  Keskin kenarlı nesneler tarafından üretilen mekanik darbe etkilerine dayanıklılığın doğrulanması
+             (TS EN 61439–5 Madde 10.2.101.5)
+
+
+                                                               20
+
+
+
+--- PAGE 22 ---
+                                                      TEDAŞ-MLZ/2003-06.B
+
+         -   Zemine  gömülmesi  amaçlanan  tabanın  mekanik  dayanım  deneyi(TS  EN  61439–5  Madde
+              10.2.101.6)
+         -    Galvaniz Kalınlığının Kontrolü (Sac mahfazalı Pano’lar için – akredite laboratuvarda yapılmış
+              olması şartı aranmayacaktır.)
+         -    Boyanın Kalite Kontrolü (Sac mahfazalı Pano’lar için - akredite laboratuvarda yapılmış olması
+              şartı aranmayacaktır.)
+
+     Not: Tasarımın Doğrulanması Deneylerinde Dikkat Edilecek Hususlar;
+
+            -  Tasarımın doğrulanması başlığı altındaki deneyler sadece deneyi yapılan ürünlere ait olmakla
+               beraber, herhangi bir baranın kesit değişikliğinde, farklı marka alt ürün guruplarıyla teste
+               girmesi vb. durumlarda tekrar edilmelidir.
+
+            -  Komponent değişikliklerinde sadece o ürünün etkilendiği ya da etkin olduğu deneylerin tekrar
+               edilmesi yeterlidir.
+
+            -  Sıcaklık artışının doğrulanması (TS EN 61439–1 Madde 10.10)
+
+            Sıcaklık artışının doğrulanması deneyi TS EN 61439-1 standardının 10.10.2.3.6 maddesine göre
+            gerçekleştirilir.
+
+               Giriş ve çıkış devreleri için beyan kullanma faktörü 1’den farklı olan panolar için;                        deney
+               devrelerin  beyan  akımları  ve  beyan  kullanma  faktörü  dikkate  alınarak  iki  aşamada
+               doğrulanmalıdır.
+
+               1. aşamada Münferit fonksiyonel üniteler beyan etiket akımları esas alınarak her bir farklı
+               çıkış devresi ayrı ayrı doğrulanmalıdır.
+               2. aşamada      giriş devresi    tekrar  bara sisteminin beyan akımına yüklenir. Çıkış devresi,                  en
+               azından bir grup içindeki fonksiyonel birimlerin bütün farklı çeşitlerini ihtiva edecek şekilde
+               gruplara bölünür. Bütün farklı çeşitleri ihtiva eden gurup için beyan yükleme faktörü 0,9 dur.
+               Kalan  akım  diğer  çıkış  birimlerinin  etiket  akımlarına  göre  orantı  kurularak                  dağıtılarak
+               yüklenerek deneyler yapılmalıdır.
+
+            -  Tutuşabilirlik   kategorisinin   doğrulanması            deneyinin   iğne   alevi   ile       gerçekleştirilmesi
+               durumunda gerilimli bölümlerle temas eden kısımlar için şiddet seviyesi 30sn diğer bölümler
+               için 10sn uygulanır.
+
+    3.2. Rutin Doğrulama (Rutin Deneyler)
+
+    İmalatı  tamamlanmış  bütün  Panolara,  imalatçı  tarafından  en  az  aşağıdaki  rutin                        doğrulamalar
+    uygulanacaktır.
+
+    3.2.1. Yapılış
+
+                a)    Mahfazaların koruma derecesi (TS EN 61439–1 Madde 11.2)
+                b)     Yalıtım aralıkları ve yüzeysel kaçak yolu uzunlukları(TS EN 61439–1 Madde 11.3)
+                c)    Elektrik çarpmasına karşı koruma ve koruma devrelerinin bütünlüğü(TS EN 61439–1
+                       Madde 11.4)
+                d)    Gömülü bileşenlerin birleşmesi (TS EN 61439–1 Madde 11.5)
+                e)    Dâhili elektriksel devreler ve bağlantılar(TS EN 61439–1 Madde 11.6)
+                f)    Harici iletkenler için bağlantı uçları(TS EN 61439–1 Madde 11.7)
+                g)    Mekanik çalışma(TS EN 61439–1 Madde 11.8)
+
+
+                                                                  21
+
+
+
+--- PAGE 23 ---
+                                                     TEDAŞ-MLZ/2003-06.B
+
+    3.2.2. Performans
+
+               a)     Dielektrik özellikler(TS EN 61439–1 Madde 11.9)
+               b)     Bağlantı, çalışma performansı ve fonksiyon(TS EN 61439–1 Madde 11.10)
+
+
+    4.KABUL DENEYLERİ VE KURALLARI
+
+    4.1.Numune Alma
+
+    Numuneler; Alıcı temsilcileri tarafından, teslimat kapsamında yer                  alan aynı tip ve karakteristikteki
+    panolardan rasgele seçilecek ve aksi belirtilmedikçe numune sayısı her bir tip ve karakteristik için
+    aşağıdaki çizelgeden tespit edilecektir.
+
+
+                        PANO SAYISI                                  ALINACAK NUMUNE SAYISI
+
+                              1-8                                                         1
+                             9-15                                                         2
+                            16-25                                                         3
+                            26-50                                                        5
+                            51-100                                                       8
+                           101-150                                                       10
+                             151≤                                                        15
+
+    4.2. Kabul Deneyleri
+
+             -   Sözleşmede yapılacağı belirtilen tasarım doğrulamaları:
+                 (Tasarım doğrulamalarının tamamının ya da bir kısmının tekrar edilmesi kabul işlemleri
+                 kapsamında istenebilir. Tasarım doğrulamaları (isteniyorsa),aynı tasarım ve karakteristikte
+                 olanlardan alınacak numune(ler) üzerinde yapılacaktır.)
+             -   Madde 3.2.'de belirtilen Rutin doğrulamalar:
+                  (Bütün rutin doğrulamalar ALICI gözetiminde her teslimat poz/kalem’inden Madde 4.1.’e
+                 göre alınacak numuneler üzerinde tekrarlanacaktır.)
+             -   Baraların iletkenlik ve boyutlarının ölçümü:
+                 Teslimat  kapsamında  yer  alan  her  bir  karakteristikten  seçilecek  birer  adet  AG  pano
+                 üzerinde yapılacaktır.
+             -   Boya kalınlığının ölçülmesi: (Sac mahfazalı Pano’lar için)
+                 Seçilen her bir numune üzerinde yapılacaktır.
+
+    5. MALZEME LİSTESİ
+
+    Alçak Gerilim Dağıtım Panolarına ait Malzeme listesi EK-8’de yer almaktadır.
+
+    6. GARANTİLİ ÖZELLİKLER LİSTESİ
+
+    Alçak Gerilim Dağıtım Panolarına ait Garantili Özellikler listesi EK-9’de yer almaktadır.
+
+    7. RESİMLER
+
+    Alçak Gerilim Dağıtım Panolarına ait tek hat şemaları ve görünüş resimleri Ek-1,2’de yer almaktadır.
+
+                                                                 22
+
+
+
+--- PAGE 24 ---
+                                                       TEDAŞ-MLZ/2003-06.B
+
+                                                            BÖLÜM - II
+
+
+    1. Kabul Kriterleri
+
+         i.   Sözleşmede yapılacağı belirtilen Tip Deneylerinden olumlu sonuç alınmış olacaktır.
+
+              Tip deneylerinin olumsuz sonuçlanması halinde, Alıcı, AG panoların çalışma güvenilirliğinin
+              kaybolacağı    kanısına    varırsa    siparişteki    aynı    tip    ve    özellikteki    bütün    birimleri
+              reddedebilecektir. Alıcı, karar tamamıyla kendisine ait olmak üzere,  İmalatçının makul bir süre
+              içinde  AG  panoların  tasarımında  değişiklik  yapma  ve  şartnamede  belirtilen  bütün  tip
+              deneylerini,  giderleri kendisine ait olmak üzere,  tekrar etme isteğini kabul edebilir.
+
+         ii.  Rutin   Deneylerin     tümünden      ve Boya Kalınlığının Ölçülmesi            Deneyi    ile Baraların İletkenlik
+              Ölçümü Deneyinden          olumlu sonuç alınmış olacaktır. Bu deneylerin herhangi birinden ya da
+              birkaçından     olumsuz sonuç alınırsa, bu deney/deneyler partiyi oluşturan tüm AG panoların
+              üzerinde tekrarlanacaktır. Buna göre, bozuk çıkan birimler giderleri Satıcıya ait olmak üzere,
+              yenisi ile değiştirilecek ya da onarılacaktır.
+
+    2.  Kabul Deneylerine İlişkin Genel Kurallar
+
+         i.   Kabul Deneyleri Alıcı temsilcisi/temsilcilerinin gözetiminde yapılacaktır. (Tip Deneyleri ile
+              ilgili  uygulama  madde        2.ii.  ye  göre  yapılacaktır)  Sözleşmede  aksi  belirtilmedikçe  Kabul
+              Deneylerinin İmalatçı tesislerinde yapılması esastır. Kabul deneyleri kapsamında yer alan rutin
+              deneylerin   haricindeki   diğer  deneylerin   İmalatçı  tesislerinde   yapılamaması   halinde  bu
+              deneylerin başka bir laboratuvarda yapılması temin edilecektir.
+
+         ii.  Kabul  deneyleri  kapsamında  yapılması  öngörülen  tip  deneyleri,  ya  akredite  edilmiş  bir
+              laboratuvarda ya da ALICI temsilcisi/temsilcilerinin gözetiminde akredite olmamış başka bir
+              laboratuvarda  da  yapılabilecektir.  Tip  deneylerine  ait  başarılı  deney  raporları  ALICI’ya
+              sunulmadan diğer kabul deneylerine başlanmayacaktır.
+
+         iii. Yüklenici; Sözleşmenin imzalanmasından sonra deneylerin adını, yapılacağı yeri ve başlama
+              tarihi gibi bilgileri içeren bir Deney Programını, yurtdışında yapılacak deneyler için en az 20
+              (yirmi)  gün,  yurtiçinde yapılacak deneyler için ise en az 7 (yedi) gün öncesinden ALICI’ya
+              bildirecektir.
+
+         iv.  ALICI, Yükleniciye zamanında haber vererek deneylerde bulunamayacağını bildirebilir.  Bu
+              durumda, İmalatçı deneyleri yapacak ve sonuçlarını ALICI’ya bildirecektir. İmalatçı tarafından
+              hazırlanan ve imzalanan Deney Raporları, incelenmesi ve onaylanması için 2 (iki) takım olarak
+              ALICI’ya  gönderilecektir.  Deney  raporlarının  onaylanması  durumunda,  ALICI                           tarafından
+              sevkiyat    için Sevk Emri  verilecek,  onaylı 1(bir)  takım  Deney                   Raporu Yükleniciye  geri
+              gönderilecektir.
+
+         v.   ALICI’dan  kaynaklanan  nedenler  (Belirtilen  tarihte  deney  mahallinde  bulunamama,  deney
+              sonuçları   hakkında   karar   verememe,   v.b)   hariç   olmak   üzere,   kabul   deneylerinin
+              tamamlanamaması nedeniyle teslimatta olabilecek gecikmeler için Yüklenici’ye süre uzatımı
+               verilmeyecektir.
+
+         vi.  Kabul Deneyleri sonuçlanıncaya kadar Yüklenici’ye hiçbir ödeme yapılmayacaktır.
+
+         vii. Deney raporlarında; deneye alınan numune(ler)in seri numaraları ve karakteristikleri ile deney
+              sonuçlarının  uygunluğu  ya  da  uygunsuzluğu  açıkça  belirtilecek  ve  karşılıklı  olarak  imza
+              edilecektir. Deney sonuçları ile varsa sözleşmede belirtilen diğer hususların da uygun olması
+              halinde Alıcı temsilcisi/temsilcileri, ilgili malzeme partisinin sevkine izin vereceklerdir.
+
+                                                                   23
+
+
+
+--- PAGE 25 ---
+                                                        TEDAŞ-MLZ/2003-06.B
+
+
+    3.  Kabul Deneyleri Dışındaki İnceleme ve Deneyler
+
+         i.   Malzemelerin  yüklenmeden  önce  ALICI’nın  temsilcisi/temsilcileri  tarafından  incelenmiş,
+              deneyden geçirilmiş ve kabul edilmiş olmaları, ALICI’nın malzemenin son teslim yerinde
+              yeniden inceleme, deney yapma ve gereğinde reddetme hakkını kısıtlamaz ya da yok etmez.
+
+         ii.  ALICI, karar tamamıyla kendisine ait olmak üzere tip deneylerinin ya da rutin deneylerin
+              tümünün ya da bir bölümünün İmalatçı tesislerinde ya da yurtiçinde veya yurtdışında akredite
+              bir laboratuvarda sözleşme süresi içerisinde tekrarlanmasına karar verebilir. .
+
+              Numune/numuneler,    ALICI    temsilcileri    tarafından    seçilecek    ve    karşılıklı    olarak
+              mühürlenecektir. Yapılacak deneylerin sonucunun olumlu çıkması durumunda, tüm masraflar
+              ALICI  tarafından  ödenecektir.  Deney  sonuçlarının  olumsuz  çıkması  halinde  tüm  deney
+              masrafları Yüklenici tarafından ödenecektir. ALICI, karar tamamen kendisine ait olmak üzere,
+              makul bir süre içinde ve her türlü masraflar Yükleniciye ait olmak üzere, AG panoların ilgili tip
+              ve rutin deneyleri yapılarak uygun olanlar ile değiştirilmesine ya da sözleşmenin tek taraflı
+              olarak iptaline karar verebilir.
+
+     4. Teklifle Birlikte Verilecek Belge ve Resimler
+               -  Garantili Özellikler Listesi;
+                 Garantili Özellikler Listesi her bir kalemdeki AG panolar için ayrı ayrı doldurulduktan sonra
+                 teklif sahibi ve imalatçı firma tarafından imzalanacaktır.  Bu listelerde verilen bilgiler teklif
+                 sahibi ve imalatçı firmayı bağlayıcı olacaktır.
+               -  Tip deney raporları veya sertifikaları;
+                 Teklif sahipleri teklif ettikleri AG panoların akredite olmuş bir laboratuvarda yapılmış tip
+                 deney raporlarını veya sertifikalarını teklifleri ile birlikte vereceklerdir.
+                 Deney  raporları  teklif  edilen  tipe  ait  olmalıdır.  Bu  nedenle,  ALICI,  gerekirse  deney
+                 raporlarının teklif edilen tipe ait olduğunun kanıtlanmasını, teklif sahibinden isteyebilir.
+                 Tip deney raporları;         deneyin adı, deneyin yapıldığı laboratuvarın adı, uygulanan standart
+                 numarası/numaraları,         deneyi yapan ve gözlemci olarak bulunan kişilerin                    isim, unvan ve
+                 imzaları, deney tarihi, ürün karakteristikleri ve resimleri ve ölçülü/ölçekli hazırlanmış teknik
+                 çizimleri ile deney sonucunu kapsamalıdır.
+
+                 ALICI tarafından hazırlanacak ihale dokümanında belirtilmesi koşuluyla; teklif dosyasında
+                 raporu verilmeyen ya da deney raporu yetersiz bulunan panolar için yurt içinde ya da yurt
+                 dışında  yapılacak  tip  deneylerinin  giderleri  teklif  sahibine  ait  olmak  üzere,                   yurtiçinde
+                 yapılacak     deneyler için ilk parti  teslimattan seçilecek bir numune üzerinde,  yurtdışında
+                 yapılacak      deneyler   için   ise   ilk   parti   teslimattan   önce   yapılması   kaydıyla   teklifler
+                 değerlendirmeye alınabilecektir.
+               -  Üretici firmaya ait ISO 9001:2000 Kalite Sistem Belgesi,
+               -  Panolara ait tek hat şemaları,
+               -  Pano imalatında kullanılan bütün cihazların yapımcısı, tipi, anma değerleri vb. bilgileri,
+               -  Panoların tertip resimleri,
+               -  Panoların dış görünüş resimleri,
+              -   Panoların dış boyutları ve net ağırlığı.
+
+
+                                                                    24
+
+
+
+--- PAGE 26 ---
+                                                        TEDAŞ-MLZ/2003-06.B
+
+     5. Çeşitli Hükümler
+
+     5.1. Teklif Fiyatları
+
+     Teklif fiyatları, teklif verme koşullarına uygun olarak verilecektir.
+
+     Teklif birim fiyatları;
+
+              -   AG pano imalatı,
+              -   Tek hat şemalarında gösterilen ve şartnamede belirtilen bütün teçhizat,
+              -   Kabul deneyleri,
+              -   Ambalaj,
+
+     fiyatlarını içerecektir.
+
+     NOT: Kayar Bara’lı panolarda kayar baraya ait somunların açılmasında ve sıkılmasında kullanılmak
+     üzere 1 (bir) adet izole saplı somun anahtarı pano ile birlikte verilecektir. (Söz konusu teçhizat birim
+     fiyatlara dahil olacaktır.)
+
+     5.2.  Ambalaj ve Taşıma
+
+     Panolar  her  türlü  yükleme,  taşıma,  indirme  işlemlerine  dayanıklı,  montaj  yerine  hiç  bir                        hasara
+     uğramadan ulaşımını sağlayacak nitelikte ambalajlanacaktır. Panoların ambalaj içerisinde oynamaması
+     için  şasisinde  bulunan  bağlantı  deliklerinden  4  adet  civata  ile  ambalaj  kasasına  bağlanacak  ve
+     takozlarla desteklenecektir. Panoların nakliye ve uzun                  süreli bekleme sırasında nem ve toz gibi dış
+     etkilerden  zarar  görmemesi  için,  üzeri  plastik  ya  da  uygun  bir  kağıtla  sarıldıktan  sonra  ambalaj
+     içerisine konacaktır.
+
+     Her ambalaj üzerine 25 mm yükseklikte harf ve rakamlarla aşağıdaki bilgiler yazılacaktır.
+
+              -   İmalatçının adı,
+              -   Alıcının sipariş numarası ve malzeme kod numarası,
+              -   Malzemenin adı,
+              -   Panonun ana karakteristikleri, (kVA, dahili/harici, kaide/direk tipi)
+              -   Sandık numarası,
+              -   Ambalaj boyutları,
+              -   Brüt ağırlık,
+              -   Üst üste istiflenecek en fazla ambalajlı pano sayısı,
+              -   ALICI’nın adı ve adresi,
+
+     5.3. AG Panolarla Birlikte Verilecek Belgeler
+
+     Koruyucu plastik bir zarf içine konulmuş birer adet,
+
+              -   Kuvvet şeması,
+              -   Tasarım resimleri,
+              -   Malzeme listesi,
+              -   Pano içi şalt malzemelerin kullanım kılavuzları
+              -   Rutin Deney Raporu,
+      AG panoyla birlikte verilecektir.
+     Harici  panolarda  kapının  iç  kısmına,  Dahili  panolarda  kapakların  ön  yüzüne  görünür  şekilde  iş
+     güvenliği  uyarısı  yazıları       (Gerilimi  kes,  Tekrar  gerilim  gelmesini  engelleyici  tedbiri  al,  Gerilimi
+     kontrol et, Toprakla, Çalışma Alanını işaretle) konur.
+                                                                     25
+
+
+
+--- PAGE 27 ---
+                                                        TEDAŞ-MLZ/2003-06.B
+
+
+    5.4. Prototip İmalat ve Onayı
+
+    Prototip istenmesi halinde İmalatçı, panoların seri imalatına başlamadan önce her karakteristikten imal
+    edeceği  1  adet  prototip  AG  panoyu,  teçhizat  ve  malzemeleri  monte  edilmiş  durumda,  ALICI
+    temsilcilerinin inceleme ve onayına sunacaktır. Onay verildikten sonra seri imalata geçilecektir. Teklif
+    Sahipleri, ihale belgelerinde yer alan teslimat programının, prototipin onay süresini de kapsadığını göz
+    önüne alacaklardır.
+
+    İmalatçının kusurundan dolayı, prototipin onaylanmamasından doğan gecikmeler, imalatçının süre
+    uzatım talebine neden oluşturmayacaktır.
+
+    5.5. Garanti
+
+    İmalatçı,  teslim edilen her AG panoyu ve panoda kullanılan her türlü teçhizatı, teslim tarihinden
+    başlayarak en az 24 ay süre ile tasarım, malzeme ve işçilik hatalarına karşı garanti edecektir.
+
+    AG panoların ve teçhizatın,  garanti süresi içinde kusurlu bulunması veya tasarım, malzeme ve imalat
+    hataları nedeniyle hasarlanması halinde bulunduğu yerde tamirinin mümkün olmaması durumunda,
+    bunların demontajı,  yerinden İmalatçı tesislerine taşınması,  tamiri,  tamir sonrası Alıcı'nın bildireceği
+    yere taşınması ve gerektiğinde montajı Yüklenici/İmalatçı tarafından hiçbir bedel talep edilmeksizin
+    yapılacaktır.
+
+    Yüklenici/İmalatçı, kusurlu malzemeyi              yazılı bildirim tarihini izleyen 15 (onbeş) gün içinde İmalatçı
+    tesislerine taşıyacak, en geç 1 (bir) ay içinde tamir edilerek kabule hazır hale getirecek ve deneylerin
+    bitimini izleyen 15 (on beş)  gün içinde Alıcı'nın göstereceği yere taşıyacaktır.
+
+    Yüklenici  taşıma  işlerini  zamanında  yapmazsa,  ya  da  yazılı  bildirim  yapıldığı  halde  malzeme
+    kusurlarını gidermezse, Alıcı, giderleri Yükleniciye ait olmak üzere, kusuru gidermek için gerekli
+    işlemleri yapacaktır.  Bu durumda Alıcı,  söz konusu giderleri, Yüklenicinin varsa hak edişlerinden ya
+    da kesin teminatından tahsil edecektir.
+
+    Bu şekilde onarılan ya da değiştirilen malzeme de aynen yukarıdaki garanti koşullarına uyacaktır.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                   26
+
+
+
+--- PAGE 28 ---
+                                                                   TEDAŞ-MLZ/2003-06.B
+
+                                                                                                                                                     EK-I / 1
+                                                          AG PANO DONANIM LİSTESİ
+
+              Tablo 1                                                                              50 kVA                         100 kVA
+                                 Ana Bara Kesit        (Kalay kaplı elektrolitik                   20x3 mm2                        20x3 mm2
+                                                       bakır)
+                                                       Anma Akımı                                       80                             160
+                                                       İşletmede kısa devre
+              Ana Giriş          TMK                   kesme kapasitesi  (Ics)                        6 kA                           6 kA
+
+                                                       Akım Trafosu                                   100/5                           200/5
+                                                                                               Alıcı tarafından                 Alıcı tarafından
+                                                       Anma Akımı                            Malzeme Listesinde              Malzeme Listesinde
+              Besleme                                                                           belirtilecektir.                 belirtilecektir.
+              Çıkışları          AOS                   Kısa devre kesme akımı                         6 kA                           6 kA
+                                                       (Ik)
+                                                       Besleme Çıkış Sayısı                             4                                4
+                                                                                               Alıcı tarafından                 Alıcı tarafından
+                                                       Anma akımı                            Malzeme Listesinde              Malzeme Listesinde
+              Sokak              AOS                                                            belirtilecektir.                 belirtilecektir.
+              Aydınlatma                               Kısa devre kesme akımı                         6 kA                           6 kA
+              Girişi                                   (Ik)
+                                 Kontaktör (AC-5a)
+              Sokak
+              Aydınlatma                                              Anma Akımı                          Alıcı tarafından malzeme listesinde
+              Çıkışı                    AOS                                                                            belirtilecektir.
+
+                                                                       Çıkış Sayısı                                           ≤4
+
+
+              İç İhtiyaç ve                            Anma akımı                                    2 Amp.                          2 Amp.
+              Ölçü Devresi              AOS            Kısa devre kesme akımı
+                                                       (Ik)                                           6 kA                           6 kA
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                 27
+
+
+
+--- PAGE 29 ---
+                                                              TEDAŞ-MLZ/2003-06.B
+
+                                                                                                                                            EK-I / 2
+                                                      AG PANO DONANIM LİSTESİ
+
+             Tablo 2                                                                        50 kVA                       100 kVA
+                                Ana Bara           (Kalay kaplı elektrolitik                20x3 mm2                      20x3 mm2
+                                Kesit              bakır)
+                                                   Anma Akımı                                   80                           160
+                                                   İşletmede kısa devre
+             Ana Giriş          TMK                kesme kapasitesi  (Ics)                     6 kA                         6 kA
+
+                                                   Akım Trafosu                               100/5                         200/5
+                                                   Anma Akımı                              160 Amper                     160 Amper
+
+             Besleme                               Buşon Tipi                                 00 Boy                       00 Boy
+             Çıkışları          DSYA                                                   Ana bara terminalleri arası mesafe 185 mm
+                                                   DSYA tipi                                               olacaktır.
+
+                                                   Besleme Çıkış Sayısı                          4                             4
+                                                                                         Alıcı tarafından              Alıcı tarafından
+                                                   Anma Akımı                         Malzeme Listesinde            Malzeme Listesinde
+             Sokak              DSYA                                                      belirtilecektir.             belirtilecektir.
+             Aydınlatma                            Kısa devre kesme akımı                      6 kA                         6 kA
+             Girişi                                (Ik)
+                                Kontaktör (AC-5a)
+             Sokak                Eriyen telli     Anma Akımı                                             Alıcı tarafından Malzeme
+             Aydınlatma              sigorta                                                              Listesinde belirtilecektir.
+             Çıkışı                 (D tipi) ,     Çıkış Sayısı                                                           ≤4
+                                Kartuş sigorta
+             İç İhtiyaç ve       (Yük altında      Anma akımı                                2 Amp.                        2 Amp.
+             Ölçü Devresi        açma kapama       Kısa devre kesme akımı
+                                  yapabilen)       (Ik)                                        6 kA                         6 kA
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                            28
+
+
+
+--- PAGE 30 ---
+                                                                  TEDAŞ-MLZ/2003-06.B
+
+                                                                                                                                                     EK-I / 3
+                                                         AG PANO DONANIM LİSTESİ
+
+              Tablo 3                                                                            50 kVA                         100 kVA
+                                  Ana Bara            (Kalay kaplı elektrolitik                  20x3 mm2                       20x3 mm2
+                                  Kesit               bakır)
+                                                      Anma Akımı                                      80                            160
+
+              Ana Giriş           TMK                 İşletmede kısa devre                          6 kA                           6 kA
+                                                      kesme kapasitesi  (Ics)
+                                                      Akım Trafosu                                  100/5                          200/5
+
+                                                      Anma Akımı                                160 Amper                       160 Amper
+
+              Besleme                                 Buşon Tipi                                   00 Boy                         00 Boy
+              Çıkışları           DSYA                                                      Ana bara terminalleri arası mesafe 185 mm
+                                                      DSYA tipi                                                  olacaktır.
+
+                                                      Besleme Çıkış Sayısı                            4                               4
+                                                      Anma Akımı                                160 Amper                       160 Amper
+              Aydınlatma                              Buşon Tipi                                   00 Boy                         00 Boy
+              panosu              DSYA
+              Çıkışı                                                                        Ana bara terminalleri arası mesafe 185 mm
+                                                      DSYA tipi                                                  olacaktır.
+
+                                    Eriyen telli      Anma akımı                                   2 Amp.                         2 Amp.
+                                     sigorta (D
+              İç İhtiyaç  ve            tipi),
+              Ölçü Devresi         Kartuş sigorta     Kısa devre kesme akımı
+                                   (Yük altında       (Ik)                                          6 kA                           6 kA
+                                  açma kapama
+                                    yapabilen)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                29
+
+
+
+--- PAGE 31 ---
+                                                              TEDAŞ-MLZ/2003-06.B
+
+                                                                                                                                 EK-I / 4
+                                                     AG PANO DONANIM LİSTESİ
+
+            Tablo 4                                                      160 kVA                 250 kVA                  400 kVA
+                            Ana Bara         (Kalay kaplı                20x5 mm2                30x5 mm2                 40x10 mm2
+                            Kesit            elektrolitik bakır)
+                                       Anma Akımı                            250                     400                      630
+            Ana Giriş                  İşletmede kısa devre
+                            TMK                   kesme kapasitesi (Ics)    9 kA                   15 kA                   23 kA
+                                       Akım Trafosu                         300/5                   400/5                    600/5
+                                       (((Ics)
+                                       Anma Akımı                       160 Amper            160 A.       250 A.      160 A.       250 A.
+
+                                       Buşon tipi                          00 Boy            00 Boy       1 Boy       00 Boy        1 Boy
+            Besleme         DSYA       DSYA tipi                         Ana bara terminalleri arası mesafe 185 mm olacaktır.
+            Çıkışları
+                                                                                                 2           2           2            3
+                                       Besleme Çıkış Sayısı                   4
+                                                                                                 +2 (Yedek)               +1 (Yedek)
+
+                                       Anma Akımı                       160 Amper                160 Amper                160 Amper
+            Sokak                      Buşon tipi                          00 Boy                  00 Boy                   00 Boy
+            Aydınlatma      DSYA
+            Girişi                     Kontaktör (AC-5a)
+
+
+            Sokak                                                             Anma Akımı                   ALICI tarafından malzeme
+            Aydınlatma                                                                                       listesinde belirtilecektir.
+            Çıkışı                  Eriyen telli sigorta                      Çıkış Sayısı                               ≤4
+                                          (D tipi) ,
+            İç İhtiyaç          Kartuş sigorta (Yük altında         İşletme sınıfı: gG
+            Devresi              açma kapama yapabilen)             Anma akımı:  6 Amp.
+            Ölçü                                                    İşletme sınıfı: gG
+            Devresi                                                 Anma akımı:  2 Amp.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                           30
+
+
+
+--- PAGE 32 ---
+                                                                TEDAŞ-MLZ/2003-06.B
+
+                                                                                                                                                      EK-I / 5
+                                                        AG PANO DONANIM LİSTESİ
+
+            Tablo 5                                                         160 kVA                  250 kVA                    400 kVA
+                              Ana Bara         (Kalay kaplı                 20x5 mm2                  30x5 mm2                  40x10 mm2
+                              Kesit            elektrolitik bakır)
+            Ana Giriş                    Anma Akımı                             250                       400                       630
+                              TMK                   İşletmede kısa devre       9 kA                    15 kA                     23 kA
+                                         kesme kapasitesi (Ics)
+                                         Akım Trafosu                          300/5                     400/5                     600/5
+                                         (((Ics)
+                                         Anma Akımı                         160 Amper             160 A.      250 A.        160 A.       250 A.
+
+            Besleme                      Buşon tipi                           00 Boy             00 Boy        1 Boy       00 Boy         1 Boy
+            Çıkışları         DSYA       DSYA tipi                           Ana bara terminalleri arası mesafe 185 mm olacaktır.
+
+                                         Besleme Çıkış Sayısı                     4                  2            2            2             3
+                                                                                                     +2 (Yedek)                 +1 (Yedek)
+            Aydınlatma                   Anma Akımı                         160 Amper                160 Amper                  160 Amper
+            Panosu            DSYA       Buşon tipi                           00 Boy                    00 Boy                    00 Boy
+            Çıkışı                       DSYA tipi                           Ana bara terminalleri arası mesafe 185 mm olacaktır.
+            İç İhtiyaç                Eriyen telli sigorta             İşletme sınıfı: gG
+            Devresi                         (D tipi) ,                 Anma akımı:  6 Amp.
+            Ölçü                 Kartuş sigorta (Yük altında           İşletme sınıfı: gG
+            Devresi               açma kapama yapabilen)               Anma akımı:  2 Amp.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                              31
+
+
+
+--- PAGE 33 ---
+                                                                TEDAŞ-MLZ/2003-06.B
+
+                                                                                                                                                     EK-I / 6
+                                                        AG PANO DONANIM LİSTESİ
+
+             Tablo 6                                                         160 kVA                    250 kVA                  400 kVA
+                              Ana Bara           (Kalay kaplı                20x5 mm2                   30x5 mm2                 40x10 mm2
+                              Kesit              elektrolitik bakır)
+                                         Anma Akımı                              250                        400                      630
+             Ana Giriş                   İşletmede kısa devre
+                              TMK                kesme kapasitesi (Ics)         9 kA                     15 kA                    23 kA
+                                         Akım Trafosu                           300/5                      400/5                    600/5
+                                         (((Ics)
+                                         Anma Akımı                          160 Amper              160 A.      250 A.       160 A.       250 A.
+             Besleme
+             Çıkışları                   Buşon tipi                            00 Boy              00 Boy        1 Boy       00 Boy       1 Boy
+                              SYA        Besleme Çıkış Sayısı                      4                   2            2            2           2
+
+             Sokak                       Anma Akımı                          160 Amper                 160 Amper                 160 Amper
+             Aydınlatma       SYA        Buşon tipi                            00 Boy                     00 Boy                   00 Boy
+             Girişi                      Kontaktör (AC-5a)
+
+             Sokak                                                               Anma Akımı                      Alıcı tarafından malzeme
+             Aydınlatma                                                                                           listesinde belirtilecektir.
+             Çıkışı                                                               Çıkış Sayısı                                 ≤4
+                                      Eriyen telli sigorta
+             İç İhtiyaç                      (D tipi)                  İşletme sınıfı: gG
+             Devresi                             ,                     Anma akımı:  6 Amp.
+                                 Kartuş sigorta (Yük altında
+             Ölçü                 açma kapama yapabilen)               İşletme sınıfı: gG
+             Devresi                                                   Anma akımı:  2 Amp.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                              32
+
+
+
+--- PAGE 34 ---
+                                                               TEDAŞ-MLZ/2003-06.B
+
+                                                                                                                                      EK-I / 7
+                                                      AG PANO DONANIM LİSTESİ
+           Tablo 7                                           630 kVA                 800 kVA               1000 kVA             1250 kVA
+                            Ana Bara ve kesiti
+                            (Kalay kaplı elektrolitik        60x10 mm2               80x10 mm2             100x10 mm2          120x10 mm2
+                            bakır)
+           Ana Giriş        Ana baraya bağlantı                                Aksi belirtilmedikçe Direkt Bağlantı
+
+                             Akım Trafosu                       1000/5                 1200/5                 1600/5               2000/5
+
+                                     Anma Akımı           160 A.     250 A.      160 A.       250 A.     250 A.     400 A.    250 A.    400 A.
+           Besleme          SYA      Buşon tipi           00 Boy      1 Boy      00 Boy       1 Boy       1 Boy     2 Boy     1 Boy      2 Boy
+           Çıkışları
+                                     Besleme Çıkış           4           4           4           4          4          4         4         4
+                                     Sayısı
+           Sokak                     Anma Akımı              160 Amper               160 Amper              160 Amper           160 Amper
+           Aydınlatma       SYA      Buşon tipi                00 Boy                  00 Boy                 00 Boy               00 Boy
+           Girişi
+                                     Kontaktör                                                  (AC-5a )
+           Sokak                                                       Anma Akımı                     Alıcı tarafından malzeme listesinde
+           Aydınlatma                                                                                              belirtilecektir.
+           Çıkışı                                                       Çıkış Sayısı                                      ≤4
+           T.M. İç                                       İşletme sınıfı: gG
+           İhtiyaç             Eriyen telli sigorta      Anma akımı:  20 Amp.
+           Devresi                   (D tipi),
+           İç İhtiyaç          Kartuş sigorta (Yük       İşletme sınıfı: gG
+           Devresi            altında açma kapama        Anma akımı:  6 Amp.
+                                    yapabilen)
+
+           Ölçü Devresi                                  İşletme sınıfı: gG
+                                                         Anma akımı:  2 Amp.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                            33
+
+
+
+--- PAGE 35 ---
+                                                               TEDAŞ-MLZ/2003-06.B
+
+                                                                                                                                                         EK-I / 8
+                                                       AG PANO DONANIM LİSTESİ
+
+     Tablo 8                                   400 kVA          630 kVA          800 kVA           1000 kVA          1250 kVA         1600 kVA
+                     Ana Bara ve kesiti
+                     (Kalay kaplı             40x10 mm2         60x10 mm2         80x10 mm2        100x10 mm2        120x10 mm2       2x(100x10mm2)
+     Ana Giriş       elektrolitik bakır)
+                     Ana baraya                                              Aksi belirtilmedikçe Direkt Bağlantı
+                     bağlantı
+                     Akım Trafosu                 600/5            1000/5            1200/5            1600/5           2000/5             2500/5
+                               Anma           160      250      160      250      160       250     250      400      250      400      250       400
+                               Akımı            A       A        A.       A.       A.       A.       A.       A.       A.      A.        A.       A.
+                               Buşon         00          1       00        1       00        1        1        2       1        2      1 Boy    2 Boy
+     Besleme                   tipi          Boy       Boy      Boy      Boy      Boy      Boy      Boy      Boy      Boy     Boy
+     Çıkışları       DSYA      DSYA                                         Ana bara terminalleri arası mesafe 185 mm olacaktır.
+                               tipi
+                               Besleme          2        3        4        4        4        4        4        4       5        5        5         5
+                               Çıkış           +1(Yedek)
+                               Sayısı                           +2 (Yedek)        +2 (Yedek)        +2 (Yedek)        +2 (Yedek)        +2 (Yedek)
+                               Anma              160 A          160 Amper         160 Amper         160 Amper         160 Amper         160 Amper
+     Sokak                     Akımı
+     Aydınlatma      DSYA      Buşon             00 Boy            00 Boy            00 Boy            00 Boy           00 Boy             00 Boy
+     Girişi                    tipi
+                               Kontaktör                                                      (AC-5a)
+     Sokak                                                   Anma Akımı                               Alıcı Tarafından malzeme listesinde
+     Aydınlatma                                                                                                    belirtilecektir.
+     Çıkışı          Eriyen telli sigorta                     Çıkış Sayısı                                                ≤4
+
+     T.M. İç               (D tipi),         İşletme sınıfı: gG
+     İhtiyaç            Kartuş sigorta       Anma akımı:  20 Amp.
+     Devresi         (Yük altında açma
+     İç İhtiyaç             kapama           İşletme sınıfı: gG
+     Devresi              yapabilen)         Anma akımı:  6 Amp.
+
+     Ölçü                                    İşletme sınıfı: gG
+     Devresi                                 Anma akımı:  2 Amp.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                             34
+
+
+
+--- PAGE 36 ---
+                                                                TEDAŞ-MLZ/2003-06.B
+
+
+                                                                                                                                              EK-I / 9
+                                                       AG PANO DONANIM LİSTESİ
+
+     Tablo 9                                   400 kVA         630 kVA          800 kVA             1000             1250             1600 kVA
+                                                                                                    kVA              kVA
+                     Ana Bara ve kesiti          40x10                                             100x10           120x10
+                     (Kalay kaplı                 mm2         60x10 mm2        80x10 mm2                 2                2         2x(100x10mm2)
+                     elektrolitik bakır)                                                            mm               mm
+     Ana Giriş       Ana baraya                                               Aksi belirtilmedikçe Direkt Bağlantı
+                     bağlantı
+                     Akım Trafosu                 600/5          1000/5           1200/5           1600/5           2000/5               2500/5
+
+                                Anma           160     250     160     250      160     250      250      400     250      400     250      400     630
+                                Akımı           A       A       A.      A.       A.      A.       A.      A.       A.      A.       A.      A.       A.
+                                Buşon tipi      00      1       00       1       00       1       1        2       1        2       1        2       3
+     Besleme                                   Boy     Boy     Boy     Boy      Boy     Boy      Boy     Boy      Boy     Boy      Boy     Boy      Boy
+     Çıkışları       DSYA       DSYA                                Ana bara terminalleri arası mesafe 185 mm olacaktır.
+                                tipi
+                                Besleme         2       3       4        4       4        4       4        4       5        5       5        6       1
+                                Çıkış          +1(Yedek)      +2 (Yedek)       +2 (Yedek)       +2 (Yedek)       +2 (Yedek)            +2 (Yedek)
+                                Sayısı
+                                Anma              160 A        160 Amper       160 Amper        160 Amper         160 Amper            160 Amper
+     Aydınlatma                 Akımı
+     Panosu          DSYA       Buşon tipi       00 Boy          00 Boy           00 Boy           00 Boy           00 Boy               00 Boy
+     Çıkışı                     DSYA                                Ana bara terminalleri arası mesafe 185 mm olacaktır.
+                                tipi
+     T.M. İç                                  İşletme sınıfı: gG
+     İhtiyaç          Eriyen telli sigorta    Anma akımı:  20 Amp.
+     Devresi                (D tipi) ,
+     İç İhtiyaç          Kartuş sigorta       İşletme sınıfı: gG
+     Devresi          (Yük altında açma       Anma akımı:  6 Amp.
+     Ölçü             kapama yapabilen)       İşletme sınıfı: gG
+     Devresi                                  Anma akımı:  2 Amp.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                              35
+
+
+
+--- PAGE 37 ---
+                                                                 TEDAŞ-MLZ/2003-06.B
+
+
+                                                                                                                                              EK-I / 10
+                                                        AG PANO DONANIM LİSTESİ
+
+                            Tablo 10                                   AYDINLATMA PANOSU
+
+                                                 Ana Bara ve kesiti                                      20x5 mm2
+                                                                                               (Kalay kaplı elektrolitik bakır)
+                                                             Anma Akımı                                    160 A.
+                            Ana Giriş
+                                                 Yatay       Buşon tipi                                 00 Boy 80A
+                                                 SYA
+                                                             Kontaktör (AC-5a)
+
+                                                 NH          Buşon tipi                                    00 Boy
+                            Besleme              Sigorta
+                            Çıkışları                        Besleme Çıkış Sayısı                              4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                               36
+
+
+
+--- PAGE 38 ---
+                                                            TEDAŞ-MLZ/2003-06.B
+
+
+
+                                                                                                                                            EK-I / 11
+
+                  KISALTMALAR
+                  AOS       Anahtarlı Otomatik Sigorta                          A.R.        Astronomik Röle
+                  DSYA      Bağımlı el kumandalı Dikey Sigortalı Yük Ayırıcısı  F           Fotosel Röle
+                  SYA       Bağımsız el kumandalı Sigortalı Yük Ayırıcısı       K           Kontaktör
+                  TMK       Termik Manyetik Kesici                              L           220 VAC Sinyal Lambası
+                  V         Voltmetre                                           AAB         Acil Açtırma Butonu
+                  A         Ampermetre                                          İAL         İç Aydınlatma Lambası
+                  Vk        Voltmetre komutatörü                                P           Monofaze Piriz
+                  AT        Akım Trafosu                                        AA          İç Aydınlatma Lambası Anahtarı
+                  S         D Tipi Eriyen Telli Sigorta veya Kartuş sigorta     TR          Termik Röle / Aşırı Akım Rölesi
+                  T.M.      Trafo Merkezi
+                  NOTLAR:
+                  1-  Sigortalı  Yük       Ayırıcılarında  kullanılacak  Sigorta  Buşonları  AG  PANO’nun
+                  standart donanımı içerisinde yer almayacaktır. Proje bilgilerine göre kullanılacak
+                  sigortaların    anma    akımları    ALICI    tarafından    belirlenerek    temin    edilip
+                  kullanılacaktır.
+                  2-    Malzeme   Listesinde   belirtilmesi   halinde   gerçek   zaman   ayarlı   RÖLE
+                  (Astronomik Röle) yerine FOTOSEL kullanılabilecektir.
+                  3-  Panoların  besleme  çıkışlarında  kullanılacak  Anahtarlı  Otomatik  Sigortaların
+                  (AOS) ve Dikey Tip Sigortalı Yük Ayırıcılarının (DSYA) üç faz birlikte açma-
+                  kapamalı veya üç faz ayrı ayrı açma-kapamalı olacağı ALICI tarafından Malzeme
+                  Listesinde belirtilecektir.
+                  4- Ölçü Aletleri, şartnamenin 2.2.11. Ölçü Aletleri bölümü Maddesine göre ALICI
+                  tarafından belirlenecek ve Malzeme Listesinde belirtilecektir. ENERJİ ÖLÇER
+                  kullanılması  halinde  ana  girişte  AMPERMETRE  ve  ELEKTRONİK  SAYAÇ
+                  kullanılmayacaktır. Pano ölçüleri her iki seçenek içinde aynıdır.
+                  5-   Termik  Röle  veya           Aşırı  Akım  Rölesi,  transformatörün  devreye  alınması
+                  sırasında   oluşabilecek   aşırı   akımlarda   hatalı   açma   sinyali   vermeyecektir.
+                  Korunacak   trafonun   sekonder  anma   akımının   %50'sine   kadar   ayarlanabilir
+                  olacaktır.    Devreden  geçen  akım  ayarlanan  değeri  aştığında,  çalışan  yardımcı
+                  kontağı ile transformatörün primer tarafında tesis edilen OG Yük Ayırıcısı+Sigorta
+                  Birleşiği veya OG Kesici'ye açma sinyali gönderecektir.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                         37
+
+
+
+--- PAGE 39 ---
+                                                                                TEDAŞ-MLZ/2003-06.B
+
+                                                                                                                                                  EK-II / 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                                 38
+
+
+
+--- PAGE 40 ---
+                                                                                 TEDAŞ-MLZ/2003-06.B
+
+
+
+
+                                                                                                                                            EK-II / 2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                                  39
+
+
+
+--- PAGE 41 ---
+                                                                                 TEDAŞ-MLZ/2003-06.B
+
+
+
+
+
+
+
+                                                                                                                                                    EK-II / 3
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                                  40
+
+
+
+--- PAGE 42 ---
+                                                                           TEDAŞ-MLZ/2003-06.B
+
+
+
+                                                                                                                                                    EK-II / 4
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      Not:   Aydınlatma   panosu   çıkışlı   AG   Pano   kullanılması   durumunda   boyutlar   değişmediğinden   tekrar
+
+      çizilmemiştir. Yukarıdaki sokak aydınlatması çıkış donanımları çıkartılarak kullanılacaktır.
+
+
+
+
+
+
+
+
+
+
+                                                                                           41
+
+
+
+--- PAGE 43 ---
+                                                                                    TEDAŞ-MLZ/2003-06.B
+
+
+
+                                                                                                                                               EK-II / 5
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                                      42
+
+
+
+--- PAGE 44 ---
+                                                                                 TEDAŞ-MLZ/2003-06.B
+
+
+
+                                                                                                                                                     EK-II / 6
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                                  43
+
+
+
+--- PAGE 45 ---
+                                                                                    TEDAŞ-MLZ/2003-06.B
+
+
+
+
+                                                                                                                                                    EK-II / 7
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                                      44
+
+
+
+--- PAGE 46 ---
+                                                                                    TEDAŞ-MLZ/2003-06.B
+
+
+
+
+                                                                                                                                                     EK-II / 8
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                                      45
+
+
+
+--- PAGE 47 ---
+                                                                                    TEDAŞ-MLZ/2003-06.B
+
+
+
+
+                                                                                                                                                            EK-II / 9
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                                      46
+
+
+
+--- PAGE 48 ---
+                                                                                  TEDAŞ-MLZ/2003-06.B
+
+
+
+
+
+                                                                                                                                                           EK-II / 10
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                                   47
+
+
+
+--- PAGE 49 ---
+                                                                                 TEDAŞ-MLZ/2003-06.B
+
+
+
+
+
+
+                                                                                                                                                    EK-II / 11
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                                  48
+
+
+
+--- PAGE 50 ---
+                                                                                 TEDAŞ-MLZ/2003-06.B
+
+
+
+
+
+
+
+                                                                                                                                                    EK-II / 12
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                                  49
+
+
+
+--- PAGE 51 ---
+                                                                                 TEDAŞ-MLZ/2003-06.B
+
+
+
+
+
+
+
+                                                                                                                                                    EK-II / 13
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                                  50
+
+
+
+--- PAGE 52 ---
+                                                                                 TEDAŞ-MLZ/2003-06.B
+
+
+
+
+
+
+
+                                                                                                                                                    EK-II / 14
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                                  51
+
+
+
+--- PAGE 53 ---
+                                                                                 TEDAŞ-MLZ/2003-06.B
+
+
+
+
+
+
+                                                                                                                                                    EK-II / 15
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                                  52
+
+
+
+--- PAGE 54 ---
+                                                                                 TEDAŞ-MLZ/2003-06.B
+
+
+
+
+
+
+                                                                                                                                                    EK-II / 16
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                                  53
+
+
+
+--- PAGE 55 ---
+                                                                                 TEDAŞ-MLZ/2003-06.B
+
+
+
+
+
+
+
+                                                                                                                                                    EK-II / 17
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                                   54
+
+
+
+--- PAGE 56 ---
+                                                           TEDAŞ-MLZ/2003-06.B
+
+
+
+
+                                                                                                                                     EK-III
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                        55
+
+
+
+--- PAGE 57 ---
+                                                                            TEDAŞ-MLZ/2003-06.B
+
+
+
+
+                                                                                                                                                                           EK-IV
+                                                                          Kayar Bara Prensip Resmi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                             56
+
+
+
+--- PAGE 58 ---
+                                                       TEDAŞ-MLZ/2003-06.B
+
+
+
+
+                                                                                                                          EK- V
+                            MAHFAZA İLE İLGİLİ DİĞER YAPISAL ÖZELLİKLER
+
+
+    A.       CAM ELYAF TAKVİYELİ POLYESTER MAHFAZA:
+
+    i.        Mahfaza  en  az  25  yıllık  bir  kullanım  ömrüne  sahip  olacak  ve  bu  husus  firmaca  garanti
+              edilecektir.
+
+    ii.       Cam  elyaf  takviyeli  polyester  mahfaza,  SMC  (Sheet  Moulding  Compound)  olarak  sıcak
+              kalıplama metodu ile imal edilecektir.
+
+    iii.      Mahfazayı  oluşturan  parçalar  içeriden  müdahale  edilebilen  bağlantı  elemanları  ile  montaj
+              edilecek ve kullanılacak bağlantı elemanları paslanmaz çelik olacaktır.
+
+    iv.       Yüzeyler pürüzsüz olacak ve yüzeylerde herhangi bir çatlak, yarık, kabarcık, kırık, delik v.b.
+              ile cam elyaf kalıntıları bulunmayacaktır. Mukavemeti artırmak için yüzeyler kaburgalı yapıda
+              imal edilebilecektir.
+
+    v.        Mahfazanın kenarları keskin olmayacaktır.
+
+    vi.       Renk dağılımı uniform olacaktır.
+
+    vii.      Mahfazanın herhangi bir yan kenarında üretici firmanın adı ile imal tarihi, ön yüzünde ise
+              ALICI’nın adı yer alacaktır.
+
+    viii.     Mahfaza  üretiminde  kullanılacak  plastik  hammaddelerin  özellikleri  ve  bu                     hammaddelere
+              uygulanacak testler teklif ile birlikte verilecektir. ALICI gerek görmesi halinde kabul deneyleri
+              kapsamında bu deneylerin bir kısmının yapılmasını imalatçıdan talep edebilecektir.
+
+    ix.       Mahfazanın et kalınlığı en az 3,5 mm. olacaktır.
+
+    x.        Aydınlatma     Panosu ve kaidesinde kullanılacak tüm yalıtkan malzemeler IEC 60695-11-10
+              standardına göre V-0 sınıfına uygun olacaktır.
+
+    xi.       Diğer yapısal özellikler teknik şartnamede belirtildiği gibi olacaktır.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                  57
+
+
+
+--- PAGE 59 ---
+                                                                TEDAŞ-MLZ/2003-06.B
+
+                                                                                                                                            EK-VI/1
+
+                                     KAİDE İLE İLGİLİ DİĞER YAPISAL ÖZELLİKLER
+
+     A.         BETON KAİDE:
+
+     i.Kaide, prefabrik olarak kalıplama yöntemi ile imal edilecektir. Kaidenin köşeleri aşağıdaki resimde
+     görüldüğü gibi yuvarlatılmış veya köşeli olacaktır.
+
+
+
+                                                                                                                      A
+
+
+
+
+
+                       B
+
+
+
+
+
+
+
+
+
+
+                Beton kalitesi ..................................: En az BS 35 (C 35)
+                Yatay ve dikey donatılar..................: Q131 hasır çelik
+
+     ii.        Panonun  Kaideye  irtibatı,  aşağıdaki  resimde  gösterildiği  şekilde  imalat  sırasında  Kaide’ye
+     ankraj edilmiş cıvatalar ile yapılacaktır.
+
+
+
+
+
+
+
+
+
+
+                                                                      Ankraj Civataları
+
+
+
+
+
+     NOT: Ankraj civatası sayısı, imalatçının belirleyeceği miktarda dört adetten fazla da olabilecektir.
+
+
+
+
+                                                                              58
+
+
+
+--- PAGE 60 ---
+                                                       TEDAŞ-MLZ/2003-06.B
+
+
+
+
+                                                                                                                            EK-VI/2
+
+
+    B.        SAC KAİDE:
+
+    En  az  3  mm.  kalınlığında  DKP  sacdan  imal  edilecek  ve  sıcak  daldırma  metoduyla  galvanize
+    edilecektir.
+
+    Dış yüzeyler ve köşeler düzgün ve pürüzsüz olacaktır.
+
+
+    C.        CAM ELYAF TAKVİYELİ POLYESTER KAİDE:
+
+    Kaideyi oluşturan parçalar içeriden müdahale edilebilen bağlantı elemanları ile montaj edilecek ve
+    kullanılacak bağlantı elemanları paslanmaz çelik olacaktır.
+
+    Yüzeyler pürüzsüz olacak ve yüzeylerde herhangi bir çatlak, yarık, kabarcık, kırık, delik v.b. ile cam
+    elyaf takviyeli polyester kalıntıları bulunmayacaktır. Mukavemeti artırmak için yüzeyler kaburgalı
+    yapıda imal edilebilecektir. Kenarlar keskin olmayacaktır.
+
+    Renk dağılımı uniform olacaktır.
+
+    Kaidenin herhangi bir yan kenarında üretici firmanın adı ile imal tarihi, ön yüzünde ise ALICI’nın adı
+    yer alacaktır.
+
+    Kaide, dikdörtgen prizma görünümünde üstü açık kutu şeklinde olacak ve et kalınlığı en az 4 mm.
+    olacaktır.
+
+        Diğer özellikler; cam elyaf takviyeli polyester mahfazaya ait “Diğer Yapısal Özellikler” de ve teknik
+    şartnamede belirtildiği gibi olacaktır.
+
+
+
+    “Kaide üstündeki” / “Pano tabanındaki” delikler arasındaki mesafeler aşağıdaki tablodaki gibi
+    olacaktır. Pano imalatçıları Pano genişliği ve derinliği ölçülerinde izin verilen toleransları kullansalar
+    dahi delikler arasındaki mesafeler Toleranssız aşağıdaki tablodaki gibi olacaktır.
+                      A
+                                             Pano
+                                             Genişliği     550    750     950    1000     1100     1200     1400     1450     1600
+                                             (mm)
+     B                                       Pano
+                                             Derinliği     350    450     450     450      450      450      450      450      450
+                                             (mm)
+                                              A (mm)       300    500     700     750      850      950     1150     1150     1350
+                                              B (mm)       300    400     400     400      400      400      400      400      400
+
+
+
+
+
+
+                                                                   59
+
+
+
+--- PAGE 61 ---
+                                                          TEDAŞ-MLZ/2003-06.B
+
+
+
+
+
+                                                                                                                               EK-VII
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                      60
+
+
+
+--- PAGE 62 ---
+                                                    TEDAŞ-MLZ/2003-06.B
+
+
+                                                                                                                  EK: VIII
+                                                A.G. DAĞITIM PANOSU
+                                                  MALZEME LİSTESİ
+
+                                                                                                      KALEM NO
+
+                                                                                                   1                     2
+
+
+         A    Pano Gücü     (kVA)
+         B    Tek Hat Şeması Numarası
+
+         C    Pano Resmi     (İlgili Ek numarası belirtilecektir.)
+
+                             Bina İçi (Dahili)
+         1     Kullanma                                     Direk Tipi
+                  Yeri         Bina Dışı      (Sadece 50-100 ve 160 kVA için)
+                                (Harici)                    Kaide Tipi
+
+              Panoların Besleme               AOS’ler Üç Faz Ayrı Ayrı
+         2    Çıkışlarında AOS                Açma-Kapamalı
+              Kullanılması Halinde            AOS’ler Üç Faz Birlikte
+                                              Açma-Kapamalı
+              Panoların Besleme               DSYA’lar Üç Faz Ayrı Ayrı
+         3    Çıkışlarında DSYA               Açma-Kapamalı
+              Kullanılması Halinde            DSYA’lar Üç Faz Birlikte
+                                              Açma-Kapamalı
+              Dahili Tip Panolarda            1. Seçenek
+         4    Ana Girişte Kullanılacak
+              Ölçü Aletleri                   2. Seçenek
+              (Madde 3.11.i.1’e göre)
+              Panolarda Ana Girişte            Aktif
+         5    Kullanılacak Elektronik
+              Sayaç                            Kombi
+
+              630,800,1000, 1250 ve           Direk Bara Bağlantılı
+         6    1600 kVA Panolarda
+              Pano Girişi                     Kayar Baralı
+                                              Kalay Kaplı
+         7    Ara Bağlantı Baraları
+                                              Boyalı
+         8    TS EN 60695-11-10 standardına göre V-0 sınıfına uygunlukta
+              olması istenen malzemeler
+         9    Voltmetre/Ampermetre                                                          VAR /YOK               VAR/YOK
+
+
+        10    Enerji Analizörü                                                               VAR/YOK               VAR/YOK
+
+
+
+
+                                                               61
+
+
+
+--- PAGE 63 ---
+                                                         TEDAŞ-MLZ/2003-06.B
+
+
+        10.1    Enerji Analizöründe Dijital 2 Adet Röle Çıkışı                                       VAR/YOK                  VAR/YOK
+
+
+                                           Sac
+
+
+         11     Prefabrik Kaide Tipi       Beton
+
+
+                                           Cam Elyaf
+
+                Aydınlatma Panosu Mahfaza Tipi (Sac/Cam Elyaf Takviyeli
+         12     Polyester)
+
+                                           Kendinden Bazalı
+         13     Baza Tipi                  Montajlı Baza
+
+         14     Modem Özellikleri
+
+         15     Kondansatör Grubu Özellikleri
+
+
+         16     Parafudr Özellikleri
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                     62
+
+
+
+--- PAGE 64 ---
+                                                              TEDAŞ-MYD/2003-06.B
+                                                                                                                                                  EK: IX
+
+                                                       A.G. DAĞITIM PANOLARI
+                                              GARANTİLİ ÖZELLİKLER LİSTESİ
+
+
+                                                                                          Sipariş No                          : ...............
+                                                                                          Poz No                              : ...............
+                                                                                          Alıcının Mlz.Kod No   : ...............
+
+
+                                                                                                           Garanti Edilen
+
+1. İmalatçı                                                                    :
+2. İmalatçının tip işareti                                                     :
+3. Uygulanan standart                                                          :
+4. Anma çalışma gerilimi                                             (V)       :
+5. Anma darbe dayanım gerilimi  (Uimp)     (kV)                                :
+6. Panonun koruma derecesi                                                     :
+7. Bağlantı iletkenleri malzeme ve kesitleri
+    . Ana Bara                                                                 :
+    . Giriş fideri                                                             :
+    . Besleme çıkışları                                                        :
+    . Sokak aydınlatması çıkışı                                                :
+8. Mahfazanın özellikleri
+    . Malzemenin cinsi                                                         :
+    . Et kalınlığı                                              (mm)           :
+9. Pano boyutları
+    . En/Boy/Yükseklik                                  (mm)                   :
+10. Panonun toplam ağırlığı                           (kg)                     :
+11. Ambalajlı boyutlar
+    . En/Boy/Yükseklik                                  (mm)                   :
+
+12. Giriş Kesicisi Özellikleri
+    . İmalatçı                                                                 :
+    . İmalatçı tip işareti                                                     :
+    . Uygulanan standart                                                       :
+    . Kutup sayısı                                                             :
+    . Konum sayısı                                                             :
+    . Kumanda tipi                                                             :
+    . Kullanma sınıfı                                                          :
+    . Anma frekansı                                         (Hz)               :
+    . Anma çalışma gerilimi                              (V)                   :
+    . Anma yalıtım gerilimi                               (V)                  :
+    . Dielektrik deney gerilimi                (V-etken)                       :
+    . Anma akımı   (In)                                      (A)               :
+    . Anma ısıl akım   (Ith)                                (A)                :
+    . Anma mahfaza içinde ısıl akımı   (Ithe)    (A)                           :
+
+
+
+
+
+
+
+
+
+--- PAGE 65 ---
+                                                                         TEDAŞ-MLZ/2003-06.B
+
+                                                                                                       Sipariş No                          : ...............
+                                                                                                       Poz No                              : ...............
+                                                                                                       Alıcının Mlz.Kod No : ...............
+
+
+                                                                                                                  Garanti Edilen
+
+        . İşletme Kısa Devre kesme kapasitesi  (Ics)   (kA)     :
+        . Aşırı akım salıcısı ayar sınırları                                                    :
+        . Ani aşırı akım salıcısı ayar sınırları                                                :
+        . Mekanik dayanım                                                                       :
+        . Elektrik dayanımı                                                        :
+
+      13. Besleme Çıkışları
+          . Koruma cihazı tipi                                                                  :
+          . İmalatçı                                                                            :
+          . İmalatçı tip işareti                                                                :
+          . Uygulanan standart                                                                  :
+          . Kullanma sınıfı                                                                    :
+          . Anma çalışma akımı   (Ie)                             (A)      :
+
+          NOT: Diğer özellikler varsa ALICI’nın ilgili teknik şartnamelerine yoksa ilgili standartlara uygun
+           olacaktır.
+
+      14. Ölçü Cihazları
+          . Akım transformatörleri
+            - İmalatçı                                                                          :
+            - İmalatçı tip işareti                                                              :
+            - Uygulanan standart                                                                :
+            - Anma gücü                                               (VA)      :
+            - Anma çevirme oranı                               (A/A)      :
+            - Doğruluk sınıfı                                                                   :
+            - Akım Trafosu sayısı                                                               :
+
+           . Ampermetreler
+            - İmalatçı                                                                          :
+            - İmalatçı tip işareti                                                              :
+            - Uygulanan standart                                                                :
+            - Skala                                                           (A)      :
+            - Doğruluk sınıfı                                                                   :
+            - Boyutlar                                        (mm x mm)      :
+            - Ampermetre sayısı                                                                 :
+
+           . Voltmetre
+            - İmalatçı                                                                          :
+            - İmalatçı tip işareti                                                              :
+            - Uygulanan standart                                                                :
+            - Skala                                                                (V)      :
+            - Doğruluk sınıfı                                                                   :
+            - Boyutlar                                                                          :
+
+
+
+
+                                                                                         64
+
+
+
+--- PAGE 66 ---
+                                                                          TEDAŞ-MLZ/2003-06.B
+
+                                                                                                       Sipariş No                           : ...............
+                                                                                                       Poz No                               : ...............
+                                                                                                       Alıcının Mlz.Kod No : ...............
+
+
+                                                                                                                    Garanti Edilen
+
+           . Voltmetre komütatörü
+            - İmalatçı                                                                          :
+            - İmalatçı tip işareti                                                              :
+            - Uygulanan standart                                                                :
+            - Konum sayısı                                                                      :
+
+           . Elektronik sayaç (isteniyorsa)
+            - İmalatçı                                                                          :
+            - İmalatçı tip işareti                                                              :
+            - Uygulanan standart                                                                :
+            - Doğruluk sınıfı                                                                   :
+            - Anma gerilimi                                            (V)      :
+            - Anma akımı                                               (A)                      :
+
+           . Enerji Ölçer (Enerji Analizörü)
+            - İmalatçı                                                                          :
+            - İmalatçı tip işareti   (Katalog verilecektir.)                                    :
+
+      15. Sokak Aydınlatması Çıkışı
+
+          . Kontaktör
+            - İmalatçı                                                                          :
+            - İmalatçı tip işareti                                                              :
+            - Uygulanan standart                                                                :
+            - Anma akımı                                                           (A)          :
+            - Sigorta anma akımı                                   (A)                          :
+
+           . Fotosel röle
+            - İmalatçı                                                                          :
+            - İmalatçı tip işareti                                                              :
+
+           . Elektronik Aktif Sayaç
+            - İmalatçı                                                                          :
+            - İmalatçı tip işareti                                                              :
+            - Uygulanan standart                                                                :
+            - Doğruluk sınıfı                                                                   :
+            - Anma akımı                                              (A)                       :
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                          65
+

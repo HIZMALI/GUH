@@ -1,0 +1,1 @@
+"""Explicitly synthetic telemetry generators."""

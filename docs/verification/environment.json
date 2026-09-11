@@ -1,0 +1,11 @@
+{
+  "date": "2026-09-11",
+  "host_os": "Windows with Docker Desktop Linux / WSL2",
+  "cpu": "11th Gen Intel Core i9-11900K @ 3.50GHz",
+  "docker_logical_cpus": 16,
+  "docker_memory_bytes": 16697597952,
+  "application_database": "PostgreSQL 16",
+  "application_python": "3.12.14",
+  "source_verification_python": "3.14",
+  "scope": "Local synthetic prototype. Hardware resources are descriptive, not dedicated benchmark isolation."
+}

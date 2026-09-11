@@ -1,0 +1,242 @@
+{
+  "id": "combined_thermal_pd",
+  "name": "Termal + PD korelasyonu",
+  "description": "Normal → attention → warning → severe late-stage critical, all generated.",
+  "duration_steps": 60,
+  "expected_state": "CRITICAL",
+  "mode": "synthetic_demo",
+  "baseline": {
+    "step": 0,
+    "elapsed_seconds_at_default_3s_interval": 0,
+    "source_replay_offset_seconds": 0,
+    "risk_score": 8,
+    "health_score": 96,
+    "state": "NORMAL",
+    "key_measurements": {
+      "current_l1": 318.258,
+      "temperature_c": 37.39,
+      "humidity_pct": 49.64,
+      "pd_baseline_ratio": 1.0
+    },
+    "quality_failures": [],
+    "expected_alarm": null,
+    "rule_contributions": [
+      {
+        "rule": "baseline",
+        "points": 8,
+        "detail": "Sentetik demonun başlangıç değerleri: risk 8 / sağlık 96."
+      }
+    ],
+    "arc_event": false,
+    "gateway_communication_ok": true,
+    "arc_guard_communication_ok": true
+  },
+  "timeline": [
+    {
+      "step": 0,
+      "elapsed_seconds_at_default_3s_interval": 0,
+      "source_replay_offset_seconds": 0,
+      "risk_score": 8,
+      "health_score": 96,
+      "state": "NORMAL",
+      "key_measurements": {
+        "current_l1": 318.258,
+        "temperature_c": 37.39,
+        "humidity_pct": 49.64,
+        "pd_baseline_ratio": 1.0
+      },
+      "quality_failures": [],
+      "expected_alarm": null,
+      "rule_contributions": [
+        {
+          "rule": "baseline",
+          "points": 8,
+          "detail": "Sentetik demonun başlangıç değerleri: risk 8 / sağlık 96."
+        }
+      ],
+      "arc_event": false,
+      "gateway_communication_ok": true,
+      "arc_guard_communication_ok": true
+    },
+    {
+      "step": 4,
+      "elapsed_seconds_at_default_3s_interval": 12,
+      "source_replay_offset_seconds": 3600,
+      "risk_score": 8,
+      "health_score": 96,
+      "state": "NORMAL",
+      "key_measurements": {
+        "current_l1": 318.373,
+        "temperature_c": 37.56,
+        "humidity_pct": 49.93,
+        "pd_baseline_ratio": 1.0
+      },
+      "quality_failures": [],
+      "expected_alarm": null,
+      "rule_contributions": [
+        {
+          "rule": "baseline",
+          "points": 8,
+          "detail": "Sentetik demonun başlangıç değerleri: risk 8 / sağlık 96."
+        }
+      ],
+      "arc_event": false,
+      "gateway_communication_ok": true,
+      "arc_guard_communication_ok": true
+    },
+    {
+      "step": 8,
+      "elapsed_seconds_at_default_3s_interval": 24,
+      "source_replay_offset_seconds": 7200,
+      "risk_score": 8,
+      "health_score": 96,
+      "state": "NORMAL",
+      "key_measurements": {
+        "current_l1": 319.893,
+        "temperature_c": 41.28,
+        "humidity_pct": 48.96,
+        "pd_baseline_ratio": 1.0
+      },
+      "quality_failures": [],
+      "expected_alarm": null,
+      "rule_contributions": [
+        {
+          "rule": "baseline",
+          "points": 8,
+          "detail": "Sentetik demonun başlangıç değerleri: risk 8 / sağlık 96."
+        }
+      ],
+      "arc_event": false,
+      "gateway_communication_ok": true,
+      "arc_guard_communication_ok": true
+    },
+    {
+      "step": 20,
+      "elapsed_seconds_at_default_3s_interval": 60,
+      "source_replay_offset_seconds": 18000,
+      "risk_score": 31,
+      "health_score": 81,
+      "state": "ATTENTION",
+      "key_measurements": {
+        "current_l1": 325.863,
+        "temperature_c": 54.55,
+        "humidity_pct": 49.58,
+        "pd_baseline_ratio": 2.0
+      },
+      "quality_failures": [],
+      "expected_alarm": "ATTENTION",
+      "rule_contributions": [
+        {
+          "rule": "baseline",
+          "points": 8,
+          "detail": "Sentetik demonun başlangıç değerleri: risk 8 / sağlık 96."
+        },
+        {
+          "rule": "pd_activity",
+          "points": 17,
+          "detail": "Sentetik PD aktivitesi referansın 2.00 katı; bu gösterge kalibre edilmemiştir."
+        },
+        {
+          "rule": "thermal_trend",
+          "points": 6,
+          "detail": "Sıcaklık, kabul edilmiş son 12 kaydın hareketli medyanına göre 7.9 °C arttı."
+        }
+      ],
+      "arc_event": false,
+      "gateway_communication_ok": true,
+      "arc_guard_communication_ok": true
+    },
+    {
+      "step": 40,
+      "elapsed_seconds_at_default_3s_interval": 120,
+      "source_replay_offset_seconds": 36000,
+      "risk_score": 86,
+      "health_score": 45,
+      "state": "CRITICAL",
+      "key_measurements": {
+        "current_l1": 335.375,
+        "temperature_c": 76.01,
+        "humidity_pct": 49.51,
+        "pd_baseline_ratio": 4.5
+      },
+      "quality_failures": [],
+      "expected_alarm": "CRITICAL",
+      "rule_contributions": [
+        {
+          "rule": "baseline",
+          "points": 8,
+          "detail": "Sentetik demonun başlangıç değerleri: risk 8 / sağlık 96."
+        },
+        {
+          "rule": "temperature",
+          "points": 30,
+          "detail": "Bağlantı sıcaklığı 76.0 °C; demo eşikleri 55 / 65 / 80 °C."
+        },
+        {
+          "rule": "pd_activity",
+          "points": 30,
+          "detail": "Sentetik PD aktivitesi referansın 4.50 katı; bu gösterge kalibre edilmemiştir."
+        },
+        {
+          "rule": "thermal_trend",
+          "points": 6,
+          "detail": "Sıcaklık, kabul edilmiş son 12 kaydın hareketli medyanına göre 7.9 °C arttı."
+        },
+        {
+          "rule": "thermal_pd_correlation",
+          "points": 12,
+          "detail": "Sıcaklık ve sentetik PD aktivitesi birlikte yükseliyor; yalıtım ve bağlantılar incelenmeli."
+        }
+      ],
+      "arc_event": false,
+      "gateway_communication_ok": true,
+      "arc_guard_communication_ok": true
+    },
+    {
+      "step": 59,
+      "elapsed_seconds_at_default_3s_interval": 177,
+      "source_replay_offset_seconds": 53100,
+      "risk_score": 100,
+      "health_score": 36,
+      "state": "CRITICAL",
+      "key_measurements": {
+        "current_l1": 337.136,
+        "temperature_c": 80.08,
+        "humidity_pct": 49.14,
+        "pd_baseline_ratio": 5.0
+      },
+      "quality_failures": [],
+      "expected_alarm": "CRITICAL",
+      "rule_contributions": [
+        {
+          "rule": "baseline",
+          "points": 8,
+          "detail": "Sentetik demonun başlangıç değerleri: risk 8 / sağlık 96."
+        },
+        {
+          "rule": "temperature",
+          "points": 45,
+          "detail": "Bağlantı sıcaklığı 80.1 °C; demo eşikleri 55 / 65 / 80 °C."
+        },
+        {
+          "rule": "pd_activity",
+          "points": 42,
+          "detail": "Sentetik PD aktivitesi referansın 5.00 katı; bu gösterge kalibre edilmemiştir."
+        },
+        {
+          "rule": "thermal_pd_correlation",
+          "points": 12,
+          "detail": "Sıcaklık ve sentetik PD aktivitesi birlikte yükseliyor; yalıtım ve bağlantılar incelenmeli."
+        }
+      ],
+      "arc_event": false,
+      "gateway_communication_ok": true,
+      "arc_guard_communication_ok": true
+    }
+  ],
+  "source": "Workbook organizer-synthetic L1 replay; all other channels generated synthetic. Modified L1 scenarios explicitly generated.",
+  "timing": "At the default 100-panel fleet, one 900-second workbook offset is replayed per 3-second publication interval (300×). Fleet-average pacing uses max(requested interval, panel count / SIMULATOR_MAX_FPS), default 50 fps: 250 panels use 5 seconds, 500 use 10 seconds. Actual UTC timestamps track publication. Scenario rules use accepted-frame rolling windows.",
+  "expected_outcome": "Condition-monitoring alerts and locally simulated notification records. No device writes or protection actions.",
+  "communication_loss_note": null,
+  "thresholds": "Engineering demonstration assumptions only; never protection setpoints. PD is uncalibrated arbitrary units."
+}

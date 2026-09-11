@@ -1,0 +1,124 @@
+--- PAGE 1 ---
+Data Sheet
+high performance
+inductive PD sensors
+
+
+                                                               HFCT           30mm
+
+                                                               Techimp   HFCT is an inductive sensor for
+                                                               partial discharge measurements.
+                                                               It is suitable for on/off line PD tests on many
+                                                               electrical systems (cables, transformers,
+                                                               rotating machine, etc..). It has to be applied
+                                                               to the ground connection of the system to
+                                                               be tested.
+
+                                                               A BNC termination is available to connect the
+                                                               HFCT to the Techimp     PD detection /analyzer
+                                                               unit  through a coaxial cable. The arrow
+                                                               indicates the output voltage (Vout) direction in
+                                                               comparison with the input current (Iin)
+                                                               direction: when the sensor is installed with the
+                                                               arrow directed to ground junction, the
+                                                               detected voltage signal (Vout) has the same
+                                                               phase as the input current (Iin).
+
+                                                               BENEFITS
+                                                               •  Maintenance free
+                                                               •  High sensitivity and reliability
+                                                               •  Robust and easy to use
+                                                               •  Safety
+
+
+
+
+
+
+
+
+ SPECIFICATIONS
+
+ Bandwidth                                                1 MHz ÷  60MHz
+ Max Sensitivity (Vout  / Iinat 42 MHz, 50 Ω load)        17 mV/mA
+ Load Impedance                                           50 Ω
+ Vout  (no load connected) @ 50Hz                         0,6Vpp @ 100A
+ Vout  (no load connected) @ PD frequency                 0,4Vpp @ 100pC
+ Hole dimension                                           Φ 30  mm
+ Electric insulation                                      25kVpeak (for 1 hour)
+ Operating temperature                                     -20°C +70 C
+
+
+
+
+                                                                                                                 TECHIMP
+HFCT 30mm DATA SHEET [ENG] –REV.20141021                                     www.techimp.com | sales@techimp.com
+
+--- PAGE 2 ---
+Data Sheet
+HFCT 30mm
+
+
+
+FREQUENCY       RESPONSE
+
+
+        0
+
+
+      -10
+
+
+      -20
+
+
+      -30
+
+
+      -40
+
+
+      -50
+
+
+      -60
+
+
+      -70
+        10KHz    30KHz   100KHz   300KHz    1MHz     3MHz     5MHz     10MHz    30MHz    50MHz    60MHz
+
+                                                Frequency
+
+
+MECHANICAL        SPECIFICATION
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     SUITABLE FOR
+
+Several different sensors are available, fully compatible with Techimp               Global Diagnostic platform. They can
+be freely combined at customer needs provided they can be applied for the specific application.
+
+
+                                                     GIS            OUTDO
+ HVAC    MVAC     HVDC    MOTOR   GENERA    PWM      GIL    SWITCH    OR      HV       MV     TA/TV
+ CABLE   CABLE    CABLE            TOR      VSD      GIB   BOARDS   INSULA   TRAFO    TRAFO
+                                                                     TOR

@@ -1,0 +1,212 @@
+{
+  "id": "gradual_overload",
+  "name": "Kademeli yük artışı",
+  "description": "Generated main-incomer current climbs to 1.3× the source panel main-bus reference of 2312 A; monitoring position is an assumption.",
+  "duration_steps": 48,
+  "expected_state": "WARNING",
+  "mode": "synthetic_demo",
+  "baseline": {
+    "step": 0,
+    "elapsed_seconds_at_default_3s_interval": 0,
+    "source_replay_offset_seconds": 0,
+    "risk_score": 8,
+    "health_score": 96,
+    "state": "NORMAL",
+    "key_measurements": {
+      "current_l1": 318.0,
+      "temperature_c": 37.39,
+      "humidity_pct": 49.64,
+      "pd_baseline_ratio": 1.026
+    },
+    "quality_failures": [],
+    "expected_alarm": null,
+    "rule_contributions": [
+      {
+        "rule": "baseline",
+        "points": 8,
+        "detail": "Sentetik demonun başlangıç değerleri: risk 8 / sağlık 96."
+      }
+    ],
+    "arc_event": false,
+    "gateway_communication_ok": true,
+    "arc_guard_communication_ok": true
+  },
+  "timeline": [
+    {
+      "step": 0,
+      "elapsed_seconds_at_default_3s_interval": 0,
+      "source_replay_offset_seconds": 0,
+      "risk_score": 8,
+      "health_score": 96,
+      "state": "NORMAL",
+      "key_measurements": {
+        "current_l1": 318.0,
+        "temperature_c": 37.39,
+        "humidity_pct": 49.64,
+        "pd_baseline_ratio": 1.026
+      },
+      "quality_failures": [],
+      "expected_alarm": null,
+      "rule_contributions": [
+        {
+          "rule": "baseline",
+          "points": 8,
+          "detail": "Sentetik demonun başlangıç değerleri: risk 8 / sağlık 96."
+        }
+      ],
+      "arc_event": false,
+      "gateway_communication_ok": true,
+      "arc_guard_communication_ok": true
+    },
+    {
+      "step": 4,
+      "elapsed_seconds_at_default_3s_interval": 12,
+      "source_replay_offset_seconds": 3600,
+      "risk_score": 8,
+      "health_score": 96,
+      "state": "NORMAL",
+      "key_measurements": {
+        "current_l1": 318.0,
+        "temperature_c": 37.56,
+        "humidity_pct": 49.93,
+        "pd_baseline_ratio": 1.037
+      },
+      "quality_failures": [],
+      "expected_alarm": null,
+      "rule_contributions": [
+        {
+          "rule": "baseline",
+          "points": 8,
+          "detail": "Sentetik demonun başlangıç değerleri: risk 8 / sağlık 96."
+        }
+      ],
+      "arc_event": false,
+      "gateway_communication_ok": true,
+      "arc_guard_communication_ok": true
+    },
+    {
+      "step": 8,
+      "elapsed_seconds_at_default_3s_interval": 24,
+      "source_replay_offset_seconds": 7200,
+      "risk_score": 8,
+      "health_score": 96,
+      "state": "NORMAL",
+      "key_measurements": {
+        "current_l1": 586.76,
+        "temperature_c": 38.78,
+        "humidity_pct": 48.96,
+        "pd_baseline_ratio": 0.998
+      },
+      "quality_failures": [],
+      "expected_alarm": null,
+      "rule_contributions": [
+        {
+          "rule": "baseline",
+          "points": 8,
+          "detail": "Sentetik demonun başlangıç değerleri: risk 8 / sağlık 96."
+        }
+      ],
+      "arc_event": false,
+      "gateway_communication_ok": true,
+      "arc_guard_communication_ok": true
+    },
+    {
+      "step": 16,
+      "elapsed_seconds_at_default_3s_interval": 48,
+      "source_replay_offset_seconds": 14400,
+      "risk_score": 8,
+      "health_score": 96,
+      "state": "NORMAL",
+      "key_measurements": {
+        "current_l1": 1124.28,
+        "temperature_c": 42.05,
+        "humidity_pct": 48.42,
+        "pd_baseline_ratio": 0.977
+      },
+      "quality_failures": [],
+      "expected_alarm": null,
+      "rule_contributions": [
+        {
+          "rule": "baseline",
+          "points": 8,
+          "detail": "Sentetik demonun başlangıç değerleri: risk 8 / sağlık 96."
+        }
+      ],
+      "arc_event": false,
+      "gateway_communication_ok": true,
+      "arc_guard_communication_ok": true
+    },
+    {
+      "step": 32,
+      "elapsed_seconds_at_default_3s_interval": 96,
+      "source_replay_offset_seconds": 28800,
+      "risk_score": 20,
+      "health_score": 88,
+      "state": "ATTENTION",
+      "key_measurements": {
+        "current_l1": 2199.32,
+        "temperature_c": 49.04,
+        "humidity_pct": 48.07,
+        "pd_baseline_ratio": 0.963
+      },
+      "quality_failures": [],
+      "expected_alarm": "ATTENTION",
+      "rule_contributions": [
+        {
+          "rule": "baseline",
+          "points": 8,
+          "detail": "Sentetik demonun başlangıç değerleri: risk 8 / sağlık 96."
+        },
+        {
+          "rule": "load",
+          "points": 12,
+          "detail": "En yüksek faz akımı 2225.9 A; kaynak belgedeki ana bara referansı 2312 A. Akımın ana girişten izlendiği varsayılır."
+        }
+      ],
+      "arc_event": false,
+      "gateway_communication_ok": true,
+      "arc_guard_communication_ok": true
+    },
+    {
+      "step": 47,
+      "elapsed_seconds_at_default_3s_interval": 141,
+      "source_replay_offset_seconds": 42300,
+      "risk_score": 65,
+      "health_score": 59,
+      "state": "WARNING",
+      "key_measurements": {
+        "current_l1": 3005.6,
+        "temperature_c": 55.25,
+        "humidity_pct": 49.42,
+        "pd_baseline_ratio": 1.017
+      },
+      "quality_failures": [],
+      "expected_alarm": "WARNING",
+      "rule_contributions": [
+        {
+          "rule": "baseline",
+          "points": 8,
+          "detail": "Sentetik demonun başlangıç değerleri: risk 8 / sağlık 96."
+        },
+        {
+          "rule": "temperature",
+          "points": 15,
+          "detail": "Bağlantı sıcaklığı 55.2 °C; demo eşikleri 55 / 65 / 80 °C."
+        },
+        {
+          "rule": "load",
+          "points": 42,
+          "detail": "En yüksek faz akımı 3027.3 A; kaynak belgedeki ana bara referansı 2312 A. Akımın ana girişten izlendiği varsayılır."
+        }
+      ],
+      "arc_event": false,
+      "gateway_communication_ok": true,
+      "arc_guard_communication_ok": true
+    }
+  ],
+  "source": "Workbook organizer-synthetic L1 replay; all other channels generated synthetic. Modified L1 scenarios explicitly generated.",
+  "timing": "At the default 100-panel fleet, one 900-second workbook offset is replayed per 3-second publication interval (300×). Fleet-average pacing uses max(requested interval, panel count / SIMULATOR_MAX_FPS), default 50 fps: 250 panels use 5 seconds, 500 use 10 seconds. Actual UTC timestamps track publication. Scenario rules use accepted-frame rolling windows.",
+  "expected_outcome": "Condition-monitoring alerts and locally simulated notification records. No device writes or protection actions.",
+  "communication_loss_note": null,
+  "thresholds": "Engineering demonstration assumptions only; never protection setpoints. PD is uncalibrated arbitrary units."
+}

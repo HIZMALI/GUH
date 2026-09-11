@@ -1,0 +1,230 @@
+[
+  {
+    "file": "1600kVA AG Pano Teknik Özellikleri.pdf",
+    "sha256": "7009cb4a907f7a375b06e5278ec35a368c3f4a46d89a9fbcfa9b575287110b50",
+    "pages": 1,
+    "characters": [
+      3486
+    ]
+  },
+  {
+    "file": "1SFC170017M0201_Rev_D_TVOC-2_Modbus_Manual.pdf",
+    "sha256": "491ba29fbfca2c61a6aa5f75d641733d31807c96e1396ecc59daefb67eba503f",
+    "pages": 44,
+    "characters": [
+      108,
+      0,
+      3120,
+      0,
+      1787,
+      0,
+      2173,
+      2515,
+      704,
+      0,
+      4050,
+      2170,
+      1728,
+      0,
+      2102,
+      1517,
+      694,
+      0,
+      13153,
+      4041,
+      6333,
+      5531,
+      6089,
+      4067,
+      5784,
+      2830,
+      2172,
+      2350,
+      6253,
+      2420,
+      2582,
+      1599,
+      3029,
+      0,
+      2230,
+      1191,
+      0,
+      66666,
+      12670,
+      7,
+      7,
+      7,
+      7,
+      852
+    ]
+  },
+  {
+    "file": "AG PANO MALZEME ŞARTNAMESİ.pdf",
+    "sha256": "37f9561443deaa670a36934edb6b0238e7cd6371cbcfac687657eace5f04f27e",
+    "pages": 66,
+    "characters": [
+      262,
+      2447,
+      1517,
+      4283,
+      4063,
+      3911,
+      3472,
+      3303,
+      2783,
+      4157,
+      3646,
+      3754,
+      3156,
+      3584,
+      3309,
+      3330,
+      3604,
+      3799,
+      2634,
+      3303,
+      3334,
+      3361,
+      2731,
+      4231,
+      3842,
+      2615,
+      2244,
+      3525,
+      3262,
+      3050,
+      3159,
+      2784,
+      2992,
+      2871,
+      3486,
+      3395,
+      1461,
+      3269,
+      419,
+      412,
+      420,
+      629,
+      422,
+      421,
+      427,
+      429,
+      435,
+      430,
+      421,
+      421,
+      421,
+      421,
+      421,
+      421,
+      432,
+      368,
+      527,
+      2078,
+      1294,
+      2475,
+      359,
+      2577,
+      820,
+      3433,
+      3953,
+      3379
+    ]
+  },
+  {
+    "file": "AG Pano Teknik Çizim-1600kVA.pdf",
+    "sha256": "76a46f62883745bffffa8cb9cc34bd07060fb154fe2c0c6ba3cb8261ca25d5e1",
+    "pages": 1,
+    "characters": [
+      421
+    ]
+  },
+  {
+    "file": "DS_HFCT30_eng.pdf",
+    "sha256": "ed5c108915b1146a4bf88882267a86dfd9252de0383cb2f6cda1002a905f5b0e",
+    "pages": 2,
+    "characters": [
+      3042,
+      940
+    ]
+  },
+  {
+    "file": "DS_HFCT50_eng.pdf",
+    "sha256": "005e18eb7ed4d0b80951d22b9b024509eea58effa6a60d5e2d26b147dc86d01c",
+    "pages": 2,
+    "characters": [
+      989,
+      1822
+    ]
+  },
+  {
+    "file": "Grid Up Hackathon Proje Konusu.pdf",
+    "sha256": "e40144c2c024a8435986b1a2f716c6a9906d040c7b3cbd714fe794795e916b37",
+    "pages": 5,
+    "characters": [
+      2943,
+      2911,
+      3280,
+      1912,
+      415
+    ]
+  },
+  {
+    "file": "MPR-53CS_Modbus_Register_Map_EN.pdf",
+    "sha256": "6245a6487511710a4f438fe5e830f57af95890800bc01ea09a9a1ac9afbf5b5c",
+    "pages": 2,
+    "characters": [
+      0,
+      0
+    ]
+  },
+  {
+    "file": "tvoc.pdf",
+    "sha256": "bd08af65644fbb7ada9cd83da25bb161f0d40d4ee22a996457e186aff82554f9",
+    "pages": 20,
+    "characters": [
+      84,
+      0,
+      19635,
+      126,
+      2158,
+      2643,
+      2684,
+      6943,
+      28225,
+      54272,
+      23134,
+      32929,
+      4971,
+      3739,
+      3664,
+      1656,
+      1288,
+      44610,
+      0,
+      1992
+    ]
+  },
+  {
+    "file": "İstenen Veriler.xlsx",
+    "sha256": "5008dca096334325cc4013e22a30a2e07c59c6a220a4296fc5fc564c4ae3a231",
+    "sheets": {
+      "Akım Sensörü": {
+        "rows": 158,
+        "columns": 6
+      },
+      "ARC": {
+        "rows": 2,
+        "columns": 1
+      },
+      "PD": {
+        "rows": 4,
+        "columns": 1
+      },
+      "Sıcaklık_Nem": {
+        "rows": 0,
+        "columns": 0
+      }
+    }
+  }
+]

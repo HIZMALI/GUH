@@ -1,0 +1,207 @@
+{
+  "id": "high_humidity",
+  "name": "Yüksek nem",
+  "description": "Generated humidity rises to 98%; demo thresholds are assumptions.",
+  "duration_steps": 48,
+  "expected_state": "WARNING",
+  "mode": "synthetic_demo",
+  "baseline": {
+    "step": 0,
+    "elapsed_seconds_at_default_3s_interval": 0,
+    "source_replay_offset_seconds": 0,
+    "risk_score": 8,
+    "health_score": 96,
+    "state": "NORMAL",
+    "key_measurements": {
+      "current_l1": 318.0,
+      "temperature_c": 37.39,
+      "humidity_pct": 49.0,
+      "pd_baseline_ratio": 1.026
+    },
+    "quality_failures": [],
+    "expected_alarm": null,
+    "rule_contributions": [
+      {
+        "rule": "baseline",
+        "points": 8,
+        "detail": "Sentetik demonun başlangıç değerleri: risk 8 / sağlık 96."
+      }
+    ],
+    "arc_event": false,
+    "gateway_communication_ok": true,
+    "arc_guard_communication_ok": true
+  },
+  "timeline": [
+    {
+      "step": 0,
+      "elapsed_seconds_at_default_3s_interval": 0,
+      "source_replay_offset_seconds": 0,
+      "risk_score": 8,
+      "health_score": 96,
+      "state": "NORMAL",
+      "key_measurements": {
+        "current_l1": 318.0,
+        "temperature_c": 37.39,
+        "humidity_pct": 49.0,
+        "pd_baseline_ratio": 1.026
+      },
+      "quality_failures": [],
+      "expected_alarm": null,
+      "rule_contributions": [
+        {
+          "rule": "baseline",
+          "points": 8,
+          "detail": "Sentetik demonun başlangıç değerleri: risk 8 / sağlık 96."
+        }
+      ],
+      "arc_event": false,
+      "gateway_communication_ok": true,
+      "arc_guard_communication_ok": true
+    },
+    {
+      "step": 4,
+      "elapsed_seconds_at_default_3s_interval": 12,
+      "source_replay_offset_seconds": 3600,
+      "risk_score": 8,
+      "health_score": 96,
+      "state": "NORMAL",
+      "key_measurements": {
+        "current_l1": 156.0,
+        "temperature_c": 37.56,
+        "humidity_pct": 49.0,
+        "pd_baseline_ratio": 1.037
+      },
+      "quality_failures": [],
+      "expected_alarm": null,
+      "rule_contributions": [
+        {
+          "rule": "baseline",
+          "points": 8,
+          "detail": "Sentetik demonun başlangıç değerleri: risk 8 / sağlık 96."
+        }
+      ],
+      "arc_event": false,
+      "gateway_communication_ok": true,
+      "arc_guard_communication_ok": true
+    },
+    {
+      "step": 8,
+      "elapsed_seconds_at_default_3s_interval": 24,
+      "source_replay_offset_seconds": 7200,
+      "risk_score": 8,
+      "health_score": 96,
+      "state": "NORMAL",
+      "key_measurements": {
+        "current_l1": 516.0,
+        "temperature_c": 36.98,
+        "humidity_pct": 53.9,
+        "pd_baseline_ratio": 0.998
+      },
+      "quality_failures": [],
+      "expected_alarm": null,
+      "rule_contributions": [
+        {
+          "rule": "baseline",
+          "points": 8,
+          "detail": "Sentetik demonun başlangıç değerleri: risk 8 / sağlık 96."
+        }
+      ],
+      "arc_event": false,
+      "gateway_communication_ok": true,
+      "arc_guard_communication_ok": true
+    },
+    {
+      "step": 16,
+      "elapsed_seconds_at_default_3s_interval": 48,
+      "source_replay_offset_seconds": 14400,
+      "risk_score": 8,
+      "health_score": 96,
+      "state": "NORMAL",
+      "key_measurements": {
+        "current_l1": 444.0,
+        "temperature_c": 36.65,
+        "humidity_pct": 63.7,
+        "pd_baseline_ratio": 0.977
+      },
+      "quality_failures": [],
+      "expected_alarm": null,
+      "rule_contributions": [
+        {
+          "rule": "baseline",
+          "points": 8,
+          "detail": "Sentetik demonun başlangıç değerleri: risk 8 / sağlık 96."
+        }
+      ],
+      "arc_event": false,
+      "gateway_communication_ok": true,
+      "arc_guard_communication_ok": true
+    },
+    {
+      "step": 32,
+      "elapsed_seconds_at_default_3s_interval": 96,
+      "source_replay_offset_seconds": 28800,
+      "risk_score": 23,
+      "health_score": 86,
+      "state": "ATTENTION",
+      "key_measurements": {
+        "current_l1": 414.0,
+        "temperature_c": 36.44,
+        "humidity_pct": 83.3,
+        "pd_baseline_ratio": 0.963
+      },
+      "quality_failures": [],
+      "expected_alarm": "ATTENTION",
+      "rule_contributions": [
+        {
+          "rule": "baseline",
+          "points": 8,
+          "detail": "Sentetik demonun başlangıç değerleri: risk 8 / sağlık 96."
+        },
+        {
+          "rule": "humidity",
+          "points": 15,
+          "detail": "Bağıl nem %83.3; demo eşikleri %75 / %85 / %95."
+        }
+      ],
+      "arc_event": false,
+      "gateway_communication_ok": true,
+      "arc_guard_communication_ok": true
+    },
+    {
+      "step": 47,
+      "elapsed_seconds_at_default_3s_interval": 141,
+      "source_replay_offset_seconds": 42300,
+      "risk_score": 48,
+      "health_score": 70,
+      "state": "WARNING",
+      "key_measurements": {
+        "current_l1": 528.0,
+        "temperature_c": 37.25,
+        "humidity_pct": 98.0,
+        "pd_baseline_ratio": 1.017
+      },
+      "quality_failures": [],
+      "expected_alarm": "WARNING",
+      "rule_contributions": [
+        {
+          "rule": "baseline",
+          "points": 8,
+          "detail": "Sentetik demonun başlangıç değerleri: risk 8 / sağlık 96."
+        },
+        {
+          "rule": "humidity",
+          "points": 40,
+          "detail": "Bağıl nem %98.0; demo eşikleri %75 / %85 / %95."
+        }
+      ],
+      "arc_event": false,
+      "gateway_communication_ok": true,
+      "arc_guard_communication_ok": true
+    }
+  ],
+  "source": "Workbook organizer-synthetic L1 replay; all other channels generated synthetic. Modified L1 scenarios explicitly generated.",
+  "timing": "At the default 100-panel fleet, one 900-second workbook offset is replayed per 3-second publication interval (300×). Fleet-average pacing uses max(requested interval, panel count / SIMULATOR_MAX_FPS), default 50 fps: 250 panels use 5 seconds, 500 use 10 seconds. Actual UTC timestamps track publication. Scenario rules use accepted-frame rolling windows.",
+  "expected_outcome": "Condition-monitoring alerts and locally simulated notification records. No device writes or protection actions.",
+  "communication_loss_note": null,
+  "thresholds": "Engineering demonstration assumptions only; never protection setpoints. PD is uncalibrated arbitrary units."
+}

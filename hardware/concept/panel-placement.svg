@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1300" height="1100" viewBox="0 0 1300 1100" role="img" aria-labelledby="title desc">
+<title id="title">GridSentinel 1600 kVA pano önerilen sensör yerleşimi</title>
+<desc id="desc">TEDAŞ EK-II/14 kaynak geometrisi. Genişlik1600, yükseklik1500, derinlik450mm. Alt kablo alanı en az400mm. Mavi ve turuncu noktalar öneridir; fiziksel kurulum yapılmadı.</desc>
+<defs>
+ <style>text{font-family:Arial,sans-serif;fill:#142c3c}.small{font-size:15px}.label{font-size:18px;font-weight:600}.muted{fill:#566e80}.metal{fill:#eef3f7;stroke:#718698;stroke-width:2}.bus{stroke:#9c7843;stroke-width:14;fill:none}.dim{stroke:#627687;stroke-width:1.5;fill:none}.node{fill:#007d99;stroke:#fff;stroke-width:3}.node-text{fill:white;font-size:14px;font-weight:bold}.call{stroke:#007d99;stroke-width:2;fill:none}.arc{fill:#e9ae3620;stroke:#c88921;stroke-width:2;stroke-dasharray:8 6}</style>
+ <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#627687"/></marker>
+ <g id="feeder"><rect x="0" y="0" width="42" height="223" rx="2" fill="#dde6ec" stroke="#718698"/><rect x="6" y="17" width="30" height="58" fill="white" stroke="#718698"/><rect x="6" y="86" width="30" height="58" fill="white" stroke="#718698"/><rect x="6" y="155" width="30" height="51" fill="white" stroke="#718698"/><path d="M21 8V213" stroke="#7b8d99" stroke-width="4"/></g>
+</defs>
+<rect width="1300" height="1100" fill="#f8fafc"/>
+<text x="55" y="58" font-size="30" font-weight="bold">GridSentinel / Önerilen pano izleme noktaları</text>
+<text x="55" y="90" font-size="18" class="muted">1250–1600 kVA dahili AG pano · TEDAŞ EK-II/14 referans geometrisi</text>
+<rect x="55" y="113" width="1190" height="42" rx="7" fill="#e7f2f7"/>
+<text x="75" y="140" font-size="16">MÜHENDİSLİK KONSEPTİ · Sensörler fiziksel olarak takılmadı · Koruma işlevi ABB ve mevcut cihazlarda kalır</text>
+<!-- Source geometry: A1600 B1500, scaled0.48; no claimed manufacturing offsets. -->
+<rect x="130" y="190" width="768" height="720" rx="2" fill="#d1dbe3" stroke="#324c5f" stroke-width="3"/>
+<rect x="144" y="204" width="740" height="692" fill="#fff" stroke="#718698" stroke-width="2"/>
+<rect x="144" y="204" width="740" height="220" class="metal"/>
+<rect x="144" y="424" width="558" height="280" class="metal"/>
+<rect x="702" y="424" width="182" height="472" class="metal"/>
+<rect x="144" y="704" width="558" height="192" fill="#f3f7fa" stroke="#718698" stroke-width="2"/>
+<!-- Three incoming busbars and CT reference symbols. -->
+<rect x="338" y="170" width="14" height="234" fill="#9c7843"/>
+<rect x="425" y="170" width="14" height="234" fill="#9c7843"/>
+<rect x="512" y="170" width="14" height="234" fill="#9c7843"/>
+<rect x="324" y="291" width="42" height="26" fill="white" stroke="#526b7e" stroke-width="3"/>
+<rect x="411" y="291" width="42" height="26" fill="white" stroke="#526b7e" stroke-width="3"/>
+<rect x="498" y="291" width="42" height="26" fill="white" stroke="#526b7e" stroke-width="3"/>
+<text x="310" y="387" class="label">Giriş baraları / CT bölgesi</text>
+<rect x="169" y="253" width="95" height="114" fill="white" stroke="#718698" stroke-width="2"/>
+<text x="178" y="293" class="small">Sabit</text><text x="178" y="315" font-size="12">kompanzasyon</text>
+<rect x="744" y="263" width="101" height="54" fill="white" stroke="#718698" stroke-width="2"/>
+<text x="760" y="296" class="small">Yardımcı</text>
+<rect x="744" y="348" width="101" height="44" fill="white" stroke="#718698" stroke-width="2"/>
+<text x="763" y="376" class="small">Modem</text>
+<rect x="288" y="224" width="289" height="115" rx="12" class="arc"/>
+<text x="586" y="242" class="small" fill="#9d6a14">ARC-Z1</text>
+<!-- Source 12-way bank; ten outgoing positions plus two spare. -->
+<use href="#feeder" x="150" y="462"/><use href="#feeder" x="196" y="462"/>
+<use href="#feeder" x="242" y="462"/><use href="#feeder" x="288" y="462"/>
+<use href="#feeder" x="334" y="462"/><use href="#feeder" x="380" y="462"/>
+<use href="#feeder" x="426" y="462"/><use href="#feeder" x="472" y="462"/>
+<use href="#feeder" x="518" y="462"/><use href="#feeder" x="564" y="462"/>
+<use href="#feeder" x="610" y="462"/><use href="#feeder" x="656" y="462"/>
+<text x="158" y="450" class="label">DSYA çıkış bankası</text>
+<text x="565" y="450" class="small">10 çıkış +2 yedek</text>
+<rect x="160" y="508" width="532" height="160" rx="8" class="arc"/>
+<text x="168" y="646" class="small">ARC-Z2</text>
+<!-- Meter / gateway proposal in right auxiliary compartment. -->
+<rect x="728" y="456" width="129" height="107" fill="white" stroke="#718698" stroke-width="2"/>
+<rect x="744" y="479" width="97" height="38" fill="#dfebf1" stroke="#526b7e"/>
+<text x="756" y="505" class="label">MPR</text>
+<text x="743" y="543" class="small">Ölçü bölgesi</text>
+<rect x="726" y="610" width="132" height="96" rx="7" fill="#e1f2f5" stroke="#007d99" stroke-width="2"/>
+<text x="738" y="646" font-size="16" font-weight="bold">Edge Gateway</text>
+<text x="741" y="674" class="small">EG · öneri</text>
+<text x="727" y="751" class="small">Yardımcı alan:</text>
+<text x="727" y="774" class="small">yer / ısı / erişim</text>
+<text x="727" y="797" class="small">keşfi gerekli</text>
+<!-- Bottom cable zone:192pixels=400mm nominal, preserved. -->
+<path d="M185 732V872M250 732V872M320 732V872M390 732V872M460 732V872M530 732V872M600 732V872" stroke="#a2b3bf" stroke-width="9"/>
+<path d="M160 865H678" stroke="#6d995f" stroke-width="10"/>
+<rect x="165" y="720" width="505" height="153" rx="9" class="arc"/>
+<text x="171" y="746" class="small">ARC-Z3 · kablo bölgesi</text>
+<text x="183" y="806" class="label">Alt kablo bağlantı alanı ≥400 mm</text>
+<text x="183" y="832" class="small">Net hacim / toprak sürekliliği korunur</text>
+<!-- New proposal markers. -->
+<circle cx="345" cy="246" r="19" class="node"/><text x="335" y="251" class="node-text">T1</text>
+<circle cx="432" cy="246" r="19" class="node"/><text x="422" y="251" class="node-text">T2</text>
+<circle cx="519" cy="246" r="19" class="node"/><text x="509" y="251" class="node-text">T3</text>
+<circle cx="263" cy="482" r="19" class="node"/><text x="253" y="487" class="node-text">T4</text>
+<circle cx="447" cy="482" r="19" class="node"/><text x="437" y="487" class="node-text">T5</text>
+<circle cx="585" cy="482" r="19" class="node"/><text x="575" y="487" class="node-text">T6</text>
+<circle cx="805" cy="589" r="19" class="node"/><text x="792" y="594" class="node-text">TH</text>
+<circle cx="631" cy="862" r="22" fill="#f1bd60" stroke="white" stroke-width="3"/><text x="618" y="868" class="label">PD</text>
+<!-- Dimensions. -->
+<path d="M107 190V910" class="dim" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+<path d="M116 190H94M116 910H94" class="dim"/>
+<text x="72" y="641" class="label" transform="rotate(-90 72 641)">B=1500 mm (+100/-0)</text>
+<path d="M130 940H898" class="dim" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+<text x="386" y="970" class="label">A=1600 mm (+100/-0)</text>
+<!-- Interpretation panel. -->
+<rect x="932" y="190" width="313" height="720" rx="10" fill="#edf3f7"/>
+<text x="956" y="229" font-size="21" font-weight="bold">Kaynak ve öneri ayrımı</text>
+<text x="956" y="267" class="label">Kaynak geometri</text>
+<text x="956" y="295" class="small">Derinlik C=450mm (+50/-0)</text>
+<text x="956" y="321" class="small">Üst giriş / CT, orta DSYA,</text>
+<text x="956" y="346" class="small">sağ ölçü / yardımcı hacim.</text>
+<path d="M956 369H1220" stroke="#bdcbd4"/>
+<text x="956" y="401" class="label">T1–T6: sıcaklık</text>
+<text x="956" y="429" class="small">Kablosuz retrofit önerisi.</text>
+<text x="956" y="454" class="small">Canlı bağlantı yakını: sınıfC.</text>
+<text x="956" y="491" class="label">TH: hava sıcaklığı / nem</text>
+<text x="956" y="519" class="small">Güvenli, temsil edici hava yeri.</text>
+<text x="956" y="556" class="label">PD: HFCT + acquisition</text>
+<text x="956" y="584" class="small">Uygun toprak bağlantısı.</text>
+<text x="956" y="609" class="small">Doğrudan MCU ADC değil.</text>
+<text x="956" y="646" class="label">ARC: izleme zonları</text>
+<text x="956" y="674" class="small">ABB detector tasarımının</text>
+<text x="956" y="699" class="small">yerini almaz; sertifikalı</text>
+<text x="956" y="724" class="small">yerleşim planı değildir.</text>
+<path d="M956 752H1220" stroke="#bdcbd4"/>
+<text x="956" y="785" class="small">Gösterim şematiktir.</text>
+<text x="956" y="810" class="small">Delik / montaj ölçüsü yoktur.</text>
+<text x="956" y="835" class="small">Form2B, servis erişimi ve</text>
+<text x="956" y="860" class="small">IP koruması korunmalıdır.</text>
+<text x="55" y="1021" font-size="16">Kaynak: AG Pano Teknik Çizim-1600kVA.pdf, basılı s.51 EK-II/14. Yeni noktalar GridSentinel önerisidir.</text>
+<text x="55" y="1051" font-size="16" class="muted">Demo gözlemlerinin tamamı sentetiktir · Fiziksel kurulum, radyo kapsama veya koruma fonksiyonu doğrulanmadı.</text>
+</svg>

@@ -1,0 +1,13 @@
+id,category,quantity,unit,assumed_scope,source_or_status,cost_status
+GW01,Industrial edge gateway,1,each,Local processor Ethernet watchdog durable queue,engineering_concept,quote_required
+RS01,Isolated RS485 interface,2,port,Separate MPR and ABB buses,engineering_concept,quote_required
+PW01,Approved 24VDC auxiliary supply,1,each,Site power budget and coordination required,engineering_concept,quote_required
+TS01,Wireless surface temperature sensor,6,each,Three upper and three selected outgoing connection points,engineering_concept,quote_required
+RH01,Wireless ambient temperature humidity sensor,1,each,Auxiliary compartment air observation,engineering_concept,quote_required
+RF01,Local radio receiver,1,each,Cabinet RF survey required,engineering_concept,quote_required
+PD01,HFCT30 or HFCT50 optional,1,each,Ground connection suitable 30 or 50mm aperture,source_datasheet,quote_required
+PD02,Wideband PD acquisition optional,1,each,AFE acquisition calibration feature extraction,engineering_concept,quote_required
+EN01,Enclosure DIN and labeled terminals,1,set,Does not reduce existing cabinet protection,engineering_concept,quote_required
+CB01,Local data cables and approved protection,1,set,Lengths and terminations determined by survey,engineering_concept,quote_required
+EX01,MPR53CS,1,existing_assumed,Presence and CT VT configuration unverified,source_map,no_purchase_assumed
+EX02,ABB TVOC2 with COM,1,existing_assumed,Presence COM and firmware unverified,source_manual,no_purchase_assumed
