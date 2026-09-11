@@ -20,7 +20,7 @@ python scripts/run_demo.py --scenario combined_thermal_pd
 python scripts/run_demo.py --presentation --panels 500 --scenario normal_operation
 ```
 
-PNL-001'i açıp **Termal+PD demosu** veya **Ark demosu** düğmesine basın. Son yerel ölçümde combined **47,687 s**, arc **13,368 s**; erken uyarı kritik seviyeden **10 sentetik adım** önce oluştu. Bu hızlandırılmış süreler saha arıza tahmin süresi değildir. [5 dakikalık sunum metni](docs/final-demo-script.md).
+PNL-001'i açıp **Termal+PD demosu** veya **Ark demosu** düğmesine basın. Son yerel ölçümde combined **48,096 s**, arc **13,050 s**; erken uyarı kritik seviyeden **10 sentetik adım** önce oluştu. Bu hızlandırılmış süreler saha arıza tahmin süresi değildir. [5 dakikalık sunum metni](docs/final-demo-script.md).
 
 [Dashboard: localhost:3000](http://localhost:3000). İlk çalıştırmada `.env` içinde rastgele yerel parolalar oluşturulur. `ADMIN_USERNAME` / `ADMIN_PASSWORD` ile giriş yapın. Sonraki başlatmalar için `docker compose up -d`; durdurmak için `docker compose stop`. Ayrıntılar [kurulum rehberinde](docs/install-guide.md).
 
@@ -36,15 +36,17 @@ PNL-001'i açıp **Termal+PD demosu** veya **Ark demosu** düğmesine basın. So
 
 SCADA: PNL-001–247 port 1502, PNL-248–494 port 1503, PNL-495–500 port 1504. PNL-500 **bank 3 / unit 6**, gerçek yerel TCP okumasıyla doğrulandı. MPR/TVOC kaynak haritaları verilen dokümanlardan uygulanmıştır; GridSentinel output map'i prototipe aittir, ADM/GDZ resmî haritası değildir. [Register ve yapılandırma](docs/scada/register-map.md).
 
+Bu Windows makinesinde sistemin ayırdığı portlarla çakışmamak için yerel SCADA erişimi `127.0.0.1:11502–11504`, MQTT erişimi `127.0.0.1:11883` olarak yapılandırıldı. API/SCADA ekranındaki `scada:1502–1504` konteyner içi adreslerdir. Varsayılan ve isteğe bağlı host eşlemesi [kurulum belgesinde](docs/deployment.md#windows-host-port-eşlemesi) açıklanır.
+
 ## Kaynaklar ve sınırlar
 
 Verilen PDF/Excel dosyaları değiştirilmez. [Kaynak analizi](docs/source-analysis.md), Excel'de hangi verilerin bulunduğunu ve teknik adres/yerleşim dayanaklarını açıklar. Excel yalnız L1 sentetik akım içerir; diğer kanalların üretimi API/UI üzerinde etiketlidir. PD acquisition zinciri konsepttir; sentetik feature'lar kalibre gerçek PD ölçümü değildir. RF kapsama/pil ömrü, gerçek Modbus word order ve saha alarm eşikleri doğrulanmış değildir.
 
-Teknik mimari [MASTER_SPEC.md](MASTER_SPEC.md) ve [architecture.md](docs/architecture.md); takım kuralları [AGENTS.md](AGENTS.md). Üretim/saha güvenlik sınırları [security.md](docs/security.md), kurulum kesintileri [installation-matrix.md](docs/installation-matrix.md), kablosuz seçimi [wireless-design.md](docs/wireless-design.md).
+Teknik mimari [MASTER_SPEC.md](MASTER_SPEC.md) ve [architecture.md](docs/architecture.md); geliştirme kuralları [CONTRIBUTING.md](CONTRIBUTING.md). Üretim/saha güvenlik sınırları [security.md](docs/security.md), kurulum kesintileri [installation-matrix.md](docs/installation-matrix.md), kablosuz seçimi [wireless-design.md](docs/wireless-design.md).
 
 ## Demo ve doğrulama
 
-[Demo akışı](docs/demo-guide.md), [V2 makine özeti](docs/verification/v2-summary.json), [performans](docs/performance.md) ve [kabul matrisi](docs/acceptance.md) gerçek sonuçları ve tekrar komutlarını içerir. Değişiklik öncesi temiz V1 commit'inde 62 Python, 7 tarayıcı, 11 servis/kesinti ve 6 yük vakası yeniden geçti; 6800/6800 commit kaydı saklandı. V2: **host 104 PASS, container 104 PASS, Chromium 13 PASS, servis/kesinti 11 PASS**; C++ host çekirdeği 308 kontrol ve TCO 5 sınır testi PASS. 100/250/500 HTTP+MQTT testlerinde **6.800/6.800 kalıcı commit** doğrulandı; yeni kanıtlar ayrı dosyalardadır. PostgreSQL geçişinde **237.402 eski telemetri kaydının içerik özeti birebir korundu**. [Geçiş kanıtı](docs/verification/v2-legacy-preservation.json).
+[Demo akışı](docs/demo-guide.md), [V2 makine özeti](docs/verification/v2-summary.json), [performans](docs/performance.md) ve [kabul matrisi](docs/acceptance.md) gerçek sonuçları ve tekrar komutlarını içerir. Değişiklik öncesi temiz V1 commit'inde 62 Python, 7 tarayıcı, 11 servis/kesinti ve 6 yük vakası yeniden geçti; 6800/6800 commit kaydı saklandı. V2: **host 106 PASS, container 106 PASS, Chromium 13 PASS, servis/kesinti 11 PASS**; C++ host çekirdeği 308 kontrol ve TCO 5 sınır testi PASS. 100/250/500 HTTP+MQTT testlerinde **6.800/6.800 kalıcı commit** doğrulandı; yeni kanıtlar ayrı dosyalardadır. PostgreSQL geçişinde **237.402 eski telemetri kaydının içerik özeti birebir korundu**. [Geçiş kanıtı](docs/verification/v2-legacy-preservation.json).
 
 ```powershell
 python -m pytest -q

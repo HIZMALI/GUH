@@ -104,7 +104,8 @@ def main():
             target = destination / 'verification' / Path(name).relative_to('docs/verification')
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_bytes(content)
-    (destination / 'BASELINE.txt').write_text(f'Baseline commit: {baseline}\nBranch: codex/gridsentinel-v2\n'
+    branch = git('branch', '--show-current').decode().strip()
+    (destination / 'BASELINE.txt').write_text(f'Baseline commit: {baseline}\nBranch: {branch}\n'
         'V1 working tree was clean before V2 changes. V1 baseline tests are under verification/v2-baseline.\n'
         f'Expected delta tree: {expected_tree}\nPatch application checked against an isolated Git index.\n', encoding='utf-8')
     (destination / 'STATUS.txt').write_bytes(git('status', '--short') + b'\n' + git('diff', '--stat', baseline))

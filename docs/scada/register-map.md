@@ -57,3 +57,5 @@ V2 yeni koşunun ilk ölçümünü beklerken `pending_current_run=true`, registe
 ModbusTCP uygulama protokolünde kullanıcı kimliği/şifreleme sağlanmaz; allowlist ve ağ segmentasyonu gerekir. UI/API bearer+RBAC ile korunur, bridge API poll restrictedSERVICE_TOKEN kullanır. Yazma yolu ve hardware passthrough yoktur; fiziksel cihaz adapter'ı ayrı bir kod yoludur.
 
 V1 kanıtı:24 kaynak/transport testi PASS. V2 ilavesiyle `python -m pytest tests/modbus -q` **38 test PASS**:500 panelin her biri ayrı gerçek localhost TCP yanıtındaki timestamp ile doğrulandı; sınırlar, her bankada tüm write fonksiyonları, geçersiz register, unavailable/recovery ve pending-run geçerlilik kapısı denetlendi. Kanıt `docs/verification/v2-modbus-tests.xml`. Bu localhost fixture testi fiziksel OT testi değildir; canlı Docker roundtrip ayrıca V2 runtime kaydındadır.
+
+Host portları konteyner portlarından ayrı eşlenebilir: bu Windows son çalışmasında localhost:11502/11503/11504 → scada:1502/1503/1504 kullanılır. PNL-500 API portu 1504, host TCP portu 11504 olur. [Ayarlar](../deployment.md#windows-host-port-eşlemesi).

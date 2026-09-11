@@ -51,3 +51,48 @@ Başarısız test sonrasında da son komutla normal API limitini ve simulatorı 
 `scripts/verify_stack.py --restarts` API yeniden başlatma, PostgreSQL erişimsizliği, kesinti sırasında MQTT mesajı, broker disconnect/reconnect ve TCP master davranışını ölçer; sonuç `verification/stack-results.json` içindedir. Unit/integration ve tarayıcı kabul matrisi `acceptance.md` içinde.
 
 Üretim için uzun süreli soak testi, disk dolması, broker power-loss,1+gün saklama büyümesi, yedekten dönüş, cihaz sertifika rotasyonu, gerçek RF/RTU saha koşulları ve yatay partitioning ayrıca gerekir. Bunlar hackathon testleriyle doğrulanmış sayılmaz.
+
+## V2 yeniden ölçümü
+
+
+UTC: 2026-09-11T09:15:15.457414+00:00. Aynı yerel Docker/WSL2/PostgreSQL ortamı; [V2 ham ölçüm](verification/v2-load.json). Simulator durduruldu, yalnız ölçüm için API_RATE_LIMIT=20000 kullanıldı; sonunda 1200 geri getirildi. Ölçüm sırasında frontend/firmware build, E2E veya başka test çalıştırılmadı. Her vaka 12 producer worker, 4 tur ve her tur sonunda gerçek PostgreSQL commit doğrulaması kullanır. Fleet API ölçümü 500 pano üzerinden 10 istek/vakadır.
+
+| Pano | Taşıma | Commit/beklenen | Frame/s | İstek/PUBACK p95 ms | Ingest başlangıcı p95 ms | Fleet API p95 ms |
+|---:|---|---:|---:|---:|---:|---:|
+| 100 | HTTP | 400/400 | 65.93 | 334.63 | 14.53 | 475.58 |
+| 100 | MQTT | 400/400 | 59.30 | 5.39 | 1859.59 | 525.21 |
+| 250 | HTTP | 1000/1000 | 77.63 | 343.19 | 11.37 | 526.17 |
+| 250 | MQTT | 1000/1000 | 96.65 | 3.75 | 2075.50 | 482.59 |
+| 500 | HTTP | 2000/2000 | 89.44 | 292.30 | 4.55 | 395.98 |
+| 500 | MQTT | 2000/2000 | 111.95 | 3.75 | 3801.45 | 384.12 |
+
+**6/6 PASS, 6800 / 6800 commit**. PUBACK veritabanı commit'i değildir; ölçüm ayrıca commit sayısını bekler. Ingest metriği üretici timestamp'inden worker girişine kadardır; transaction bitişi değildir. Kısa sentetik burst; TLS/WAN/gerçek RF yoktur, host kaynakları münhasır değildir. Uzun üretim kapasitesi veya sıfır kayıp garantisi olarak kullanılmaz.
+
+V1 karşılaştırması çalışma öncesi [baseline](verification/v2-baseline/load.json) ile yapılır. [İlk V2 ölçümü](verification/v2-load-before-history-projection.json) daha düşük ham throughput gösterdi. Risk hesabında kullanılmayan geçmiş `result/actions` ve ORM alanlarının okunması kaldırıldı; aynı 12 kaydın ölçüm/kalite/zaman/adım değerleri korunarak dar SQL projection uygulandı. Projection sonrası [ara ölçüm](verification/v2-load-before-scenario-index.json) de korundu. Gerçek PostgreSQL EXPLAIN, legacy senaryo filtresinde tüm eşleşen pano satırlarının taranıp sıralandığını gösterdi. Aynı JSON senaryo ifadesini ve timestamp sırasını kullanan, yalnız run kimliği olmayan kayıtlara ait kısmi indeks eklendi. [Önce/sonra sorgu planı](verification/v2-history-index.json), aynı sonuç içerik hash’ini, sıralamanın kalkmasını ve iki tekrar açılışta verinin korunmasını doğrular. Yukarıdaki son yük ölçümü bu indeksle yapıldı.
+
+| Pano | Taşıma | V1 baseline frame/s | İlk V2 frame/s | Son V2 frame/s | V1'e göre fark |
+|---:|---|---:|---:|---:|---:|
+| 100 | HTTP | 86.12 | 50.72 | 65.93 | -23.4% |
+| 100 | MQTT | 68.86 | 55.63 | 59.30 | -13.9% |
+| 250 | HTTP | 89.66 | 63.01 | 77.63 | -13.4% |
+| 250 | MQTT | 95.55 | 71.55 | 96.65 | +1.2% |
+| 500 | HTTP | 94.09 | 71.29 | 89.44 | -4.9% |
+| 500 | MQTT | 101.40 | 84.75 | 111.95 | +10.4% |
+
+V1 baseline'ın ilk vakası 175,602 kalıcı satırla, son V2 ölçümü 709,976 satırla başladı; geçmiş silinmedi.
+
+Bu kısa koşular host yükü, büyüyen kalıcı geçmiş ve ek V2 run/action işlemleri bakımından mutlak eşdeğer değildir; toplam hız farkı yalnız indekse atfedilmez. İndeksin sorgu planına etkisi aynı veri üzerinde ayrıca doğrulanmıştır. Negatif farklar açıkça daha düşük ham throughput demektir. Tüm vakalarda commit beklentisi karşılandı; sürekli demo kabulü ayrıca 50 frame/s yayın bütçesi ve 499 arka plan panonun ilerlemesiyle ölçüldü. Uzun süreli kapasite ayrı doğrulama gerektirir.
+
+Sürekli 500 pano demosunda tek focus 1,5 s, 499 arka plan ≈10,115 s ve 49⅓ frame/s bütçe; ortak scheduler kapısı toplam 50 yayın/s ile sınırlı. Ayrı gerçek runtime combined **48.096s**, arc **13.050s**, fark 10 sentetik adım ölçtü; bütün 499 arka plan pano ilerledi. Bu süreler gerçek saha arıza tahmin zamanı değildir. API ingest ortalaması kuyruk boşalmasından etkilenebilir; yayın tavanı virtual-clock scheduler testinde ayrıca doğrulanır.
+
+SCADA V2 üç banktır: 247 + 247 + 6. PNL-500 iç port 1504 / unit 6; son Windows host TCP portu 11504. Her bank aynı salt okunur haritayı kullanır. [Yapılandırma](scada/register-map.md). UI ölçek tablosu bu V2 JSON'dan SHA256 ile türetilmiştir; eski V1 tablo yukarıda korunur.
+
+```powershell
+docker compose stop simulator
+docker compose -f docker-compose.yml -f tests/load/compose.load.yml up -d api scada
+docker compose exec -T api python scripts/load_test.py --devices 100,250,500 --rounds 4 --transport both --output /tmp/v2-load.json
+docker compose cp api:/tmp/v2-load.json docs/verification/v2-load.json
+docker compose up -d api scada simulator
+```
+
+Ardından `apps/web` içinde `node scripts/project-scale-proof.mjs --input=../../docs/verification/v2-load.json --version=v2` ve web build yapılır. Sunumu `python scripts/run_demo.py --presentation --panels 500 --scenario normal_operation` ile temiz current-run'a alın; load geçmişini silmeyin. Tarihli V1 rapor üreticisini çalıştırarak eski dosyaları ezmeyin.

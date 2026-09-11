@@ -1,0 +1,18 @@
+{
+  "timestamp": "2026-09-11T09:20:15.359Z",
+  "passed": true,
+  "mode": "read_only_ui_capture",
+  "panel": "PNL-001",
+  "demo_run_id": "PNL-001-r40",
+  "current_run_alarms": 0,
+  "panel_state": "NORMAL",
+  "risk_score": 8,
+  "scale_version": "v2",
+  "scale_source": "docs/verification/v2-load.json",
+  "scale_source_sha256": "868b4df230c2f54c0a45c2f1d6b9c2d8d828c46764cde8d24cc8f420b924e0f5",
+  "console_errors": [],
+  "screenshots": [
+    "v2-panel-clean.png",
+    "v2-scale-value.png"
+  ]
+}

@@ -1,0 +1,940 @@
+{
+  "recorded_at": "2026-09-11T09:22:15.701447+00:00",
+  "status": "PASS_WITH_EXPLICIT_HARDWARE_LIMITS",
+  "baseline_commit": "4a0f4c1cae879604a384e91862749fef754abecc",
+  "baseline": {
+    "timestamp": "2026-09-11T00:26:30.782615+00:00",
+    "baseline_commit": "4a0f4c1cae879604a384e91862749fef754abecc",
+    "initial_branch": "main",
+    "initial_status": "clean",
+    "python": {
+      "passed": 62,
+      "seconds": 13.14
+    },
+    "container": {
+      "passed": 61,
+      "skipped": 1,
+      "seconds": 5.94,
+      "skip": "source originals absent from runtime image; host check passes"
+    },
+    "frontend": {
+      "startTime": "2026-09-11T00:21:22.335Z",
+      "duration": 88344.991,
+      "expected": 7,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "stack_passed": 11,
+    "load_cases_passed": 6,
+    "load_commits": 6800,
+    "source_provenance": "All synthetic. Original files unchanged. V1 verification files preserved."
+  },
+  "python_tests": {
+    "tests": 106,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": 106,
+    "seconds": 29.974,
+    "evidence": "v2-python-tests.xml"
+  },
+  "container_tests": {
+    "tests": 106,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "passed": 106,
+    "seconds": 17.638,
+    "evidence": "v2-python-container-tests.xml"
+  },
+  "container_method": "Production Python image/dependencies; full repository mounted read-only for source and hardware artifact tests; report directory writable. Original hash check runs here, unlike the V1 runtime-image-only skip.",
+  "frontend_tests": {
+    "unique_tests": 13,
+    "passed": 13,
+    "evidence": "v2-frontend-summary.json",
+    "first_run_selector_failure_preserved": true,
+    "final_full_run": {
+      "startTime": "2026-09-11T01:18:03.810Z",
+      "duration": 82873.967,
+      "expected": 13,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    }
+  },
+  "frontend_final_smoke": {
+    "timestamp": "2026-09-11T09:20:15.359Z",
+    "passed": true,
+    "mode": "read_only_ui_capture",
+    "panel": "PNL-001",
+    "demo_run_id": "PNL-001-r40",
+    "current_run_alarms": 0,
+    "panel_state": "NORMAL",
+    "risk_score": 8,
+    "scale_version": "v2",
+    "scale_source": "docs/verification/v2-load.json",
+    "scale_source_sha256": "868b4df230c2f54c0a45c2f1d6b9c2d8d828c46764cde8d24cc8f420b924e0f5",
+    "console_errors": [],
+    "screenshots": [
+      "v2-panel-clean.png",
+      "v2-scale-value.png"
+    ]
+  },
+  "frontend_tco_tests": {
+    "passed": 5,
+    "evidence": "v2-frontend-verification.md"
+  },
+  "stack_tests": {
+    "passed": 11,
+    "evidence": "v2-stack.json",
+    "earlier_failed_attempts_preserved": [
+      "v2-stack-first-run.json",
+      "v2-stack-second-run.json"
+    ],
+    "previous_successful_run": "v2-stack-before-host-remap.json"
+  },
+  "load_test": {
+    "passed_cases": 6,
+    "committed": 6800,
+    "expected": 6800,
+    "evidence": "v2-load.json",
+    "earlier_runs": [
+      "v2-load-before-history-projection.json",
+      "v2-load-before-scenario-index.json"
+    ],
+    "legacy_history_index": {
+      "passed": true,
+      "telemetry_count_preserved": 704183,
+      "after_database_reopened_twice": true,
+      "before_evidence": "v2-history-index-before.json",
+      "after_evidence": "v2-history-index-after.json",
+      "checks": [
+        {
+          "panel": "PNL-001",
+          "scenario": "normal_operation",
+          "same_result_sha256": "23556e519e151c0e76ae6bae36e8dd709eab3b7d0e4f318cd2b67a119b88245f",
+          "before_ms": 13.676,
+          "after_ms": 0.346,
+          "before_nodes": [
+            {
+              "Node Type": "Limit",
+              "Actual Rows": 12,
+              "Actual Loops": 1,
+              "Actual Total Time": 13.626
+            },
+            {
+              "Node Type": "Sort",
+              "Actual Rows": 12,
+              "Actual Loops": 1,
+              "Actual Total Time": 13.624
+            },
+            {
+              "Node Type": "Bitmap Heap Scan",
+              "Actual Rows": 251,
+              "Rows Removed by Filter": 371,
+              "Actual Loops": 1,
+              "Actual Total Time": 13.506
+            },
+            {
+              "Node Type": "Bitmap Index Scan",
+              "Index Name": "ix_telemetry_panel_run_timestamp",
+              "Actual Rows": 622,
+              "Actual Loops": 1,
+              "Actual Total Time": 0.089
+            }
+          ],
+          "after_nodes": [
+            {
+              "Node Type": "Limit",
+              "Actual Rows": 12,
+              "Actual Loops": 1,
+              "Actual Total Time": 0.331
+            },
+            {
+              "Node Type": "Index Scan",
+              "Index Name": "ix_telemetry_legacy_scenario_timestamp",
+              "Actual Rows": 12,
+              "Actual Loops": 1,
+              "Actual Total Time": 0.33
+            }
+          ],
+          "passed": true
+        },
+        {
+          "panel": "PNL-001",
+          "scenario": "arc_event",
+          "same_result_sha256": "cec4dddee246b218951a877b6b96ad72d55c3f3c98c16f341c5f1390eb8ca6a6",
+          "before_ms": 8.784,
+          "after_ms": 0.729,
+          "before_nodes": [
+            {
+              "Node Type": "Limit",
+              "Actual Rows": 12,
+              "Actual Loops": 1,
+              "Actual Total Time": 8.72
+            },
+            {
+              "Node Type": "Sort",
+              "Actual Rows": 12,
+              "Actual Loops": 1,
+              "Actual Total Time": 8.718
+            },
+            {
+              "Node Type": "Bitmap Heap Scan",
+              "Actual Rows": 18,
+              "Rows Removed by Filter": 604,
+              "Actual Loops": 1,
+              "Actual Total Time": 8.663
+            },
+            {
+              "Node Type": "Bitmap Index Scan",
+              "Index Name": "ix_telemetry_panel_run_timestamp",
+              "Actual Rows": 622,
+              "Actual Loops": 1,
+              "Actual Total Time": 0.087
+            }
+          ],
+          "after_nodes": [
+            {
+              "Node Type": "Limit",
+              "Actual Rows": 12,
+              "Actual Loops": 1,
+              "Actual Total Time": 0.693
+            },
+            {
+              "Node Type": "Index Scan",
+              "Index Name": "ix_telemetry_legacy_scenario_timestamp",
+              "Actual Rows": 12,
+              "Actual Loops": 1,
+              "Actual Total Time": 0.69
+            }
+          ],
+          "passed": true
+        },
+        {
+          "panel": "PNL-010",
+          "scenario": "normal_operation",
+          "same_result_sha256": "4f25cf71a8c73ff13bf55bd4abb4969888c8a4717eea1287f6ff287b57b35e40",
+          "before_ms": 24.86,
+          "after_ms": 1.017,
+          "before_nodes": [
+            {
+              "Node Type": "Limit",
+              "Actual Rows": 12,
+              "Actual Loops": 1,
+              "Actual Total Time": 24.789
+            },
+            {
+              "Node Type": "Sort",
+              "Actual Rows": 12,
+              "Actual Loops": 1,
+              "Actual Total Time": 24.788
+            },
+            {
+              "Node Type": "Bitmap Heap Scan",
+              "Actual Rows": 591,
+              "Rows Removed by Filter": 31,
+              "Actual Loops": 1,
+              "Actual Total Time": 24.516
+            },
+            {
+              "Node Type": "Bitmap Index Scan",
+              "Index Name": "ix_telemetry_panel_run_timestamp",
+              "Actual Rows": 622,
+              "Actual Loops": 1,
+              "Actual Total Time": 0.103
+            }
+          ],
+          "after_nodes": [
+            {
+              "Node Type": "Limit",
+              "Actual Rows": 12,
+              "Actual Loops": 1,
+              "Actual Total Time": 0.968
+            },
+            {
+              "Node Type": "Index Scan",
+              "Index Name": "ix_telemetry_legacy_scenario_timestamp",
+              "Actual Rows": 12,
+              "Actual Loops": 1,
+              "Actual Total Time": 0.962
+            }
+          ],
+          "passed": true
+        },
+        {
+          "panel": "PNL-010",
+          "scenario": "arc_event",
+          "same_result_sha256": "c799b5ce2f9046e0de17c974709151ce77987c6d787b657612d163f99e8d9cc9",
+          "before_ms": 9.007,
+          "after_ms": 0.364,
+          "before_nodes": [
+            {
+              "Node Type": "Limit",
+              "Actual Rows": 12,
+              "Actual Loops": 1,
+              "Actual Total Time": 8.95
+            },
+            {
+              "Node Type": "Sort",
+              "Actual Rows": 12,
+              "Actual Loops": 1,
+              "Actual Total Time": 8.948
+            },
+            {
+              "Node Type": "Bitmap Heap Scan",
+              "Actual Rows": 31,
+              "Rows Removed by Filter": 591,
+              "Actual Loops": 1,
+              "Actual Total Time": 8.877
+            },
+            {
+              "Node Type": "Bitmap Index Scan",
+              "Index Name": "ix_telemetry_panel_run_timestamp",
+              "Actual Rows": 622,
+              "Actual Loops": 1,
+              "Actual Total Time": 0.092
+            }
+          ],
+          "after_nodes": [
+            {
+              "Node Type": "Limit",
+              "Actual Rows": 12,
+              "Actual Loops": 1,
+              "Actual Total Time": 0.342
+            },
+            {
+              "Node Type": "Index Scan",
+              "Index Name": "ix_telemetry_legacy_scenario_timestamp",
+              "Actual Rows": 12,
+              "Actual Loops": 1,
+              "Actual Total Time": 0.34
+            }
+          ],
+          "passed": true
+        }
+      ],
+      "note": "Same legacy rows and result digest, ordered partial expression index eliminates filtering/sort; single local query plan timings are not production SLOs."
+    },
+    "cases_500": [
+      {
+        "transport": "http",
+        "devices": 500,
+        "rounds": 4,
+        "expected": 2000,
+        "committed": 2000,
+        "duration_seconds": 22.362,
+        "committed_frames_per_second": 89.44,
+        "producer_request_or_puback_ms": {
+          "count": 2000,
+          "mean": 125.406,
+          "p50": 98.721,
+          "p95": 292.296,
+          "max": 376.031
+        },
+        "source_to_ingestion_received_ms": {
+          "count": 2000,
+          "mean": 3.82,
+          "p50": 2.659,
+          "p95": 4.553,
+          "max": 178.729
+        },
+        "fleet_api_ms": {
+          "count": 10,
+          "mean": 257.451,
+          "p50": 203.262,
+          "p95": 395.983,
+          "max": 395.983
+        },
+        "db_count_query_ms": 105.414,
+        "metrics_before": {
+          "accepted": 2800,
+          "duplicates": 0,
+          "out_of_order": 0,
+          "invalid": 0,
+          "run_rejected": 0,
+          "focused_frames": 0,
+          "background_frames": 0,
+          "legacy_frames": 2800,
+          "identity_rejected": 0,
+          "ingestion_latency_ms_total": 196991.64319199912,
+          "ingestion_latency_ms_max": 1101.9627630000173,
+          "db_write_ms_total": 9985.722129001198,
+          "alarm_processing_ms_total": 8358.598411999374,
+          "mqtt_messages": 1400,
+          "mqtt_rejected": 0,
+          "mqtt_connected": true,
+          "mqtt_connections": 1,
+          "mqtt_disconnects": 0,
+          "write_lock_timeouts": 0,
+          "http_requests": 1510,
+          "http_request_ms_total": 220426.94728499957,
+          "http_request_ms_max": 655.5931209999812,
+          "telemetry_rows": 712776,
+          "alarm_rows": 19842,
+          "ingestion_latency_ms_mean": 70.354,
+          "db_write_ms_mean": 3.566,
+          "metrics_scope": "Counters and timing since API process start; telemetry_rows/alarm_rows durable.",
+          "timestamp": "2026-09-11T09:16:06.437418+00:00"
+        },
+        "metrics_after": {
+          "accepted": 4800,
+          "duplicates": 0,
+          "out_of_order": 0,
+          "invalid": 0,
+          "run_rejected": 0,
+          "focused_frames": 0,
+          "background_frames": 0,
+          "legacy_frames": 4800,
+          "identity_rejected": 0,
+          "ingestion_latency_ms_total": 435463.4449689999,
+          "ingestion_latency_ms_max": 1101.9627630000173,
+          "db_write_ms_total": 17070.186691002964,
+          "alarm_processing_ms_total": 11145.415122999353,
+          "mqtt_messages": 1400,
+          "mqtt_rejected": 0,
+          "mqtt_connected": true,
+          "mqtt_connections": 1,
+          "mqtt_disconnects": 0,
+          "write_lock_timeouts": 0,
+          "http_requests": 3549,
+          "http_request_ms_total": 476489.7798279989,
+          "http_request_ms_max": 655.5931209999812,
+          "telemetry_rows": 714776,
+          "alarm_rows": 20392,
+          "ingestion_latency_ms_mean": 90.722,
+          "db_write_ms_mean": 3.556,
+          "metrics_scope": "Counters and timing since API process start; telemetry_rows/alarm_rows durable.",
+          "timestamp": "2026-09-11T09:16:31.735640+00:00"
+        },
+        "errors": [],
+        "passed": true,
+        "run_prefix": "load-5172bf848eee4759b99f57369f8b6ee6"
+      },
+      {
+        "transport": "mqtt",
+        "devices": 500,
+        "rounds": 4,
+        "expected": 2000,
+        "committed": 2000,
+        "duration_seconds": 17.865,
+        "committed_frames_per_second": 111.95,
+        "producer_request_or_puback_ms": {
+          "count": 2000,
+          "mean": 3.259,
+          "p50": 3.01,
+          "p95": 3.754,
+          "max": 44.494
+        },
+        "source_to_ingestion_received_ms": {
+          "count": 2000,
+          "mean": 1994.908,
+          "p50": 2013.147,
+          "p95": 3801.446,
+          "max": 4308.275
+        },
+        "fleet_api_ms": {
+          "count": 10,
+          "mean": 241.52,
+          "p50": 206.7,
+          "p95": 384.124,
+          "max": 384.124
+        },
+        "db_count_query_ms": 81.06,
+        "metrics_before": {
+          "accepted": 4800,
+          "duplicates": 0,
+          "out_of_order": 0,
+          "invalid": 0,
+          "run_rejected": 0,
+          "focused_frames": 0,
+          "background_frames": 0,
+          "legacy_frames": 4800,
+          "identity_rejected": 0,
+          "ingestion_latency_ms_total": 435463.4449689999,
+          "ingestion_latency_ms_max": 1101.9627630000173,
+          "db_write_ms_total": 17070.186691002964,
+          "alarm_processing_ms_total": 11145.415122999353,
+          "mqtt_messages": 1400,
+          "mqtt_rejected": 0,
+          "mqtt_connected": true,
+          "mqtt_connections": 1,
+          "mqtt_disconnects": 0,
+          "write_lock_timeouts": 0,
+          "http_requests": 3550,
+          "http_request_ms_total": 476522.93510599894,
+          "http_request_ms_max": 655.5931209999812,
+          "telemetry_rows": 714776,
+          "alarm_rows": 20392,
+          "ingestion_latency_ms_mean": 90.722,
+          "db_write_ms_mean": 3.556,
+          "metrics_scope": "Counters and timing since API process start; telemetry_rows/alarm_rows durable.",
+          "timestamp": "2026-09-11T09:16:31.769708+00:00"
+        },
+        "metrics_after": {
+          "accepted": 6800,
+          "duplicates": 0,
+          "out_of_order": 0,
+          "invalid": 0,
+          "run_rejected": 0,
+          "focused_frames": 0,
+          "background_frames": 0,
+          "legacy_frames": 6800,
+          "identity_rejected": 0,
+          "ingestion_latency_ms_total": 451525.6643840018,
+          "ingestion_latency_ms_max": 1101.9627630000173,
+          "db_write_ms_total": 23234.269949004956,
+          "alarm_processing_ms_total": 12866.536647997542,
+          "mqtt_messages": 3400,
+          "mqtt_rejected": 0,
+          "mqtt_connected": true,
+          "mqtt_connections": 1,
+          "mqtt_disconnects": 0,
+          "write_lock_timeouts": 0,
+          "http_requests": 3583,
+          "http_request_ms_total": 483525.38400499866,
+          "http_request_ms_max": 655.5931209999812,
+          "telemetry_rows": 716776,
+          "alarm_rows": 20467,
+          "ingestion_latency_ms_mean": 66.401,
+          "db_write_ms_mean": 3.417,
+          "metrics_scope": "Counters and timing since API process start; telemetry_rows/alarm_rows durable.",
+          "timestamp": "2026-09-11T09:16:52.302175+00:00"
+        },
+        "errors": [],
+        "passed": true,
+        "run_prefix": "load-5325cca388ff4912b0c040cebf4ec3bc"
+      }
+    ]
+  },
+  "focused_demo_duration_seconds": 48.096,
+  "arc_event_duration_seconds": 13.05,
+  "focused_demo_evidence": "v2-runtime.json",
+  "scada_pnl500_roundtrip": {
+    "panel_id": "PNL-500",
+    "host": "scada",
+    "port": 1504,
+    "bank": 3,
+    "bank_size": 247,
+    "unit_id": 6,
+    "transport": "modbus_tcp",
+    "connected": true,
+    "registers": [
+      {
+        "address": 0,
+        "name": "health_score",
+        "value": 96,
+        "unit": "score"
+      },
+      {
+        "address": 1,
+        "name": "risk_score",
+        "value": 8,
+        "unit": "score"
+      },
+      {
+        "address": 2,
+        "name": "state",
+        "value": 0,
+        "unit": "enum"
+      },
+      {
+        "address": 3,
+        "name": "alarm_active",
+        "value": 0,
+        "unit": "bool"
+      },
+      {
+        "address": 4,
+        "name": "thermal_alarm",
+        "value": 0,
+        "unit": "bool"
+      },
+      {
+        "address": 5,
+        "name": "pd_alarm",
+        "value": 0,
+        "unit": "bool"
+      },
+      {
+        "address": 6,
+        "name": "arc_event",
+        "value": 0,
+        "unit": "bool"
+      },
+      {
+        "address": 7,
+        "name": "communication_ok",
+        "value": 1,
+        "unit": "bool"
+      },
+      {
+        "address": 8,
+        "name": "sensor_health",
+        "value": 100,
+        "unit": "score"
+      },
+      {
+        "address": 9,
+        "name": "schema_version",
+        "value": 1,
+        "unit": "version"
+      },
+      {
+        "address": 10,
+        "name": "timestamp_high",
+        "value": 27299,
+        "unit": "unix_s_high"
+      },
+      {
+        "address": 11,
+        "name": "timestamp_low",
+        "value": 51145,
+        "unit": "unix_s_low"
+      }
+    ],
+    "timestamp": "2026-09-11T09:20:10.933897+00:00"
+  },
+  "scada_pnl500_host_port": 11504,
+  "desktop_recovery": {
+    "timestamp": "2026-09-11T09:09:50.194388+00:00",
+    "passed": true,
+    "observed_failure": "Docker Desktop startup: stale dockerInference AF_UNIX reparse point could not be removed; engine pipe unavailable.",
+    "recovery": "Stopped failed Desktop/backend processes, terminated only docker-desktop WSL, renamed the two verified transient IPC directories, relaunched Desktop.",
+    "data_reset": false,
+    "docker_engine_version": "29.4.2",
+    "preserved_ipc_backups": [
+      "%LOCALAPPDATA%/Docker/run-stale-20260911-0910",
+      "%LOCALAPPDATA%/docker-secrets-engine-stale-20260911-0910"
+    ],
+    "reference": "https://github.com/docker/desktop-feedback/issues/448",
+    "result": "Compose services started with their existing volumes; subsequent V2 runtime verification checks old telemetry digest.",
+    "windows_reserved_tcp_ranges_affecting_demo": [
+      [
+        1431,
+        1530
+      ],
+      [
+        1832,
+        1931
+      ]
+    ],
+    "host_only_remapping": {
+      "scada": [
+        11502,
+        11503,
+        11504
+      ],
+      "mqtt": 11883
+    },
+    "container_ports_unchanged": true
+  },
+  "cli_compatibility": {
+    "legacy_command": {
+      "command": "python scripts/run_demo.py --scenario combined_thermal_pd",
+      "passed": true,
+      "result_run": "PNL-001-r39",
+      "production_web_build": "PASS",
+      "typescript_build_check": "PASS"
+    },
+    "note": "Commands executed against local Docker services with existing private .env; output logs omitted credentials.",
+    "presentation_command": {
+      "command": "python scripts/run_demo.py --presentation --panels 500 --scenario normal_operation",
+      "passed": true,
+      "result_run": "PNL-001-r40",
+      "ready_check": "v2-final-runtime.json",
+      "ui_check": "v2-frontend-final-smoke.json"
+    }
+  },
+  "legacy_preservation": {
+    "before": {
+      "count": 237402,
+      "first_id": 1,
+      "last_id": 237403,
+      "digest": "4ec8e58dfa61fc93b73e8188c242c290"
+    },
+    "after": {
+      "count": 237402,
+      "first_id": 1,
+      "last_id": 237403,
+      "digest": "4ec8e58dfa61fc93b73e8188c242c290"
+    },
+    "passed": true
+  },
+  "firmware_build_status": {
+    "checked_at": "2026-09-11T01:00:04.471981+00:00",
+    "host_core": {
+      "status": "PASS",
+      "groups": 7,
+      "assertions": 308,
+      "target": "Linux host C++17",
+      "embedded_build": "NOT_RUN"
+    },
+    "elapsed_seconds": 3.491,
+    "compiler": "g++ (Debian 14.2.0-19) 14.2.0",
+    "build_command": [
+      "docker",
+      "build",
+      "-f",
+      "edge/firmware/test/Dockerfile.host",
+      "-t",
+      "gridsentinel-firmware-host-test:local",
+      "."
+    ],
+    "run_command": [
+      "docker",
+      "run",
+      "--rm",
+      "--network",
+      "none",
+      "gridsentinel-firmware-host-test:local"
+    ],
+    "image_id": "sha256:6929c98772ffb53ccf5914e393b9062ee293abc3bcbe7f5e2414a166df5396f2",
+    "embedded_build": {
+      "status": "NOT_RUN",
+      "reason": "ESP-IDF/PlatformIO/Arduino toolchains not installed; no physical board attached"
+    },
+    "physical_drivers": "NOT_VALIDATED",
+    "kicad_erc_drc": "NOT_RUN_KICAD_NOT_INSTALLED",
+    "source_sha256": {
+      "edge/firmware/include/gridsentinel/adapters.hpp": "d99cc229c4d566fef87ec62f0d2f856fffdda08d74caa13ae79015886923c6ed",
+      "edge/firmware/include/gridsentinel/board.hpp": "aa880395b676545e7296326d1301aa111fa1232b3e87feade35fe00501dcdb72",
+      "edge/firmware/include/gridsentinel/core.hpp": "79a4d5213c11fb2253727778f939e1dfb0904c39143ca51d570137f674759244",
+      "edge/firmware/include/gridsentinel/register_maps.hpp": "f3c0a4eac73d5dbfc8f35acd4592a7cac64d96a211d5058cc4aa669c2833e2c1",
+      "edge/firmware/src/core.cpp": "0d333398aedb59eed692eb3fc05d6271f7ea23d9bc946b3e5860dd135230eb28",
+      "edge/firmware/test/Dockerfile.host": "c4ff0bd54d88e16dc266af9e5a3a30a60758967437d6b4e708b8b5700a0ea22f",
+      "edge/firmware/test/file_journal.hpp": "b7e9e9e9fdec59ae463d4a082b0fb3a0f936563f2094a1d7a01131d7a96d2129",
+      "edge/firmware/test/host_tests.cpp": "0be2330caafcc1ca2621fb21f023eae2c81a32c7aef1b9d876fe3ed401a7a274"
+    }
+  },
+  "hardware_deliverable_status": {
+    "date_utc": "2026-09-11",
+    "artifact_type": "EDA-neutral reference carrier v0.1",
+    "artifact_checks": {
+      "command": "python -m pytest tests/hardware -q",
+      "status": "PASS",
+      "tests": 9,
+      "elapsed_seconds": 0.33,
+      "connector_pins": 31,
+      "net_nodes": 199,
+      "checks": [
+        "required artifacts",
+        "CSV schema and pin identity",
+        "separate isolated domains",
+        "candidate GPIO/terminal polarity",
+        "power arithmetic and assumption labels",
+        "Python/C++ source map equality",
+        "read-only ranges",
+        "H1 location",
+        "environment plan coverage"
+      ]
+    },
+    "visual_review": {
+      "status": "PASS_ARTIFACT_READABILITY_ONLY",
+      "method": "SVG rendered with local Sharp; all three PNGs visually inspected",
+      "files": [
+        "hardware/pcb/schematic.png",
+        "hardware/pcb/pcb-placement.png",
+        "hardware/concept/panel-placement.png"
+      ]
+    },
+    "tool_inventory": {
+      "kicad": "NOT_FOUND",
+      "embedded_toolchain": "NOT_FOUND",
+      "host_cpp": "Dedicated Docker compiler image; see edge/firmware/test/verification.json"
+    },
+    "erc_drc": "NOT_RUN_KICAD_NOT_INSTALLED",
+    "physical_hardware": "NOT_BUILT",
+    "field_installation": "NOT_DONE",
+    "emc_environmental_insulation_thermal": "NOT_VALIDATED",
+    "production_release": false
+  },
+  "presentation_ready": {
+    "timestamp": "2026-09-11T09:20:11.690684+00:00",
+    "passed": true,
+    "dashboard": "http://localhost:3000",
+    "fleet": {
+      "total": 500,
+      "fleet_health": 96.0,
+      "open_alarms": 2,
+      "offline": 0,
+      "normal": 500,
+      "attention": 0,
+      "warning": 0,
+      "critical": 0
+    },
+    "panel": {
+      "id": "PNL-001",
+      "demo_run_id": "PNL-001-r40",
+      "scenario_revision": 40,
+      "scenario": "normal_operation",
+      "state": "NORMAL",
+      "risk_score": 8,
+      "health_score": 96,
+      "pending_current_run": false
+    },
+    "current_run_rows": 8,
+    "current_run_alarms": 0,
+    "full_history_total": 6940,
+    "scada_pnl500": {
+      "panel_id": "PNL-500",
+      "host": "scada",
+      "port": 1504,
+      "bank": 3,
+      "bank_size": 247,
+      "unit_id": 6,
+      "transport": "modbus_tcp",
+      "connected": true,
+      "registers": [
+        {
+          "address": 0,
+          "name": "health_score",
+          "value": 96,
+          "unit": "score"
+        },
+        {
+          "address": 1,
+          "name": "risk_score",
+          "value": 8,
+          "unit": "score"
+        },
+        {
+          "address": 2,
+          "name": "state",
+          "value": 0,
+          "unit": "enum"
+        },
+        {
+          "address": 3,
+          "name": "alarm_active",
+          "value": 0,
+          "unit": "bool"
+        },
+        {
+          "address": 4,
+          "name": "thermal_alarm",
+          "value": 0,
+          "unit": "bool"
+        },
+        {
+          "address": 5,
+          "name": "pd_alarm",
+          "value": 0,
+          "unit": "bool"
+        },
+        {
+          "address": 6,
+          "name": "arc_event",
+          "value": 0,
+          "unit": "bool"
+        },
+        {
+          "address": 7,
+          "name": "communication_ok",
+          "value": 1,
+          "unit": "bool"
+        },
+        {
+          "address": 8,
+          "name": "sensor_health",
+          "value": 100,
+          "unit": "score"
+        },
+        {
+          "address": 9,
+          "name": "schema_version",
+          "value": 1,
+          "unit": "version"
+        },
+        {
+          "address": 10,
+          "name": "timestamp_high",
+          "value": 27299,
+          "unit": "unix_s_high"
+        },
+        {
+          "address": 11,
+          "name": "timestamp_low",
+          "value": 51145,
+          "unit": "unix_s_low"
+        }
+      ],
+      "timestamp": "2026-09-11T09:20:10.933897+00:00"
+    },
+    "api_rate_limit": 1200,
+    "scada_host_pnl500_port": 11504,
+    "mqtt_host_port": 11883,
+    "services": [
+      {
+        "service": "api",
+        "state": "running",
+        "health": "healthy"
+      },
+      {
+        "service": "db",
+        "state": "running",
+        "health": "healthy"
+      },
+      {
+        "service": "mqtt",
+        "state": "running",
+        "health": "healthy"
+      },
+      {
+        "service": "scada",
+        "state": "running",
+        "health": "healthy"
+      },
+      {
+        "service": "simulator",
+        "state": "running",
+        "health": ""
+      },
+      {
+        "service": "web",
+        "state": "running",
+        "health": "healthy"
+      }
+    ],
+    "mode": "synthetic_demo; no external notification or physical field connection"
+  },
+  "screenshots": [
+    {
+      "path": "docs/verification/v2-fleet.png",
+      "sha256": "51d2024f62a5486cf643d7db1685d5803d31cb8aba57aa9a28f634405ed3d971"
+    },
+    {
+      "path": "docs/verification/v2-panel-clean.png",
+      "sha256": "ca06db59088559f1b1c3601a228ca832fb388eb95aba09b133768f0f5a330946"
+    },
+    {
+      "path": "docs/verification/v2-early-warning.png",
+      "sha256": "a7fc2b9fa12a7c190acd1d968ef5fc800670d245957d725fcf1e56fa55f7a164"
+    },
+    {
+      "path": "docs/verification/v2-scada-bank500.png",
+      "sha256": "64b073eaeeb5db003eae859ee92db383cb94e334db10e70caebcf7ad2a62f687"
+    },
+    {
+      "path": "docs/verification/v2-scale-value.png",
+      "sha256": "a68bfdd8f135f997b0f2886e8d05544f38be8e8542dde193719f9761de701f8e"
+    },
+    {
+      "path": "docs/verification/v2-notifications.png",
+      "sha256": "d5a80b0fcb6e789c3517f0f42762dc8d90292a5bccc2b241749884cfb7f1e5d7"
+    },
+    {
+      "path": "docs/verification/v2-installation.png",
+      "sha256": "483854f044a9589de9416f23025e49f39fccbb1e55b6d2db0ec251b79079cbf5"
+    }
+  ],
+  "limitations": [
+    "All observations synthetic; no physical field or institutional SCADA connection.",
+    "ESP32 target build NOT_RUN; physical HAL implementation and live-data API normalizer are not implemented.",
+    "KiCad absent; EDA-neutral artifacts, no ERC/DRC, manufactured board or environmental/EMC certification.",
+    "Short burst performance; single API process; no long soak or production SLO guarantee.",
+    "No real SMS/WhatsApp, calibrated PD, RF coverage, battery lifetime, price or ROI claims.",
+    "No breaker trip, device writes, TVOC reset or protection control."
+  ]
+}

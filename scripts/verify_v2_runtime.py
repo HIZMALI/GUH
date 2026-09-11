@@ -169,14 +169,15 @@ def main():
 
     def banks():
         rows = []
+        host_base = int(env.get('SCADA_HOST_PORT_BASE', env.get('SCADA_PORT_BASE', '1502')))
         for number, bank, port, unit in [(1, 1, 1502, 1), (247, 1, 1502, 247), (248, 2, 1503, 1), (494, 2, 1503, 247), (495, 3, 1504, 1), (500, 3, 1504, 6)]:
             panel_id = f'PNL-{number:03d}'
             response = api('/api/scada/registers?panel_id=' + panel_id)
             require(response['connected'] and (response['bank'], response['port'], response['unit_id']) == (bank, port, unit), panel_id + ' API bank mismatch')
-            registers = read_panel_registers('127.0.0.1', port, unit)
+            registers = read_panel_registers('127.0.0.1', host_base + bank - 1, unit)
             require(len(registers) >= 12, panel_id + ' TCP register set incomplete')
-            rows.append({'panel_id': panel_id, 'bank': bank, 'port': port, 'unit_id': unit, 'connected': True, 'transport': 'actual_modbus_tcp', 'registers': registers})
-        for port in (1502, 1503, 1504):
+            rows.append({'panel_id': panel_id, 'bank': bank, 'port': port, 'host_port': host_base + bank - 1, 'unit_id': unit, 'connected': True, 'transport': 'actual_modbus_tcp', 'registers': registers})
+        for port in range(host_base, host_base + 3):
             for function, address, value, expected in [(3, 60000, 1, 2), (6, 0, 0, 1), (16, 0, 1, 1)]:
                 pdu = struct.pack('>BHH', function, address, value)
                 if function == 16:

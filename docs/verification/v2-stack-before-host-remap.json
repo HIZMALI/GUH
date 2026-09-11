@@ -1,22 +1,22 @@
 {
-  "timestamp": "2026-09-11T09:19:29.179451+00:00",
+  "timestamp": "2026-09-11T01:13:47.779561+00:00",
   "checks": [
     {
       "name": "anonymous fleet rejected",
       "passed": true,
-      "seconds": 0.004,
+      "seconds": 0.014,
       "detail": null
     },
     {
       "name": "viewer scenario mutation rejected",
       "passed": true,
-      "seconds": 0.006,
+      "seconds": 0.017,
       "detail": null
     },
     {
       "name": "Docker services healthy",
       "passed": true,
-      "seconds": 0.397,
+      "seconds": 10.716,
       "detail": [
         {
           "service": "api",
@@ -53,13 +53,13 @@
     {
       "name": "fleet populated with at least100 panels",
       "passed": true,
-      "seconds": 0.426,
+      "seconds": 0.315,
       "detail": null
     },
     {
       "name": "actual Modbus TCP master roundtrip",
       "passed": true,
-      "seconds": 0.038,
+      "seconds": 0.031,
       "detail": {
         "connected": true,
         "registers": 12,
@@ -69,25 +69,25 @@
     {
       "name": "Modbus invalid register rejected",
       "passed": true,
-      "seconds": 0.02,
+      "seconds": 0.023,
       "detail": null
     },
     {
       "name": "Modbus writes rejected",
       "passed": true,
-      "seconds": 0.016,
+      "seconds": 0.002,
       "detail": null
     },
     {
       "name": "notification records explicitly simulated",
       "passed": true,
-      "seconds": 0.042,
+      "seconds": 0.028,
       "detail": null
     },
     {
       "name": "backend restart preserves durable panel data",
       "passed": true,
-      "seconds": 2.411,
+      "seconds": 2.16,
       "detail": {
         "last_seen_preserved": true
       }
@@ -95,18 +95,18 @@
     {
       "name": "database outage and reconnect",
       "passed": true,
-      "seconds": 15.961,
+      "seconds": 7.607,
       "detail": {
         "outage_health": 503,
         "last_seen_preserved": true,
         "outage_message_committed_exactly_once": true,
-        "recovery_panel_read_seconds": 0.139
+        "recovery_panel_read_seconds": 0.161
       }
     },
     {
       "name": "MQTT disconnect and reconnect",
       "passed": true,
-      "seconds": 5.847,
+      "seconds": 5.561,
       "detail": {
         "disconnected_visible": true,
         "reconnected": true

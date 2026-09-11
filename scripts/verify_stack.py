@@ -98,7 +98,7 @@ def main():
     check('actual Modbus TCP master roundtrip',scada_read)
     def modbus_exception(function,address,value,expected):
         pdu=struct.pack('>BHH',function,address,value)
-        with socket.create_connection(('127.0.0.1',1502),3) as connection:
+        with socket.create_connection(('127.0.0.1',int(env.get('SCADA_HOST_PORT_BASE', env.get('SCADA_PORT_BASE', '1502')))),3) as connection:
             connection.sendall(struct.pack('>HHHB',77,0,len(pdu)+1,1)+pdu)
             packet=b''
             while len(packet)<9:

@@ -27,6 +27,10 @@ def junit(name):
 def main():
     frontend, stack, load, runtime = [read(n) for n in ['v2-frontend-summary.json', 'v2-stack.json', 'v2-load.json', 'v2-runtime.json']]
     firmware, presentation = read('v2-firmware-final.json'), read('v2-final-runtime.json')
+    cli = read('v2-cli-compatibility.json')
+    assert cli['legacy_command']['passed'] and cli['presentation_command']['passed']
+    index_proof = read('v2-history-index.json')
+    assert index_proof['passed']
     final_ui = read('v2-frontend-final-smoke.json')
     assert final_ui['passed'] and final_ui['console_errors'] == [] and final_ui['scale_version'] == 'v2'
     hardware = json.loads((ROOT / 'hardware/pcb/verification.json').read_text(encoding='utf-8'))
@@ -51,11 +55,12 @@ def main():
               'frontend_tests': {'unique_tests': 13, 'passed': 13, 'evidence': 'v2-frontend-summary.json', 'first_run_selector_failure_preserved': True, 'final_full_run': frontend['final_regression']},
               'frontend_final_smoke': final_ui,
               'frontend_tco_tests': {'passed': 5, 'evidence': 'v2-frontend-verification.md'},
-              'stack_tests': {'passed': 11, 'evidence': 'v2-stack.json', 'earlier_failed_attempts_preserved': ['v2-stack-first-run.json', 'v2-stack-second-run.json']},
-              'load_test': {'passed_cases': 6, 'committed': 6800, 'expected': 6800, 'evidence': 'v2-load.json', 'earlier_run': 'v2-load-before-history-projection.json', 'cases_500': [c for c in load['cases'] if c['devices'] == 500]},
+              'stack_tests': {'passed': 11, 'evidence': 'v2-stack.json', 'earlier_failed_attempts_preserved': ['v2-stack-first-run.json', 'v2-stack-second-run.json'], 'previous_successful_run': 'v2-stack-before-host-remap.json'},
+              'load_test': {'passed_cases': 6, 'committed': 6800, 'expected': 6800, 'evidence': 'v2-load.json', 'earlier_runs': ['v2-load-before-history-projection.json', 'v2-load-before-scenario-index.json'], 'legacy_history_index': index_proof, 'cases_500': [c for c in load['cases'] if c['devices'] == 500]},
               'focused_demo_duration_seconds': measured['combined_critical_seconds'], 'arc_event_duration_seconds': measured['arc_seconds'],
               'focused_demo_evidence': 'v2-runtime.json', 'scada_pnl500_roundtrip': presentation['scada_pnl500'],
-              'legacy_preservation': read('v2-legacy-preservation.json'), 'firmware_build_status': firmware,
+              'scada_pnl500_host_port': presentation['scada_host_pnl500_port'], 'desktop_recovery': read('v2-desktop-recovery.json'),
+              'cli_compatibility': cli, 'legacy_preservation': read('v2-legacy-preservation.json'), 'firmware_build_status': firmware,
               'hardware_deliverable_status': hardware, 'presentation_ready': presentation, 'screenshots': screenshots,
               'limitations': ['All observations synthetic; no physical field or institutional SCADA connection.',
                   'ESP32 target build NOT_RUN; physical HAL implementation and live-data API normalizer are not implemented.',
@@ -68,7 +73,7 @@ def main():
     acceptance = ROOT / 'docs/acceptance.md'
     marker = '\n## V2 Hackathon Readiness\n'
     original = acceptance.read_text(encoding='utf-8').split(marker)[0].rstrip()
-    acceptance.write_text(original + marker + f'''
+    acceptance.write_text(original + '\n' + marker + f'''
 
 Ölçüm tarihi UTC: {result['recorded_at']}. V2 temel commit'i `{result['baseline_commit']}`; çalışma öncesi temiz V1 testleri [ayrı baseline kaydında](verification/v2-baseline/summary.json). Güncel toplu kanıt [v2-summary.json](verification/v2-summary.json).
 
@@ -87,7 +92,7 @@ def main():
 | Yenilikçilik | PASS teknik karşılık/kanıt eşlemesi | [12 teknik fark](innovation.md), Yaygınlaştırma |
 | Kurulum/kesinti matrisi | PASS görünür A/B/C ve H1 tutarlılığı | [Kurulum](installation-matrix.md); sağ yardımcı TH-A/H1, güvenli saha keşfi bekler |
 | Host Python regresyon | **{result['python_tests']['passed']} PASS**, {result['python_tests']['seconds']:.2f}s | [JUnit](verification/v2-python-tests.xml); 62 V1 + {result['python_tests']['passed'] - 62} yeni test |
-| Container Python regresyon | **{result['container_tests']['passed']} PASS**, {result['container_tests']['seconds']:.2f}s | [JUnit](verification/v2-python-container-tests.xml); üretim Python/dependency image, repo read-only bind; kaynak hash testi de çalışır |
+| Container Python regresyon | **{result['container_tests']['passed']} PASS**, {result['container_tests']['seconds']:.2f}s | [JUnit](verification/v2-python-container-tests.xml); üretim Python ve bağımlılık image’ı, repo read-only bind; kaynak hash testi de çalışır |
 | Frontend regresyon | **13 benzersiz PASS**, TCO 5 PASS | [Tüm denemeler](verification/v2-frontend-summary.json), son UI smoke; ilk selector hatası saklandı |
 | Gerçek servis/kesinti | **11 PASS** | [Stack](verification/v2-stack.json): API/DB/MQTT yeniden başlatma, DB outage mesajının tam 1 commit'i |
 | 100 / 250 / 500 HTTP + MQTT yeniden yük | **6 PASS, 6800 / 6800 commit** | [Ham V2](verification/v2-load.json), [V1 ile birlikte performans](performance.md); kısa burst |
@@ -95,7 +100,7 @@ def main():
 
 V2 ilk stack denemesinde SCADA'nın ilk health probe'u beklenmediği için `starting` durumu hata sayıldı; verifier 45 s bounded readiness beklemesiyle düzeltildi. [İlk rapor](verification/v2-stack-first-run.json). İkinci denemede DB geri döndükten sonra panel GET 20 s timeout'u; yaklaşık 61 s bağlantı beklemesi gözlendi. [İkinci rapor](verification/v2-stack-second-run.json). DB connect/pool/statement/socket/lock ve DNS sınırları eklendi; okuyucu maintenance write-lock'tan ayrıldı, aynı stale risk/policy ve kalıcı alarm tick'i korundu. Beş yeni regression sınırı ve son gerçek 11 kontrol geçti. Bu denemeler gizlenmedi.
 
-V1 container-image testi kaynak originals image'a alınmadığı için 1 SKIP idi. V2 tam container doğrulaması, kaynaklar/hardware artefact'ları için repo read-only mount kullandığından hash testi de PASS; bu farklılık bilerek kayıtlıdır. Üçüncü taraf Starlette/AnyIO deprecation uyarısı uygulama test hatası değildir.
+V1 container-image testi kaynak originals image'a alınmadığı için 1 SKIP idi. V2 tam container doğrulaması, kaynaklar/hardware artefact'ları için repo read-only mount kullandığından hash testi de PASS; bu farklılık bilerek kayıtlıdır. Üçüncü taraf Starlette/AnyIO deprecation ve SQLite expression-index reflection uyarıları uygulama test hatası değildir. SQLite indeks adları doğrudan okunur; iki açılış ve mevcut veride migration testleri indeksin tekrar oluşturulmadığını doğrular.
 
 Referans firmware envelope'u mevcut synthetic demo API'sine bağlanmadı; fiziksel UART/BLE/Ethernet/NVM/watchdog/MQTT adapter implementasyonu ve canlı veri normalizer’ı henüz yapılmamıştır. Host testi ESP32 firmware build/flash değildir. PCB sertifikası, gerçek PD pC, RF kapsama/pil ömrü, gerçek SMS/WhatsApp, kurum SCADA bağlantısı, fiyat/ROI veya kesici kumandası iddiası yoktur. Tek API süreci kullanılır; uzun soak, yedek dönüşü, gerçek saha commissioning ve çoklu-worker koordinasyonu ayrıca gerekir.
 
@@ -119,7 +124,7 @@ Delta paketleyici `scripts/package_v2_delta.py`: V1 base üzerine binary patch u
         difference = 100 * (final_fps / base_fps - 1)
         comparison.append(f"| {c['devices']} | {c['transport'].upper()} | {base_fps:.2f} | {initial_fps:.2f} | {final_fps:.2f} | {difference:+.1f}% |")
     comparison_text = '\n'.join(comparison)
-    performance.write_text(performance.read_text(encoding='utf-8').split(perf_marker)[0].rstrip() + perf_marker + f'''
+    performance.write_text(performance.read_text(encoding='utf-8').split(perf_marker)[0].rstrip() + '\n' + perf_marker + f'''
 
 UTC: {load['timestamp']}. Aynı yerel Docker/WSL2/PostgreSQL ortamı; [V2 ham ölçüm](verification/v2-load.json). Simulator durduruldu, yalnız ölçüm için API_RATE_LIMIT=20000 kullanıldı; sonunda 1200 geri getirildi. Ölçüm sırasında frontend/firmware build, E2E veya başka test çalıştırılmadı. Her vaka 12 producer worker, 4 tur ve her tur sonunda gerçek PostgreSQL commit doğrulaması kullanır. Fleet API ölçümü 500 pano üzerinden 10 istek/vakadır.
 
@@ -129,17 +134,19 @@ UTC: {load['timestamp']}. Aynı yerel Docker/WSL2/PostgreSQL ortamı; [V2 ham ö
 
 **6/6 PASS, 6800 / 6800 commit**. PUBACK veritabanı commit'i değildir; ölçüm ayrıca commit sayısını bekler. Ingest metriği üretici timestamp'inden worker girişine kadardır; transaction bitişi değildir. Kısa sentetik burst; TLS/WAN/gerçek RF yoktur, host kaynakları münhasır değildir. Uzun üretim kapasitesi veya sıfır kayıp garantisi olarak kullanılmaz.
 
-V1 karşılaştırması aynı çalışma öncesi [baseline](verification/v2-baseline/load.json) ile yapılır. [İlk V2 ölçümü](verification/v2-load-before-history-projection.json) daha düşük ham throughput gösterdi. Risk hesabında kullanılmayan geçmiş `result/actions` ve ORM alanlarının okunması kaldırıldı; aynı 12 kaydın ölçüm/kalite/zaman/adım değerleri korunarak dar SQL projection uygulandı. Yukarıdaki son ölçüm bu değişiklikten sonradır; eski sonuç saklanır.
+V1 karşılaştırması çalışma öncesi [baseline](verification/v2-baseline/load.json) ile yapılır. [İlk V2 ölçümü](verification/v2-load-before-history-projection.json) daha düşük ham throughput gösterdi. Risk hesabında kullanılmayan geçmiş `result/actions` ve ORM alanlarının okunması kaldırıldı; aynı 12 kaydın ölçüm/kalite/zaman/adım değerleri korunarak dar SQL projection uygulandı. Projection sonrası [ara ölçüm](verification/v2-load-before-scenario-index.json) de korundu. Gerçek PostgreSQL EXPLAIN, legacy senaryo filtresinde tüm eşleşen pano satırlarının taranıp sıralandığını gösterdi. Aynı JSON senaryo ifadesini ve timestamp sırasını kullanan, yalnız run kimliği olmayan kayıtlara ait kısmi indeks eklendi. [Önce/sonra sorgu planı](verification/v2-history-index.json), aynı sonuç içerik hash’ini, sıralamanın kalkmasını ve iki tekrar açılışta verinin korunmasını doğrular. Yukarıdaki son yük ölçümü bu indeksle yapıldı.
 
 | Pano | Taşıma | V1 baseline frame/s | İlk V2 frame/s | Son V2 frame/s | V1'e göre fark |
 |---:|---|---:|---:|---:|---:|
 {comparison_text}
 
-Bu kısa koşular host yükü, büyüyen kalıcı geçmiş ve ek V2 run/action işlemleri bakımından mutlak eşdeğer değildir; nedensel hızlanma iddiası yapılmaz. Negatif farklar açıkça daha düşük ham throughput demektir. Tüm vakalarda commit beklentisi karşılandı; sürekli demo kabulü ayrıca 50 frame/s yayın bütçesi ve 499 arka plan panonun ilerlemesiyle ölçüldü. Uzun süreli kapasite ayrı doğrulama gerektirir.
+V1 baseline'ın ilk vakası {baseline_load['cases'][0]['metrics_before']['telemetry_rows']:,} kalıcı satırla, son V2 ölçümü {load['cases'][0]['metrics_before']['telemetry_rows']:,} satırla başladı; geçmiş silinmedi.
+
+Bu kısa koşular host yükü, büyüyen kalıcı geçmiş ve ek V2 run/action işlemleri bakımından mutlak eşdeğer değildir; toplam hız farkı yalnız indekse atfedilmez. İndeksin sorgu planına etkisi aynı veri üzerinde ayrıca doğrulanmıştır. Negatif farklar açıkça daha düşük ham throughput demektir. Tüm vakalarda commit beklentisi karşılandı; sürekli demo kabulü ayrıca 50 frame/s yayın bütçesi ve 499 arka plan panonun ilerlemesiyle ölçüldü. Uzun süreli kapasite ayrı doğrulama gerektirir.
 
 Sürekli 500 pano demosunda tek focus 1,5 s, 499 arka plan ≈10,115 s ve 49⅓ frame/s bütçe; ortak scheduler kapısı toplam 50 yayın/s ile sınırlı. Ayrı gerçek runtime combined **{measured['combined_critical_seconds']:.3f}s**, arc **{measured['arc_seconds']:.3f}s**, fark 10 sentetik adım ölçtü; bütün 499 arka plan pano ilerledi. Bu süreler gerçek saha arıza tahmin zamanı değildir. API ingest ortalaması kuyruk boşalmasından etkilenebilir; yayın tavanı virtual-clock scheduler testinde ayrıca doğrulanır.
 
-SCADA V2 üç banktır: 247 + 247 + 6. PNL-500 port 1504 / unit 6; her bank aynı salt okunur haritayı kullanır. [Yapılandırma](scada/register-map.md). UI ölçek tablosu bu V2 JSON'dan SHA256 ile türetilmiştir; eski V1 tablo yukarıda korunur.
+SCADA V2 üç banktır: 247 + 247 + 6. PNL-500 iç port 1504 / unit 6; son Windows host TCP portu {presentation['scada_host_pnl500_port']}. Her bank aynı salt okunur haritayı kullanır. [Yapılandırma](scada/register-map.md). UI ölçek tablosu bu V2 JSON'dan SHA256 ile türetilmiştir; eski V1 tablo yukarıda korunur.
 
 ```powershell
 docker compose stop simulator

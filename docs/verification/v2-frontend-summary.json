@@ -1,5 +1,5 @@
 {
-  "recorded_at": "2026-09-11T01:19:40.869Z",
+  "recorded_at": "2026-09-11T09:20:15.474Z",
   "command": "npm run test:e2e:v2",
   "rerun_command": "npm run test:e2e:v2 -- --grep='V2 focused|V2 deployment|V2 global'",
   "final_regression_command": "E2E_REPORT_FILE=test-results-v2/final-regression.json npm run test:e2e:v2 (set environment variable using the local shell)",
@@ -63,10 +63,10 @@
     },
     {
       "file": "v2-panel-clean.png",
-      "bytes": 195060,
+      "bytes": 195633,
       "width": 1440,
       "height": 1861,
-      "sha256": "3e4fcce7ff9e747e4579e52e70a35dbe26f018493d02404469f7209cd31a1633"
+      "sha256": "ca06db59088559f1b1c3601a228ca832fb388eb95aba09b133768f0f5a330946"
     },
     {
       "file": "v2-early-warning.png",
@@ -84,10 +84,10 @@
     },
     {
       "file": "v2-scale-value.png",
-      "bytes": 211380,
+      "bytes": 211772,
       "width": 1440,
       "height": 1924,
-      "sha256": "3146658e05b1a22296b9925c7de591c01ac7b933158ac3f76744eaf879f91cb2"
+      "sha256": "a68bfdd8f135f997b0f2886e8d05544f38be8e8542dde193719f9761de701f8e"
     },
     {
       "file": "v2-notifications.png",

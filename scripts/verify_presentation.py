@@ -40,7 +40,8 @@ def main():
               'panel': {k: panel[k] for k in ['id', 'demo_run_id', 'scenario_revision', 'scenario', 'state', 'risk_score', 'health_score', 'pending_current_run']},
               'current_run_rows': len(panel['current_run_history']), 'current_run_alarms': len(panel['current_run_alarms']),
               'full_history_total': panel['full_history_total'], 'scada_pnl500': bank,
-              'api_rate_limit': rate, 'services': [{'service': s['Service'], 'state': s['State'], 'health': s.get('Health')} for s in services],
+              'api_rate_limit': rate, 'scada_host_pnl500_port': int(config.get('SCADA_HOST_PORT_BASE', config.get('SCADA_PORT_BASE', '1502'))) + 2,
+              'mqtt_host_port': int(config.get('MQTT_HOST_PORT', '1883')), 'services': [{'service': s['Service'], 'state': s['State'], 'health': s.get('Health')} for s in services],
               'mode': 'synthetic_demo; no external notification or physical field connection'}
     path = ROOT / 'docs/verification/v2-final-runtime.json'
     path.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf-8')

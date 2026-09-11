@@ -1,0 +1,17 @@
+{
+  "legacy_command": {
+    "command": "python scripts/run_demo.py --scenario combined_thermal_pd",
+    "passed": true,
+    "result_run": "PNL-001-r39",
+    "production_web_build": "PASS",
+    "typescript_build_check": "PASS"
+  },
+  "note": "Commands executed against local Docker services with existing private .env; output logs omitted credentials.",
+  "presentation_command": {
+    "command": "python scripts/run_demo.py --presentation --panels 500 --scenario normal_operation",
+    "passed": true,
+    "result_run": "PNL-001-r40",
+    "ready_check": "v2-final-runtime.json",
+    "ui_check": "v2-frontend-final-smoke.json"
+  }
+}

@@ -1,9 +1,9 @@
 {
-  "version": "v1",
-  "source_label": "V1 yerel Docker yük doğrulaması",
-  "measured_at": "2026-09-10T23:39:29.782595+00:00",
-  "source_path": "docs/verification/load-results.json",
-  "source_sha256": "01ad23a389fc0a413de3a064df15eefa87237307f3dbe93debe29344664b30d5",
+  "version": "v2",
+  "source_label": "V2 yerel Docker yük doğrulaması",
+  "measured_at": "2026-09-11T09:15:15.457414+00:00",
+  "source_path": "docs/verification/v2-load.json",
+  "source_sha256": "868b4df230c2f54c0a45c2f1d6b9c2d8d828c46764cde8d24cc8f420b924e0f5",
   "environment": "Yerel Docker / PostgreSQL / WSL2",
   "limitation": "Dört turluk kısa burst; üretim SLO veya uzun süreli soak testi değildir. Sahada kapasite, gecikme veya sıfır kayıp garantisi vermez.",
   "cases": [
@@ -12,8 +12,8 @@
       "transport": "HTTP",
       "expected": 400,
       "committed": 400,
-      "frames_per_second": 81.96,
-      "api_p95_ms": 375.338,
+      "frames_per_second": 65.93,
+      "api_p95_ms": 475.579,
       "passed": true
     },
     {
@@ -21,8 +21,8 @@
       "transport": "MQTT",
       "expected": 400,
       "committed": 400,
-      "frames_per_second": 95.41,
-      "api_p95_ms": 343.229,
+      "frames_per_second": 59.3,
+      "api_p95_ms": 525.213,
       "passed": true
     },
     {
@@ -30,8 +30,8 @@
       "transport": "HTTP",
       "expected": 1000,
       "committed": 1000,
-      "frames_per_second": 79.95,
-      "api_p95_ms": 328.143,
+      "frames_per_second": 77.63,
+      "api_p95_ms": 526.168,
       "passed": true
     },
     {
@@ -39,8 +39,8 @@
       "transport": "MQTT",
       "expected": 1000,
       "committed": 1000,
-      "frames_per_second": 101.74,
-      "api_p95_ms": 343.929,
+      "frames_per_second": 96.65,
+      "api_p95_ms": 482.588,
       "passed": true
     },
     {
@@ -48,8 +48,8 @@
       "transport": "HTTP",
       "expected": 2000,
       "committed": 2000,
-      "frames_per_second": 97.68,
-      "api_p95_ms": 318.529,
+      "frames_per_second": 89.44,
+      "api_p95_ms": 395.983,
       "passed": true
     },
     {
@@ -57,8 +57,8 @@
       "transport": "MQTT",
       "expected": 2000,
       "committed": 2000,
-      "frames_per_second": 115.4,
-      "api_p95_ms": 317.501,
+      "frames_per_second": 111.95,
+      "api_p95_ms": 384.124,
       "passed": true
     }
   ]

@@ -1,0 +1,149 @@
+{
+  "timestamp": "2026-09-11T09:20:11.690684+00:00",
+  "passed": true,
+  "dashboard": "http://localhost:3000",
+  "fleet": {
+    "total": 500,
+    "fleet_health": 96.0,
+    "open_alarms": 2,
+    "offline": 0,
+    "normal": 500,
+    "attention": 0,
+    "warning": 0,
+    "critical": 0
+  },
+  "panel": {
+    "id": "PNL-001",
+    "demo_run_id": "PNL-001-r40",
+    "scenario_revision": 40,
+    "scenario": "normal_operation",
+    "state": "NORMAL",
+    "risk_score": 8,
+    "health_score": 96,
+    "pending_current_run": false
+  },
+  "current_run_rows": 8,
+  "current_run_alarms": 0,
+  "full_history_total": 6940,
+  "scada_pnl500": {
+    "panel_id": "PNL-500",
+    "host": "scada",
+    "port": 1504,
+    "bank": 3,
+    "bank_size": 247,
+    "unit_id": 6,
+    "transport": "modbus_tcp",
+    "connected": true,
+    "registers": [
+      {
+        "address": 0,
+        "name": "health_score",
+        "value": 96,
+        "unit": "score"
+      },
+      {
+        "address": 1,
+        "name": "risk_score",
+        "value": 8,
+        "unit": "score"
+      },
+      {
+        "address": 2,
+        "name": "state",
+        "value": 0,
+        "unit": "enum"
+      },
+      {
+        "address": 3,
+        "name": "alarm_active",
+        "value": 0,
+        "unit": "bool"
+      },
+      {
+        "address": 4,
+        "name": "thermal_alarm",
+        "value": 0,
+        "unit": "bool"
+      },
+      {
+        "address": 5,
+        "name": "pd_alarm",
+        "value": 0,
+        "unit": "bool"
+      },
+      {
+        "address": 6,
+        "name": "arc_event",
+        "value": 0,
+        "unit": "bool"
+      },
+      {
+        "address": 7,
+        "name": "communication_ok",
+        "value": 1,
+        "unit": "bool"
+      },
+      {
+        "address": 8,
+        "name": "sensor_health",
+        "value": 100,
+        "unit": "score"
+      },
+      {
+        "address": 9,
+        "name": "schema_version",
+        "value": 1,
+        "unit": "version"
+      },
+      {
+        "address": 10,
+        "name": "timestamp_high",
+        "value": 27299,
+        "unit": "unix_s_high"
+      },
+      {
+        "address": 11,
+        "name": "timestamp_low",
+        "value": 51145,
+        "unit": "unix_s_low"
+      }
+    ],
+    "timestamp": "2026-09-11T09:20:10.933897+00:00"
+  },
+  "api_rate_limit": 1200,
+  "scada_host_pnl500_port": 11504,
+  "mqtt_host_port": 11883,
+  "services": [
+    {
+      "service": "api",
+      "state": "running",
+      "health": "healthy"
+    },
+    {
+      "service": "db",
+      "state": "running",
+      "health": "healthy"
+    },
+    {
+      "service": "mqtt",
+      "state": "running",
+      "health": "healthy"
+    },
+    {
+      "service": "scada",
+      "state": "running",
+      "health": "healthy"
+    },
+    {
+      "service": "simulator",
+      "state": "running",
+      "health": ""
+    },
+    {
+      "service": "web",
+      "state": "running",
+      "health": "healthy"
+    }
+  ],
+  "mode": "synthetic_demo; no external notification or physical field connection"
+}

@@ -34,7 +34,7 @@ services:
     volumes:
       - ./deploy/mosquitto:/config:ro
       - mqtt-data:/mosquitto/data
-    ports: [127.0.0.1:1883:1883]
+    ports: ['127.0.0.1:${MQTT_HOST_PORT:-1883}:1883']
     networks: [monitoring]
     restart: unless-stopped
     healthcheck:
@@ -81,7 +81,7 @@ services:
       SCADA_PORT_BASE: ${SCADA_PORT_BASE:-1502}
       SCADA_BANK_SIZE: ${SCADA_BANK_SIZE:-247}
       SCADA_BANK_COUNT: ${SCADA_BANK_COUNT:-3}
-    ports: ['127.0.0.1:${SCADA_PORT_BASE:-1502}-${SCADA_PORT_END:-1504}:${SCADA_PORT_BASE:-1502}-${SCADA_PORT_END:-1504}']
+    ports: ['127.0.0.1:${SCADA_HOST_PORT_BASE:-${SCADA_PORT_BASE:-1502}}-${SCADA_HOST_PORT_END:-${SCADA_PORT_END:-1504}}:${SCADA_PORT_BASE:-1502}-${SCADA_PORT_END:-1504}']
     depends_on:
       api: {condition: service_healthy}
     healthcheck:

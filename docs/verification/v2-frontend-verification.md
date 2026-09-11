@@ -35,7 +35,7 @@ Yaygınlaştırma ekranı CORE/THERMAL/ADVANCED PD, A/B/C erişim sınıfları, 
 - [Kurulum A/B/C](v2-installation.png)
 - [Yeni çalışma ölçüm bekleme sınırı](v2-panel-pending.png)
 
-Yedi görüntü görsel olarak incelendi: metin/sütun çakışması ve kesilen içerik görülmedi. Uzun teknik ekranlar tüm sayfa; filo ve bildirimler 1440×1100 görünüm olarak kaydedildi. Temiz pano görüntüsü son koşuda normal run ölçümü UI'ye geldikten sonra alındı; skor 8, sağlık 96, güncel alarm 0 ve sağ yardımcı hacimde H1 görünür. Önceki ölçüm bekleme görüntüsü ayrıca korundu. Son V2 yük projection'ı ve normal çalışma görüntüsü, root'un son Docker build sonrasında `scripts/capture-v2-final.mjs` ile tekrar kontrol edilip kaydedilecektir; nihai kayıt `v2-frontend-final-smoke.json` dosyasıdır.
+Yedi görüntü görsel olarak incelendi: metin/sütun çakışması ve kesilen içerik görülmedi. Uzun teknik ekranlar tüm sayfa; filo ve bildirimler 1440×1100 görünüm olarak kaydedildi. Temiz pano görüntüsü son koşuda normal run ölçümü UI'ye geldikten sonra alındı; skor 8, sağlık 96, güncel alarm 0 ve sağ yardımcı hacimde H1 görünür. Önceki ölçüm bekleme görüntüsü ayrıca korundu. Son V2 yük tablosu ve temiz pano, 11 Eylül 2026 09:20:15 UTC'de üretim Docker build sonrası `scripts/capture-v2-final.mjs` ile tekrar kontrol edilip kaydedildi: `PNL-001-r40`, normal, risk 8, güncel alarm 0, V2 kaynak hash eşleşmesi ve console/page error 0. [Nihai salt-okunur kontrol](v2-frontend-final-smoke.json) PASS. Yedi ekran görüntüsünün son SHA256 değerleri birleştirilmiş özette yenilendi.
 
 ## Yeniden çalıştırma
 
