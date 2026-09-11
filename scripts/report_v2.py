@@ -33,6 +33,12 @@ def main():
     assert index_proof['passed']
     final_ui = read('v2-frontend-final-smoke.json')
     assert final_ui['passed'] and final_ui['console_errors'] == [] and final_ui['scale_version'] == 'v2'
+    for key, value in {'total': 500, 'normal': 500, 'offline': 0, 'open_alarms': 0}.items():
+        assert final_ui['fleet'][key] == presentation['fleet'][key] == value
+    policy = read('v2-frontend-observations.json')['notification_policy_v2']
+    assert policy['ATTENTION']['notifications'] == 0 and policy['ATTENTION']['channels'] == []
+    assert policy['WARNING']['notifications'] == 2 and set(policy['WARNING']['channels']) == {'sms_mock', 'whatsapp_mock'}
+    assert all(policy[state]['persistent_alarm'] for state in ['ATTENTION', 'WARNING'])
     hardware = json.loads((ROOT / 'hardware/pcb/verification.json').read_text(encoding='utf-8'))
     assert frontend['unique_passed'] == frontend['unique_tests'] == 13
     assert frontend['final_regression_complete'] is True and frontend['final_regression']['expected'] == 13
@@ -44,10 +50,12 @@ def main():
     projected = json.loads((ROOT / 'apps/web/src/data/scale-proof.json').read_text(encoding='utf-8'))
     assert projected['version'] == 'v2' and projected['source_sha256'] == hashlib.sha256((PROOF / 'v2-load.json').read_bytes()).hexdigest()
     assert final_ui['scale_source_sha256'] == projected['source_sha256']
-    screenshot_names = ['fleet', 'panel-clean', 'early-warning', 'scada-bank500', 'scale-value', 'notifications', 'installation']
+    screenshot_names = ['fleet', 'panel-clean', 'early-warning', 'scada-bank500', 'scale-value', 'notifications', 'installation', 'attention-policy', 'warning-policy']
     screenshots = [{'path': 'docs/verification/v2-' + n + '.png', 'sha256': hashlib.sha256((PROOF / ('v2-' + n + '.png')).read_bytes()).hexdigest()} for n in screenshot_names]
     measured = runtime['measurements']
     assert measured['combined_critical_seconds'] <= 75 and measured['arc_seconds'] <= 20
+    # A tracked file cannot embed the hash of its own containing commit/tree.
+    # Packaging adds final identity to the ignored v2-summary.json after commit.
     result = {'recorded_at': datetime.now(timezone.utc).isoformat(), 'status': 'PASS_WITH_EXPLICIT_HARDWARE_LIMITS',
               'baseline_commit': '4a0f4c1cae879604a384e91862749fef754abecc', 'baseline': read('v2-baseline/summary.json'),
               'python_tests': junit('v2-python-tests.xml'), 'container_tests': junit('v2-python-container-tests.xml'),
@@ -60,7 +68,7 @@ def main():
               'focused_demo_duration_seconds': measured['combined_critical_seconds'], 'arc_event_duration_seconds': measured['arc_seconds'],
               'focused_demo_evidence': 'v2-runtime.json', 'scada_pnl500_roundtrip': presentation['scada_pnl500'],
               'scada_pnl500_host_port': presentation['scada_host_pnl500_port'], 'desktop_recovery': read('v2-desktop-recovery.json'),
-              'cli_compatibility': cli, 'legacy_preservation': read('v2-legacy-preservation.json'), 'firmware_build_status': firmware,
+              'cli_compatibility': cli, 'notification_policy': {'version': 2, 'attention_mock_channels': [], 'warning_mock_channels': ['sms_mock', 'whatsapp_mock'], 'browser_evidence': 'v2-frontend-observations.json', 'ui_screenshots': ['v2-attention-policy.png', 'v2-warning-policy.png']}, 'legacy_preservation': read('v2-legacy-preservation.json'), 'firmware_build_status': firmware,
               'hardware_deliverable_status': hardware, 'presentation_ready': presentation, 'screenshots': screenshots,
               'limitations': ['All observations synthetic; no physical field or institutional SCADA connection.',
                   'ESP32 target build NOT_RUN; physical HAL implementation and live-data API normalizer are not implemented.',
@@ -68,14 +76,14 @@ def main():
                   'Short burst performance; single API process; no long soak or production SLO guarantee.',
                   'No real SMS/WhatsApp, calibrated PD, RF coverage, battery lifetime, price or ROI claims.',
                   'No breaker trip, device writes, TVOC reset or protection control.']}
-    (PROOF / 'v2-summary.json').write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding='utf-8')
+    (PROOF / 'v2-evidence.json').write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding='utf-8')
     # Preserve the complete earlier V1 sections; regenerate only this script's V2 section.
     acceptance = ROOT / 'docs/acceptance.md'
     marker = '\n## V2 Hackathon Readiness\n'
     original = acceptance.read_text(encoding='utf-8').split(marker)[0].rstrip()
     acceptance.write_text(original + '\n' + marker + f'''
 
-Ölçüm tarihi UTC: {result['recorded_at']}. V2 temel commit'i `{result['baseline_commit']}`; çalışma öncesi temiz V1 testleri [ayrı baseline kaydında](verification/v2-baseline/summary.json). Güncel toplu kanıt [v2-summary.json](verification/v2-summary.json).
+Ölçüm tarihi UTC: {result['recorded_at']}. V2 temel commit'i `{result['baseline_commit']}`; çalışma öncesi temiz V1 testleri [ayrı baseline kaydında](verification/v2-baseline/summary.json). Git'te izlenen toplu kanıt [v2-evidence.json](verification/v2-evidence.json); commit kimliği içeren `v2-summary.json` paketleme sonrasında üretilir. [Teslim bütünlüğü](delivery-integrity.md).
 
 | Kabul başlığı | Gerçek sonuç | Kanıt / sınır |
 |---|---|---|
@@ -83,7 +91,7 @@ def main():
 | Hızlı 500 pano demosu | PASS: combined {measured['combined_critical_seconds']:.3f}s, arc {measured['arc_seconds']:.3f}s | [Gerçek Docker/MQTT](verification/v2-runtime.json); 499 arka plan pano ilerledi, 0 offline |
 | Temiz current-run UX / tüm geçmiş | PASS | API isolation+pagination, Chromium; 237.402 eski telemetry satırı ve içerik digest'i korundu |
 | Erken uyarı | PASS: warning 21 → critical 31, fark 10 sentetik adım | Yapısal kalıcı event ve UI; saha öngörü süresi değildir |
-| Aksiyon matrisi | PASS: tek policy/API/UI | [Politika](operations/action-matrix.md); 2 yerel mock kanal, dedupe, audit; fiziksel kontrol yok |
+| Aksiyon matrisi | PASS: tek policy/API/UI | [Politika](operations/action-matrix.md); ATTENTION 0 bildirim, WARNING 2 mock kanal; dedupe, audit; fiziksel kontrol yok |
 | Tam 500 SCADA adresleme | PASS: 3 bank / 38 Modbus testi; PNL-500 bank 3 / port 1504 / unit 6 | 500 ayrı localhost TCP fixture yanıtı + canlı altı sınır; write/invalid/pending/stale reddi |
 | PCB/card çıktısı | PASS artefact: 31 connector pini, 199 net düğümü | [Carrier](../hardware/pcb/README.md), 9 şema/harita testi; EDA-neutral, üretilmedi, ERC/DRC NOT_RUN |
 | MCU kaynak kodu | PASS source + C++17 host 7 grup / {firmware['host_core']['assertions']} kontrol | [Firmware](hardware/firmware.md), [hash/komut](verification/v2-firmware-final.json); ESP32 hedef build NOT_RUN |
@@ -96,7 +104,7 @@ def main():
 | Frontend regresyon | **13 benzersiz PASS**, TCO 5 PASS | [Tüm denemeler](verification/v2-frontend-summary.json), son UI smoke; ilk selector hatası saklandı |
 | Gerçek servis/kesinti | **11 PASS** | [Stack](verification/v2-stack.json): API/DB/MQTT yeniden başlatma, DB outage mesajının tam 1 commit'i |
 | 100 / 250 / 500 HTTP + MQTT yeniden yük | **6 PASS, 6800 / 6800 commit** | [Ham V2](verification/v2-load.json), [V1 ile birlikte performans](performance.md); kısa burst |
-| Sunuma hazır son durum | PASS: 500 pano, 0 offline, PNL-001 normal/güncel/0 alarm, rate 1200 | [Son runtime](verification/v2-final-runtime.json), [son tarayıcı](verification/v2-frontend-final-smoke.json) |
+| Sunuma hazır son durum | PASS: 500 NORMAL / 0 offline / 0 current open alarm; PNL-001 normal/güncel/0 alarm, rate 1200 | [Son runtime](verification/v2-final-runtime.json), [son tarayıcı](verification/v2-frontend-final-smoke.json) |
 
 V2 ilk stack denemesinde SCADA'nın ilk health probe'u beklenmediği için `starting` durumu hata sayıldı; verifier 45 s bounded readiness beklemesiyle düzeltildi. [İlk rapor](verification/v2-stack-first-run.json). İkinci denemede DB geri döndükten sonra panel GET 20 s timeout'u; yaklaşık 61 s bağlantı beklemesi gözlendi. [İkinci rapor](verification/v2-stack-second-run.json). DB connect/pool/statement/socket/lock ve DNS sınırları eklendi; okuyucu maintenance write-lock'tan ayrıldı, aynı stale risk/policy ve kalıcı alarm tick'i korundu. Beş yeni regression sınırı ve son gerçek 11 kontrol geçti. Bu denemeler gizlenmedi.
 

@@ -19,11 +19,17 @@ def action_policy(result, notification_status='eligible'):
         add('event_log', 'Durum değişikliği olay geçmişinde kalıcı olarak tutulur.')
         add('persistent_alarm', 'Alarm açılır; onay ve çözülme geçmişi korunur.')
         add('scada_alarm_flag', 'Alarm durumu salt okunur SCADA çıkış haritasında erişilebilir.', channel='modbus_tcp')
-        # v1 compatibility: ATTENTION also creates clearly simulated mock records.
-        # Repeated accepted frames do not re-send them: runtime applies alarm deduplication.
-        for channel in MOCK_CHANNELS:
-            add('notification', 'Yerel bildirim kaydı simüle edilir; gerçek sağlayıcıya gönderim yapılmaz.',
-                status=notification_status, channel=channel)
+        # ATTENTION retains its alarm/event/SCADA state without provider records.
+        # Communication loss has availability actions; an arc always escalates.
+        if arc or (not unavailable and state in {'WARNING', 'CRITICAL'}):
+            for channel in MOCK_CHANNELS:
+                add('notification',
+                    'Acil ark bildirimi yerel olarak simüle edilir; gerçek sağlayıcıya gönderilmez.' if arc else
+                    'Yerel bildirim kaydı simüle edilir; gerçek sağlayıcıya gönderim yapılmaz.',
+                    status=notification_status, channel=channel)
+            if not arc:
+                add('maintenance_recommendation', 'Yetkin bakım ekibinin incelemesi önerilir.',
+                    automatic=False, status='recommended')
         add('operator_recommendation', result['explanation']['recommended_action'], automatic=False, status='recommended')
     if state == 'CRITICAL':
         add('high_priority_alarm', 'Kritik alarm önceliği ve yükseltme kaydı oluşturulur.')
@@ -53,6 +59,6 @@ def policy_catalog():
                   'communication_ok': trigger != 'COMMUNICATION_LOSS', 'arc': {'event': trigger == 'ARC_EVENT'},
                   'explanation': {'data_quality': [], 'recommended_action': 'Yetkin personelin durum değerlendirmesi önerilir.'}}
         rows.append({'trigger': trigger, 'actions': action_policy(result)})
-    return {'version': 1, 'mode': 'synthetic_demo', 'items': rows,
-            'note': 'V1 uyumluluğu için ATTENTION seviyesinde de yerel mock bildirim kaydı üretilir. Yeni veya yükselen alarmlar bildirim oluşturur; yinelenen gözlemler gönderimi tekrarlamaz.',
+    return {'version': 2, 'mode': 'synthetic_demo', 'items': rows,
+            'note': 'ATTENTION kalıcı alarm, olay ve SCADA bayrağı üretir; SMS/WhatsApp üretmez. WARNING/CRITICAL ve ark olayında yeni veya yükselen alarm iki yerel mock kanalı tetikler. İletişim kaybı kullanılabilirlik aksiyonları üretir; yinelenen gözlemler bildirimi tekrarlamaz.',
             'safety_boundary': SAFETY}

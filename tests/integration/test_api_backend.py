@@ -179,7 +179,7 @@ def test_notification_only_on_new_or_higher_severity(client, settings):
     frame['measurements']['temperature_c'] = 55
     assert send(client, settings, frame).status_code == 200
     count = len(client.get('/api/notifications', headers=admin).json()['items'])
-    assert count == 2
+    assert count == 0  # ATTENTION has a persistent alarm, but no mock delivery.
     frame = payload(settings, timestamp=now + timedelta(milliseconds=1))
     frame['measurements'].update(temperature_c=70, pd_baseline_ratio=3)
     assert send(client, settings, frame).json()['state'] == 'CRITICAL'

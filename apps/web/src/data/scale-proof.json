@@ -1,9 +1,9 @@
 {
   "version": "v2",
   "source_label": "V2 yerel Docker yük doğrulaması",
-  "measured_at": "2026-09-11T09:15:15.457414+00:00",
+  "measured_at": "2026-09-11T12:35:02.742976+00:00",
   "source_path": "docs/verification/v2-load.json",
-  "source_sha256": "868b4df230c2f54c0a45c2f1d6b9c2d8d828c46764cde8d24cc8f420b924e0f5",
+  "source_sha256": "085e8629f989289c2bf6bd74b207cdc1002ebd6b02176da7224eeb817526785f",
   "environment": "Yerel Docker / PostgreSQL / WSL2",
   "limitation": "Dört turluk kısa burst; üretim SLO veya uzun süreli soak testi değildir. Sahada kapasite, gecikme veya sıfır kayıp garantisi vermez.",
   "cases": [
@@ -12,8 +12,8 @@
       "transport": "HTTP",
       "expected": 400,
       "committed": 400,
-      "frames_per_second": 65.93,
-      "api_p95_ms": 475.579,
+      "frames_per_second": 47.85,
+      "api_p95_ms": 526.194,
       "passed": true
     },
     {
@@ -21,8 +21,8 @@
       "transport": "MQTT",
       "expected": 400,
       "committed": 400,
-      "frames_per_second": 59.3,
-      "api_p95_ms": 525.213,
+      "frames_per_second": 64.47,
+      "api_p95_ms": 532.325,
       "passed": true
     },
     {
@@ -30,8 +30,8 @@
       "transport": "HTTP",
       "expected": 1000,
       "committed": 1000,
-      "frames_per_second": 77.63,
-      "api_p95_ms": 526.168,
+      "frames_per_second": 74.11,
+      "api_p95_ms": 505.121,
       "passed": true
     },
     {
@@ -39,8 +39,8 @@
       "transport": "MQTT",
       "expected": 1000,
       "committed": 1000,
-      "frames_per_second": 96.65,
-      "api_p95_ms": 482.588,
+      "frames_per_second": 92.47,
+      "api_p95_ms": 459.11,
       "passed": true
     },
     {
@@ -48,8 +48,8 @@
       "transport": "HTTP",
       "expected": 2000,
       "committed": 2000,
-      "frames_per_second": 89.44,
-      "api_p95_ms": 395.983,
+      "frames_per_second": 94.21,
+      "api_p95_ms": 411.749,
       "passed": true
     },
     {
@@ -57,8 +57,8 @@
       "transport": "MQTT",
       "expected": 2000,
       "committed": 2000,
-      "frames_per_second": 111.95,
-      "api_p95_ms": 384.124,
+      "frames_per_second": 105.59,
+      "api_p95_ms": 392.004,
       "passed": true
     }
   ]

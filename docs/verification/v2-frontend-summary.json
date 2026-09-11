@@ -1,5 +1,5 @@
 {
-  "recorded_at": "2026-09-11T09:20:15.474Z",
+  "recorded_at": "2026-09-11T12:37:43.923Z",
   "command": "npm run test:e2e:v2",
   "rerun_command": "npm run test:e2e:v2 -- --grep='V2 focused|V2 deployment|V2 global'",
   "final_regression_command": "E2E_REPORT_FILE=test-results-v2/final-regression.json npm run test:e2e:v2 (set environment variable using the local shell)",
@@ -23,8 +23,8 @@
     "flaky": 0
   },
   "final_regression": {
-    "startTime": "2026-09-11T01:18:03.810Z",
-    "duration": 82873.967,
+    "startTime": "2026-09-11T12:31:19.230Z",
+    "duration": 91579.215,
     "expected": 13,
     "skipped": 0,
     "unexpected": 0,
@@ -42,8 +42,12 @@
       "sha256": "288c0972f3aca1de7ceedeb7ef62af386cf596f8f75d555e58b6c4424d83cb76"
     },
     {
-      "file": "v2-frontend-final-regression.json",
+      "file": "v2-frontend-final-regression-before-final-hardening.json",
       "sha256": "2c2f4f3825307dbc4b7ce2c1bb03378e5c578b8c4fa8e2c301edbc16171dc760"
+    },
+    {
+      "file": "v2-frontend-final-regression.json",
+      "sha256": "7fe4cf8b900f537b6ddf45eda90be530f03c53352308daf853d50cfcad0f7f7a"
     }
   ],
   "correction": "Only test selector corrected from Alarmlar to the existing Alarm merkezi label. Two additional tests repeated to recapture screenshots at scrollTop 0 after API connection. Product code unchanged between these two runs.",
@@ -52,56 +56,90 @@
     "checked_tests": 6,
     "errors": []
   },
-  "provenance": "All 13 tests authenticate against the local API. Three cases additionally use explicit transport/response fixtures for offline, invalid-sensor and pending-run presentation boundaries. SCADA tests read real local Modbus TCP. All telemetry is synthetic; no external delivery or physical device writes.",
+  "provenance": "All 13 tests authenticate against the local API. Three cases additionally use explicit transport/response fixtures for offline, invalid-sensor and pending-run presentation boundaries. ATTENTION/WARNING screenshots freeze captured real API responses only for browser rendering while the backend advances; notification counts are checked against the running API. SCADA tests read real local Modbus TCP. All telemetry is synthetic; no external delivery or physical device writes.",
+  "notification_policy": {
+    "run_id": "PNL-001-r43",
+    "ATTENTION": {
+      "step": 19,
+      "notifications": 0,
+      "channels": [],
+      "persistent_alarm": true,
+      "screenshot_mode": "real API response frozen only for browser rendering"
+    },
+    "WARNING": {
+      "step": 21,
+      "notifications": 2,
+      "channels": [
+        "sms_mock",
+        "whatsapp_mock"
+      ],
+      "persistent_alarm": true,
+      "screenshot_mode": "real API response frozen only for browser rendering"
+    }
+  },
   "screenshots": [
     {
       "file": "v2-fleet.png",
-      "bytes": 191981,
+      "bytes": 257115,
       "width": 1440,
-      "height": 1100,
-      "sha256": "51d2024f62a5486cf643d7db1685d5803d31cb8aba57aa9a28f634405ed3d971"
+      "height": 1609,
+      "sha256": "9ed06994b359a0e1af3e1d7279834ce3a29864d06cad4cbed8f5821552dc0cc1"
     },
     {
       "file": "v2-panel-clean.png",
-      "bytes": 195633,
+      "bytes": 195442,
       "width": 1440,
       "height": 1861,
-      "sha256": "ca06db59088559f1b1c3601a228ca832fb388eb95aba09b133768f0f5a330946"
+      "sha256": "2cc66ec07227e8463d1c46a67020fb566303cc0e11b42211e6948fbccf587efe"
     },
     {
       "file": "v2-early-warning.png",
-      "bytes": 305481,
+      "bytes": 314102,
       "width": 1440,
-      "height": 3004,
-      "sha256": "a7fc2b9fa12a7c190acd1d968ef5fc800670d245957d725fcf1e56fa55f7a164"
+      "height": 3090,
+      "sha256": "19b699d1f7a007d642cb9cff9b9fa0fc308edbe56c194f9f84449e1e91433159"
     },
     {
       "file": "v2-scada-bank500.png",
-      "bytes": 154030,
+      "bytes": 154098,
       "width": 1440,
       "height": 1286,
-      "sha256": "64b073eaeeb5db003eae859ee92db383cb94e334db10e70caebcf7ad2a62f687"
+      "sha256": "28619c5df4d5f7fce2bfe99a8431d514f7a6e855688d868c7ec932a700ee75c4"
     },
     {
       "file": "v2-scale-value.png",
-      "bytes": 211772,
+      "bytes": 211045,
       "width": 1440,
       "height": 1924,
-      "sha256": "a68bfdd8f135f997b0f2886e8d05544f38be8e8542dde193719f9761de701f8e"
+      "sha256": "f9031087f57f06cfcffd972b8e1e335f7bc77908812f240059891ef453535372"
     },
     {
       "file": "v2-notifications.png",
-      "bytes": 178316,
+      "bytes": 179855,
       "width": 1440,
       "height": 1100,
-      "sha256": "d5a80b0fcb6e789c3517f0f42762dc8d90292a5bccc2b241749884cfb7f1e5d7"
+      "sha256": "4f19e37a18a324ee41df117c30fc374aa9453c2deed6a7f86834da492a957176"
     },
     {
       "file": "v2-installation.png",
-      "bytes": 111848,
+      "bytes": 111811,
       "width": 1440,
       "height": 1165,
-      "sha256": "483854f044a9589de9416f23025e49f39fccbb1e55b6d2db0ec251b79079cbf5"
+      "sha256": "a99c068c3d0840218beedb38b86d6b84fbd5801c8ec82f8fd14549a543efb85e"
+    },
+    {
+      "file": "v2-attention-policy.png",
+      "bytes": 251151,
+      "width": 1440,
+      "height": 2467,
+      "sha256": "8f2b046ed9fe298affa3e4e189f3d7062072ad6156a231d67e963d78d9da6e61"
+    },
+    {
+      "file": "v2-warning-policy.png",
+      "bytes": 295602,
+      "width": 1440,
+      "height": 2920,
+      "sha256": "e52b17cd51abe78e0809ed64b0dae032a899dbf204f8dbbf8aa732e58c1ed224"
     }
   ],
   "cases": [
@@ -115,9 +153,14 @@
           "duration_ms": 1618
         },
         {
-          "report": "v2-frontend-final-regression.json",
+          "report": "v2-frontend-final-regression-before-final-hardening.json",
           "status": "passed",
           "duration_ms": 1381
+        },
+        {
+          "report": "v2-frontend-final-regression.json",
+          "status": "passed",
+          "duration_ms": 2255
         }
       ],
       "latest_status": "passed"
@@ -132,9 +175,14 @@
           "duration_ms": 1030
         },
         {
-          "report": "v2-frontend-final-regression.json",
+          "report": "v2-frontend-final-regression-before-final-hardening.json",
           "status": "passed",
           "duration_ms": 1161
+        },
+        {
+          "report": "v2-frontend-final-regression.json",
+          "status": "passed",
+          "duration_ms": 1093
         }
       ],
       "latest_status": "passed"
@@ -149,9 +197,14 @@
           "duration_ms": 1023
         },
         {
-          "report": "v2-frontend-final-regression.json",
+          "report": "v2-frontend-final-regression-before-final-hardening.json",
           "status": "passed",
           "duration_ms": 1372
+        },
+        {
+          "report": "v2-frontend-final-regression.json",
+          "status": "passed",
+          "duration_ms": 1408
         }
       ],
       "latest_status": "passed"
@@ -166,9 +219,14 @@
           "duration_ms": 18039
         },
         {
-          "report": "v2-frontend-final-regression.json",
+          "report": "v2-frontend-final-regression-before-final-hardening.json",
           "status": "passed",
           "duration_ms": 13896
+        },
+        {
+          "report": "v2-frontend-final-regression.json",
+          "status": "passed",
+          "duration_ms": 18526
         }
       ],
       "latest_status": "passed"
@@ -183,9 +241,14 @@
           "duration_ms": 1025
         },
         {
-          "report": "v2-frontend-final-regression.json",
+          "report": "v2-frontend-final-regression-before-final-hardening.json",
           "status": "passed",
           "duration_ms": 857
+        },
+        {
+          "report": "v2-frontend-final-regression.json",
+          "status": "passed",
+          "duration_ms": 1182
         }
       ],
       "latest_status": "passed"
@@ -200,9 +263,14 @@
           "duration_ms": 854
         },
         {
-          "report": "v2-frontend-final-regression.json",
+          "report": "v2-frontend-final-regression-before-final-hardening.json",
           "status": "passed",
           "duration_ms": 921
+        },
+        {
+          "report": "v2-frontend-final-regression.json",
+          "status": "passed",
+          "duration_ms": 976
         }
       ],
       "latest_status": "passed"
@@ -217,9 +285,14 @@
           "duration_ms": 1214
         },
         {
-          "report": "v2-frontend-final-regression.json",
+          "report": "v2-frontend-final-regression-before-final-hardening.json",
           "status": "passed",
           "duration_ms": 1162
+        },
+        {
+          "report": "v2-frontend-final-regression.json",
+          "status": "passed",
+          "duration_ms": 1294
         }
       ],
       "latest_status": "passed"
@@ -239,9 +312,14 @@
           "duration_ms": 51902
         },
         {
-          "report": "v2-frontend-final-regression.json",
+          "report": "v2-frontend-final-regression-before-final-hardening.json",
           "status": "passed",
           "duration_ms": 54869
+        },
+        {
+          "report": "v2-frontend-final-regression.json",
+          "status": "passed",
+          "duration_ms": 57019
         }
       ],
       "latest_status": "passed"
@@ -256,9 +334,14 @@
           "duration_ms": 1449
         },
         {
-          "report": "v2-frontend-final-regression.json",
+          "report": "v2-frontend-final-regression-before-final-hardening.json",
           "status": "passed",
           "duration_ms": 1482
+        },
+        {
+          "report": "v2-frontend-final-regression.json",
+          "status": "passed",
+          "duration_ms": 1691
         }
       ],
       "latest_status": "passed"
@@ -273,9 +356,14 @@
           "duration_ms": 1263
         },
         {
-          "report": "v2-frontend-final-regression.json",
+          "report": "v2-frontend-final-regression-before-final-hardening.json",
           "status": "passed",
           "duration_ms": 1413
+        },
+        {
+          "report": "v2-frontend-final-regression.json",
+          "status": "passed",
+          "duration_ms": 1646
         }
       ],
       "latest_status": "passed"
@@ -295,9 +383,14 @@
           "duration_ms": 1397
         },
         {
-          "report": "v2-frontend-final-regression.json",
+          "report": "v2-frontend-final-regression-before-final-hardening.json",
           "status": "passed",
           "duration_ms": 1386
+        },
+        {
+          "report": "v2-frontend-final-regression.json",
+          "status": "passed",
+          "duration_ms": 1317
         }
       ],
       "latest_status": "passed"
@@ -317,9 +410,14 @@
           "duration_ms": 1037
         },
         {
-          "report": "v2-frontend-final-regression.json",
+          "report": "v2-frontend-final-regression-before-final-hardening.json",
           "status": "passed",
           "duration_ms": 1067
+        },
+        {
+          "report": "v2-frontend-final-regression.json",
+          "status": "passed",
+          "duration_ms": 1167
         }
       ],
       "latest_status": "passed"
@@ -334,9 +432,14 @@
           "duration_ms": 1152
         },
         {
-          "report": "v2-frontend-final-regression.json",
+          "report": "v2-frontend-final-regression-before-final-hardening.json",
           "status": "passed",
           "duration_ms": 1073
+        },
+        {
+          "report": "v2-frontend-final-regression.json",
+          "status": "passed",
+          "duration_ms": 1117
         }
       ],
       "latest_status": "passed"

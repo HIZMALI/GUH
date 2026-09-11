@@ -11,7 +11,7 @@ from fastapi import Depends, FastAPI, HTTPException, Query, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 from pydantic import AliasChoices, BaseModel, ConfigDict, Field
-from sqlalchemy import func, select, text
+from sqlalchemy import func, select, text, tuple_
 from sqlalchemy.exc import SQLAlchemyError
 from apps.api.database import Panel, Telemetry, Alarm, Event, Notification, Audit, User, utcnow, aware, as_dict
 from apps.api.runtime import Runtime
@@ -185,7 +185,11 @@ def create_app(settings=None):
     def fleet(identity=Depends(principal), rt=Depends(runtime)):
         with rt.sessions() as db:
             panels = [rt.panel_dict(panel) for panel in db.scalars(select(Panel).order_by(Panel.id))]
-            open_alarms = db.scalar(select(func.count()).select_from(Alarm).where(Alarm.status != 'resolved'))
+            # Bind each alarm to its owning panel's run from this fleet snapshot.
+            current_runs = [(panel['id'], panel['demo_run_id']) for panel in panels]
+            open_alarms = db.scalar(select(func.count()).select_from(Alarm).where(
+                Alarm.status.in_(['active', 'acknowledged']),
+                tuple_(Alarm.panel_id, Alarm.demo_run_id).in_(current_runs)))
         panels.sort(key=lambda panel: (-panel['risk_score'], panel['id']))
         count = len(panels)
         summary = {'total': count, 'fleet_health': round(sum(p['health_score'] for p in panels) / count, 1) if count else 0,

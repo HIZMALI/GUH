@@ -10,9 +10,11 @@ const directory = path.join(repo, "docs/verification");
 const firstPath = path.join(directory, "v2-frontend-first-run.json");
 const rerunPath = path.join(directory, "v2-frontend-rerun.json");
 const finalPath = path.join(directory, "v2-frontend-final-regression.json");
+const previousFinalPath = path.join(directory, "v2-frontend-final-regression-before-final-hardening.json");
 const reportPaths = [
   firstPath,
   rerunPath,
+  ...(fs.existsSync(previousFinalPath) ? [previousFinalPath] : []),
   ...(fs.existsSync(finalPath) ? [finalPath] : []),
 ];
 const reports = reportPaths.map((file) =>
@@ -50,6 +52,8 @@ const names = [
   "scale-value",
   "notifications",
   "installation",
+  "attention-policy",
+  "warning-policy",
 ];
 const screenshots = names.map((name) => {
   const file = `v2-${name}.png`;
@@ -71,7 +75,7 @@ const observations = JSON.parse(
 const checked = Object.entries(observations).filter(([key]) =>
   key.startsWith("browser_errors:"),
 );
-const finalReport = reports[2] || null;
+const finalReport = fs.existsSync(finalPath) ? reports.at(-1) : null;
 const finalTestCount = [...cases.values()].filter((test) =>
   test.attempts.some((attempt) => attempt.report === path.basename(finalPath)),
 ).length;
@@ -112,7 +116,8 @@ const summary = {
     errors: checked.flatMap(([, value]) => value.errors),
   },
   provenance:
-    "All 13 tests authenticate against the local API. Three cases additionally use explicit transport/response fixtures for offline, invalid-sensor and pending-run presentation boundaries. SCADA tests read real local Modbus TCP. All telemetry is synthetic; no external delivery or physical device writes.",
+    "All 13 tests authenticate against the local API. Three cases additionally use explicit transport/response fixtures for offline, invalid-sensor and pending-run presentation boundaries. ATTENTION/WARNING screenshots freeze captured real API responses only for browser rendering while the backend advances; notification counts are checked against the running API. SCADA tests read real local Modbus TCP. All telemetry is synthetic; no external delivery or physical device writes.",
+  notification_policy: observations.notification_policy_v2,
   screenshots,
   cases: [...cases.values()],
 };

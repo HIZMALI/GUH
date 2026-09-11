@@ -46,7 +46,7 @@ Teknik mimari [MASTER_SPEC.md](MASTER_SPEC.md) ve [architecture.md](docs/archite
 
 ## Demo ve doğrulama
 
-[Demo akışı](docs/demo-guide.md), [V2 makine özeti](docs/verification/v2-summary.json), [performans](docs/performance.md) ve [kabul matrisi](docs/acceptance.md) gerçek sonuçları ve tekrar komutlarını içerir. Değişiklik öncesi temiz V1 commit'inde 62 Python, 7 tarayıcı, 11 servis/kesinti ve 6 yük vakası yeniden geçti; 6800/6800 commit kaydı saklandı. V2: **host 106 PASS, container 106 PASS, Chromium 13 PASS, servis/kesinti 11 PASS**; C++ host çekirdeği 308 kontrol ve TCO 5 sınır testi PASS. 100/250/500 HTTP+MQTT testlerinde **6.800/6.800 kalıcı commit** doğrulandı; yeni kanıtlar ayrı dosyalardadır. PostgreSQL geçişinde **237.402 eski telemetri kaydının içerik özeti birebir korundu**. [Geçiş kanıtı](docs/verification/v2-legacy-preservation.json).
+[Demo akışı](docs/demo-guide.md), [V2 doğrulama kanıtı](docs/verification/v2-evidence.json), [performans](docs/performance.md) ve [kabul matrisi](docs/acceptance.md) gerçek sonuçları ve tekrar komutlarını içerir. Değişiklik öncesi temiz V1 commit'inde 62 Python, 7 tarayıcı, 11 servis/kesinti ve 6 yük vakası yeniden geçti; 6800/6800 commit kaydı saklandı. V2: **host 108 PASS, container 108 PASS, Chromium 13 PASS, servis/kesinti 11 PASS**; C++ host çekirdeği 308 kontrol ve TCO 5 sınır testi PASS. 100/250/500 HTTP+MQTT testlerinde **6.800/6.800 kalıcı commit** doğrulandı; yeni kanıtlar ayrı dosyalardadır. PostgreSQL geçişinde **237.402 eski telemetri kaydının içerik özeti birebir korundu**. [Geçiş kanıtı](docs/verification/v2-legacy-preservation.json).
 
 ```powershell
 python -m pytest -q
@@ -63,3 +63,5 @@ Frontend `apps/web` içinde `npm run test:unit` ve `npm run test:e2e:v2`; eski `
 Hafif delta: `handoff/GridSentinel-v2-delta.zip`; temel commit `4a0f4c1cae879604a384e91862749fef754abecc`. Değişen/yeni dosyalar, Git binary patch ve V2 kanıtlarını içerir. `.env`, bağımlılıklar, cache, volume ve değişmeyen PDF/Excel dahil değildir. [Tekrar paketleme](scripts/package_v2_delta.py) gerçek Git index'ini değiştirmeden patch uygulanabilirliğini ve sır taramasını doğrular.
 
 Kart üretilmedi; EDA-neutral çizimler yönlendirilmiş/sertifikalı PCB değildir. C++ **host** derleme/testi, ESP32 hedef derleme/flash değildir; embedded build **NOT_RUN**, KiCad ERC/DRC **NOT_RUN**. Fiziksel UART/BLE/Ethernet/kalıcı depolama/watchdog/MQTT adapter implementasyonu, canlı firmware verisini API’ye dönüştürecek normalizer ve saha commissioning’i henüz yapılmadı. RF, pil ömrü, kalibre PD, EMC/IP ve gerçek maliyet/ROI doğrulanmadı. Yerel ölçümler kısa burst'tür; tek API süreci kullanılır, uzun soak ve çoklu worker desteği ayrıca gerekir.
+
+Teslim metadata’sı temiz `main` commit/push sonrasında üretilir: [Git kimliği ve paketleme](docs/delivery-integrity.md). `v2-summary.json` gerçek HEAD kimliğini içeren Git dışı çıktıdır; ölçüm kanıtı `v2-evidence.json` ile izlenir.

@@ -55,16 +55,16 @@ Başarısız test sonrasında da son komutla normal API limitini ve simulatorı 
 ## V2 yeniden ölçümü
 
 
-UTC: 2026-09-11T09:15:15.457414+00:00. Aynı yerel Docker/WSL2/PostgreSQL ortamı; [V2 ham ölçüm](verification/v2-load.json). Simulator durduruldu, yalnız ölçüm için API_RATE_LIMIT=20000 kullanıldı; sonunda 1200 geri getirildi. Ölçüm sırasında frontend/firmware build, E2E veya başka test çalıştırılmadı. Her vaka 12 producer worker, 4 tur ve her tur sonunda gerçek PostgreSQL commit doğrulaması kullanır. Fleet API ölçümü 500 pano üzerinden 10 istek/vakadır.
+UTC: 2026-09-11T12:35:02.742976+00:00. Aynı yerel Docker/WSL2/PostgreSQL ortamı; [V2 ham ölçüm](verification/v2-load.json). Simulator durduruldu, yalnız ölçüm için API_RATE_LIMIT=20000 kullanıldı; sonunda 1200 geri getirildi. Ölçüm sırasında frontend/firmware build, E2E veya başka test çalıştırılmadı. Her vaka 12 producer worker, 4 tur ve her tur sonunda gerçek PostgreSQL commit doğrulaması kullanır. Fleet API ölçümü 500 pano üzerinden 10 istek/vakadır.
 
 | Pano | Taşıma | Commit/beklenen | Frame/s | İstek/PUBACK p95 ms | Ingest başlangıcı p95 ms | Fleet API p95 ms |
 |---:|---|---:|---:|---:|---:|---:|
-| 100 | HTTP | 400/400 | 65.93 | 334.63 | 14.53 | 475.58 |
-| 100 | MQTT | 400/400 | 59.30 | 5.39 | 1859.59 | 525.21 |
-| 250 | HTTP | 1000/1000 | 77.63 | 343.19 | 11.37 | 526.17 |
-| 250 | MQTT | 1000/1000 | 96.65 | 3.75 | 2075.50 | 482.59 |
-| 500 | HTTP | 2000/2000 | 89.44 | 292.30 | 4.55 | 395.98 |
-| 500 | MQTT | 2000/2000 | 111.95 | 3.75 | 3801.45 | 384.12 |
+| 100 | HTTP | 400/400 | 47.85 | 484.35 | 15.39 | 526.19 |
+| 100 | MQTT | 400/400 | 64.47 | 4.74 | 1038.11 | 532.33 |
+| 250 | HTTP | 1000/1000 | 74.11 | 350.96 | 11.21 | 505.12 |
+| 250 | MQTT | 1000/1000 | 92.47 | 3.81 | 2017.61 | 459.11 |
+| 500 | HTTP | 2000/2000 | 94.21 | 282.14 | 4.54 | 411.75 |
+| 500 | MQTT | 2000/2000 | 105.59 | 3.57 | 4038.99 | 392.00 |
 
 **6/6 PASS, 6800 / 6800 commit**. PUBACK veritabanı commit'i değildir; ölçüm ayrıca commit sayısını bekler. Ingest metriği üretici timestamp'inden worker girişine kadardır; transaction bitişi değildir. Kısa sentetik burst; TLS/WAN/gerçek RF yoktur, host kaynakları münhasır değildir. Uzun üretim kapasitesi veya sıfır kayıp garantisi olarak kullanılmaz.
 
@@ -72,14 +72,14 @@ V1 karşılaştırması çalışma öncesi [baseline](verification/v2-baseline/l
 
 | Pano | Taşıma | V1 baseline frame/s | İlk V2 frame/s | Son V2 frame/s | V1'e göre fark |
 |---:|---|---:|---:|---:|---:|
-| 100 | HTTP | 86.12 | 50.72 | 65.93 | -23.4% |
-| 100 | MQTT | 68.86 | 55.63 | 59.30 | -13.9% |
-| 250 | HTTP | 89.66 | 63.01 | 77.63 | -13.4% |
-| 250 | MQTT | 95.55 | 71.55 | 96.65 | +1.2% |
-| 500 | HTTP | 94.09 | 71.29 | 89.44 | -4.9% |
-| 500 | MQTT | 101.40 | 84.75 | 111.95 | +10.4% |
+| 100 | HTTP | 86.12 | 50.72 | 47.85 | -44.4% |
+| 100 | MQTT | 68.86 | 55.63 | 64.47 | -6.4% |
+| 250 | HTTP | 89.66 | 63.01 | 74.11 | -17.3% |
+| 250 | MQTT | 95.55 | 71.55 | 92.47 | -3.2% |
+| 500 | HTTP | 94.09 | 71.29 | 94.21 | +0.1% |
+| 500 | MQTT | 101.40 | 84.75 | 105.59 | +4.1% |
 
-V1 baseline'ın ilk vakası 175,602 kalıcı satırla, son V2 ölçümü 709,976 satırla başladı; geçmiş silinmedi.
+V1 baseline'ın ilk vakası 175,602 kalıcı satırla, son V2 ölçümü 1,288,618 satırla başladı; geçmiş silinmedi.
 
 Bu kısa koşular host yükü, büyüyen kalıcı geçmiş ve ek V2 run/action işlemleri bakımından mutlak eşdeğer değildir; toplam hız farkı yalnız indekse atfedilmez. İndeksin sorgu planına etkisi aynı veri üzerinde ayrıca doğrulanmıştır. Negatif farklar açıkça daha düşük ham throughput demektir. Tüm vakalarda commit beklentisi karşılandı; sürekli demo kabulü ayrıca 50 frame/s yayın bütçesi ve 499 arka plan panonun ilerlemesiyle ölçüldü. Uzun süreli kapasite ayrı doğrulama gerektirir.
 

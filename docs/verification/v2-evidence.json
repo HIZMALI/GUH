@@ -1,5 +1,5 @@
 {
-  "recorded_at": "2026-09-11T09:22:15.701447+00:00",
+  "recorded_at": "2026-09-11T12:38:30.650636+00:00",
   "status": "PASS_WITH_EXPLICIT_HARDWARE_LIMITS",
   "baseline_commit": "4a0f4c1cae879604a384e91862749fef754abecc",
   "baseline": {
@@ -31,21 +31,21 @@
     "source_provenance": "All synthetic. Original files unchanged. V1 verification files preserved."
   },
   "python_tests": {
-    "tests": 106,
+    "tests": 108,
     "failures": 0,
     "errors": 0,
     "skipped": 0,
-    "passed": 106,
-    "seconds": 29.974,
+    "passed": 108,
+    "seconds": 29.669,
     "evidence": "v2-python-tests.xml"
   },
   "container_tests": {
-    "tests": 106,
+    "tests": 108,
     "failures": 0,
     "errors": 0,
     "skipped": 0,
-    "passed": 106,
-    "seconds": 17.638,
+    "passed": 108,
+    "seconds": 24.565,
     "evidence": "v2-python-container-tests.xml"
   },
   "container_method": "Production Python image/dependencies; full repository mounted read-only for source and hardware artifact tests; report directory writable. Original hash check runs here, unlike the V1 runtime-image-only skip.",
@@ -55,8 +55,8 @@
     "evidence": "v2-frontend-summary.json",
     "first_run_selector_failure_preserved": true,
     "final_full_run": {
-      "startTime": "2026-09-11T01:18:03.810Z",
-      "duration": 82873.967,
+      "startTime": "2026-09-11T12:31:19.230Z",
+      "duration": 91579.215,
       "expected": 13,
       "skipped": 0,
       "unexpected": 0,
@@ -64,19 +64,30 @@
     }
   },
   "frontend_final_smoke": {
-    "timestamp": "2026-09-11T09:20:15.359Z",
+    "timestamp": "2026-09-11T12:37:43.808Z",
     "passed": true,
     "mode": "read_only_ui_capture",
+    "fleet": {
+      "total": 500,
+      "fleet_health": 96,
+      "open_alarms": 0,
+      "offline": 0,
+      "normal": 500,
+      "attention": 0,
+      "warning": 0,
+      "critical": 0
+    },
     "panel": "PNL-001",
-    "demo_run_id": "PNL-001-r40",
+    "demo_run_id": "PNL-001-r45",
     "current_run_alarms": 0,
     "panel_state": "NORMAL",
     "risk_score": 8,
     "scale_version": "v2",
     "scale_source": "docs/verification/v2-load.json",
-    "scale_source_sha256": "868b4df230c2f54c0a45c2f1d6b9c2d8d828c46764cde8d24cc8f420b924e0f5",
+    "scale_source_sha256": "085e8629f989289c2bf6bd74b207cdc1002ebd6b02176da7224eeb817526785f",
     "console_errors": [],
     "screenshots": [
+      "v2-fleet.png",
       "v2-panel-clean.png",
       "v2-scale-value.png"
     ]
@@ -324,30 +335,30 @@
         "rounds": 4,
         "expected": 2000,
         "committed": 2000,
-        "duration_seconds": 22.362,
-        "committed_frames_per_second": 89.44,
+        "duration_seconds": 21.229,
+        "committed_frames_per_second": 94.21,
         "producer_request_or_puback_ms": {
           "count": 2000,
-          "mean": 125.406,
-          "p50": 98.721,
-          "p95": 292.296,
-          "max": 376.031
+          "mean": 117.815,
+          "p50": 93.982,
+          "p95": 282.139,
+          "max": 339.432
         },
         "source_to_ingestion_received_ms": {
           "count": 2000,
-          "mean": 3.82,
-          "p50": 2.659,
-          "p95": 4.553,
-          "max": 178.729
+          "mean": 3.768,
+          "p50": 2.595,
+          "p95": 4.544,
+          "max": 201.375
         },
         "fleet_api_ms": {
           "count": 10,
-          "mean": 257.451,
-          "p50": 203.262,
-          "p95": 395.983,
-          "max": 395.983
+          "mean": 266.09,
+          "p50": 226.73,
+          "p95": 411.749,
+          "max": 411.749
         },
-        "db_count_query_ms": 105.414,
+        "db_count_query_ms": 143.68,
         "metrics_before": {
           "accepted": 2800,
           "duplicates": 0,
@@ -358,25 +369,25 @@
           "background_frames": 0,
           "legacy_frames": 2800,
           "identity_rejected": 0,
-          "ingestion_latency_ms_total": 196991.64319199912,
-          "ingestion_latency_ms_max": 1101.9627630000173,
-          "db_write_ms_total": 9985.722129001198,
-          "alarm_processing_ms_total": 8358.598411999374,
+          "ingestion_latency_ms_total": 217688.69737199522,
+          "ingestion_latency_ms_max": 877.6573380000627,
+          "db_write_ms_total": 10198.193533024096,
+          "alarm_processing_ms_total": 6720.5842879975535,
           "mqtt_messages": 1400,
           "mqtt_rejected": 0,
           "mqtt_connected": true,
           "mqtt_connections": 1,
           "mqtt_disconnects": 0,
           "write_lock_timeouts": 0,
-          "http_requests": 1510,
-          "http_request_ms_total": 220426.94728499957,
-          "http_request_ms_max": 655.5931209999812,
-          "telemetry_rows": 712776,
-          "alarm_rows": 19842,
-          "ingestion_latency_ms_mean": 70.354,
-          "db_write_ms_mean": 3.566,
+          "http_requests": 1516,
+          "http_request_ms_total": 247315.87857300488,
+          "http_request_ms_max": 880.2327270004753,
+          "telemetry_rows": 1291418,
+          "alarm_rows": 24699,
+          "ingestion_latency_ms_mean": 77.746,
+          "db_write_ms_mean": 3.642,
           "metrics_scope": "Counters and timing since API process start; telemetry_rows/alarm_rows durable.",
-          "timestamp": "2026-09-11T09:16:06.437418+00:00"
+          "timestamp": "2026-09-11T12:35:59.046090+00:00"
         },
         "metrics_after": {
           "accepted": 4800,
@@ -388,29 +399,29 @@
           "background_frames": 0,
           "legacy_frames": 4800,
           "identity_rejected": 0,
-          "ingestion_latency_ms_total": 435463.4449689999,
-          "ingestion_latency_ms_max": 1101.9627630000173,
-          "db_write_ms_total": 17070.186691002964,
-          "alarm_processing_ms_total": 11145.415122999353,
+          "ingestion_latency_ms_total": 441091.997511972,
+          "ingestion_latency_ms_max": 877.6573380000627,
+          "db_write_ms_total": 16503.905958965333,
+          "alarm_processing_ms_total": 9229.625125033635,
           "mqtt_messages": 1400,
           "mqtt_rejected": 0,
           "mqtt_connected": true,
           "mqtt_connections": 1,
           "mqtt_disconnects": 0,
           "write_lock_timeouts": 0,
-          "http_requests": 3549,
-          "http_request_ms_total": 476489.7798279989,
-          "http_request_ms_max": 655.5931209999812,
-          "telemetry_rows": 714776,
-          "alarm_rows": 20392,
-          "ingestion_latency_ms_mean": 90.722,
-          "db_write_ms_mean": 3.556,
+          "http_requests": 3554,
+          "http_request_ms_total": 487588.90096101275,
+          "http_request_ms_max": 880.2327270004753,
+          "telemetry_rows": 1293418,
+          "alarm_rows": 25249,
+          "ingestion_latency_ms_mean": 91.894,
+          "db_write_ms_mean": 3.438,
           "metrics_scope": "Counters and timing since API process start; telemetry_rows/alarm_rows durable.",
-          "timestamp": "2026-09-11T09:16:31.735640+00:00"
+          "timestamp": "2026-09-11T12:36:23.310862+00:00"
         },
         "errors": [],
         "passed": true,
-        "run_prefix": "load-5172bf848eee4759b99f57369f8b6ee6"
+        "run_prefix": "load-fa2e4039dc3243e9863604d075629625"
       },
       {
         "transport": "mqtt",
@@ -418,30 +429,30 @@
         "rounds": 4,
         "expected": 2000,
         "committed": 2000,
-        "duration_seconds": 17.865,
-        "committed_frames_per_second": 111.95,
+        "duration_seconds": 18.942,
+        "committed_frames_per_second": 105.59,
         "producer_request_or_puback_ms": {
           "count": 2000,
-          "mean": 3.259,
-          "p50": 3.01,
-          "p95": 3.754,
-          "max": 44.494
+          "mean": 3.186,
+          "p50": 2.989,
+          "p95": 3.57,
+          "max": 48.896
         },
         "source_to_ingestion_received_ms": {
           "count": 2000,
-          "mean": 1994.908,
-          "p50": 2013.147,
-          "p95": 3801.446,
-          "max": 4308.275
+          "mean": 2087.111,
+          "p50": 2089.038,
+          "p95": 4038.989,
+          "max": 4300.322
         },
         "fleet_api_ms": {
           "count": 10,
-          "mean": 241.52,
-          "p50": 206.7,
-          "p95": 384.124,
-          "max": 384.124
+          "mean": 262.612,
+          "p50": 225.153,
+          "p95": 392.004,
+          "max": 392.004
         },
-        "db_count_query_ms": 81.06,
+        "db_count_query_ms": 143.891,
         "metrics_before": {
           "accepted": 4800,
           "duplicates": 0,
@@ -452,25 +463,25 @@
           "background_frames": 0,
           "legacy_frames": 4800,
           "identity_rejected": 0,
-          "ingestion_latency_ms_total": 435463.4449689999,
-          "ingestion_latency_ms_max": 1101.9627630000173,
-          "db_write_ms_total": 17070.186691002964,
-          "alarm_processing_ms_total": 11145.415122999353,
+          "ingestion_latency_ms_total": 441091.997511972,
+          "ingestion_latency_ms_max": 877.6573380000627,
+          "db_write_ms_total": 16503.905958965333,
+          "alarm_processing_ms_total": 9229.625125033635,
           "mqtt_messages": 1400,
           "mqtt_rejected": 0,
           "mqtt_connected": true,
           "mqtt_connections": 1,
           "mqtt_disconnects": 0,
           "write_lock_timeouts": 0,
-          "http_requests": 3550,
-          "http_request_ms_total": 476522.93510599894,
-          "http_request_ms_max": 655.5931209999812,
-          "telemetry_rows": 714776,
-          "alarm_rows": 20392,
-          "ingestion_latency_ms_mean": 90.722,
-          "db_write_ms_mean": 3.556,
+          "http_requests": 3555,
+          "http_request_ms_total": 487669.38225001283,
+          "http_request_ms_max": 880.2327270004753,
+          "telemetry_rows": 1293418,
+          "alarm_rows": 25249,
+          "ingestion_latency_ms_mean": 91.894,
+          "db_write_ms_mean": 3.438,
           "metrics_scope": "Counters and timing since API process start; telemetry_rows/alarm_rows durable.",
-          "timestamp": "2026-09-11T09:16:31.769708+00:00"
+          "timestamp": "2026-09-11T12:36:23.414045+00:00"
         },
         "metrics_after": {
           "accepted": 6800,
@@ -482,29 +493,29 @@
           "background_frames": 0,
           "legacy_frames": 6800,
           "identity_rejected": 0,
-          "ingestion_latency_ms_total": 451525.6643840018,
-          "ingestion_latency_ms_max": 1101.9627630000173,
-          "db_write_ms_total": 23234.269949004956,
-          "alarm_processing_ms_total": 12866.536647997542,
+          "ingestion_latency_ms_total": 457807.37195095106,
+          "ingestion_latency_ms_max": 877.6573380000627,
+          "db_write_ms_total": 22822.08798188549,
+          "alarm_processing_ms_total": 11171.130851051203,
           "mqtt_messages": 3400,
           "mqtt_rejected": 0,
           "mqtt_connected": true,
           "mqtt_connections": 1,
           "mqtt_disconnects": 0,
           "write_lock_timeouts": 0,
-          "http_requests": 3583,
-          "http_request_ms_total": 483525.38400499866,
-          "http_request_ms_max": 655.5931209999812,
-          "telemetry_rows": 716776,
-          "alarm_rows": 20467,
-          "ingestion_latency_ms_mean": 66.401,
-          "db_write_ms_mean": 3.417,
+          "http_requests": 3590,
+          "http_request_ms_total": 496002.4147840048,
+          "http_request_ms_max": 880.2327270004753,
+          "telemetry_rows": 1295418,
+          "alarm_rows": 25299,
+          "ingestion_latency_ms_mean": 67.325,
+          "db_write_ms_mean": 3.356,
           "metrics_scope": "Counters and timing since API process start; telemetry_rows/alarm_rows durable.",
-          "timestamp": "2026-09-11T09:16:52.302175+00:00"
+          "timestamp": "2026-09-11T12:36:45.557395+00:00"
         },
         "errors": [],
         "passed": true,
-        "run_prefix": "load-5325cca388ff4912b0c040cebf4ec3bc"
+        "run_prefix": "load-3ec5a889e19040628ca9efe64daa737e"
       }
     ]
   },
@@ -590,11 +601,11 @@
       {
         "address": 11,
         "name": "timestamp_low",
-        "value": 51145,
+        "value": 62986,
         "unit": "unix_s_low"
       }
     ],
-    "timestamp": "2026-09-11T09:20:10.933897+00:00"
+    "timestamp": "2026-09-11T12:37:40.277709+00:00"
   },
   "scada_pnl500_host_port": 11504,
   "desktop_recovery": {
@@ -642,10 +653,26 @@
     "presentation_command": {
       "command": "python scripts/run_demo.py --presentation --panels 500 --scenario normal_operation",
       "passed": true,
-      "result_run": "PNL-001-r40",
+      "result_run": "PNL-001-r45",
       "ready_check": "v2-final-runtime.json",
-      "ui_check": "v2-frontend-final-smoke.json"
+      "ui_check": "v2-frontend-final-smoke.json",
+      "recorded_at": "2026-09-11T12:37:41.093245+00:00",
+      "production_web_build": "PASS",
+      "typescript_build_check": "PASS"
     }
+  },
+  "notification_policy": {
+    "version": 2,
+    "attention_mock_channels": [],
+    "warning_mock_channels": [
+      "sms_mock",
+      "whatsapp_mock"
+    ],
+    "browser_evidence": "v2-frontend-observations.json",
+    "ui_screenshots": [
+      "v2-attention-policy.png",
+      "v2-warning-policy.png"
+    ]
   },
   "legacy_preservation": {
     "before": {
@@ -751,13 +778,13 @@
     "production_release": false
   },
   "presentation_ready": {
-    "timestamp": "2026-09-11T09:20:11.690684+00:00",
+    "timestamp": "2026-09-11T12:37:41.093245+00:00",
     "passed": true,
     "dashboard": "http://localhost:3000",
     "fleet": {
       "total": 500,
       "fleet_health": 96.0,
-      "open_alarms": 2,
+      "open_alarms": 0,
       "offline": 0,
       "normal": 500,
       "attention": 0,
@@ -766,17 +793,17 @@
     },
     "panel": {
       "id": "PNL-001",
-      "demo_run_id": "PNL-001-r40",
-      "scenario_revision": 40,
+      "demo_run_id": "PNL-001-r45",
+      "scenario_revision": 45,
       "scenario": "normal_operation",
       "state": "NORMAL",
       "risk_score": 8,
       "health_score": 96,
       "pending_current_run": false
     },
-    "current_run_rows": 8,
+    "current_run_rows": 13,
     "current_run_alarms": 0,
-    "full_history_total": 6940,
+    "full_history_total": 14699,
     "scada_pnl500": {
       "panel_id": "PNL-500",
       "host": "scada",
@@ -856,11 +883,11 @@
         {
           "address": 11,
           "name": "timestamp_low",
-          "value": 51145,
+          "value": 62986,
           "unit": "unix_s_low"
         }
       ],
-      "timestamp": "2026-09-11T09:20:10.933897+00:00"
+      "timestamp": "2026-09-11T12:37:40.277709+00:00"
     },
     "api_rate_limit": 1200,
     "scada_host_pnl500_port": 11504,
@@ -902,31 +929,39 @@
   "screenshots": [
     {
       "path": "docs/verification/v2-fleet.png",
-      "sha256": "51d2024f62a5486cf643d7db1685d5803d31cb8aba57aa9a28f634405ed3d971"
+      "sha256": "9ed06994b359a0e1af3e1d7279834ce3a29864d06cad4cbed8f5821552dc0cc1"
     },
     {
       "path": "docs/verification/v2-panel-clean.png",
-      "sha256": "ca06db59088559f1b1c3601a228ca832fb388eb95aba09b133768f0f5a330946"
+      "sha256": "2cc66ec07227e8463d1c46a67020fb566303cc0e11b42211e6948fbccf587efe"
     },
     {
       "path": "docs/verification/v2-early-warning.png",
-      "sha256": "a7fc2b9fa12a7c190acd1d968ef5fc800670d245957d725fcf1e56fa55f7a164"
+      "sha256": "19b699d1f7a007d642cb9cff9b9fa0fc308edbe56c194f9f84449e1e91433159"
     },
     {
       "path": "docs/verification/v2-scada-bank500.png",
-      "sha256": "64b073eaeeb5db003eae859ee92db383cb94e334db10e70caebcf7ad2a62f687"
+      "sha256": "28619c5df4d5f7fce2bfe99a8431d514f7a6e855688d868c7ec932a700ee75c4"
     },
     {
       "path": "docs/verification/v2-scale-value.png",
-      "sha256": "a68bfdd8f135f997b0f2886e8d05544f38be8e8542dde193719f9761de701f8e"
+      "sha256": "f9031087f57f06cfcffd972b8e1e335f7bc77908812f240059891ef453535372"
     },
     {
       "path": "docs/verification/v2-notifications.png",
-      "sha256": "d5a80b0fcb6e789c3517f0f42762dc8d90292a5bccc2b241749884cfb7f1e5d7"
+      "sha256": "4f19e37a18a324ee41df117c30fc374aa9453c2deed6a7f86834da492a957176"
     },
     {
       "path": "docs/verification/v2-installation.png",
-      "sha256": "483854f044a9589de9416f23025e49f39fccbb1e55b6d2db0ec251b79079cbf5"
+      "sha256": "a99c068c3d0840218beedb38b86d6b84fbd5801c8ec82f8fd14549a543efb85e"
+    },
+    {
+      "path": "docs/verification/v2-attention-policy.png",
+      "sha256": "8f2b046ed9fe298affa3e4e189f3d7062072ad6156a231d67e963d78d9da6e61"
+    },
+    {
+      "path": "docs/verification/v2-warning-policy.png",
+      "sha256": "e52b17cd51abe78e0809ed64b0dae032a899dbf204f8dbbf8aa732e58c1ed224"
     }
   ],
   "limitations": [

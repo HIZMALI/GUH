@@ -19,5 +19,7 @@ runtime/
 .sites-runtime/
 output/
 handoff/
+# Commit identity is generated after committing; immutable evidence is tracked separately.
+docs/verification/v2-summary.json
 .pio/
 edge/firmware/build/

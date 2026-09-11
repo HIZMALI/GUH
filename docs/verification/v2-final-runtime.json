@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-09-11T09:20:11.690684+00:00",
+  "timestamp": "2026-09-11T12:37:41.093245+00:00",
   "passed": true,
   "dashboard": "http://localhost:3000",
   "fleet": {
     "total": 500,
     "fleet_health": 96.0,
-    "open_alarms": 2,
+    "open_alarms": 0,
     "offline": 0,
     "normal": 500,
     "attention": 0,
@@ -14,17 +14,17 @@
   },
   "panel": {
     "id": "PNL-001",
-    "demo_run_id": "PNL-001-r40",
-    "scenario_revision": 40,
+    "demo_run_id": "PNL-001-r45",
+    "scenario_revision": 45,
     "scenario": "normal_operation",
     "state": "NORMAL",
     "risk_score": 8,
     "health_score": 96,
     "pending_current_run": false
   },
-  "current_run_rows": 8,
+  "current_run_rows": 13,
   "current_run_alarms": 0,
-  "full_history_total": 6940,
+  "full_history_total": 14699,
   "scada_pnl500": {
     "panel_id": "PNL-500",
     "host": "scada",
@@ -104,11 +104,11 @@
       {
         "address": 11,
         "name": "timestamp_low",
-        "value": 51145,
+        "value": 62986,
         "unit": "unix_s_low"
       }
     ],
-    "timestamp": "2026-09-11T09:20:10.933897+00:00"
+    "timestamp": "2026-09-11T12:37:40.277709+00:00"
   },
   "api_rate_limit": 1200,
   "scada_host_pnl500_port": 11504,

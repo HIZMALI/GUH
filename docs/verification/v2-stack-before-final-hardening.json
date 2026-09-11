@@ -1,22 +1,22 @@
 {
-  "timestamp": "2026-09-11T12:34:38.624174+00:00",
+  "timestamp": "2026-09-11T09:19:29.179451+00:00",
   "checks": [
     {
       "name": "anonymous fleet rejected",
       "passed": true,
-      "seconds": 0.003,
+      "seconds": 0.004,
       "detail": null
     },
     {
       "name": "viewer scenario mutation rejected",
       "passed": true,
-      "seconds": 0.023,
+      "seconds": 0.006,
       "detail": null
     },
     {
       "name": "Docker services healthy",
       "passed": true,
-      "seconds": 0.398,
+      "seconds": 0.397,
       "detail": [
         {
           "service": "api",
@@ -53,13 +53,13 @@
     {
       "name": "fleet populated with at least100 panels",
       "passed": true,
-      "seconds": 0.291,
+      "seconds": 0.426,
       "detail": null
     },
     {
       "name": "actual Modbus TCP master roundtrip",
       "passed": true,
-      "seconds": 0.194,
+      "seconds": 0.038,
       "detail": {
         "connected": true,
         "registers": 12,
@@ -69,13 +69,13 @@
     {
       "name": "Modbus invalid register rejected",
       "passed": true,
-      "seconds": 0.001,
+      "seconds": 0.02,
       "detail": null
     },
     {
       "name": "Modbus writes rejected",
       "passed": true,
-      "seconds": 0.021,
+      "seconds": 0.016,
       "detail": null
     },
     {
@@ -87,7 +87,7 @@
     {
       "name": "backend restart preserves durable panel data",
       "passed": true,
-      "seconds": 3.358,
+      "seconds": 2.411,
       "detail": {
         "last_seen_preserved": true
       }
@@ -95,18 +95,18 @@
     {
       "name": "database outage and reconnect",
       "passed": true,
-      "seconds": 7.862,
+      "seconds": 15.961,
       "detail": {
         "outage_health": 503,
         "last_seen_preserved": true,
         "outage_message_committed_exactly_once": true,
-        "recovery_panel_read_seconds": 0.191
+        "recovery_panel_read_seconds": 0.139
       }
     },
     {
       "name": "MQTT disconnect and reconnect",
       "passed": true,
-      "seconds": 5.926,
+      "seconds": 5.847,
       "detail": {
         "disconnected_visible": true,
         "reconnected": true

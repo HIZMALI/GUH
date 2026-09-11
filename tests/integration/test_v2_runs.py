@@ -122,6 +122,67 @@ def test_action_policy_results_match_deduplicated_mock_records_and_arc_audit(api
     assert any(item['action'] == 'synthetic_arc_event' for item in api.get('/api/audit').json()['items'])
     assert len(api.get('/api/action-policy').json()['items']) == 6
 
+
+def test_fleet_counts_only_owning_current_run_active_or_acknowledged_alarms(api):
+    rt = api.app.state.runtime
+    with rt.sessions.begin() as db:
+        runs = {p.id: rt.run_id(p) for p in db.scalars(select(Panel))}
+        samples = [
+            ('PNL-001', runs['PNL-001'], 'active'),
+            ('PNL-002', runs['PNL-002'], 'acknowledged'),
+            ('PNL-003', runs['PNL-003'], 'resolved'),
+            ('PNL-001', 'PNL-001-r0', 'active'),
+            ('PNL-001', None, 'acknowledged'),
+            ('PNL-003', runs['PNL-001'], 'active'),  # Another panel's identity cannot qualify.
+            ('PNL-002', runs['PNL-002'], 'deferred'),
+        ]
+        for panel_id, run_id, status in samples:
+            db.add(Alarm(panel_id=panel_id, panel_name=panel_id, demo_run_id=run_id,
+                         kind='condition', severity='ATTENTION', title='Regression fixture',
+                         message='Synthetic historical alarm', status=status))
+        db.flush()
+        before = list(db.execute(select(Alarm.id, Alarm.panel_id, Alarm.demo_run_id, Alarm.status)))
+    assert api.get('/api/fleet').json()['summary']['open_alarms'] == 2
+    assert len(api.get('/api/alarms?scope=all').json()['items']) == len(samples)
+    with rt.sessions.begin() as db:
+        assert list(db.execute(select(Alarm.id, Alarm.panel_id, Alarm.demo_run_id, Alarm.status))) == before
+        for alarm in db.scalars(select(Alarm).where(Alarm.id.in_([before[0].id, before[1].id]))):
+            alarm.status = 'resolved'
+    assert api.get('/api/fleet').json()['summary']['open_alarms'] == 0
+    assert len(api.get('/api/alarms?scope=all').json()['items']) == len(samples)
+
+
+def test_attention_keeps_alarm_event_and_scada_without_mock_then_warning_escalates_once(api, config):
+    from services.scada_bridge.registers import encode_panel
+    selected = select_run(api, 'combined_thermal_pd')
+    observed = set()
+    attention_alarm = None
+    for step in range(23):
+        assert api.post('/api/telemetry', json=frame(config, selected, step)).status_code == 200
+        detail = api.get('/api/panels/PNL-001').json()
+        notifications = api.get('/api/notifications').json()['items']
+        if detail['state'] == 'ATTENTION':
+            observed.add('ATTENTION')
+            assert notifications == []
+            assert not any(a['type'] == 'notification' for a in detail['actions'])
+            assert {'dashboard_state', 'event_log', 'persistent_alarm', 'scada_alarm_flag',
+                    'operator_recommendation'} <= {a['type'] for a in detail['actions']}
+            assert encode_panel(detail)[3] == 1
+            alarms = detail['current_run_alarms']
+            assert len(alarms) == 1 and alarms[0]['severity'] == 'ATTENTION'
+            attention_alarm = alarms[0]['id']
+            assert any(e['type'] == 'alarm_created' for e in detail['current_run_events'])
+            assert api.post(f'/api/alarms/{attention_alarm}/acknowledge').status_code == 200
+            assert api.get('/api/fleet').json()['summary']['open_alarms'] == 1
+        elif detail['state'] == 'WARNING':
+            observed.add('WARNING')
+            assert len(notifications) == 2
+            assert {n['channel'] for n in notifications} == {'sms_mock', 'whatsapp_mock'}
+            assert all(n['status'] == 'simulated' and n['alarm_id'] == attention_alarm for n in notifications)
+            assert detail['current_run_alarms'][0]['status'] == 'active'
+            assert any(a['type'] == 'maintenance_recommendation' for a in detail['actions'])
+    assert observed == {'ATTENTION', 'WARNING'}
+
 def test_focus_is_single_and_progress_survives_api_restart(config):
     with TestClient(create_app(config)) as api:
         login = api.post('/api/auth/login', json={'username': 'admin', 'password': config.passwords['admin']}).json()
@@ -221,7 +282,10 @@ def test_stale_reads_preserve_risk_and_run_without_waiting_for_maintenance(api, 
     assert persisted['state'] == projected['state'] and persisted['risk_score'] == projected['risk_score']
     assert any(alarm['kind'] == 'availability' and alarm['status'] == 'active' for alarm in persisted['current_run_alarms'])
     notifications = api.get('/api/notifications').json()['items']
-    assert len(notifications) > len(before)
+    if scenario == 'arc_event':
+        assert len(notifications) > len(before)  # Arc remains urgent even with lost communication.
+    else:
+        assert notifications == before  # Availability-only policy has no SMS/WhatsApp.
     rt.mark_stale()
     assert api.get('/api/notifications').json()['items'] == notifications
     select_run(api, 'normal_operation')

@@ -1,5 +1,5 @@
 {
-  "recorded_at": "2026-09-11T01:18:25.244Z",
+  "recorded_at": "2026-09-11T12:31:46.715Z",
   "target": "http://127.0.0.1:3000",
   "scope": "Local Docker V2 UI; synthetic telemetry; no external delivery or device writes",
   "roles_mobile": {
@@ -8,51 +8,51 @@
     "page_overflow": false
   },
   "focused_thermal_pd": {
-    "run_id": "PNL-001-r26",
-    "wall_seconds_observed": 48.912,
+    "run_id": "PNL-001-r43",
+    "wall_seconds_observed": 50.864,
     "lead_steps": 10,
     "transitions": [
       {
         "state": "NORMAL",
         "step": 0,
         "risk_score": 8,
-        "timestamp": "2026-09-11T01:18:27.004551+00:00"
+        "timestamp": "2026-09-11T12:31:48.368906+00:00"
       },
       {
         "state": "ATTENTION",
         "step": 19,
         "risk_score": 31,
-        "timestamp": "2026-09-11T01:18:55.746601+00:00"
+        "timestamp": "2026-09-11T12:32:17.069978+00:00"
       },
       {
         "state": "WARNING",
         "step": 21,
         "risk_score": 58,
-        "timestamp": "2026-09-11T01:18:58.773936+00:00"
+        "timestamp": "2026-09-11T12:32:20.097759+00:00"
       },
       {
         "state": "CRITICAL",
         "step": 31,
         "risk_score": 80,
-        "timestamp": "2026-09-11T01:19:13.864216+00:00"
+        "timestamp": "2026-09-11T12:32:35.195607+00:00"
       }
     ],
     "unit": "synthetic_demo_steps"
   },
   "run_isolation": {
-    "new_run_id": "PNL-001-r27",
+    "new_run_id": "PNL-001-r44",
     "current_run_alarm_count": 0,
-    "historical_alarm_count": 41,
+    "historical_alarm_count": 63,
     "historical_critical_preserved": true,
     "h1": "right auxiliary compartment, cx439/cy292"
   },
   "browser_errors: V2 focused thermal-PD run proves ordered warning and new-run isolation without deleting history": {
-    "observed_at": "2026-09-11T01:19:20.079Z",
+    "observed_at": "2026-09-11T12:32:43.693Z",
     "errors": []
   },
   "deployment": {
-    "scale_source": "docs/verification/load-results.json",
-    "scale_sha256": "01ad23a389fc0a413de3a064df15eefa87237307f3dbe93debe29344664b30d5",
+    "scale_source": "docs/verification/v2-load.json",
+    "scale_sha256": "868b4df230c2f54c0a45c2f1d6b9c2d8d828c46764cde8d24cc8f420b924e0f5",
     "cost_values": "Test inputs only, not quotes",
     "expected_panel_tco": 155,
     "expected_fleet_tco": 15500,
@@ -60,7 +60,7 @@
     "zero_denominator_blocked": true
   },
   "browser_errors: V2 deployment presents sourced scale evidence, installation classes and blank parametric TCO": {
-    "observed_at": "2026-09-11T01:19:24.392Z",
+    "observed_at": "2026-09-11T12:32:48.395Z",
     "errors": []
   },
   "notifications": {
@@ -72,11 +72,11 @@
     ]
   },
   "browser_errors: V2 global alarm filters and notifications retain unmistakable simulated delivery labels": {
-    "observed_at": "2026-09-11T01:19:25.446Z",
+    "observed_at": "2026-09-11T12:32:49.556Z",
     "errors": []
   },
   "browser_errors: V2 pending response boundary never presents previous-run measurements as new live data": {
-    "observed_at": "2026-09-11T01:19:21.568Z",
+    "observed_at": "2026-09-11T12:32:45.392Z",
     "errors": []
   },
   "scada_bank_boundaries": [
@@ -130,11 +130,31 @@
     }
   ],
   "browser_errors: V2 real SCADA master resolves all six bank boundaries through PNL-500": {
-    "observed_at": "2026-09-11T01:19:22.981Z",
+    "observed_at": "2026-09-11T12:32:47.048Z",
     "errors": []
   },
   "browser_errors: V2 viewer quick demos are disabled and deployment remains usable on mobile": {
-    "observed_at": "2026-09-11T01:19:26.565Z",
+    "observed_at": "2026-09-11T12:32:50.719Z",
     "errors": []
+  },
+  "notification_policy_v2": {
+    "run_id": "PNL-001-r43",
+    "ATTENTION": {
+      "step": 19,
+      "notifications": 0,
+      "channels": [],
+      "persistent_alarm": true,
+      "screenshot_mode": "real API response frozen only for browser rendering"
+    },
+    "WARNING": {
+      "step": 21,
+      "notifications": 2,
+      "channels": [
+        "sms_mock",
+        "whatsapp_mock"
+      ],
+      "persistent_alarm": true,
+      "screenshot_mode": "real API response frozen only for browser rendering"
+    }
   }
 }

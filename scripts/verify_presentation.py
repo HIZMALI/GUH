@@ -19,6 +19,7 @@ def main():
         fleet = api('/api/fleet')
         panel = api('/api/panels/PNL-001')
         if (fleet['summary']['total'] == 500 and fleet['summary']['offline'] == 0
+            and fleet['summary']['normal'] == 500 and fleet['summary']['open_alarms'] == 0
             and all(not p['pending_current_run'] for p in fleet['panels'])
             and not panel['pending_current_run'] and panel['scenario'] == 'normal_operation'
             and panel['state'] == 'NORMAL' and not panel['current_run_alarms']):

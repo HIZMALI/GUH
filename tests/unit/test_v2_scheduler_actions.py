@@ -74,7 +74,7 @@ def test_policy_channels_and_protection_boundary_are_central():
         assert not any(action['type'] in {'trip', 'reset', 'breaker_command', 'modbus_write'} for action in row['actions'])
         notifications = [action for action in row['actions'] if action['type'] == 'notification']
         assert all(action['channel'] in {'sms_mock', 'whatsapp_mock'} for action in notifications)
-        if row['trigger'] == 'NORMAL':
+        if row['trigger'] in {'NORMAL', 'ATTENTION', 'COMMUNICATION_LOSS'}:
             assert not notifications
         else:
             assert len(notifications) == 2

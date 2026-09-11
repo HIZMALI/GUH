@@ -58,6 +58,18 @@ try {
     () =>
       JSON.parse(sessionStorage.getItem("gridsentinel.session")).access_token,
   );
+  const fleetResponse = await context.request.get("/api/fleet", {
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  expect(fleetResponse.ok()).toBeTruthy();
+  const fleet = await fleetResponse.json();
+  expect(fleet.summary).toMatchObject({ total: 500, normal: 500, offline: 0, open_alarms: 0 });
+  for (const [label, value] of [["Toplam pano", "500"], ["Normal çalışma", "500"], ["Açık alarm", "0"]]) {
+    const metric = page.locator(".summary-grid > *").filter({ has: page.getByText(label, { exact: true }) });
+    await expect(metric.locator("strong")).toHaveText(value);
+  }
+  await expect(page.locator(".summary-grid")).toContainText("0 iletişim problemi");
+  await screenshot("v2-fleet.png");
   const response = await context.request.get(`/api/panels/${panelId}`, {
     headers: { Authorization: `Bearer ${token}` },
   });
@@ -110,6 +122,7 @@ try {
     timestamp: new Date().toISOString(),
     passed: true,
     mode: "read_only_ui_capture",
+    fleet: fleet.summary,
     panel: panelId,
     demo_run_id: panel.demo_run_id,
     current_run_alarms: panel.current_run_alarms.length,
@@ -119,7 +132,7 @@ try {
     scale_source: proof.source_path,
     scale_source_sha256: proof.source_sha256,
     console_errors: errors,
-    screenshots: ["v2-panel-clean.png", "v2-scale-value.png"],
+    screenshots: ["v2-fleet.png", "v2-panel-clean.png", "v2-scale-value.png"],
   };
   fs.writeFileSync(
     path.join(directory, "v2-frontend-final-smoke.json"),

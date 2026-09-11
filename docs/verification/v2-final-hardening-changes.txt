@@ -1,0 +1,50 @@
+GridSentinel V2 final hardening and delivery metadata
+Comparison reference: af2e2bdd7e0097a32ce1fb5f69ee6b54746ecce9
+Branch: main; final commit/tree identity is generated after committing.
+The summary is generated/ignored; its measured evidence is tracked as v2-evidence.json.
+
+.gitignore
+README.md
+apps/api/main.py
+apps/web/scripts/capture-v2-final.mjs
+apps/web/scripts/summarize-v2-e2e.mjs
+apps/web/src/data/scale-proof.json
+apps/web/tests/e2e/v2.spec.ts
+docs/acceptance.md
+docs/api-contract.md
+docs/delivery-integrity.md
+docs/operations/action-matrix.md
+docs/performance.md
+docs/verification/v2-attention-policy.png
+docs/verification/v2-cli-compatibility.json
+docs/verification/v2-early-warning.png
+docs/verification/v2-evidence.json
+docs/verification/v2-final-hardening-changes.txt
+docs/verification/v2-final-runtime.json
+docs/verification/v2-fleet.png
+docs/verification/v2-frontend-final-regression-before-final-hardening.json
+docs/verification/v2-frontend-final-regression.json
+docs/verification/v2-frontend-final-smoke.json
+docs/verification/v2-frontend-observations.json
+docs/verification/v2-frontend-summary.json
+docs/verification/v2-frontend-verification.md
+docs/verification/v2-installation.png
+docs/verification/v2-load-before-final-hardening.json
+docs/verification/v2-load.json
+docs/verification/v2-notifications.png
+docs/verification/v2-panel-clean.png
+docs/verification/v2-python-container-tests.xml
+docs/verification/v2-python-tests.xml
+docs/verification/v2-scada-bank500.png
+docs/verification/v2-scale-value.png
+docs/verification/v2-stack-before-final-hardening.json
+docs/verification/v2-stack.json
+docs/verification/v2-summary.json
+docs/verification/v2-warning-policy.png
+scripts/package_v2_delta.py
+scripts/report_v2.py
+scripts/verify_presentation.py
+services/anomaly_engine/actions.py
+tests/integration/test_api_backend.py
+tests/integration/test_v2_runs.py
+tests/unit/test_v2_scheduler_actions.py

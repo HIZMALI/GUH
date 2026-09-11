@@ -1,17 +1,28 @@
 {
-  "timestamp": "2026-09-11T09:20:15.359Z",
+  "timestamp": "2026-09-11T12:37:43.808Z",
   "passed": true,
   "mode": "read_only_ui_capture",
+  "fleet": {
+    "total": 500,
+    "fleet_health": 96,
+    "open_alarms": 0,
+    "offline": 0,
+    "normal": 500,
+    "attention": 0,
+    "warning": 0,
+    "critical": 0
+  },
   "panel": "PNL-001",
-  "demo_run_id": "PNL-001-r40",
+  "demo_run_id": "PNL-001-r45",
   "current_run_alarms": 0,
   "panel_state": "NORMAL",
   "risk_score": 8,
   "scale_version": "v2",
   "scale_source": "docs/verification/v2-load.json",
-  "scale_source_sha256": "868b4df230c2f54c0a45c2f1d6b9c2d8d828c46764cde8d24cc8f420b924e0f5",
+  "scale_source_sha256": "085e8629f989289c2bf6bd74b207cdc1002ebd6b02176da7224eeb817526785f",
   "console_errors": [],
   "screenshots": [
+    "v2-fleet.png",
     "v2-panel-clean.png",
     "v2-scale-value.png"
   ]

@@ -152,6 +152,47 @@ test("V2 focused thermal-PD run proves ordered warning and new-run isolation wit
   await expect(
     page.getByRole("button", { name: "Bu demo çalışması", exact: true }),
   ).toHaveAttribute("aria-pressed", "true");
+  const policyProof: Record<string, unknown> = { run_id: run.demo_run_id };
+  // Capture real run responses. Freeze only browser rendering during each shot,
+  // because ATTENTION lasts less than the existing four-second UI refresh.
+  const panelRoute = /\/api\/panels\/PNL-001(?:\?|$)/;
+  for (const state of ["ATTENTION", "WARNING"] as const) {
+    await expect.poll(async () => (await getPanel(request, token)).state, {
+      timeout: 60000, intervals: [200],
+    }).toBe(state);
+    const captured = await getPanel(request, token);
+    expect(captured.state).toBe(state);
+    const response = await request.get("/api/notifications", {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    expect(response.ok()).toBeTruthy();
+    const notifications = (await response.json()).items.filter(
+      (item: { demo_run_id: string }) => item.demo_run_id === run.demo_run_id,
+    );
+    const channels = (captured.actions || []).filter((a) => a.type === "notification");
+    expect(notifications).toHaveLength(state === "ATTENTION" ? 0 : 2);
+    expect(channels).toHaveLength(state === "ATTENTION" ? 0 : 2);
+    expect(captured.current_run_alarms?.some((a) => a.severity === state)).toBeTruthy();
+    await page.route(panelRoute, (route) => route.fulfill({ json: captured }));
+    await expect(page.locator(".action-card .action-list p").first()).toContainText(
+      state === "ATTENTION" ? "Dikkat" : "Uyarı",
+    );
+    if (state === "ATTENTION") {
+      await expect(page.locator(".action-card")).not.toContainText("SMS_MOCK");
+      await expect(page.locator(".action-card")).not.toContainText("WHATSAPP_MOCK");
+    } else {
+      expect(notifications.map((n: { channel: string }) => n.channel).sort())
+        .toEqual(["sms_mock", "whatsapp_mock"]);
+      await expect(page.locator(".action-card")).toContainText("SMS_MOCK");
+      await expect(page.locator(".action-card")).toContainText("WHATSAPP_MOCK");
+    }
+    await shot(page, state === "ATTENTION" ? "attention-policy" : "warning-policy");
+    await page.unroute(panelRoute);
+    policyProof[state] = { step: captured.demo_step, notifications: notifications.length,
+      channels: channels.map((a) => a.channel), persistent_alarm: true,
+      screenshot_mode: "real API response frozen only for browser rendering" };
+  }
+  record("notification_policy_v2", policyProof);
   await expect
     .poll(async () => (await getPanel(request, token)).early_warning?.status, {
       timeout: 145000,

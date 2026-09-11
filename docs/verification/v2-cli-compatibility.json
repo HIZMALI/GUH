@@ -10,8 +10,11 @@
   "presentation_command": {
     "command": "python scripts/run_demo.py --presentation --panels 500 --scenario normal_operation",
     "passed": true,
-    "result_run": "PNL-001-r40",
+    "result_run": "PNL-001-r45",
     "ready_check": "v2-final-runtime.json",
-    "ui_check": "v2-frontend-final-smoke.json"
+    "ui_check": "v2-frontend-final-smoke.json",
+    "recorded_at": "2026-09-11T12:37:41.093245+00:00",
+    "production_web_build": "PASS",
+    "typescript_build_check": "PASS"
   }
 }

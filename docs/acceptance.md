@@ -69,7 +69,7 @@ Merkez 500 pano destekler; bir Modbus bridge ilk 247 unit'i sunar. Daha büyük 
 ## V2 Hackathon Readiness
 
 
-Ölçüm tarihi UTC: 2026-09-11T09:22:15.701447+00:00. V2 temel commit'i `4a0f4c1cae879604a384e91862749fef754abecc`; çalışma öncesi temiz V1 testleri [ayrı baseline kaydında](verification/v2-baseline/summary.json). Güncel toplu kanıt [v2-summary.json](verification/v2-summary.json).
+Ölçüm tarihi UTC: 2026-09-11T12:38:30.650636+00:00. V2 temel commit'i `4a0f4c1cae879604a384e91862749fef754abecc`; çalışma öncesi temiz V1 testleri [ayrı baseline kaydında](verification/v2-baseline/summary.json). Git'te izlenen toplu kanıt [v2-evidence.json](verification/v2-evidence.json); commit kimliği içeren `v2-summary.json` paketleme sonrasında üretilir. [Teslim bütünlüğü](delivery-integrity.md).
 
 | Kabul başlığı | Gerçek sonuç | Kanıt / sınır |
 |---|---|---|
@@ -77,7 +77,7 @@ Merkez 500 pano destekler; bir Modbus bridge ilk 247 unit'i sunar. Daha büyük 
 | Hızlı 500 pano demosu | PASS: combined 48.096s, arc 13.050s | [Gerçek Docker/MQTT](verification/v2-runtime.json); 499 arka plan pano ilerledi, 0 offline |
 | Temiz current-run UX / tüm geçmiş | PASS | API isolation+pagination, Chromium; 237.402 eski telemetry satırı ve içerik digest'i korundu |
 | Erken uyarı | PASS: warning 21 → critical 31, fark 10 sentetik adım | Yapısal kalıcı event ve UI; saha öngörü süresi değildir |
-| Aksiyon matrisi | PASS: tek policy/API/UI | [Politika](operations/action-matrix.md); 2 yerel mock kanal, dedupe, audit; fiziksel kontrol yok |
+| Aksiyon matrisi | PASS: tek policy/API/UI | [Politika](operations/action-matrix.md); ATTENTION 0 bildirim, WARNING 2 mock kanal; dedupe, audit; fiziksel kontrol yok |
 | Tam 500 SCADA adresleme | PASS: 3 bank / 38 Modbus testi; PNL-500 bank 3 / port 1504 / unit 6 | 500 ayrı localhost TCP fixture yanıtı + canlı altı sınır; write/invalid/pending/stale reddi |
 | PCB/card çıktısı | PASS artefact: 31 connector pini, 199 net düğümü | [Carrier](../hardware/pcb/README.md), 9 şema/harita testi; EDA-neutral, üretilmedi, ERC/DRC NOT_RUN |
 | MCU kaynak kodu | PASS source + C++17 host 7 grup / 308 kontrol | [Firmware](hardware/firmware.md), [hash/komut](verification/v2-firmware-final.json); ESP32 hedef build NOT_RUN |
@@ -85,12 +85,12 @@ Merkez 500 pano destekler; bir Modbus bridge ilk 247 unit'i sunar. Daha büyük 
 | Maliyet/fayda ve paketler | PASS model/UI/5 TCO sınır testi | [Maliyet](cost-benefit.md); boş girdide fiyat/ROI yok |
 | Yenilikçilik | PASS teknik karşılık/kanıt eşlemesi | [12 teknik fark](innovation.md), Yaygınlaştırma |
 | Kurulum/kesinti matrisi | PASS görünür A/B/C ve H1 tutarlılığı | [Kurulum](installation-matrix.md); sağ yardımcı TH-A/H1, güvenli saha keşfi bekler |
-| Host Python regresyon | **106 PASS**, 29.97s | [JUnit](verification/v2-python-tests.xml); 62 V1 + 44 yeni test |
-| Container Python regresyon | **106 PASS**, 17.64s | [JUnit](verification/v2-python-container-tests.xml); üretim Python ve bağımlılık image’ı, repo read-only bind; kaynak hash testi de çalışır |
+| Host Python regresyon | **108 PASS**, 29.67s | [JUnit](verification/v2-python-tests.xml); 62 V1 + 46 yeni test |
+| Container Python regresyon | **108 PASS**, 24.57s | [JUnit](verification/v2-python-container-tests.xml); üretim Python ve bağımlılık image’ı, repo read-only bind; kaynak hash testi de çalışır |
 | Frontend regresyon | **13 benzersiz PASS**, TCO 5 PASS | [Tüm denemeler](verification/v2-frontend-summary.json), son UI smoke; ilk selector hatası saklandı |
 | Gerçek servis/kesinti | **11 PASS** | [Stack](verification/v2-stack.json): API/DB/MQTT yeniden başlatma, DB outage mesajının tam 1 commit'i |
 | 100 / 250 / 500 HTTP + MQTT yeniden yük | **6 PASS, 6800 / 6800 commit** | [Ham V2](verification/v2-load.json), [V1 ile birlikte performans](performance.md); kısa burst |
-| Sunuma hazır son durum | PASS: 500 pano, 0 offline, PNL-001 normal/güncel/0 alarm, rate 1200 | [Son runtime](verification/v2-final-runtime.json), [son tarayıcı](verification/v2-frontend-final-smoke.json) |
+| Sunuma hazır son durum | PASS: 500 NORMAL / 0 offline / 0 current open alarm; PNL-001 normal/güncel/0 alarm, rate 1200 | [Son runtime](verification/v2-final-runtime.json), [son tarayıcı](verification/v2-frontend-final-smoke.json) |
 
 V2 ilk stack denemesinde SCADA'nın ilk health probe'u beklenmediği için `starting` durumu hata sayıldı; verifier 45 s bounded readiness beklemesiyle düzeltildi. [İlk rapor](verification/v2-stack-first-run.json). İkinci denemede DB geri döndükten sonra panel GET 20 s timeout'u; yaklaşık 61 s bağlantı beklemesi gözlendi. [İkinci rapor](verification/v2-stack-second-run.json). DB connect/pool/statement/socket/lock ve DNS sınırları eklendi; okuyucu maintenance write-lock'tan ayrıldı, aynı stale risk/policy ve kalıcı alarm tick'i korundu. Beş yeni regression sınırı ve son gerçek 11 kontrol geçti. Bu denemeler gizlenmedi.
 
