@@ -1,6 +1,6 @@
 # Jüri kontrol listesi
 
-Kaynak: `Grid Up Hackathon Proje Konusu.pdf` s.1–5; resmî sayısal puan ağırlığı belirtilmemiştir. Toplu test sonucu [V2 özetinde](verification/v2-summary.json).
+Kaynak: `Grid Up Hackathon Proje Konusu.pdf` s.1–5; resmî sayısal puan ağırlığı belirtilmemiştir. Toplu test sonucu [V2 özetinde](verification/v2-evidence.json).
 
 | Başlık | Jüriye söylenecek cümle | Dashboard'da göster | Teknik kanıt | Test kanıtı | Aşırı iddia sınırı |
 |---|---|---|---|---|---|

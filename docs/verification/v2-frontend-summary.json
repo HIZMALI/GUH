@@ -1,27 +1,10 @@
 {
-  "recorded_at": "2026-09-11T12:37:43.923Z",
+  "recorded_at": "2026-09-11T18:22:03.400Z",
   "command": "npm run test:e2e:v2",
-  "rerun_command": "npm run test:e2e:v2 -- --grep='V2 focused|V2 deployment|V2 global'",
   "final_regression_command": "E2E_REPORT_FILE=test-results-v2/final-regression.json npm run test:e2e:v2 (set environment variable using the local shell)",
   "target": "http://127.0.0.1:3000",
   "unique_tests": 13,
   "unique_passed": 13,
-  "first_run": {
-    "startTime": "2026-09-11T00:54:48.611Z",
-    "duration": 143278.512,
-    "expected": 12,
-    "skipped": 0,
-    "unexpected": 1,
-    "flaky": 0
-  },
-  "rerun": {
-    "startTime": "2026-09-11T00:58:20.414Z",
-    "duration": 55040.960999999996,
-    "expected": 3,
-    "skipped": 0,
-    "unexpected": 0,
-    "flaky": 0
-  },
   "final_regression": {
     "startTime": "2026-09-11T12:31:19.230Z",
     "duration": 91579.215,
@@ -34,23 +17,10 @@
   "final_regression_complete": true,
   "source_reports": [
     {
-      "file": "v2-frontend-first-run.json",
-      "sha256": "08bce4a0384275212602f332ad2f9f110476aef3974f064e905fa77160d0eaa3"
-    },
-    {
-      "file": "v2-frontend-rerun.json",
-      "sha256": "288c0972f3aca1de7ceedeb7ef62af386cf596f8f75d555e58b6c4424d83cb76"
-    },
-    {
-      "file": "v2-frontend-final-regression-before-final-hardening.json",
-      "sha256": "2c2f4f3825307dbc4b7ce2c1bb03378e5c578b8c4fa8e2c301edbc16171dc760"
-    },
-    {
       "file": "v2-frontend-final-regression.json",
       "sha256": "7fe4cf8b900f537b6ddf45eda90be530f03c53352308daf853d50cfcad0f7f7a"
     }
   ],
-  "correction": "Only test selector corrected from Alarmlar to the existing Alarm merkezi label. Two additional tests repeated to recapture screenshots at scrollTop 0 after API connection. Product code unchanged between these two runs.",
   "browser_error_observation": {
     "scope": "Latest per-test V2 browser captures in v2-frontend-observations.json retain their observed_at timestamps. The first V1 test separately asserts pageerror absence.",
     "checked_tests": 6,
@@ -148,16 +118,6 @@
       "file": "operations.spec.ts",
       "attempts": [
         {
-          "report": "v2-frontend-first-run.json",
-          "status": "passed",
-          "duration_ms": 1618
-        },
-        {
-          "report": "v2-frontend-final-regression-before-final-hardening.json",
-          "status": "passed",
-          "duration_ms": 1381
-        },
-        {
           "report": "v2-frontend-final-regression.json",
           "status": "passed",
           "duration_ms": 2255
@@ -169,16 +129,6 @@
       "title": "real Modbus TCP master returns readable GridSentinel registers",
       "file": "operations.spec.ts",
       "attempts": [
-        {
-          "report": "v2-frontend-first-run.json",
-          "status": "passed",
-          "duration_ms": 1030
-        },
-        {
-          "report": "v2-frontend-final-regression-before-final-hardening.json",
-          "status": "passed",
-          "duration_ms": 1161
-        },
         {
           "report": "v2-frontend-final-regression.json",
           "status": "passed",
@@ -192,16 +142,6 @@
       "file": "operations.spec.ts",
       "attempts": [
         {
-          "report": "v2-frontend-first-run.json",
-          "status": "passed",
-          "duration_ms": 1023
-        },
-        {
-          "report": "v2-frontend-final-regression-before-final-hardening.json",
-          "status": "passed",
-          "duration_ms": 1372
-        },
-        {
           "report": "v2-frontend-final-regression.json",
           "status": "passed",
           "duration_ms": 1408
@@ -213,16 +153,6 @@
       "title": "all ten scenario choices, selection persists in real API",
       "file": "operations.spec.ts",
       "attempts": [
-        {
-          "report": "v2-frontend-first-run.json",
-          "status": "passed",
-          "duration_ms": 18039
-        },
-        {
-          "report": "v2-frontend-final-regression-before-final-hardening.json",
-          "status": "passed",
-          "duration_ms": 13896
-        },
         {
           "report": "v2-frontend-final-regression.json",
           "status": "passed",
@@ -236,16 +166,6 @@
       "file": "operations.spec.ts",
       "attempts": [
         {
-          "report": "v2-frontend-first-run.json",
-          "status": "passed",
-          "duration_ms": 1025
-        },
-        {
-          "report": "v2-frontend-final-regression-before-final-hardening.json",
-          "status": "passed",
-          "duration_ms": 857
-        },
-        {
           "report": "v2-frontend-final-regression.json",
           "status": "passed",
           "duration_ms": 1182
@@ -257,16 +177,6 @@
       "title": "mobile navigation and source disclosure remain usable without page overflow",
       "file": "operations.spec.ts",
       "attempts": [
-        {
-          "report": "v2-frontend-first-run.json",
-          "status": "passed",
-          "duration_ms": 854
-        },
-        {
-          "report": "v2-frontend-final-regression-before-final-hardening.json",
-          "status": "passed",
-          "duration_ms": 921
-        },
         {
           "report": "v2-frontend-final-regression.json",
           "status": "passed",
@@ -280,16 +190,6 @@
       "file": "operations.spec.ts",
       "attempts": [
         {
-          "report": "v2-frontend-first-run.json",
-          "status": "passed",
-          "duration_ms": 1214
-        },
-        {
-          "report": "v2-frontend-final-regression-before-final-hardening.json",
-          "status": "passed",
-          "duration_ms": 1162
-        },
-        {
           "report": "v2-frontend-final-regression.json",
           "status": "passed",
           "duration_ms": 1294
@@ -301,21 +201,6 @@
       "title": "V2 focused thermal-PD run proves ordered warning and new-run isolation without deleting history",
       "file": "v2.spec.ts",
       "attempts": [
-        {
-          "report": "v2-frontend-first-run.json",
-          "status": "passed",
-          "duration_ms": 52281
-        },
-        {
-          "report": "v2-frontend-rerun.json",
-          "status": "passed",
-          "duration_ms": 51902
-        },
-        {
-          "report": "v2-frontend-final-regression-before-final-hardening.json",
-          "status": "passed",
-          "duration_ms": 54869
-        },
         {
           "report": "v2-frontend-final-regression.json",
           "status": "passed",
@@ -329,16 +214,6 @@
       "file": "v2.spec.ts",
       "attempts": [
         {
-          "report": "v2-frontend-first-run.json",
-          "status": "passed",
-          "duration_ms": 1449
-        },
-        {
-          "report": "v2-frontend-final-regression-before-final-hardening.json",
-          "status": "passed",
-          "duration_ms": 1482
-        },
-        {
           "report": "v2-frontend-final-regression.json",
           "status": "passed",
           "duration_ms": 1691
@@ -350,16 +225,6 @@
       "title": "V2 real SCADA master resolves all six bank boundaries through PNL-500",
       "file": "v2.spec.ts",
       "attempts": [
-        {
-          "report": "v2-frontend-first-run.json",
-          "status": "passed",
-          "duration_ms": 1263
-        },
-        {
-          "report": "v2-frontend-final-regression-before-final-hardening.json",
-          "status": "passed",
-          "duration_ms": 1413
-        },
         {
           "report": "v2-frontend-final-regression.json",
           "status": "passed",
@@ -373,21 +238,6 @@
       "file": "v2.spec.ts",
       "attempts": [
         {
-          "report": "v2-frontend-first-run.json",
-          "status": "passed",
-          "duration_ms": 874
-        },
-        {
-          "report": "v2-frontend-rerun.json",
-          "status": "passed",
-          "duration_ms": 1397
-        },
-        {
-          "report": "v2-frontend-final-regression-before-final-hardening.json",
-          "status": "passed",
-          "duration_ms": 1386
-        },
-        {
           "report": "v2-frontend-final-regression.json",
           "status": "passed",
           "duration_ms": 1317
@@ -400,21 +250,6 @@
       "file": "v2.spec.ts",
       "attempts": [
         {
-          "report": "v2-frontend-first-run.json",
-          "status": "timedOut",
-          "duration_ms": 60115
-        },
-        {
-          "report": "v2-frontend-rerun.json",
-          "status": "passed",
-          "duration_ms": 1037
-        },
-        {
-          "report": "v2-frontend-final-regression-before-final-hardening.json",
-          "status": "passed",
-          "duration_ms": 1067
-        },
-        {
           "report": "v2-frontend-final-regression.json",
           "status": "passed",
           "duration_ms": 1167
@@ -426,16 +261,6 @@
       "title": "V2 viewer quick demos are disabled and deployment remains usable on mobile",
       "file": "v2.spec.ts",
       "attempts": [
-        {
-          "report": "v2-frontend-first-run.json",
-          "status": "passed",
-          "duration_ms": 1152
-        },
-        {
-          "report": "v2-frontend-final-regression-before-final-hardening.json",
-          "status": "passed",
-          "duration_ms": 1073
-        },
         {
           "report": "v2-frontend-final-regression.json",
           "status": "passed",

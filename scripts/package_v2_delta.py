@@ -12,7 +12,7 @@ import zipfile
 ROOT = Path(__file__).resolve().parents[1]
 BASELINE = '4a0f4c1cae879604a384e91862749fef754abecc'
 BLOCKED = {'.git', 'node_modules', '.next', '__pycache__', '.pytest_cache', '.pio', '.venv', '.cache', '.mypy_cache', '.ruff_cache',
-           'tmp', 'runtime', 'output', 'build', 'dist', '.sites-runtime', 'handoff',
+           'tmp', 'runtime', 'output', 'build', 'dist', '.sites-runtime', 'handoff', 'submission',
            'test-results', 'test-results-v2', 'playwright-report'}
 
 
@@ -54,8 +54,8 @@ def main():
     names = sorted(n for n in changes if allowed(n))
     if not names:
         raise RuntimeError('No eligible delta files')
-    # Original source material is immutable and must never be duplicated in the delta.
-    sources = [n for n in names if Path(n).suffix.lower() in {'.pdf', '.xlsx'}]
+    # Source deletions are allowed; source payloads must never be distributed.
+    sources = [n for n in names if n in committed_names and Path(n).suffix.lower() in {'.pdf', '.xlsx'}]
     if sources:
         raise RuntimeError('Unexpected changed source PDF/XLSX: ' + ', '.join(sources))
     config = dict(line.split('=', 1) for line in (ROOT / '.env').read_text().splitlines()
@@ -81,6 +81,17 @@ def main():
     with tempfile.TemporaryDirectory(prefix='delta-index-', dir=work) as temporary:
         Path(temporary).resolve().relative_to(work.resolve())
         patch = git('diff', '--binary', '--no-renames', '--no-ext-diff', '--no-textconv', baseline, final_commit)
+        # A binary deletion needs only its forward empty payload. Omit the reverse
+        # payload so removing original documents does not redistribute their bytes.
+        blocks = patch.split(b'diff --git ')
+        for i, block in enumerate(blocks):
+            if b'\ndeleted file mode ' in block and b'\nGIT binary patch\n' in block:
+                header, data = block.split(b'\nGIT binary patch\n', 1)
+                forward = data.split(b'\n\n', 1)[0]
+                if not forward.startswith(b'literal 0\n'):
+                    raise RuntimeError('Unexpected binary deletion payload')
+                blocks[i] = header + b'\nGIT binary patch\n' + forward + b'\n\n'
+        patch = b'diff --git '.join(blocks)
         if any(value in patch for value in secrets):
             raise RuntimeError('Known private credential detected in patch, including removed lines')
         (destination / 'changes.patch').write_bytes(patch)
@@ -137,7 +148,7 @@ def main():
     (destination / 'README.txt').write_text(
         'GridSentinel V2 delta\n\n'
         'Apply only to the BASELINE.txt commit with a reviewed clean working tree.\n'
-        '1. Keep the existing private .env and original source PDFs/XLSX.\n'
+        '1. Keep the existing private .env. Review source-document deletions; preserve any needed originals outside the checkout.\n'
         '2. Run: git apply --check /absolute/path/changes.patch\n'
         '3. Run: git apply /absolute/path/changes.patch\n'
         '4. Run: python scripts/run_demo.py --presentation --panels 500 --scenario normal_operation\n'
@@ -145,7 +156,8 @@ def main():
         '6. Read docs/acceptance.md, docs/delivery-integrity.md and docs/verification/v2-summary.json.\n\n'
         'changed-files mirrors only changed/new paths. Deleted files are listed in manifest.json and handled by the patch.\n'
         'verification contains V2 evidence, including the V1 baseline rerun, plus a generated summary with the final Git identity. The summary is ignored by Git; v2-evidence.json is tracked.\n'
-        'Runtime caches, secrets, volumes and unchanged sources are excluded.\n'
+        'Runtime caches, secrets, volumes, submission packages and original source payloads are excluded.\n'
+        'Binary deletions omit reverse payloads; use Git history, not a reversed patch, for recovery.\n'
         'No physical field installation, production SCADA connection, real provider delivery or protection control.\n'
         'Reference hardware/firmware validation limits are documented in the delivered files.\n', encoding='utf-8')
     for path in destination.rglob('*'):

@@ -1,6 +1,6 @@
 # GridSentinel engineering rules
 
-Read MASTER_SPEC.md, docs/source-analysis.md and docs/api-contract.md before modifying code. Supplied source PDFs and XLSX are immutable source of truth. Preserve them and their hashes. Read extracted source text in data/source; scanned MPR pages and panel drawing renders are in tmp/pdfs.
+Read MASTER_SPEC.md, docs/source-analysis.md and docs/api-contract.md before modifying code. Original source PDFs and XLSX are external reference inputs, excluded from the current repository distribution. Preserve their recorded hashes and the extracted source text in data/source. Source re-extraction and the original-file hash test require these documents in a separate verification copy; see docs/source-analysis.md.
 
 - On-premise only. No Sites registration, cloud hosting, cloud database, remote fonts or external runtime dependency. Next.js + FastAPI + PostgreSQL + Mosquitto + Docker Compose.
 - This is a hackathon condition-monitoring prototype, never a protection relay. Never issue device writes, trip commands or reset certified protection equipment.
@@ -13,4 +13,4 @@ Read MASTER_SPEC.md, docs/source-analysis.md and docs/api-contract.md before mod
 - Coordinate shared interfaces before implementation and preserve backward compatibility.
 - Keep work at repository root (no redundant nested repository). Scripts must work from documented Windows/Linux commands.
 
-V2 extends baseline commit `4a0f4c1cae879604a384e91862749fef754abecc`. Preserve V1 verification evidence and original sources. Never purge history to make the demo clean: use explicit run identities and views.
+V2 extends baseline commit `4a0f4c1cae879604a384e91862749fef754abecc`. Preserve V1 verification evidence and original-source hash records. Never purge history to make the demo clean: use explicit run identities and views.

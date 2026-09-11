@@ -31,3 +31,21 @@
 
 ## Açık doğrulama sınırları
 Gerçek cihaz/firmware/CT ayarı, Modbus word order, RF kapsama, pil ömrü, alarm eşikleri, kabin içi montaj uygunluğu ve acquisition kalibrasyonu sahada doğrulanmamıştır. Fiziksel kurulum sınıfları ve kablosuz seçimler tasarım önerisidir. Prototip SCADA register haritası GridSentinel'a aittir; ADM/GDZ register haritası değildir.
+
+## Kaynak dosyalarının dağıtımı ve hash kontrolü
+
+Dokuz orijinal PDF ve `İstenen Veriler.xlsx` güncel repository dağıtımından çıkarılmıştır. Yukarıdaki dosya adları ve sayfa numaraları bibliyografik referanslardır. Çıkarılmış metinler, workbook içeriği ve [orijinal SHA256 manifesti](../data/source/manifest.json) korunur; uygulama bu çıkarımları kullanır.
+
+Güncel checkout üzerinde uygulama testleri:
+
+```powershell
+python -m pytest -q -k "not test_all_sources_have_hashes_without_changing_originals"
+```
+
+Orijinal dosya hash testi, kaynak dokümanlar gerektiren ayrı bir kontrol olup dosyalar olmadan çalıştırılırsa `FileNotFoundError` verir. Test değiştirilmemiştir. Organizatör dosyalarının bulunduğu izole doğrulama kopyasında `tests/source/test_dataset.py` ve `data/source/manifest.json` aynı göreli yollarla korunarak çalıştırılır:
+
+```powershell
+python -m pytest tests/source/test_dataset.py::test_all_sources_have_hashes_without_changing_originals -q
+```
+
+`scripts/analyze_sources.py` ve `scripts/import_dataset.py` kaynak yeniden çıkarımı içindir; orijinallerin bulunduğu kopyada çalıştırılır. Güncel uygulama kurulumu veya demo başlatma için tekrar çıkarım gerekmez. Tarihli 108/108 tam-suite kayıtları orijinallerin mevcut olduğu doğrulama ortamını belgeler.

@@ -16,15 +16,15 @@ JSON keys English, UI Turkish. All timestamps UTC ISO8601; synthetic source alwa
 - `GET /api/events` -> `{items:[{id,panel_id,type,message,timestamp}]}`.
 - `GET /api/audit` -> `{items:[...]}` admin.
 - `GET /api/scenarios` -> `{items:[{id,name,description,duration_steps,expected_state}]}`.
-- `POST /api/demo/scenario` operator/admin `{scenario,panel_id:'PNL-001'}` -> `{ok:true,...}`. Backend controls simulator shared selection via DB/API or MQTT; explain integration choices to root.
+- `POST /api/demo/scenario` operator/admin `{scenario,panel_id:'PNL-001'}` -> `{ok:true,...}`. Backend controls simulator shared selection via DB/API or MQTT.
 - `POST /api/demo/reset` admin: reset demo state explicitly; no physical device writes.
-- `GET /api/scada/registers?panel_id=PNL-001` -> `{panel_id,host,port,unit_id,transport:'modbus_tcp',connected:boolean,registers:[{address,name,value,unit}],timestamp,error?}`. Must actually read bridge over TCP, not just echo database. Bridge polls fleet using service token; backend endpoint uses bridge master. Modbus library agent provides shared pure register encoder and TCP read client.
+- `GET /api/scada/registers?panel_id=PNL-001` -> `{panel_id,host,port,unit_id,transport:'modbus_tcp',connected:boolean,registers:[{address,name,value,unit}],timestamp,error?}`. Must actually read bridge over TCP, not just echo database. Bridge polls fleet using service token; backend endpoint uses bridge master. The Modbus library provides the shared pure register encoder and TCP read client.
 - `GET /api/metrics` -> ingestion counts/latency, DB write and MQTT connection counters for tests.
 
 ## GridSentinel SCADA map (PDU base0, uint16 read-only FC03/04)
 Each panel has a bank-local Modbus unit ID, 1..247. Base0 health,1 risk,2 state (0normal1attention2warning3critical),3 alarm_active,4 thermal_alarm,5 pd_alarm,6 arc_event,7 communication_ok,8 sensor_health,9 schema_version=1,10..11 timestamp UNIX uint32 high/low. V2 serves all500 panels through three banks:1502/units1..247,1503/units1..247,1504/units1..6, in numeric panel order. `GET /api/scada/registers?panel_id=PNL-500` returns `bank:3,port:1504,unit_id:6,host:'scada',connected:true,transport:'modbus_tcp',registers:[...]` only after a real master read. Configurable bank size/base/count and capacity errors are in [the map](scada/register-map.md). Unsupported registers return exception02 and writes exception01. Invalid state is never coerced to NORMAL; pending current-run or stale observations close validity registers7/8 to0.
 
-Agents may add fields/endpoints compatibly. Coordinate breaking changes before editing. Unit/e2e tests should consume this exact contract.
+New fields and endpoints must preserve compatibility. Document breaking changes before implementation. Unit/e2e tests should consume this exact contract.
 
 ## V2 additive demo-run, focused timing and action contract
 

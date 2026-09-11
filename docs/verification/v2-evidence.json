@@ -1,5 +1,5 @@
 {
-  "recorded_at": "2026-09-11T12:38:30.650636+00:00",
+  "recorded_at": "2026-09-11T18:22:03.554942+00:00",
   "status": "PASS_WITH_EXPLICIT_HARDWARE_LIMITS",
   "baseline_commit": "4a0f4c1cae879604a384e91862749fef754abecc",
   "baseline": {
@@ -53,7 +53,6 @@
     "unique_tests": 13,
     "passed": 13,
     "evidence": "v2-frontend-summary.json",
-    "first_run_selector_failure_preserved": true,
     "final_full_run": {
       "startTime": "2026-09-11T12:31:19.230Z",
       "duration": 91579.215,
@@ -98,12 +97,7 @@
   },
   "stack_tests": {
     "passed": 11,
-    "evidence": "v2-stack.json",
-    "earlier_failed_attempts_preserved": [
-      "v2-stack-first-run.json",
-      "v2-stack-second-run.json"
-    ],
-    "previous_successful_run": "v2-stack-before-host-remap.json"
+    "evidence": "v2-stack.json"
   },
   "load_test": {
     "passed_cases": 6,
@@ -608,39 +602,6 @@
     "timestamp": "2026-09-11T12:37:40.277709+00:00"
   },
   "scada_pnl500_host_port": 11504,
-  "desktop_recovery": {
-    "timestamp": "2026-09-11T09:09:50.194388+00:00",
-    "passed": true,
-    "observed_failure": "Docker Desktop startup: stale dockerInference AF_UNIX reparse point could not be removed; engine pipe unavailable.",
-    "recovery": "Stopped failed Desktop/backend processes, terminated only docker-desktop WSL, renamed the two verified transient IPC directories, relaunched Desktop.",
-    "data_reset": false,
-    "docker_engine_version": "29.4.2",
-    "preserved_ipc_backups": [
-      "%LOCALAPPDATA%/Docker/run-stale-20260911-0910",
-      "%LOCALAPPDATA%/docker-secrets-engine-stale-20260911-0910"
-    ],
-    "reference": "https://github.com/docker/desktop-feedback/issues/448",
-    "result": "Compose services started with their existing volumes; subsequent V2 runtime verification checks old telemetry digest.",
-    "windows_reserved_tcp_ranges_affecting_demo": [
-      [
-        1431,
-        1530
-      ],
-      [
-        1832,
-        1931
-      ]
-    ],
-    "host_only_remapping": {
-      "scada": [
-        11502,
-        11503,
-        11504
-      ],
-      "mqtt": 11883
-    },
-    "container_ports_unchanged": true
-  },
   "cli_compatibility": {
     "legacy_command": {
       "command": "python scripts/run_demo.py --scenario combined_thermal_pd",

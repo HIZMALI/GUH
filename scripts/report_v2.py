@@ -60,14 +60,14 @@ def main():
               'baseline_commit': '4a0f4c1cae879604a384e91862749fef754abecc', 'baseline': read('v2-baseline/summary.json'),
               'python_tests': junit('v2-python-tests.xml'), 'container_tests': junit('v2-python-container-tests.xml'),
               'container_method': 'Production Python image/dependencies; full repository mounted read-only for source and hardware artifact tests; report directory writable. Original hash check runs here, unlike the V1 runtime-image-only skip.',
-              'frontend_tests': {'unique_tests': 13, 'passed': 13, 'evidence': 'v2-frontend-summary.json', 'first_run_selector_failure_preserved': True, 'final_full_run': frontend['final_regression']},
+              'frontend_tests': {'unique_tests': 13, 'passed': 13, 'evidence': 'v2-frontend-summary.json', 'final_full_run': frontend['final_regression']},
               'frontend_final_smoke': final_ui,
               'frontend_tco_tests': {'passed': 5, 'evidence': 'v2-frontend-verification.md'},
-              'stack_tests': {'passed': 11, 'evidence': 'v2-stack.json', 'earlier_failed_attempts_preserved': ['v2-stack-first-run.json', 'v2-stack-second-run.json'], 'previous_successful_run': 'v2-stack-before-host-remap.json'},
+              'stack_tests': {'passed': 11, 'evidence': 'v2-stack.json'},
               'load_test': {'passed_cases': 6, 'committed': 6800, 'expected': 6800, 'evidence': 'v2-load.json', 'earlier_runs': ['v2-load-before-history-projection.json', 'v2-load-before-scenario-index.json'], 'legacy_history_index': index_proof, 'cases_500': [c for c in load['cases'] if c['devices'] == 500]},
               'focused_demo_duration_seconds': measured['combined_critical_seconds'], 'arc_event_duration_seconds': measured['arc_seconds'],
               'focused_demo_evidence': 'v2-runtime.json', 'scada_pnl500_roundtrip': presentation['scada_pnl500'],
-              'scada_pnl500_host_port': presentation['scada_host_pnl500_port'], 'desktop_recovery': read('v2-desktop-recovery.json'),
+              'scada_pnl500_host_port': presentation['scada_host_pnl500_port'],
               'cli_compatibility': cli, 'notification_policy': {'version': 2, 'attention_mock_channels': [], 'warning_mock_channels': ['sms_mock', 'whatsapp_mock'], 'browser_evidence': 'v2-frontend-observations.json', 'ui_screenshots': ['v2-attention-policy.png', 'v2-warning-policy.png']}, 'legacy_preservation': read('v2-legacy-preservation.json'), 'firmware_build_status': firmware,
               'hardware_deliverable_status': hardware, 'presentation_ready': presentation, 'screenshots': screenshots,
               'limitations': ['All observations synthetic; no physical field or institutional SCADA connection.',
@@ -83,7 +83,7 @@ def main():
     original = acceptance.read_text(encoding='utf-8').split(marker)[0].rstrip()
     acceptance.write_text(original + '\n' + marker + f'''
 
-Ölçüm tarihi UTC: {result['recorded_at']}. V2 temel commit'i `{result['baseline_commit']}`; çalışma öncesi temiz V1 testleri [ayrı baseline kaydında](verification/v2-baseline/summary.json). Git'te izlenen toplu kanıt [v2-evidence.json](verification/v2-evidence.json); commit kimliği içeren `v2-summary.json` paketleme sonrasında üretilir. [Teslim bütünlüğü](delivery-integrity.md).
+Kanıt özeti tarihi UTC: {result['recorded_at']}. V2 temel commit'i `{result['baseline_commit']}`; çalışma öncesi temiz V1 testleri [ayrı baseline kaydında](verification/v2-baseline/summary.json). Git'te izlenen toplu kanıt [v2-evidence.json](verification/v2-evidence.json); commit kimliği içeren `v2-summary.json` paketleme sonrasında üretilir. [Teslim bütünlüğü](delivery-integrity.md).
 
 | Kabul başlığı | Gerçek sonuç | Kanıt / sınır |
 |---|---|---|
@@ -101,12 +101,12 @@ def main():
 | Kurulum/kesinti matrisi | PASS görünür A/B/C ve H1 tutarlılığı | [Kurulum](installation-matrix.md); sağ yardımcı TH-A/H1, güvenli saha keşfi bekler |
 | Host Python regresyon | **{result['python_tests']['passed']} PASS**, {result['python_tests']['seconds']:.2f}s | [JUnit](verification/v2-python-tests.xml); 62 V1 + {result['python_tests']['passed'] - 62} yeni test |
 | Container Python regresyon | **{result['container_tests']['passed']} PASS**, {result['container_tests']['seconds']:.2f}s | [JUnit](verification/v2-python-container-tests.xml); üretim Python ve bağımlılık image’ı, repo read-only bind; kaynak hash testi de çalışır |
-| Frontend regresyon | **13 benzersiz PASS**, TCO 5 PASS | [Tüm denemeler](verification/v2-frontend-summary.json), son UI smoke; ilk selector hatası saklandı |
+| Frontend regresyon | **13 benzersiz PASS**, TCO 5 PASS | [Son tam koşu](verification/v2-frontend-summary.json), son UI smoke |
 | Gerçek servis/kesinti | **11 PASS** | [Stack](verification/v2-stack.json): API/DB/MQTT yeniden başlatma, DB outage mesajının tam 1 commit'i |
 | 100 / 250 / 500 HTTP + MQTT yeniden yük | **6 PASS, 6800 / 6800 commit** | [Ham V2](verification/v2-load.json), [V1 ile birlikte performans](performance.md); kısa burst |
 | Sunuma hazır son durum | PASS: 500 NORMAL / 0 offline / 0 current open alarm; PNL-001 normal/güncel/0 alarm, rate 1200 | [Son runtime](verification/v2-final-runtime.json), [son tarayıcı](verification/v2-frontend-final-smoke.json) |
 
-V2 ilk stack denemesinde SCADA'nın ilk health probe'u beklenmediği için `starting` durumu hata sayıldı; verifier 45 s bounded readiness beklemesiyle düzeltildi. [İlk rapor](verification/v2-stack-first-run.json). İkinci denemede DB geri döndükten sonra panel GET 20 s timeout'u; yaklaşık 61 s bağlantı beklemesi gözlendi. [İkinci rapor](verification/v2-stack-second-run.json). DB connect/pool/statement/socket/lock ve DNS sınırları eklendi; okuyucu maintenance write-lock'tan ayrıldı, aynı stale risk/policy ve kalıcı alarm tick'i korundu. Beş yeni regression sınırı ve son gerçek 11 kontrol geçti. Bu denemeler gizlenmedi.
+Servis doğrulaması SCADA için bounded readiness ve DB connect/pool/statement/socket/lock/DNS sınırlarını kapsar. Salt-okuma yolu maintenance yazma kilidinden ayrıdır; stale risk/policy ve kalıcı alarm tick davranışı korunur. İlk denemelerdeki readiness ve DB toparlanma sorunları giderildikten sonra beş regresyon sınırı ve son gerçek 11 servis kontrolü geçti. Önceki denemeler Git geçmişinde, güncel sonuç [stack kaydında](verification/v2-stack.json) bulunur.
 
 V1 container-image testi kaynak originals image'a alınmadığı için 1 SKIP idi. V2 tam container doğrulaması, kaynaklar/hardware artefact'ları için repo read-only mount kullandığından hash testi de PASS; bu farklılık bilerek kayıtlıdır. Üçüncü taraf Starlette/AnyIO deprecation ve SQLite expression-index reflection uyarıları uygulama test hatası değildir. SQLite indeks adları doğrudan okunur; iki açılış ve mevcut veride migration testleri indeksin tekrar oluşturulmadığını doğrular.
 

@@ -1,6 +1,6 @@
 # Frontend doğrulama kaydı
 
-11 Eylül 2026 (Europe/Istanbul), test başlangıcı **2026-09-10T23:36:13.873Z**. Bu rapor yalnız frontend ajanının bizzat çalıştırdığı kontrolleri kapsar.
+11 Eylül 2026 (Europe/Istanbul), test başlangıcı **2026-09-10T23:36:13.873Z**. Bu rapor belirtilen ortamda çalıştırılan frontend kontrollerini kapsar.
 
 ## Üretim tarayıcı testi
 

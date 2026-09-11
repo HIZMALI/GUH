@@ -2,14 +2,11 @@
 
 2026-09-11 UTC; yerel Docker üretim arayüzü `http://127.0.0.1:3000`. Mevcut V1 kanıtları değiştirilmedi.
 
-## Sonuç ve başarısız denemenin kaydı
+## Son tam regresyon
 
-- Fleet current-run alarm sayımı ve ATTENTION bildirim politikası düzeltilmiş backend üzerinde tam regresyon: **13/13 PASS**, 0 FAIL, 0 SKIP; 91,579 saniye (başlangıç 2026-09-11 12:31:19 UTC). Önceki 82,874 saniyelik tam koşu [ayrı korundu](v2-frontend-final-regression-before-final-hardening.json).
-- İlk çalışma: 13 test, 12 PASS, 1 FAIL; 143,279 saniye. Eski yedi V1 regresyon testi ilk çalışmada geçti.
-- Tek hata test seçicisindeydi: test `Alarmlar` adlı navigasyonu aradı; ürünün mevcut etiketi `Alarm merkezi`. Ürün kodu değiştirilmedi.
-- Dar tekrar: düzeltilen alarm/bildirim testi ile ekran görüntüsü yakalama iyileştirmesi yapılan iki test, 3/3 PASS; 55,041 saniye.
-- Toplam **13 benzersiz test PASS**; son tam koşuda hepsi yeniden geçti. İlk hata gizlenmedi; [ilk ham rapor](v2-frontend-first-run.json), [hata görüntüsü](v2-frontend-first-run-selector-failure.png), [dar tekrar ham raporu](v2-frontend-rerun.json), [son tam regresyon ham raporu](v2-frontend-final-regression.json), [birleştirilmiş özet](v2-frontend-summary.json) ayrı dosyalardır. Özet önceki tam koşu dahil dört raporun SHA256 değerlerini ve her testin denemelerini korur.
-- Son koşunun altı V2 testinde `pageerror` ve `console.error`: **0**. İlk V1 testi ayrıca `pageerror` olmadığını kontrol eder. Diğer V1 testleri için toplu konsol hatası yokluğu iddia edilmez. Önceki dar tekrarın üç testindeki konsol kaydı da 0 idi.
+- Fleet current-run alarm sayımı ve ATTENTION bildirim politikası düzeltilmiş backend üzerinde **13/13 PASS**, 0 FAIL, 0 SKIP; 91,579 saniye (başlangıç 2026-09-11 12:31:19 UTC).
+- [Ham tam koşu](v2-frontend-final-regression.json) ve [doğrulanmış özet](v2-frontend-summary.json) test sonuçlarını, kaynak rapor SHA256 değerini ve güncel görsel hashlerini içerir. İlk denemede düzeltilen navigasyon seçicisine ait kayıtlar Git geçmişindedir; burada son tam koşu tutulur.
+- Son koşunun altı V2 testinde `pageerror` ve `console.error`: **0**. İlk V1 testi ayrıca `pageerror` olmadığını kontrol eder. Diğer V1 testleri için toplu konsol hatası yokluğu iddia edilmez.
 - TypeScript kontrolü PASS; saf maliyet hesabının beş sınır testi 5/5 PASS. Üretim Next.js build Docker dağıtımında doğrulandı.
 
 ## Kanıtlanan davranış

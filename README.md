@@ -40,7 +40,7 @@ Bu Windows makinesinde sistemin ayırdığı portlarla çakışmamak için yerel
 
 ## Kaynaklar ve sınırlar
 
-Verilen PDF/Excel dosyaları değiştirilmez. [Kaynak analizi](docs/source-analysis.md), Excel'de hangi verilerin bulunduğunu ve teknik adres/yerleşim dayanaklarını açıklar. Excel yalnız L1 sentetik akım içerir; diğer kanalların üretimi API/UI üzerinde etiketlidir. PD acquisition zinciri konsepttir; sentetik feature'lar kalibre gerçek PD ölçümü değildir. RF kapsama/pil ömrü, gerçek Modbus word order ve saha alarm eşikleri doğrulanmış değildir.
+Organizatörün orijinal PDF/Excel dosyaları güncel repository dağıtımına dahil değildir; kaynak metinleri, veri çıkarımları ve orijinal SHA256 kayıtları `data/source/` altında korunur. [Kaynak analizi](docs/source-analysis.md), Excel'de hangi verilerin bulunduğunu ve teknik adres/yerleşim dayanaklarını açıklar. Excel yalnız L1 sentetik akım içerir; diğer kanalların üretimi API/UI üzerinde etiketlidir. PD acquisition zinciri konsepttir; sentetik feature'lar kalibre gerçek PD ölçümü değildir. RF kapsama/pil ömrü, gerçek Modbus word order ve saha alarm eşikleri doğrulanmış değildir.
 
 Teknik mimari [MASTER_SPEC.md](MASTER_SPEC.md) ve [architecture.md](docs/architecture.md); geliştirme kuralları [CONTRIBUTING.md](CONTRIBUTING.md). Üretim/saha güvenlik sınırları [security.md](docs/security.md), kurulum kesintileri [installation-matrix.md](docs/installation-matrix.md), kablosuz seçimi [wireless-design.md](docs/wireless-design.md).
 
@@ -49,10 +49,14 @@ Teknik mimari [MASTER_SPEC.md](MASTER_SPEC.md) ve [architecture.md](docs/archite
 [Demo akışı](docs/demo-guide.md), [V2 doğrulama kanıtı](docs/verification/v2-evidence.json), [performans](docs/performance.md) ve [kabul matrisi](docs/acceptance.md) gerçek sonuçları ve tekrar komutlarını içerir. Değişiklik öncesi temiz V1 commit'inde 62 Python, 7 tarayıcı, 11 servis/kesinti ve 6 yük vakası yeniden geçti; 6800/6800 commit kaydı saklandı. V2: **host 108 PASS, container 108 PASS, Chromium 13 PASS, servis/kesinti 11 PASS**; C++ host çekirdeği 308 kontrol ve TCO 5 sınır testi PASS. 100/250/500 HTTP+MQTT testlerinde **6.800/6.800 kalıcı commit** doğrulandı; yeni kanıtlar ayrı dosyalardadır. PostgreSQL geçişinde **237.402 eski telemetri kaydının içerik özeti birebir korundu**. [Geçiş kanıtı](docs/verification/v2-legacy-preservation.json).
 
 ```powershell
-python -m pytest -q
+python -m pytest -q -k "not test_all_sources_have_hashes_without_changing_originals"
 python -m scripts.verify_v2_runtime
 python scripts/verify_stack.py --restarts --output docs/verification/v2-stack.json
 ```
+
+Kaynak dosyası hash testi ayrıca orijinal dokümanların bulunduğu izole bir kopyada çalıştırılır; tam komut ve kapsam [kaynak analizinde](docs/source-analysis.md#kaynak-dosyalarının-dağıtımı-ve-hash-kontrolü). Uygulama testleri için orijinaller gerekmez.
+
+Son repository teslim kontrolü: [107 uygulama testi + ayrı kaynak hash testi, frontend build ve canlı stack smoke](docs/verification/repository-cleanup.json). Önceki tam 108/108 kayıtları orijinallerin mevcut olduğu test ortamını belgeler; yük ölçümleri yeniden çalıştırılmadan korunmuştur.
 
 Frontend `apps/web` içinde `npm run test:unit` ve `npm run test:e2e:v2`; eski `npm run test:e2e` korunur. Senaryo/E2E/kesinti/yük testleri aynı anda çalıştırılmaz. Sırlar Git'e alınmaz. Runtime public cloud bağımlılığı yoktur; ilk paket/image indirmesi kurulum aşamasıdır. Çevrimdışı image aktarımı [deployment.md](docs/deployment.md).
 

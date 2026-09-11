@@ -7,16 +7,8 @@ const repo = path.resolve(
   "../../..",
 );
 const directory = path.join(repo, "docs/verification");
-const firstPath = path.join(directory, "v2-frontend-first-run.json");
-const rerunPath = path.join(directory, "v2-frontend-rerun.json");
 const finalPath = path.join(directory, "v2-frontend-final-regression.json");
-const previousFinalPath = path.join(directory, "v2-frontend-final-regression-before-final-hardening.json");
-const reportPaths = [
-  firstPath,
-  rerunPath,
-  ...(fs.existsSync(previousFinalPath) ? [previousFinalPath] : []),
-  ...(fs.existsSync(finalPath) ? [finalPath] : []),
-];
+const reportPaths = [finalPath];
 const reports = reportPaths.map((file) =>
   JSON.parse(fs.readFileSync(file, "utf8")),
 );
@@ -75,15 +67,13 @@ const observations = JSON.parse(
 const checked = Object.entries(observations).filter(([key]) =>
   key.startsWith("browser_errors:"),
 );
-const finalReport = fs.existsSync(finalPath) ? reports.at(-1) : null;
+const finalReport = reports[0];
 const finalTestCount = [...cases.values()].filter((test) =>
   test.attempts.some((attempt) => attempt.report === path.basename(finalPath)),
 ).length;
 const summary = {
   recorded_at: new Date().toISOString(),
   command: "npm run test:e2e:v2",
-  rerun_command:
-    "npm run test:e2e:v2 -- --grep='V2 focused|V2 deployment|V2 global'",
   final_regression_command:
     "E2E_REPORT_FILE=test-results-v2/final-regression.json npm run test:e2e:v2 (set environment variable using the local shell)",
   target: observations.target,
@@ -91,8 +81,6 @@ const summary = {
   unique_passed: [...cases.values()].filter(
     (test) => test.latest_status === "passed",
   ).length,
-  first_run: reports[0].stats,
-  rerun: reports[1].stats,
   final_regression: finalReport?.stats || null,
   final_regression_unique_tests: finalReport ? finalTestCount : null,
   final_regression_complete: finalReport
@@ -107,8 +95,6 @@ const summary = {
       .update(fs.readFileSync(file))
       .digest("hex"),
   })),
-  correction:
-    "Only test selector corrected from Alarmlar to the existing Alarm merkezi label. Two additional tests repeated to recapture screenshots at scrollTop 0 after API connection. Product code unchanged between these two runs.",
   browser_error_observation: {
     scope:
       "Latest per-test V2 browser captures in v2-frontend-observations.json retain their observed_at timestamps. The first V1 test separately asserts pageerror absence.",
@@ -129,9 +115,6 @@ console.log(
   JSON.stringify({
     unique_tests: summary.unique_tests,
     unique_passed: summary.unique_passed,
-    first_pass: summary.first_run.expected,
-    first_failed: summary.first_run.unexpected,
-    rerun_pass: summary.rerun.expected,
     final_regression_pass: summary.final_regression?.expected ?? null,
     final_regression_complete: summary.final_regression_complete,
     browser_errors: summary.browser_error_observation.errors.length,

@@ -19,7 +19,7 @@ Bu belgenin aşağıdaki ilk bölümleri korunmuş **V1 tarihli kabul kaydıdır
 
 Container'daki tek skip, asıl kaynak PDF/XLSX dosyalarının runtime image'a bilinçli olarak alınmaması nedeniyle kaynak hash kontrolüdür. Aynı kontrol host üzerinde geçti; skip bir PASS olarak sayılmadı. Container testindeki AnyIO deprecation uyarısı üçüncü taraf Starlette TestClient'tan gelir. Python ve container sayıları aynı testlerin iki ortamda çalıştırılmasıdır; ayrı özellik sayıları değildir.
 
-İlk toplu host çalışmasında bir sıralama testi başarısızdı: `now - 1s` ile oluşturulan mesaj, yavaş test yeniden başlatmasında önce kabul edilen mesajdan daha yeni kalabiliyordu. Fixture, kabul edilen mesajın timestamp'inden bir saniye çıkaracak şekilde düzeltildi; ürünün sıralama kuralı gevşetilmedi. [İlk çalışmanın kaydı](verification/python-tests-first-run.xml) korunmuştur. Ardından yukarıdaki host ve container testleri geçti.
+İlk toplu host çalışmasında bir sıralama testi başarısızdı: `now - 1s` ile oluşturulan mesaj, yavaş test yeniden başlatmasında önce kabul edilen mesajdan daha yeni kalabiliyordu. Fixture, kabul edilen mesajın timestamp'inden bir saniye çıkaracak şekilde düzeltildi; ürünün sıralama kuralı gevşetilmedi. İlk çalışmanın kaydı (Git geçmişindeki kayıt) korunmuştur. Ardından yukarıdaki host ve container testleri geçti.
 
 ## Definition of Done eşlemesi
 
@@ -69,7 +69,7 @@ Merkez 500 pano destekler; bir Modbus bridge ilk 247 unit'i sunar. Daha büyük 
 ## V2 Hackathon Readiness
 
 
-Ölçüm tarihi UTC: 2026-09-11T12:38:30.650636+00:00. V2 temel commit'i `4a0f4c1cae879604a384e91862749fef754abecc`; çalışma öncesi temiz V1 testleri [ayrı baseline kaydında](verification/v2-baseline/summary.json). Git'te izlenen toplu kanıt [v2-evidence.json](verification/v2-evidence.json); commit kimliği içeren `v2-summary.json` paketleme sonrasında üretilir. [Teslim bütünlüğü](delivery-integrity.md).
+Kanıt özeti tarihi UTC: 2026-09-11T18:22:03.554942+00:00. V2 temel commit'i `4a0f4c1cae879604a384e91862749fef754abecc`; çalışma öncesi temiz V1 testleri [ayrı baseline kaydında](verification/v2-baseline/summary.json). Git'te izlenen toplu kanıt [v2-evidence.json](verification/v2-evidence.json); commit kimliği içeren `v2-summary.json` paketleme sonrasında üretilir. [Teslim bütünlüğü](delivery-integrity.md).
 
 | Kabul başlığı | Gerçek sonuç | Kanıt / sınır |
 |---|---|---|
@@ -87,12 +87,12 @@ Merkez 500 pano destekler; bir Modbus bridge ilk 247 unit'i sunar. Daha büyük 
 | Kurulum/kesinti matrisi | PASS görünür A/B/C ve H1 tutarlılığı | [Kurulum](installation-matrix.md); sağ yardımcı TH-A/H1, güvenli saha keşfi bekler |
 | Host Python regresyon | **108 PASS**, 29.67s | [JUnit](verification/v2-python-tests.xml); 62 V1 + 46 yeni test |
 | Container Python regresyon | **108 PASS**, 24.57s | [JUnit](verification/v2-python-container-tests.xml); üretim Python ve bağımlılık image’ı, repo read-only bind; kaynak hash testi de çalışır |
-| Frontend regresyon | **13 benzersiz PASS**, TCO 5 PASS | [Tüm denemeler](verification/v2-frontend-summary.json), son UI smoke; ilk selector hatası saklandı |
+| Frontend regresyon | **13 benzersiz PASS**, TCO 5 PASS | [Son tam koşu](verification/v2-frontend-summary.json), son UI smoke |
 | Gerçek servis/kesinti | **11 PASS** | [Stack](verification/v2-stack.json): API/DB/MQTT yeniden başlatma, DB outage mesajının tam 1 commit'i |
 | 100 / 250 / 500 HTTP + MQTT yeniden yük | **6 PASS, 6800 / 6800 commit** | [Ham V2](verification/v2-load.json), [V1 ile birlikte performans](performance.md); kısa burst |
 | Sunuma hazır son durum | PASS: 500 NORMAL / 0 offline / 0 current open alarm; PNL-001 normal/güncel/0 alarm, rate 1200 | [Son runtime](verification/v2-final-runtime.json), [son tarayıcı](verification/v2-frontend-final-smoke.json) |
 
-V2 ilk stack denemesinde SCADA'nın ilk health probe'u beklenmediği için `starting` durumu hata sayıldı; verifier 45 s bounded readiness beklemesiyle düzeltildi. [İlk rapor](verification/v2-stack-first-run.json). İkinci denemede DB geri döndükten sonra panel GET 20 s timeout'u; yaklaşık 61 s bağlantı beklemesi gözlendi. [İkinci rapor](verification/v2-stack-second-run.json). DB connect/pool/statement/socket/lock ve DNS sınırları eklendi; okuyucu maintenance write-lock'tan ayrıldı, aynı stale risk/policy ve kalıcı alarm tick'i korundu. Beş yeni regression sınırı ve son gerçek 11 kontrol geçti. Bu denemeler gizlenmedi.
+Servis doğrulaması SCADA için bounded readiness ve DB connect/pool/statement/socket/lock/DNS sınırlarını kapsar. Salt-okuma yolu maintenance yazma kilidinden ayrıdır; stale risk/policy ve kalıcı alarm tick davranışı korunur. İlk denemelerdeki readiness ve DB toparlanma sorunları giderildikten sonra beş regresyon sınırı ve son gerçek 11 servis kontrolü geçti. Önceki denemeler Git geçmişinde, güncel sonuç [stack kaydında](verification/v2-stack.json) bulunur.
 
 V1 container-image testi kaynak originals image'a alınmadığı için 1 SKIP idi. V2 tam container doğrulaması, kaynaklar/hardware artefact'ları için repo read-only mount kullandığından hash testi de PASS; bu farklılık bilerek kayıtlıdır. Üçüncü taraf Starlette/AnyIO deprecation ve SQLite expression-index reflection uyarıları uygulama test hatası değildir. SQLite indeks adları doğrudan okunur; iki açılış ve mevcut veride migration testleri indeksin tekrar oluşturulmadığını doğrular.
 

@@ -29,4 +29,4 @@ Esas kaynak `Grid Up Hackathon Proje Konusu.pdf`, s.1–5; [sayfa çözümlemesi
 | PCB/firmware konsept düzeyindeydi | EDA bağımsız kart dosyaları + derlenen host çekirdeği | Artefact şema testleri ve host raporu; embedded ayrı NOT_RUN |
 | Değer/kurulum kanıtları dağınıktı | Yaygınlaştırma, TCO, paketler, A/B/C, kaynaklı çevre planı | E2E, boş girdide fiyat üretmeme testi |
 
-Tam sonuç [V2 kabul](acceptance.md#v2-hackathon-readiness) ve [makine özeti](verification/v2-summary.json). V1 kayıtları tarihli kanıt olarak korunur; [değişiklik öncesi tekrar](verification/v2-baseline/summary.json) temiz Git commit'inden alınmıştır.
+Tam sonuç [V2 kabul](acceptance.md#v2-hackathon-readiness) ve [makine özeti](verification/v2-evidence.json). V1 kayıtları tarihli kanıt olarak korunur; [değişiklik öncesi tekrar](verification/v2-baseline/summary.json) temiz Git commit'inden alınmıştır.

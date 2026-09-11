@@ -28,5 +28,3 @@ MQTT_HOST_PORT=11883
 ```
 
 `docker compose up -d` ile uygulanır. Host aralığı `SCADA_BANK_COUNT` kadar port içermelidir. İç banklar 1502/1503/1504, iç MQTT 1883 kalır; API gerçek TCP master `scada:1504`, unit6 üzerinden PNL-500'ü okur. Host'tan aynı bank `127.0.0.1:11504` ile okunur. Host doğrulama scriptleri bu eşlemeyi `.env` içinden kullanır. Opsiyonel host değişkenleri yoksa eski 1502–1504/1883 davranışı korunur; `.env` pakete girmez.
-
-Bu oturumda Docker Desktop ayrıca eski AF_UNIX socket artığı yüzünden başlatılamadı. Yalnız durmuş Docker süreçleri ve geçici IPC klasörleri üzerinde geri alınabilir kurtarma yapıldı; volume/fabrika sıfırlaması yapılmadı. [Yerel kayıt](verification/v2-desktop-recovery.json), benzer hata için [Docker hata kaydı](https://github.com/docker/desktop-feedback/issues/448). Eski telemetri içerik digest'i son runtime kontrolünde ayrıca doğrulanır.

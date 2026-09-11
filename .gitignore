@@ -19,6 +19,16 @@ runtime/
 .sites-runtime/
 output/
 handoff/
+submission/
+temp/
+.cache/
+.mypy_cache/
+.ruff_cache/
+*.log
+*.patch
+*.zip
+.idea/
+.vscode/
 # Commit identity is generated after committing; immutable evidence is tracked separately.
 docs/verification/v2-summary.json
 .pio/
