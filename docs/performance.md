@@ -1,6 +1,6 @@
 # Performans ve ölçek doğrulaması
 
-Aşağıdaki ölçüm ve eski tek-bank/pacing açıklamaları korunmuş **V1 kaydıdır**. V2 yeniden ölçümü ve tek focus/üç bank davranışı belgenin sonundadır; V1 JSON dosyasının üzerine yazılmaz.
+Aşağıdaki ölçümler **V1 referans kaydıdır**. Güncel sonuçlar [V2 ölçümleri](#v2-ölçümleri) bölümünde yer alır. İki sürümün ham ölçümleri ve çalışma koşulları karşılaştırma için ayrı saklanır.
 
 Ölçüm zamanı (UTC): 2026-09-10T23:39:29.782595+00:00. Docker Linux/WSL2; Python 3.12.14. PostgreSQL kullanıldı, SQLite değil. Ham kayıt: `verification/load-results.json`.
 
@@ -33,7 +33,9 @@ DB metriği final flush+commit süresidir; alarm yaratılırken yapılan önceki
 
 Tek Modbus bridge247 unit sunar.500 merkezi pano desteklemek500 ayrı Modbus unit tek bridge üzerinde var demek değildir; birden çok bridge/adres bankı gerekir. Dashboard tüm500 panoyu filtreler; liste aşamalı gösterilir.
 
-## Tekrar çalıştırma
+## V1 Ölçümünü Yeniden Üretme
+
+V1 referans yöntemi için tekrar komutları:
 
 ```powershell
 docker compose stop simulator
@@ -44,7 +46,7 @@ python scripts/report_performance.py
 docker compose up -d api scada simulator
 ```
 
-Başarısız test sonrasında da son komutla normal API limitini ve simulatorı geri getirin. Filo büyütme geçmişi silmez, expansion-only çalışır. Test geçmişi/audit korunur.
+Son komut normal API limitini ve simulatorı etkinleştirir; bu geri dönüş adımı testin sonucundan bağımsızdır. Filo genişlemesi ve testler geçmiş/audit kayıtlarını korur.
 
 ## Dayanıklılık ve üretim sınırı
 
@@ -52,7 +54,7 @@ Başarısız test sonrasında da son komutla normal API limitini ve simulatorı 
 
 Üretim için uzun süreli soak testi, disk dolması, broker power-loss,1+gün saklama büyümesi, yedekten dönüş, cihaz sertifika rotasyonu, gerçek RF/RTU saha koşulları ve yatay partitioning ayrıca gerekir. Bunlar hackathon testleriyle doğrulanmış sayılmaz.
 
-## V2 yeniden ölçümü
+## V2 ölçümleri
 
 
 UTC: 2026-09-11T12:35:02.742976+00:00. Aynı yerel Docker/WSL2/PostgreSQL ortamı; [V2 ham ölçüm](verification/v2-load.json). Simulator durduruldu, yalnız ölçüm için API_RATE_LIMIT=20000 kullanıldı; sonunda 1200 geri getirildi. Ölçüm sırasında frontend/firmware build, E2E veya başka test çalıştırılmadı. Her vaka 12 producer worker, 4 tur ve her tur sonunda gerçek PostgreSQL commit doğrulaması kullanır. Fleet API ölçümü 500 pano üzerinden 10 istek/vakadır.
@@ -68,9 +70,9 @@ UTC: 2026-09-11T12:35:02.742976+00:00. Aynı yerel Docker/WSL2/PostgreSQL ortam�
 
 **6/6 PASS, 6800 / 6800 commit**. PUBACK veritabanı commit'i değildir; ölçüm ayrıca commit sayısını bekler. Ingest metriği üretici timestamp'inden worker girişine kadardır; transaction bitişi değildir. Kısa sentetik burst; TLS/WAN/gerçek RF yoktur, host kaynakları münhasır değildir. Uzun üretim kapasitesi veya sıfır kayıp garantisi olarak kullanılmaz.
 
-V1 karşılaştırması çalışma öncesi [baseline](verification/v2-baseline/load.json) ile yapılır. [İlk V2 ölçümü](verification/v2-load-before-history-projection.json) daha düşük ham throughput gösterdi. Risk hesabında kullanılmayan geçmiş `result/actions` ve ORM alanlarının okunması kaldırıldı; aynı 12 kaydın ölçüm/kalite/zaman/adım değerleri korunarak dar SQL projection uygulandı. Projection sonrası [ara ölçüm](verification/v2-load-before-scenario-index.json) de korundu. Gerçek PostgreSQL EXPLAIN, legacy senaryo filtresinde tüm eşleşen pano satırlarının taranıp sıralandığını gösterdi. Aynı JSON senaryo ifadesini ve timestamp sırasını kullanan, yalnız run kimliği olmayan kayıtlara ait kısmi indeks eklendi. [Önce/sonra sorgu planı](verification/v2-history-index.json), aynı sonuç içerik hash’ini, sıralamanın kalkmasını ve iki tekrar açılışta verinin korunmasını doğrular. Yukarıdaki son yük ölçümü bu indeksle yapıldı.
+V1 karşılaştırması tarihli [baseline](verification/v2-baseline/load.json) ile yapılır. Karşılaştırma, [projection öncesi](verification/v2-load-before-history-projection.json) ve [indeks öncesi](verification/v2-load-before-scenario-index.json) ölçümleri içerir. Final sorgu, aynı 12 kaydın ölçüm/kalite/zaman/adım alanlarını okur; risk hesabında kullanılmayan geçmiş `result/actions` ve ORM alanları kapsam dışındadır. Gerçek PostgreSQL EXPLAIN, legacy senaryo filtresinde tüm eşleşen pano satırlarının taranıp sıralandığını gösterdi. Aynı JSON senaryo ifadesini ve timestamp sırasını kullanan, yalnız run kimliği olmayan kayıtlara ait kısmi indeks eklendi. [Önce/sonra sorgu planı](verification/v2-history-index.json), aynı sonuç içerik hash’ini, sıralamanın kalkmasını ve iki tekrar açılışta verinin korunmasını doğrular. Yukarıdaki son yük ölçümü bu indeksle yapıldı.
 
-| Pano | Taşıma | V1 baseline frame/s | İlk V2 frame/s | Son V2 frame/s | V1'e göre fark |
+| Pano | Taşıma | V1 baseline frame/s | Projection öncesi frame/s | Son V2 frame/s | V1'e göre fark |
 |---:|---|---:|---:|---:|---:|
 | 100 | HTTP | 86.12 | 50.72 | 47.85 | -44.4% |
 | 100 | MQTT | 68.86 | 55.63 | 64.47 | -6.4% |
@@ -87,6 +89,10 @@ Sürekli 500 pano demosunda tek focus 1,5 s, 499 arka plan ≈10,115 s ve 49⅓ 
 
 SCADA V2 üç banktır: 247 + 247 + 6. PNL-500 iç port 1504 / unit 6; son Windows host TCP portu 11504. Her bank aynı salt okunur haritayı kullanır. [Yapılandırma](scada/register-map.md). UI ölçek tablosu bu V2 JSON'dan SHA256 ile türetilmiştir; eski V1 tablo yukarıda korunur.
 
+## Testi Yeniden Üretme
+
+V2 ölçümü için tekrar komutları:
+
 ```powershell
 docker compose stop simulator
 docker compose -f docker-compose.yml -f tests/load/compose.load.yml up -d api scada
@@ -95,4 +101,4 @@ docker compose cp api:/tmp/v2-load.json docs/verification/v2-load.json
 docker compose up -d api scada simulator
 ```
 
-Ardından `apps/web` içinde `node scripts/project-scale-proof.mjs --input=../../docs/verification/v2-load.json --version=v2` ve web build yapılır. Sunumu `python scripts/run_demo.py --presentation --panels 500 --scenario normal_operation` ile temiz current-run'a alın; load geçmişini silmeyin. Tarihli V1 rapor üreticisini çalıştırarak eski dosyaları ezmeyin.
+Ölçek tablosu, `apps/web` içinde `node scripts/project-scale-proof.mjs --input=../../docs/verification/v2-load.json --version=v2` ve web build ile rapordan türetilir. Normal demo başlangıcı `python scripts/run_demo.py --presentation --panels 500 --scenario normal_operation` komutuyla oluşturulur; yük geçmişi korunur. Karşılaştırılabilirlik için her ölçümün tarihli ham çıktısı ayrı saklanır.

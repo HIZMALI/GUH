@@ -34,7 +34,7 @@ Testler `ADMIN_USERNAME`, `ADMIN_PASSWORD`, `VIEWER_PASSWORD` ortam değişkenle
 
 Filo, kaynak çizim şeması, trendler, gerçek TCP register okuması, viewer yetki sınırı ve logout gerçek servislere karşı denenir. Ağ kesintisi ile invalid nem / Arc bağlantı kaybı testleri açıkça belirtilmiş tarayıcı response fixture'larıdır. Bu fixture'lar uygulamanın demo verisi değildir. Senaryo testi PNL-001 üzerinde `arc_event` seçer, gerçek simülatör olayını bekler, alarmı onaylar, simüle bildirimleri kontrol eder ve panoyu `normal_operation` seçimine döndürür. 500 pano pacing 80–90 sn sürebilir; test zaman sınırı 150 sn.
 
-JSON rapor ve masaüstü/mobil ekran görüntüleri ignored `test-results/` dizinine yazılır. Sonuçlar çalıştırılan sürüm ve ortamla birlikte root doğrulama belgesine kaydedilir.
+JSON rapor ve masaüstü/mobil ekran görüntüleri Git dışındaki `test-results/` dizinine yazılır. Sonuçlar sürüm ve ortam bilgileriyle [frontend doğrulamasında](../../docs/verification/v2-frontend-verification.md) belgelenir.
 
 ## Operatör yüzeyleri
 

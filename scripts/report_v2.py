@@ -79,7 +79,7 @@ def main():
     (PROOF / 'v2-evidence.json').write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding='utf-8')
     # Preserve the complete earlier V1 sections; regenerate only this script's V2 section.
     acceptance = ROOT / 'docs/acceptance.md'
-    marker = '\n## V2 Hackathon Readiness\n'
+    marker = '\n## Uygulama Kabul Kapsamı\n'
     original = acceptance.read_text(encoding='utf-8').split(marker)[0].rstrip()
     acceptance.write_text(original + '\n' + marker + f'''
 
@@ -87,7 +87,7 @@ Kanıt özeti tarihi UTC: {result['recorded_at']}. V2 temel commit'i `{result['b
 
 | Kabul başlığı | Gerçek sonuç | Kanıt / sınır |
 |---|---|---|
-| Jüri gereksinim izlenebilirliği | PASS: kaynak/uygulama/demo/test/sınır ayrı 6 sütun | [İzlenebilirlik](requirements-traceability.md), [jüri listesi](jury-checklist.md) |
+| Gereksinim izlenebilirliği | PASS: gereksinim/kaynak/uygulama/doğrulama/sınır içeren 5 sütun | [İzlenebilirlik](requirements-traceability.md), [değerlendirme kapsamı](evaluation-coverage.md) |
 | Hızlı 500 pano demosu | PASS: combined {measured['combined_critical_seconds']:.3f}s, arc {measured['arc_seconds']:.3f}s | [Gerçek Docker/MQTT](verification/v2-runtime.json); 499 arka plan pano ilerledi, 0 offline |
 | Temiz current-run UX / tüm geçmiş | PASS | API isolation+pagination, Chromium; 237.402 eski telemetry satırı ve içerik digest'i korundu |
 | Erken uyarı | PASS: warning 21 → critical 31, fark 10 sentetik adım | Yapısal kalıcı event ve UI; saha öngörü süresi değildir |
@@ -104,7 +104,7 @@ Kanıt özeti tarihi UTC: {result['recorded_at']}. V2 temel commit'i `{result['b
 | Frontend regresyon | **13 benzersiz PASS**, TCO 5 PASS | [Son tam koşu](verification/v2-frontend-summary.json), son UI smoke |
 | Gerçek servis/kesinti | **11 PASS** | [Stack](verification/v2-stack.json): API/DB/MQTT yeniden başlatma, DB outage mesajının tam 1 commit'i |
 | 100 / 250 / 500 HTTP + MQTT yeniden yük | **6 PASS, 6800 / 6800 commit** | [Ham V2](verification/v2-load.json), [V1 ile birlikte performans](performance.md); kısa burst |
-| Sunuma hazır son durum | PASS: 500 NORMAL / 0 offline / 0 current open alarm; PNL-001 normal/güncel/0 alarm, rate 1200 | [Son runtime](verification/v2-final-runtime.json), [son tarayıcı](verification/v2-frontend-final-smoke.json) |
+| Normal demo durumu | PASS: 500 NORMAL / 0 offline / 0 current open alarm; PNL-001 normal/güncel/0 alarm, rate 1200 | [Son runtime](verification/v2-final-runtime.json), [son tarayıcı](verification/v2-frontend-final-smoke.json) |
 
 Servis doğrulaması SCADA için bounded readiness ve DB connect/pool/statement/socket/lock/DNS sınırlarını kapsar. Salt-okuma yolu maintenance yazma kilidinden ayrıdır; stale risk/policy ve kalıcı alarm tick davranışı korunur. İlk denemelerdeki readiness ve DB toparlanma sorunları giderildikten sonra beş regresyon sınırı ve son gerçek 11 servis kontrolü geçti. Önceki denemeler Git geçmişinde, güncel sonuç [stack kaydında](verification/v2-stack.json) bulunur.
 
@@ -115,7 +115,7 @@ Referans firmware envelope'u mevcut synthetic demo API'sine bağlanmadı; fiziks
 Delta paketleyici `scripts/package_v2_delta.py`: V1 base üzerine binary patch uygulanabilirliği, normalizasyon sonrası changed-files blob eşitliği, patch+ZIP known-secret taraması ve CRC kontrolü yapar; gerçek Git index değişmez. Çıktı `handoff/GridSentinel-v2-delta.zip`; değişmeyen PDF/Excel, `.env`, cache ve bağımlılıklar dışarıda bırakılır.
 ''', encoding='utf-8')
     performance = ROOT / 'docs/performance.md'
-    perf_marker = '\n## V2 yeniden ölçümü\n'
+    perf_marker = '\n## V2 ölçümleri\n'
     rows = []
     for case in load['cases']:
         rows.append(f"| {case['devices']} | {case['transport'].upper()} | {case['committed']}/{case['expected']} | {case['committed_frames_per_second']:.2f} | {case['producer_request_or_puback_ms']['p95']:.2f} | {case['source_to_ingestion_received_ms']['p95']:.2f} | {case['fleet_api_ms']['p95']:.2f} |")
@@ -164,7 +164,7 @@ docker compose cp api:/tmp/v2-load.json docs/verification/v2-load.json
 docker compose up -d api scada simulator
 ```
 
-Ardından `apps/web` içinde `node scripts/project-scale-proof.mjs --input=../../docs/verification/v2-load.json --version=v2` ve web build yapılır. Sunumu `python scripts/run_demo.py --presentation --panels 500 --scenario normal_operation` ile temiz current-run'a alın; load geçmişini silmeyin. Tarihli V1 rapor üreticisini çalıştırarak eski dosyaları ezmeyin.
+Ardından `apps/web` içinde `node scripts/project-scale-proof.mjs --input=../../docs/verification/v2-load.json --version=v2` ve web build yapılır. Normal demo başlangıcı `python scripts/run_demo.py --presentation --panels 500 --scenario normal_operation` komutuyla oluşturulur; yük geçmişi korunur. Tarihli V1 rapor üreticisini çalıştırarak eski dosyaları ezmeyin.
 ''', encoding='utf-8')
     print(json.dumps({'status': result['status'], 'python': result['python_tests']['passed'], 'container': result['container_tests']['passed'], 'frontend': 13, 'stack': 11, 'commits': 6800}))
 

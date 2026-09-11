@@ -1,71 +1,148 @@
-# GridSentinel V2
+# GridSentinel
 
-Grid Up Hackathon için AG panoda kritik duruma giden elektriksel, termal, nem ve PD belirtilerini birlikte izleyen **şirket içi condition-monitoring ve karar destek prototipi**. Mevcut MPR/ABB yatırımını yeniden kullanır; açıklanabilir kurallar, veri kalitesi ve kalıcı erken uyarı zaman çizelgesiyle operatöre riskin nedenini ve önerilen aksiyonu gösterir.
+**Elektrik dağıtım panoları ve OG hücreleri için açıklanabilir erken uyarı ve condition-monitoring platformu.**
 
-**Demo verileri sentetiktir. GridSentinel koruma rölesi değildir.** Gerçek pano kurulumu, gerçek ADM/GDZ SCADA bağlantısı veya SMS/WhatsApp gönderimi yapılmaz.
+## Proje Özeti
 
-Gerçekte çalışan zincir: 500 sanal pano → kimlik doğrulamalı MQTT → FastAPI/PostgreSQL → alarm/audit/mock bildirim → Next.js → üç banklı salt okunur Modbus TCP. Tek seçili demo hızlanırken 499 pano veri gönderir. Yeni koşu grafikleri temiz başlar; eski kayıtlar silinmez. Retrofit kartın pin/net/bağlantı dosyaları, host üzerinde test edilen C++ firmware çekirdeği ve A/B/C kurulum planı saha yaklaşımını somutlaştırır. CORE/THERMAL/ADVANCED PD paketleri mevcut cihazları korur; TCO yalnız kullanıcı girdileriyle hesaplanır. Yenilik; çoklu sinyal, açıklanabilir karar, veri kökeni ve yerel SCADA'nın tek akışta birleşmesidir.
+GridSentinel; elektriksel yük, sıcaklık, nem, kısmi deşarj ve ark göstergelerini birlikte değerlendirerek normal çalışma davranışından sapmaları erken aşamada görünür kılmayı amaçlayan, şirket içinde çalışan bir izleme prototipidir.
 
-## Tek komutla çalıştır
+Mevcut MPR-53CS ve ABB TVOC-2 gibi cihazlardan elde edilebilen verileri, önerilen retrofit sensörlerle aynı izleme katmanında birleştirir. Operatöre riskin nedenini, veri güvenilirliğini ve önerilen aksiyonu açıklar. Mevcut koruma ekipmanlarının yerine geçmez.
 
-Docker Linux engine ve Python 3.10+ hazırken repo kökünde:
+Grid Up Hackathon kapsamında geliştirilen prototipin çalışan demosu 500 sanal pano içerir. Donanım yerleşimi, kaynak 1600 kVA AG pano çizimine dayanır; OG hücrelere uyarlama saha değerlendirmesi gerektirir. **Demo gözlemleri sentetiktir.**
 
-```powershell
-python scripts/run_demo.py --scenario combined_thermal_pd
-```
+![500 sanal panonun sağlık ve haberleşme durumunu gösteren GridSentinel filo ekranı](docs/verification/v2-fleet.png)
 
-500 panolu jüri sunumu:
+## Problem
 
-```powershell
+Elektriksel yük, bağlantı sıcaklığı, nem ve izolasyon belirtileri ayrı ayrı izlendiğinde aynı ekipmandaki değişimlerin birlikte değerlendirilmesi zorlaşır. Koruma cihazları kendi güvenlik işlevlerini yürütürken, bakım ekiplerinin riskin gelişimini ve veri eksikliklerini açıklayan ortak bir izleme görünümüne ihtiyacı vardır.
+
+## Çözüm
+
+GridSentinel, mevcut cihaz yatırımını kullanan bir izleme katmanı sunar. Farklı sinyalleri aynı pano ve zaman bağlamında değerlendirir; açıklanabilir risk puanı, kalıcı alarm ve operatör önerisi oluşturur. CORE, THERMAL ve ADVANCED PD kapsamları, ek sensör yatırımının saha ihtiyacına göre kademelendirilmesini destekler.
+
+## Nasıl Çalışır?
+
+1. Sentetik cihazlar ve kaynak akım replay'i, kimlik doğrulamalı MQTT üzerinden telemetri gönderir.
+2. Merkez yazılımı kimlik, zaman sırası ve veri kalitesini kontrol ederek ölçümleri kalıcı olarak saklar.
+3. Kurallar ve zaman içindeki değişimler risk durumunu, açıklamayı ve alarm aksiyonlarını belirler.
+4. Operasyon ekranı ve salt okunur SCADA arayüzü güncel durumu gösterir; geçmiş kayıtlar korunur.
+
+## Temel Özellikler
+
+- Filo, pano şeması, ölçüm trendleri, alarm merkezi ve veri kalitesi görünümü.
+- NORMAL → ATTENTION → WARNING → CRITICAL durumları ve kalıcı erken uyarı zaman çizelgesi.
+- Güncel demo koşusu ile tüm geçmişin ayrı görüntülenmesi; tekrar mesajlarının tekilleştirilmesi.
+- Kaynağa dayalı MPR/TVOC register decoder'ları ve 500 panoya erişen üç Modbus TCP bankı.
+- On sentetik senaryo, rol tabanlı erişim, audit kaydı ve açıkça simüle bildirimler.
+- Referans donanım/firmware dosyaları, A/B/C saha müdahale sınıfları ve parametrik maliyet hesabı.
+
+## Sistem Mimarisi
+
+**Sentetik cihazlar → Mosquitto MQTT → FastAPI / risk analizi → PostgreSQL → Next.js ve Modbus TCP**
+
+Docker Compose; veritabanı, broker, API, web arayüzü, simulator ve SCADA bridge olmak üzere altı servis çalıştırır. Çalışma zamanında public cloud bağımlılığı yoktur. Önerilen fiziksel saha zinciri ile çalışan sentetik demo [sistem mimarisinde](docs/architecture.md) ayrı gösterilir.
+
+## Erken Uyarı Yaklaşımı
+
+Risk puanı; yük-sıcaklık ilişkisi, termal değişim, PD göstergeleri ve veri kalitesi gibi açıklanabilir katkılardan oluşur. Skor, fiziksel arıza olasılığı veya koruma ayarı değildir. Her durum geçişi gözlem, olası neden ve önerilen aksiyonla ilişkilidir.
+
+ATTENTION seviyesinde kalıcı alarm, olay kaydı, SCADA işareti ve operatör önerisi bulunur; SMS/WhatsApp bildirimi oluşmaz. WARNING seviyesinde iki mock kanal devreye girer. CRITICAL yüksek öncelikli eskalasyon ekler; ark olayı acil simüle bildirim ve audit kaydı üretir. [Risk modeli](docs/anomaly-engine/risk-model.md) · [Aksiyon matrisi](docs/operations/action-matrix.md)
+
+<details>
+<summary>Erken uyarı zaman çizelgesi ve risk açıklaması</summary>
+
+![Termal ve PD göstergeleriyle durum geçişlerini açıklayan erken uyarı ekranı](docs/verification/v2-early-warning.png)
+
+</details>
+
+## SCADA ve Modbus Entegrasyonu
+
+MPR-53CS ve TVOC-2-COM kaynak haritaları, GridSentinel'ın prototipe ait çıkış haritasından ayrıdır. Yerel SCADA master, ayrı bridge üzerinden gerçek TCP okuması yapar; cihaz yazma, trip veya reset komutu üretmez.
+
+| Pano aralığı | TCP portu | Unit ID |
+|---|---:|---|
+| PNL-001–247 | 1502 | 1–247 |
+| PNL-248–494 | 1503 | 1–247 |
+| PNL-495–500 | 1504 | 1–6 |
+
+PNL-500, **bank 3 / unit 6** üzerinden doğrulanmıştır. Portlar konteyner içi adreslerdir; isteğe bağlı host eşlemeleri [kurulum belgesinde](docs/deployment.md#windows-host-port-eşlemesi), register ayrıntıları [SCADA haritasında](docs/scada/register-map.md) yer alır.
+
+![PNL-500 için bank 3 üzerinden gerçek yerel Modbus TCP register okuması](docs/verification/v2-scada-bank500.png)
+
+## Saha Uygulama Yaklaşımı
+
+Saha yaklaşımı mevcut analizör ve uygun Arc Guard arayüzünü kullanır; gerekli noktalara ek sıcaklık/nem sensörleri ve PD acquisition katmanı önerir. Montaj kapsamı A/B/C erişim ve kesinti sınıflarıyla değerlendirilir. Metal pano içinde RF, elektriksel izolasyon ve bakım erişimi ayrıca doğrulanmalıdır.
+
+Referans kart, bağlantı/netlist/güç dosyaları ve host üzerinde test edilen C++ çekirdeği teknik yaklaşımı somutlaştırır. Bunlar üretilmiş kart veya tamamlanmış saha kurulumu değildir. [Kurulum sınıfları](docs/installation-matrix.md) · [Kablosuz tasarım](docs/wireless-design.md) · [Donanım referansı](hardware/pcb/README.md)
+
+<details>
+<summary>Kaynak pano geometrisi ve izleme noktaları</summary>
+
+![1600 kVA pano geometrisindeki önerilen izleme noktalarını gösteren pano ekranı](docs/verification/v2-panel-clean.png)
+
+</details>
+
+## Doğrulama Sonuçları
+
+Son doğrulama kayıtları 11 Eylül 2026 tarihli yerel Docker ortamına aittir. Python kaynak hash testi, orijinal dokümanların bulunduğu ayrı doğrulama alanında çalışmıştır.
+
+| Doğrulama | Sonuç |
+|---|---|
+| Python | 107 PASS + izole kaynak hash testi 1 PASS |
+| Frontend birim testleri | 5/5 PASS |
+| Üretim build / TypeScript | PASS |
+| Stack smoke | PASS — 6 servis |
+| PNL-500 TCP | PASS — API ve doğrudan host okuması |
+| 100 / 250 / 500 pano yük testi | 6/6 PASS — HTTP ve MQTT |
+| Kalıcı veritabanı commit'i | 6.800 / 6.800 |
+| 500 panolu normal demo | 500 NORMAL / 0 offline / 0 güncel açık alarm |
+
+[Son doğrulama özeti](docs/verification/final-verification.json), [kabul kapsamı](docs/acceptance.md) ve [performans raporu](docs/performance.md) ölçüm ortamını ve sınırlarını içerir. Yük sonuçları kısa sentetik burst ölçümleridir; sürekli üretim kapasitesi garantisi değildir.
+
+## Yerel Demo
+
+Docker Linux engine, Compose v2 ve Python 3.10+ bulunan ortamda 500 sanal pano için başlangıç komutu:
+
+```bash
 python scripts/run_demo.py --presentation --panels 500 --scenario normal_operation
 ```
 
-PNL-001'i açıp **Termal+PD demosu** veya **Ark demosu** düğmesine basın. Son yerel ölçümde combined **48,096 s**, arc **13,050 s**; erken uyarı kritik seviyeden **10 sentetik adım** önce oluştu. Bu hızlandırılmış süreler saha arıza tahmin süresi değildir. [5 dakikalık sunum metni](docs/final-demo-script.md).
+Bu modda PNL-001 odak demo panelidir; diğer 499 pano veri gönderimini sürdürür. Termal+PD ve Ark senaryoları arayüz üzerinden tetiklenebilir. Kullanıcı bilgileri ilk başlatmada yerel `.env` dosyasında oluşturulur.
 
-[Dashboard: localhost:3000](http://localhost:3000). İlk çalıştırmada `.env` içinde rastgele yerel parolalar oluşturulur. `ADMIN_USERNAME` / `ADMIN_PASSWORD` ile giriş yapın. Sonraki başlatmalar için `docker compose up -d`; durdurmak için `docker compose stop`. Ayrıntılar [kurulum rehberinde](docs/install-guide.md).
+[Yerel arayüz](http://localhost:3000) · [Kurulum rehberi](docs/install-guide.md) · [Demo akışı](docs/demo-walkthrough.md)
 
-## Çalışan kapsam
+### Doğrulanmış Demo Sonuçları
 
-- Next.js/TypeScript operasyon ekranı: filo, bölge/trafo/pano detayı, kaynak çizime dayalı tıklanabilir şema, trend ve risk açıklamaları.
-- FastAPI, PostgreSQL ve kimlik doğrulamalı Mosquitto; sentetik MQTT simulator ve 152 satırlık orijinal L1 replay.
-- Açıklanabilir kurallar/trendler, kalite/iletişim problemleri, alarm yaşam döngüsü ve açıkça simüle bildirimler.
-- Kaynak PDF'lere dayalı salt okunur MPR-53CS ve TVOC-2 decoder'ları; ayrı gerçek yerel Modbus TCP bridge ve SCADA master.
-- 10 senaryo; 100/250/500 panel için tekrar çalıştırılabilir yük testi, Python ve tarayıcı testleri.
-- Somut EDA bağımsız [carrier kart](hardware/pcb/README.md), pin/netlist/güç/yerleşim dosyaları; [referans MCU kaynak kodu](edge/firmware/README.md), RF ve A/B/C müdahale planı.
-- Current-run/tüm geçmiş, ölçülebilir erken uyarı, merkezi aksiyon politikası, alarm filtreleri ve **Yaygınlaştırma** ekranında gerçek ölçüm/paket/TCO karşılaştırması.
+| Senaryo / ölçüt | Ölçülen sonuç |
+|---|---:|
+| Combined Thermal + PD | 48,096 s |
+| Arc Event | 13,050 s |
+| Erken uyarı | Kritik seviyeden 10 sentetik adım önce |
 
-SCADA: PNL-001–247 port 1502, PNL-248–494 port 1503, PNL-495–500 port 1504. PNL-500 **bank 3 / unit 6**, gerçek yerel TCP okumasıyla doğrulandı. MPR/TVOC kaynak haritaları verilen dokümanlardan uygulanmıştır; GridSentinel output map'i prototipe aittir, ADM/GDZ resmî haritası değildir. [Register ve yapılandırma](docs/scada/register-map.md).
+Kaynak: [uçtan uca runtime ölçümü](docs/verification/v2-runtime.json). Bu süreler hızlandırılmış sentetik demo zamanıdır; gerçek saha arıza tahmin süresi olarak yorumlanmamalıdır.
 
-Bu Windows makinesinde sistemin ayırdığı portlarla çakışmamak için yerel SCADA erişimi `127.0.0.1:11502–11504`, MQTT erişimi `127.0.0.1:11883` olarak yapılandırıldı. API/SCADA ekranındaki `scada:1502–1504` konteyner içi adreslerdir. Varsayılan ve isteğe bağlı host eşlemesi [kurulum belgesinde](docs/deployment.md#windows-host-port-eşlemesi) açıklanır.
+## Repository Yapısı
 
-## Kaynaklar ve sınırlar
+| Bölüm | Açıklama |
+|---|---|
+| [Sistem mimarisi](docs/architecture.md) | Çalışan demo ve önerilen saha zinciri |
+| [Yerel kurulum](docs/install-guide.md) | Gereksinimler, servisler ve yapılandırma |
+| [Demo akışı](docs/demo-walkthrough.md) | Senaryolar ve gözlenebilir davranış |
+| [Gereksinim izlenebilirliği](docs/requirements-traceability.md) | Kaynak, uygulama, doğrulama ve sınır |
+| [Değerlendirme kapsamı](docs/evaluation-coverage.md) | Teknik değerlendirme kriterlerinin karşılığı |
+| [Performans](docs/performance.md) | Ölçek ölçümleri ve test yöntemi |
+| [Saha müdahale sınıfları](docs/installation-matrix.md) | A/B/C erişim ve kesinti koşulları |
+| [Maliyet/fayda](docs/cost-benefit.md) | Kademeli yatırım ve parametrik TCO |
+| [Yenilikçi yaklaşım](docs/innovation.md) | Tasarım tercihleri ve somut karşılıkları |
+| [Donanım](hardware/) | Kart, bağlantı ve yerleşim referansları |
+| [Edge firmware](edge/firmware/) | C++ çekirdeği ve doğrulama kapsamı |
+| [Kaynak analizi](docs/source-analysis.md) | Organizatör dokümanlarından çıkarımlar ve hash kayıtları |
 
-Organizatörün orijinal PDF/Excel dosyaları güncel repository dağıtımına dahil değildir; kaynak metinleri, veri çıkarımları ve orijinal SHA256 kayıtları `data/source/` altında korunur. [Kaynak analizi](docs/source-analysis.md), Excel'de hangi verilerin bulunduğunu ve teknik adres/yerleşim dayanaklarını açıklar. Excel yalnız L1 sentetik akım içerir; diğer kanalların üretimi API/UI üzerinde etiketlidir. PD acquisition zinciri konsepttir; sentetik feature'lar kalibre gerçek PD ölçümü değildir. RF kapsama/pil ömrü, gerçek Modbus word order ve saha alarm eşikleri doğrulanmış değildir.
+## Teknik Sınırlar
 
-Teknik mimari [MASTER_SPEC.md](MASTER_SPEC.md) ve [architecture.md](docs/architecture.md); geliştirme kuralları [CONTRIBUTING.md](CONTRIBUTING.md). Üretim/saha güvenlik sınırları [security.md](docs/security.md), kurulum kesintileri [installation-matrix.md](docs/installation-matrix.md), kablosuz seçimi [wireless-design.md](docs/wireless-design.md).
-
-## Demo ve doğrulama
-
-[Demo akışı](docs/demo-guide.md), [V2 doğrulama kanıtı](docs/verification/v2-evidence.json), [performans](docs/performance.md) ve [kabul matrisi](docs/acceptance.md) gerçek sonuçları ve tekrar komutlarını içerir. Değişiklik öncesi temiz V1 commit'inde 62 Python, 7 tarayıcı, 11 servis/kesinti ve 6 yük vakası yeniden geçti; 6800/6800 commit kaydı saklandı. V2: **host 108 PASS, container 108 PASS, Chromium 13 PASS, servis/kesinti 11 PASS**; C++ host çekirdeği 308 kontrol ve TCO 5 sınır testi PASS. 100/250/500 HTTP+MQTT testlerinde **6.800/6.800 kalıcı commit** doğrulandı; yeni kanıtlar ayrı dosyalardadır. PostgreSQL geçişinde **237.402 eski telemetri kaydının içerik özeti birebir korundu**. [Geçiş kanıtı](docs/verification/v2-legacy-preservation.json).
-
-```powershell
-python -m pytest -q -k "not test_all_sources_have_hashes_without_changing_originals"
-python -m scripts.verify_v2_runtime
-python scripts/verify_stack.py --restarts --output docs/verification/v2-stack.json
-```
-
-Kaynak dosyası hash testi ayrıca orijinal dokümanların bulunduğu izole bir kopyada çalıştırılır; tam komut ve kapsam [kaynak analizinde](docs/source-analysis.md#kaynak-dosyalarının-dağıtımı-ve-hash-kontrolü). Uygulama testleri için orijinaller gerekmez.
-
-Son repository teslim kontrolü: [107 uygulama testi + ayrı kaynak hash testi, frontend build ve canlı stack smoke](docs/verification/repository-cleanup.json). Önceki tam 108/108 kayıtları orijinallerin mevcut olduğu test ortamını belgeler; yük ölçümleri yeniden çalıştırılmadan korunmuştur.
-
-Frontend `apps/web` içinde `npm run test:unit` ve `npm run test:e2e:v2`; eski `npm run test:e2e` korunur. Senaryo/E2E/kesinti/yük testleri aynı anda çalıştırılmaz. Sırlar Git'e alınmaz. Runtime public cloud bağımlılığı yoktur; ilk paket/image indirmesi kurulum aşamasıdır. Çevrimdışı image aktarımı [deployment.md](docs/deployment.md).
-
-## Teslim ve sınırlar
-
-[Gereksinim izlenebilirliği](docs/requirements-traceability.md), [jüri listesi](docs/jury-checklist.md), [maliyet/fayda](docs/cost-benefit.md), [yenilikçilik](docs/innovation.md), [çevresel/EMC planı](docs/hardware/environmental-emc-plan.md), [aksiyon matrisi](docs/operations/action-matrix.md).
-
-Hafif delta: `handoff/GridSentinel-v2-delta.zip`; temel commit `4a0f4c1cae879604a384e91862749fef754abecc`. Değişen/yeni dosyalar, Git binary patch ve V2 kanıtlarını içerir. `.env`, bağımlılıklar, cache, volume ve değişmeyen PDF/Excel dahil değildir. [Tekrar paketleme](scripts/package_v2_delta.py) gerçek Git index'ini değiştirmeden patch uygulanabilirliğini ve sır taramasını doğrular.
-
-Kart üretilmedi; EDA-neutral çizimler yönlendirilmiş/sertifikalı PCB değildir. C++ **host** derleme/testi, ESP32 hedef derleme/flash değildir; embedded build **NOT_RUN**, KiCad ERC/DRC **NOT_RUN**. Fiziksel UART/BLE/Ethernet/kalıcı depolama/watchdog/MQTT adapter implementasyonu, canlı firmware verisini API’ye dönüştürecek normalizer ve saha commissioning’i henüz yapılmadı. RF, pil ömrü, kalibre PD, EMC/IP ve gerçek maliyet/ROI doğrulanmadı. Yerel ölçümler kısa burst'tür; tek API süreci kullanılır, uzun soak ve çoklu worker desteği ayrıca gerekir.
-
-Teslim metadata’sı temiz `main` commit/push sonrasında üretilir: [Git kimliği ve paketleme](docs/delivery-integrity.md). `v2-summary.json` gerçek HEAD kimliğini içeren Git dışı çıktıdır; ölçüm kanıtı `v2-evidence.json` ile izlenir.
+- Tüm demo gözlemleri sentetiktir; gerçek ADM/GDZ SCADA bağlantısı yapılmamıştır.
+- SMS/WhatsApp gönderimleri simüledir. PD verileri kalibre saha ölçümü değildir.
+- PCB fiziksel olarak üretilmemiştir; ERC/DRC ve ESP32 hedef build/flash doğrulaması yapılmamıştır. Host C++ testleri fiziksel sürücü doğrulaması değildir.
+- RF kapsama, pil ömrü, EMC, saha eşikleri ve gerçekleşmiş maliyet/fayda pilot çalışma gerektirir.
+- Prototip tek API süreciyle ölçülmüştür; uzun süreli yük ve çoklu worker işletimi ayrıca doğrulanmalıdır.
+- GridSentinel koruma rölesi değildir; kesici kontrol etmez. ABB koruma işlevi bağımsızdır.

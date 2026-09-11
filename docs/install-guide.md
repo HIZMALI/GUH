@@ -1,4 +1,4 @@
-# Kurulum
+# Yerel Kurulum
 
 ## Gereksinimler
 Docker Desktop/Engine ve Compose v2; bootstrap için Python3.10+. İlk image/package indirmesi için internet; çalışma sırasında public cloud bağımlılığı yoktur. Windows'ta Docker Linux containers/WSL2 motorunu başlatın. 3000,8000,1883,1502–1504 loopback portları boş olmalı. Donanım, broker sağlayıcısı, gerçek SCADA veya SMS hesabı gerekmez.

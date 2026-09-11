@@ -1,16 +1,13 @@
-# GridSentinel engineering rules
+# Katkı Kuralları
 
-Read MASTER_SPEC.md, docs/source-analysis.md and docs/api-contract.md before modifying code. Original source PDFs and XLSX are external reference inputs, excluded from the current repository distribution. Preserve their recorded hashes and the extracted source text in data/source. Source re-extraction and the original-file hash test require these documents in a separate verification copy; see docs/source-analysis.md.
+Teknik kapsam [proje spesifikasyonunda](MASTER_SPEC.md), veri dayanakları [kaynak analizinde](docs/source-analysis.md), arayüzler [API sözleşmesinde](docs/api-contract.md) tanımlıdır.
 
-- On-premise only. No Sites registration, cloud hosting, cloud database, remote fonts or external runtime dependency. Next.js + FastAPI + PostgreSQL + Mosquitto + Docker Compose.
-- This is a hackathon condition-monitoring prototype, never a protection relay. Never issue device writes, trip commands or reset certified protection equipment.
-- All demo observations are synthetic. Workbook L1 samples are organizer-supplied synthetic; other channels generated synthetic; hardware mappings source-derived. Label provenance in API, UI and docs.
-- Register addresses must have source page, width, scale, signedness, and addressing convention. Do not guess unspecified word order: make configurable and document unverified default.
-- UTC aware telemetry; durable deduplication, out-of-order rejection, missing/stale/invalid quality explicit; no silent zero substitution.
-- Deterministic explainable risk, no accuracy promises. Engineering demo thresholds are assumptions, not protection setpoints or universal limits.
-- No embedded secrets. Bootstrap local credentials securely and ignore generated secrets. Authentication, viewer/operator/admin roles, audit log, validated identity and request limits.
-- Test meaningful boundaries and end-to-end operation. Record measurements, commands, dates and failures honestly. Do not call anything verified without actual checks.
-- Coordinate shared interfaces before implementation and preserve backward compatibility.
-- Keep work at repository root (no redundant nested repository). Scripts must work from documented Windows/Linux commands.
+- Değişiklikler on-premise çalışma, salt okunur cihaz erişimi ve koruma bağımsızlığı sınırlarını korur.
+- API ve veri şeması değişikliklerinde geriye uyumluluk ve kalıcı kayıtların korunması esastır.
+- Sentetik veri, organizatör replay'i ve kaynak temelli donanım eşlemeleri açıkça ayrılır; saha doğruluğu veya sertifikasyon iddiası kanıt gerektirir.
+- Register tanımlarında kaynak sayfa, adresleme, genişlik, ölçek ve signedness bulunur. Belirsiz word order yapılandırılabilir kalır.
+- Sırlar, bağımlılıklar, runtime çıktıları ve yerel teslim paketleri Git'e eklenmez. `.env.example` yalnız boş yapılandırma şablonudur.
+- Testler değişen davranışın anlamlı sınırlarını kapsar. Sonuçlar ortam, tarih ve kapsamıyla kaydedilir; çalıştırılmayan kontroller doğrulanmış sayılmaz.
+- Doküman yolları ve örnek komutlar Windows/Linux kullanımıyla tutarlı tutulur. Orijinal kaynak hashleri ve teknik kanıtlar korunur.
 
-V2 extends baseline commit `4a0f4c1cae879604a384e91862749fef754abecc`. Preserve V1 verification evidence and original-source hash records. Never purge history to make the demo clean: use explicit run identities and views.
+Orijinal PDF/XLSX dosyaları harici referans girdileridir. Kaynak çıkarımı ve orijinal dosya hash kontrolü, bu girdilerin mevcut olduğu ayrı doğrulama alanında yürütülür.

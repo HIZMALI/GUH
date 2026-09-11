@@ -1,11 +1,11 @@
 # V2 frontend doğrulaması
 
-2026-09-11 UTC; yerel Docker üretim arayüzü `http://127.0.0.1:3000`. Mevcut V1 kanıtları değiştirilmedi.
+2026-09-11 UTC; yerel Docker üretim arayüzü `http://127.0.0.1:3000`. V1 referans kayıtları ayrı saklanır.
 
 ## Son tam regresyon
 
-- Fleet current-run alarm sayımı ve ATTENTION bildirim politikası düzeltilmiş backend üzerinde **13/13 PASS**, 0 FAIL, 0 SKIP; 91,579 saniye (başlangıç 2026-09-11 12:31:19 UTC).
-- [Ham tam koşu](v2-frontend-final-regression.json) ve [doğrulanmış özet](v2-frontend-summary.json) test sonuçlarını, kaynak rapor SHA256 değerini ve güncel görsel hashlerini içerir. İlk denemede düzeltilen navigasyon seçicisine ait kayıtlar Git geçmişindedir; burada son tam koşu tutulur.
+- Fleet current-run alarm sayımı ve ATTENTION bildirim politikasını kapsayan backend üzerinde **13/13 PASS**, 0 FAIL, 0 SKIP; 91,579 saniye (başlangıç 2026-09-11 12:31:19 UTC).
+- [Ham tam koşu](v2-frontend-final-regression.json) ve [doğrulanmış özet](v2-frontend-summary.json) test sonuçlarını, kaynak rapor SHA256 değerini ve güncel görsel hashlerini içerir.
 - Son koşunun altı V2 testinde `pageerror` ve `console.error`: **0**. İlk V1 testi ayrıca `pageerror` olmadığını kontrol eder. Diğer V1 testleri için toplu konsol hatası yokluğu iddia edilmez.
 - TypeScript kontrolü PASS; saf maliyet hesabının beş sınır testi 5/5 PASS. Üretim Next.js build Docker dağıtımında doğrulandı.
 
@@ -17,7 +17,7 @@ Odaklı `combined_thermal_pd` seçimi yeni run oluşturdu. Son koşuda `PNL-001-
 
 Policy sürüm 2 için gerçek çalışan API'de ATTENTION adım 19: **0 mock bildirim**, kalıcı alarm var; WARNING adım 21: **2 simulated kayıt**, `sms_mock` ve `whatsapp_mock`, kalıcı alarm var. UI aksiyon kartı ATTENTION için iki kanalı göstermez; WARNING için ikisini gösterir. ATTENTION aralığı mevcut dört saniyelik ekran yenilemesinden kısa olduğu için bu iki görüntü, gerçek API yanıtı yalnız tarayıcı çiziminde sabitlenerek kaydedildi; backend ve simulator ilerlemeye devam etti. Bildirim sayıları canlı API'den alındı; veri üretilmiş bir response fixture'ı değildir. [Zaman/adım ve sayımlar](v2-frontend-observations.json).
 
-Python regresyonunda mevcut 106 teste iki test eklendi: pano/run eşleşmesi ve active/acknowledged sınırı ile ATTENTION alarm/event/SCADA → WARNING bildirim yükselmesi. Yerel ve üretim container ortamlarında **108/108 PASS**. İlk dar kontrolde eski COMMUNICATION_LOSS bildirim beklentisi yeni politikayla çelişti; beklenti kullanılabilirlik aksiyonlarına göre güncellendi, ark olayının acil bildirim üstünlüğü korundu ve tam koşular geçti.
+Run/panel eşleşmesi, active/acknowledged alarm sınırı ve ATTENTION → WARNING bildirim yükselmesi Python regresyonu kapsamındadır. COMMUNICATION_LOSS kullanılabilirlik aksiyonları üretir; ark olayının acil bildirim üstünlüğü korunur. Orijinal kaynak girdileri mevcutken host/container tam koşuları **108/108 PASS** sonucunu vermiştir. Güncel checkout için 107 test ve ayrı kaynak hash kontrolü [son doğrulama özetinde](final-verification.json) belgelenir.
 
 TH-A/H1 sağ yardımcı hacimdedir (`cx=439, cy=292`); P1 alt toprak/kablo bölgesinde kalır. Otomatik aksiyon açıklamaları API politikasından, Türkçe kural adları merkezi etiketlerden gelir. Bildirimlerin yerel mock olduğu, gerçek SMS/WhatsApp gönderilmediği banner, kanal kartları ve kayıt durumlarında görünür.
 
@@ -38,7 +38,7 @@ Yaygınlaştırma ekranı CORE/THERMAL/ADVANCED PD, A/B/C erişim sınıfları, 
 - [ATTENTION: bildirim kanalı yok](v2-attention-policy.png)
 - [WARNING: iki mock kanal](v2-warning-policy.png)
 
-Final hardening sırasında ATTENTION/WARNING, normal filo ve temiz pano görüntüleri görsel olarak incelendi; kesilen veya çakışan içerik görülmedi. Yeni policy ekranları ve filo tüm sayfa kaydedildi. Son salt-okunur kontrol 11 Eylül 2026 12:37:43 UTC: `PNL-001-r45`, normal, risk 8, güncel alarm 0; filo **500 NORMAL / 0 offline / 0 open_alarms**. UI metrikleri ve API yanıtı birlikte doğrulandı. Yaygınlaştırma tablosunun yeni yük raporu SHA256 değeri üretim build içinde eşleşti, console/page error 0. [Nihai kontrol](v2-frontend-final-smoke.json) PASS; dokuz ekran görüntüsünün son hash değerleri [özette](v2-frontend-summary.json).
+Görsel doğrulamada ATTENTION/WARNING, normal filo ve temiz pano görüntüleri görsel olarak incelendi; kesilen veya çakışan içerik görülmedi. Yeni policy ekranları ve filo tüm sayfa kaydedildi. Son salt-okunur kontrol 11 Eylül 2026 12:37:43 UTC: `PNL-001-r45`, normal, risk 8, güncel alarm 0; filo **500 NORMAL / 0 offline / 0 open_alarms**. UI metrikleri ve API yanıtı birlikte doğrulandı. Yaygınlaştırma tablosunun yeni yük raporu SHA256 değeri üretim build içinde eşleşti, console/page error 0. [Nihai kontrol](v2-frontend-final-smoke.json) PASS; dokuz ekran görüntüsünün son hash değerleri [özette](v2-frontend-summary.json).
 
 ## Yeniden çalıştırma
 
@@ -48,12 +48,6 @@ Repo kökünde yerel `.env` ve çalışan Docker yığını gerekir; kimlik bilg
 cd apps/web
 npm run typecheck
 npm run test:unit
-npm run test:e2e:v2
-# Yalnız dar tekrar, ham raporu ayrı tutarak:
-$env:E2E_REPORT_FILE = 'test-results-v2/rerun.json'
-npm run test:e2e:v2 -- --grep='V2 focused|V2 deployment|V2 global'
-# Final hardening tam koşusunun ayrı ham raporu:
-$env:E2E_REPORT_FILE = 'test-results-v2/final-hardening.json'
 npm run test:e2e:v2
 ```
 

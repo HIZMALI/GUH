@@ -1,4 +1,4 @@
-# Frontend doğrulama kaydı
+# Frontend Doğrulaması — V1 Referansı
 
 11 Eylül 2026 (Europe/Istanbul), test başlangıcı **2026-09-10T23:36:13.873Z**. Bu rapor belirtilen ortamda çalıştırılan frontend kontrollerini kapsar.
 
@@ -20,12 +20,12 @@ Hedef: `http://127.0.0.1:3000`, Docker standalone Next.js frontend; yerel FastAP
 
 ## Build / tip / format
 
-- Son statik sağlık metni düzeltmesinden sonra `npm run build`: PASS. Next.js16.3.4; React19.3.0; TypeScript5.9.3 strict/noUnused kontrolleri. Dört route: `/`, `/_not-found`, `/api/[...path]`, `/icon.svg`.
+- Üretim derlemesi `npm run build`: PASS. Next.js16.3.4; React19.3.0; TypeScript5.9.3 strict/noUnused kontrolleri. Dört route: `/`, `/_not-found`, `/api/[...path]`, `/icon.svg`.
 - `npm run typecheck`: PASS.
 - `npx prettier --check src next.config.ts playwright.config.ts scripts tests/e2e package.json tsconfig.json`: PASS; son metin değişikliği için component format kontrolü ayrıca PASS.
 - Dependency installation audit: 0 vulnerabilities (kurulum anındaki npm audit sonucu).
 
-Testten sonra sağlık kartının açıklaması “Risk ve veri kalitesiyle hesaplanan sağlık göstergesi” olarak düzeltildi. Risk grafiğinin otomatik padding içeren ekseni de0–100 sabit domain'e alındı; gerçek risk değerleri değişmedi. Bu iki sunum düzeltmesinden sonra build tekrar geçti. Yedi E2E tekrar edilmedi; son Docker image rebuild/smoke root doğrulamasının konusudur. Ekran görüntüsündeki önceki sağlık açıklaması ve risk ekseni bu nedenle final kaynak koddan farklı olabilir.
+Bu kayıt V1 sürümüne ait tarihli test ortamını belgeler. Görseller o sürümün sağlık açıklaması ve grafik eksenini yansıtabilir; güncel arayüz ve tam regresyon [V2 doğrulamasında](v2-frontend-verification.md) yer alır.
 
 ## Görsel kanıtlar
 
@@ -39,9 +39,5 @@ Gerçek üretim container'ından alınan görüntüler; herhangi bir kullanıcı
 - [Mobil filo](frontend-fleet-mobile.png)
 
 Masaüstü/mobil ekranlar görüntülenerek kontrol edildi; tablo/şema/trendler okunabilir, içerik dışarı taşmıyor. Sayfa görüntüleri uzun sayfa tam boy capture'larıdır.
-
-## Önceki başarısızlıklar ve düzeltmeler
-
-İlk local build, yerel CSS importunun `../fonts.css` olması nedeniyle başarısızdı; `./fonts.css` olarak düzeltildi. İlk dev E2E çalışmasında iki assertion başarısızdı: durdurulmuş simülatörde stale kalite etiketi yerine yalnız Sentetik beklenmesi ve Next.js route announcer nedeniyle belirsiz `role=alert` seçicisi. Kalite/sentetik köken birlikte gösterildi ve kesinti seçicisi `.connection-alert` olarak daraltıldı. Ardından dev ortamda6/6 ve yukarıdaki production ortamında7/7 geçti.
 
 Bu kayıt gerçek saha kurulumu, fiziksel MPR/ABB bağlantısı, RF doğrulaması, gerçek PD acquisition veya gerçek SMS/WhatsApp teslimi iddiası değildir. Tüm gözlemler sentetiktir.

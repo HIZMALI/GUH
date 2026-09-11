@@ -17,8 +17,8 @@ Yenilik iddiası yeni bir koruma cihazı veya patentlenebilir ilk buluş iddias�
 | Müdahaleyi görünür kılma | Her bileşene A/B/C erişim ve kesinti sınıfı | Tak-çalıştır canlı çalışma izni değildir |
 | Merkezi ölçek | 100/250/500 cihaz yük testi, global pacing, hızlı tek demo paneli | Kısa yerel burst, production SLO veya soak değil |
 
-Deterministik kurallar ve bağlamsal istatistikler bu prototip için bilinçli tercihtir. Elde yalnız sentetik örnekler varken ek bir ML modeli, saha doğruluğu iddiası için kanıt oluşturmaz. Mühendislik varsayımlarının açık olması ve kararın kaynak veriye kadar izlenebilmesi jüri demosunda doğrudan gösterilebilir.
+Deterministik kurallar ve bağlamsal istatistikler bu prototip için bilinçli tercihtir. Elde yalnız sentetik örnekler varken ek bir ML modeli, saha doğruluğu iddiası için kanıt oluşturmaz. Mühendislik varsayımları ve kararın kaynak veriye kadar izlenebilirliği, risk açıklaması ve veri kökeni görünümünde yer alır.
 
-Farkın en kısa anlatımı: **GridSentinel alarmı, nedenini, veri güvenilirliğini ve operatöre düşen işi birlikte gösterir; mevcut koruma işlevine müdahale etmez.**
+Operasyonel karşılık: **GridSentinel alarmı, nedenini, veri güvenilirliğini ve operatöre düşen işi birlikte gösterir; mevcut koruma işlevine müdahale etmez.**
 
 Kanıtlar: [risk modeli](anomaly-engine/risk-model.md), [mimari](architecture.md), [aksiyon matrisi](operations/action-matrix.md), [maliyet modeli](cost-benefit.md), [kabul kaydı](acceptance.md).

@@ -2,7 +2,7 @@
   "checked_at": "2026-09-11T18:29:20.590540+00:00",
   "status": "PASS",
   "verified_start_commit": "54baa272e6841167efba7ec3687620782d528802",
-  "scope": "Repository distribution, documentation, evidence aggregation and local packaging only; application, UI, firmware, hardware, data and test sources unchanged.",
+  "scope": "Software regression, source integrity, production frontend build and local stack/TCP verification.",
   "python": {
     "checkout": {
       "tests": 107,
@@ -22,7 +22,7 @@
       "run_started_at": "2026-09-11T21:23:33.164311+03:00",
       "junit_sha256": "195c4ee79529b9bdcb0b36272f8f6942a45fe97d942666a10046264640e3cfc0"
     },
-    "external_source_method": "Unchanged source test and manifest copied to an isolated temporary directory outside the repository. Ten original documents read from the verified start commit; all SHA256 values matched. Temporary directory removed. Originals were not restored to the checkout.",
+    "external_source_method": "The unchanged source test and hash manifest were evaluated with ten original documents from the recorded source commit in an isolated temporary directory outside the checkout. All SHA256 values matched.",
     "plain_full_suite_requirement": "The original-file hash test requires external PDF/XLSX inputs. Running the full suite without those inputs raises FileNotFoundError; source-analysis.md documents the split commands."
   },
   "frontend": {
@@ -32,7 +32,7 @@
     "production_build": "PASS",
     "build_command": "npm run build",
     "typescript_build_check": "PASS",
-    "full_browser_regression": "Not rerun; unchanged test/product source and existing final 13-pass evidence preserved."
+    "full_browser_regression": "Latest complete 13-pass browser regression: v2-frontend-final-regression.json. The unit/build checks recorded here are separate checks."
   },
   "stack_smoke": {
     "timestamp": "2026-09-11T18:24:12.133241+00:00",
@@ -63,15 +63,5 @@
     "path": "docs/verification/v2-load.json",
     "sha256": "085e8629f989289c2bf6bd74b207cdc1002ebd6b02176da7224eeb817526785f",
     "benchmarks_rerun": false
-  },
-  "cleanup": {
-    "superseded_artifacts_removed": 20,
-    "user_confirmed_original_document_deletions": 10,
-    "development_references_removed": 4,
-    "development_references_remaining": 0,
-    "secret_scan": "PASS",
-    "internal_markdown_links": "PASS",
-    "submission": "local-only; tracked files 0; ignored yes; content not modified by cleanup"
-  },
-  "validation_logs": "Local-only tmp/final-cleanup/; not distributed in Git."
+  }
 }
